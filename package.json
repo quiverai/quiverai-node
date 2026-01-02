@@ -1,7 +1,7 @@
 {
   "name": "@quiverai/sdk",
-  "version": "0.1.2",
-  "author": "Quiver",
+  "version": "0.1.3",
+  "author": "QuiverAI",
   "type": "module",
   "tshy": {
     "sourceDialects": [
