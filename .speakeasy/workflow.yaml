@@ -8,3 +8,6 @@ targets:
         target: typescript
         source: OpenAPI
         output: .
+        publish:
+            npm:
+                token: $npm_token
