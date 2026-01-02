@@ -1,0 +1,21 @@
+# SafeZone
+
+The "Safe Zone" is the guaranteed empty margin between content and edge.
+Prevents clipping and bad cropping.
+
+
+## Example Usage
+
+```typescript
+import { SafeZone } from "@quiverai/sdk/sdk/models/shared";
+
+let value: SafeZone = {};
+```
+
+## Fields
+
+| Field                                                                                                                                                    | Type                                                                                                                                                     | Required                                                                                                                                                 | Description                                                                                                                                              | Example                                                                                                                                                  |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `mode`                                                                                                                                                   | [shared.SafeZoneMode](../../../sdk/models/shared/safezonemode.md)                                                                                        | :heavy_minus_sign:                                                                                                                                       | How safe zone values are interpreted.<br/>- `relative`: Values are 0-1 representing percentage of viewport<br/>- `absolute`: Values are in SVG coordinate units<br/> |                                                                                                                                                          |
+| `overrides`                                                                                                                                              | [shared.SafeZoneOverrides](../../../sdk/models/shared/safezoneoverrides.md)                                                                              | :heavy_minus_sign:                                                                                                                                       | Optional overrides for specific sides of the safe zone                                                                                                   |                                                                                                                                                          |
+| `value`                                                                                                                                                  | *number*                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                       | Padding value (interpretation depends on mode)                                                                                                           | 0.1                                                                                                                                                      |

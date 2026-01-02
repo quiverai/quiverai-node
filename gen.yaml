@@ -1,0 +1,80 @@
+configVersion: 2.0.0
+generation:
+  sdkClassName: QuiverAI
+  usageSnippets:
+    optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
+  fixes:
+    nameResolutionFeb2025: false
+    parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
+    securityFeb2025: false
+    sharedErrorComponentsApr2025: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  persistentEdits: {}
+  tests:
+    generateTests: true
+    generateNewTests: false
+    skipResponseBodyAssertions: false
+generate:
+  version: ""
+  baseServerUrl: https://api.quiver.ai/v1
+typescript:
+  version: 0.1.0
+  acceptHeaderEnum: true
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
+  additionalPackageJSON: {}
+  additionalScripts: {}
+  alwaysIncludeInboundAndOutbound: false
+  author: Quiver
+  baseErrorName: QuiverAiError
+  clientServerStatusCodesAsErrors: false
+  constFieldsAlwaysOptional: false
+  defaultErrorName: SDKError
+  enableCustomCodeRegions: false
+  enableMCPServer: false
+  enableReactQuery: false
+  enumFormat: union
+  exportZodModelNamespace: false
+  flattenGlobalSecurity: true
+  flatteningOrder: parameters-first
+  formStringArrayEncodeMode: encoded-string
+  forwardCompatibleEnumsByDefault: false
+  forwardCompatibleUnionsByDefault: "false"
+  generateExamples: true
+  imports:
+    option: openapi
+    paths:
+      callbacks: sdk/models/callbacks
+      errors: sdk/models/errors
+      operations: sdk/models/operations
+      shared: sdk/models/shared
+      webhooks: sdk/models/webhooks
+  inferUnionDiscriminators: true
+  inputModelSuffix: input
+  jsonpath: legacy
+  laxMode: strict
+  maxMethodParams: 0
+  methodArguments: infer-optional-args
+  modelPropertyCasing: camel
+  moduleFormat: dual
+  multipartArrayFormat: legacy
+  outputModelSuffix: output
+  packageName: "@quiverai/sdk"
+  preApplyUnionDiscriminators: true
+  responseFormat: flat
+  sseFlatResponse: false
+  templateVersion: v2
+  unionStrategy: left-to-right
+  usageSDKInitImports: []
+  useIndexModules: true
+  zodVersion: v3

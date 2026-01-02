@@ -1,0 +1,41 @@
+{
+  "name": "@quiverai/sdk",
+  "version": "0.1.0",
+  "author": "Quiver",
+  "type": "module",
+  "tshy": {
+    "sourceDialects": [
+      "@quiverai/sdk/source"
+    ],
+    "exports": {
+      ".": "./src/index.ts",
+      "./package.json": "./package.json",
+      "./sdk/types": "./src/sdk/types/index.ts",
+      "./sdk/models/errors": "./src/sdk/models/errors/index.ts",
+      "./sdk/models/shared": "./src/sdk/models/shared/index.ts",
+      "./sdk/models/operations": "./src/sdk/models/operations/index.ts",
+      "./*.js": "./src/*.ts",
+      "./*": "./src/*.ts"
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "lint": "eslint --cache --max-warnings=0 src",
+    "build": "tshy",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "eslint": "^9.19.0",
+    "globals": "^15.14.0",
+    "tshy": "^2.0.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.26.0"
+  },
+  "dependencies": {
+    "zod": "^3.25.0 || ^4.0.0"
+  }
+}
