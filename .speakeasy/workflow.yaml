@@ -3,4 +3,8 @@ sources:
     OpenAPI:
         inputs:
             - location: https://api.quiver.ai/v1/openapi.json
-targets: {}
+targets:
+    '@quiverai/sdk':
+        target: typescript
+        source: OpenAPI
+        output: .
