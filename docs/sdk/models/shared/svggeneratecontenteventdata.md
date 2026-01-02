@@ -1,12 +1,12 @@
-# SVGVectorizeContentEventData
+# SVGGenerateContentEventData
 
 ## Example Usage
 
 ```typescript
-import { SVGVectorizeContentEventData } from "@quiverai/sdk/sdk/models/shared";
+import { SVGGenerateContentEventData } from "@quiverai/sdk/sdk/models/shared";
 
-let value: SVGVectorizeContentEventData = {
-  id: "svg-xyz789",
+let value: SVGGenerateContentEventData = {
+  id: "svg-abc123",
   svg: "<value>",
   usage: {
     inputTokens: 256,
@@ -28,6 +28,6 @@ let value: SVGVectorizeContentEventData = {
 
 | Field                                               | Type                                                | Required                                            | Description                                         | Example                                             |
 | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| `id`                                                | *string*                                            | :heavy_check_mark:                                  | A unique identifier for the vectorization.          | svg-xyz789                                          |
-| `svg`                                               | *string*                                            | :heavy_check_mark:                                  | Complete, optimized vectorized SVG markup.          |                                                     |
+| `id`                                                | *string*                                            | :heavy_check_mark:                                  | A unique identifier for the SVG generation.         | svg-abc123                                          |
+| `svg`                                               | *string*                                            | :heavy_check_mark:                                  | Complete, optimized SVG markup.                     |                                                     |
 | `usage`                                             | [shared.Usage](../../../sdk/models/shared/usage.md) | :heavy_minus_sign:                                  | N/A                                                 |                                                     |

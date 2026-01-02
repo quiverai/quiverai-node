@@ -26,7 +26,7 @@ generate:
   version: ""
   baseServerUrl: https://api.quiver.ai/v1
 typescript:
-  version: 0.1.0
+  version: 0.1.2
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -69,7 +69,7 @@ typescript:
   moduleFormat: dual
   multipartArrayFormat: legacy
   outputModelSuffix: output
-  packageName: "@quiverai/sdk"
+  packageName: '@quiverai/sdk'
   preApplyUnionDiscriminators: true
   responseFormat: flat
   sseFlatResponse: false

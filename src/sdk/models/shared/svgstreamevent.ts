@@ -31,6 +31,18 @@ import {
   SVGEditReasoningEvent$inboundSchema,
 } from "./svgeditreasoningevent.js";
 import {
+  SVGGenerateContentEvent,
+  SVGGenerateContentEvent$inboundSchema,
+} from "./svggeneratecontentevent.js";
+import {
+  SVGGenerateDraftEvent,
+  SVGGenerateDraftEvent$inboundSchema,
+} from "./svggeneratedraftevent.js";
+import {
+  SVGGenerateReasoningEvent,
+  SVGGenerateReasoningEvent$inboundSchema,
+} from "./svggeneratereasoningevent.js";
+import {
   SVGVectorizeContentEvent,
   SVGVectorizeContentEvent$inboundSchema,
 } from "./svgvectorizecontentevent.js";
@@ -38,17 +50,13 @@ import {
   SVGVectorizeDraftEvent,
   SVGVectorizeDraftEvent$inboundSchema,
 } from "./svgvectorizedraftevent.js";
-import {
-  SVGVectorizeReasoningEvent,
-  SVGVectorizeReasoningEvent$inboundSchema,
-} from "./svgvectorizereasoningevent.js";
 
 /**
- * Streaming event for SVG generation (SSE format).
+ * Streaming event for SVG operations (SSE format).
  *
  * @remarks
- * Events flow in three phases:
- * 1. `*.reasoning` - Model thinking about design approach (optional)
+ * Events flow in up to three phases:
+ * 1. `*.reasoning` - Model thinking about design approach (generate/edit/animate only)
  * 2. `*.draft` - Streaming partial SVG chunks as generated
  * 3. `*.content` - Final postprocessed, optimized SVG
  */
@@ -59,9 +67,11 @@ export type SVGStreamEvent =
   | SVGEditContentEvent
   | SVGEditDraftEvent
   | SVGEditReasoningEvent
+  | SVGGenerateContentEvent
+  | SVGGenerateDraftEvent
+  | SVGGenerateReasoningEvent
   | SVGVectorizeContentEvent
-  | SVGVectorizeDraftEvent
-  | SVGVectorizeReasoningEvent;
+  | SVGVectorizeDraftEvent;
 
 /** @internal */
 export const SVGStreamEvent$inboundSchema: z.ZodType<
@@ -75,9 +85,11 @@ export const SVGStreamEvent$inboundSchema: z.ZodType<
   SVGEditContentEvent$inboundSchema,
   SVGEditDraftEvent$inboundSchema,
   SVGEditReasoningEvent$inboundSchema,
+  SVGGenerateContentEvent$inboundSchema,
+  SVGGenerateDraftEvent$inboundSchema,
+  SVGGenerateReasoningEvent$inboundSchema,
   SVGVectorizeContentEvent$inboundSchema,
   SVGVectorizeDraftEvent$inboundSchema,
-  SVGVectorizeReasoningEvent$inboundSchema,
 ]);
 
 export function svgStreamEventFromJSON(

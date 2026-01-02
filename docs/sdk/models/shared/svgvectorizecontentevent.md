@@ -1,6 +1,6 @@
 # SVGVectorizeContentEvent
 
-Final postprocessed, optimized SVG.
+Final postprocessed, optimized vectorized SVG.
 
 ## Example Usage
 
@@ -9,7 +9,7 @@ import { SVGVectorizeContentEvent } from "@quiverai/sdk/sdk/models/shared";
 
 let value: SVGVectorizeContentEvent = {
   data: {
-    id: "svg-abc123",
+    id: "svg-xyz789",
     svg: "<value>",
     usage: {
       inputTokens: 256,

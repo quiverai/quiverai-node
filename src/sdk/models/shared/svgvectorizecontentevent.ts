@@ -10,18 +10,18 @@ import { Usage, Usage$inboundSchema } from "./usage.js";
 
 export type SVGVectorizeContentEventData = {
   /**
-   * A unique identifier for the SVG creation.
+   * A unique identifier for the vectorization.
    */
   id: string;
   /**
-   * Complete, optimized SVG markup.
+   * Complete, optimized vectorized SVG markup.
    */
   svg: string;
   usage?: Usage | undefined;
 };
 
 /**
- * Final postprocessed, optimized SVG.
+ * Final postprocessed, optimized vectorized SVG.
  */
 export type SVGVectorizeContentEvent = {
   data: SVGVectorizeContentEventData;

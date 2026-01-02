@@ -1,8 +1,8 @@
 # SVGStreamEvent
 
-Streaming event for SVG generation (SSE format).
-Events flow in three phases:
-1. `*.reasoning` - Model thinking about design approach (optional)
+Streaming event for SVG operations (SSE format).
+Events flow in up to three phases:
+1. `*.reasoning` - Model thinking about design approach (generate/edit/animate only)
 2. `*.draft` - Streaming partial SVG chunks as generated
 3. `*.content` - Final postprocessed, optimized SVG
 
@@ -108,12 +108,61 @@ const value: shared.SVGEditReasoningEvent = {
 };
 ```
 
+### `shared.SVGGenerateContentEvent`
+
+```typescript
+const value: shared.SVGGenerateContentEvent = {
+  data: {
+    id: "svg-abc123",
+    svg: "<value>",
+    usage: {
+      inputTokens: 256,
+      inputTokensDetails: {
+        imageTokens: 128,
+        svgTokens: 128,
+        textTokens: 128,
+      },
+      outputTokens: 768,
+      outputTokensDetails: {
+        svgTokens: 768,
+      },
+      totalTokens: 1024,
+    },
+  },
+  event: "svg_generate.content",
+};
+```
+
+### `shared.SVGGenerateDraftEvent`
+
+```typescript
+const value: shared.SVGGenerateDraftEvent = {
+  data: {
+    id: "svg-abc123",
+    svg: "<value>",
+  },
+  event: "svg_generate.draft",
+};
+```
+
+### `shared.SVGGenerateReasoningEvent`
+
+```typescript
+const value: shared.SVGGenerateReasoningEvent = {
+  data: {
+    id: "svg-abc123",
+    text: "<value>",
+  },
+  event: "svg_generate.reasoning",
+};
+```
+
 ### `shared.SVGVectorizeContentEvent`
 
 ```typescript
 const value: shared.SVGVectorizeContentEvent = {
   data: {
-    id: "svg-abc123",
+    id: "svg-xyz789",
     svg: "<value>",
     usage: {
       inputTokens: 256,
@@ -138,22 +187,10 @@ const value: shared.SVGVectorizeContentEvent = {
 ```typescript
 const value: shared.SVGVectorizeDraftEvent = {
   data: {
-    id: "svg-abc123",
+    id: "svg-xyz789",
     svg: "<value>",
   },
   event: "svg_vectorize.draft",
-};
-```
-
-### `shared.SVGVectorizeReasoningEvent`
-
-```typescript
-const value: shared.SVGVectorizeReasoningEvent = {
-  data: {
-    id: "svg-abc123",
-    text: "<value>",
-  },
-  event: "svg_vectorize.reasoning",
 };
 ```
 
