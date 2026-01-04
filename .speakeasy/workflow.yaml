@@ -1,8 +1,11 @@
 workflowVersion: 1.0.0
+speakeasyVersion: latest
 sources:
     OpenAPI:
         inputs:
             - location: https://api.quiver.ai/v1/openapi.json
+        registry:
+            location: registry.speakeasyapi.dev/quiverai/clients/open-api
 targets:
     '@quiverai/sdk':
         target: typescript

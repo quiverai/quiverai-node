@@ -1,0 +1,33 @@
+speakeasyVersion: 1.680.12
+sources:
+    OpenAPI:
+        sourceNamespace: open-api
+        sourceRevisionDigest: sha256:1d9e070650a4a9490b6140f7246881705138ed3546639d260ef38d831cf334c8
+        sourceBlobDigest: sha256:b49203dfdfe4ba4a3bddd70697e414bb2b3184036f13cf923eb8921cd3207091
+        tags:
+            - latest
+            - speakeasy-sdk-regen-1767479963
+            - 1.0.0
+targets:
+    '@quiverai/sdk':
+        source: OpenAPI
+        sourceNamespace: open-api
+        sourceRevisionDigest: sha256:1d9e070650a4a9490b6140f7246881705138ed3546639d260ef38d831cf334c8
+        sourceBlobDigest: sha256:b49203dfdfe4ba4a3bddd70697e414bb2b3184036f13cf923eb8921cd3207091
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        OpenAPI:
+            inputs:
+                - location: https://api.quiver.ai/v1/openapi.json
+            registry:
+                location: registry.speakeasyapi.dev/quiverai/clients/open-api
+    targets:
+        '@quiverai/sdk':
+            target: typescript
+            source: OpenAPI
+            output: .
+            publish:
+                npm:
+                    token: $npm_token
