@@ -44,34 +44,30 @@ with support for streaming responses.
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-> [!TIP]
-> To finish publishing your SDK to npm and others you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
-
-
 The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
 
 ### NPM
 
 ```bash
-npm add <UNSET>
+npm add @quiverai/sdk
 ```
 
 ### PNPM
 
 ```bash
-pnpm add <UNSET>
+pnpm add @quiverai/sdk
 ```
 
 ### Bun
 
 ```bash
-bun add <UNSET>
+bun add @quiverai/sdk
 ```
 
 ### Yarn
 
 ```bash
-yarn add <UNSET>
+yarn add @quiverai/sdk
 ```
 
 > [!NOTE]
@@ -205,13 +201,14 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.svg.createSVGAnimation({
+    duration: 3,
     easing: "ease-in-out",
     input: {
-      motionPrompt: "Add a gentle floating animation",
-      source:
-        "{\"svg\":\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\">...</svg>\"}",
+      motionPrompt: "Make the icon pulse and rotate slowly",
+      source: "{\"svg_url\":\"https://example.com/icon.svg\"}",
     },
     model: "arrow-0.5",
+    stream: true,
     temperature: 0.8,
   });
 

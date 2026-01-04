@@ -27,7 +27,7 @@ generate:
   version: ""
   baseServerUrl: https://api.quiver.ai/v1
 typescript:
-  version: 0.1.3
+  version: 0.1.4
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}

@@ -21,7 +21,7 @@ Use this for pre-flight validation before calling the vectorize endpoint.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="checkVectorizability" method="post" path="/svg/vectorize/check" -->
+<!-- UsageSnippet language="typescript" operationID="CheckVectorizability" method="post" path="/svg/vectorize/check" -->
 ```typescript
 import { QuiverAI } from "@quiverai/sdk";
 
@@ -32,7 +32,7 @@ const quiverAI = new QuiverAI({
 async function run() {
   const result = await quiverAI.svg.checkVectorizability({
     image: {
-      url: "https://example.com/image.png",
+      url: "https://example.com/uploads/reference1.png",
     },
   });
 
@@ -59,7 +59,7 @@ const quiverAI = new QuiverAICore({
 async function run() {
   const res = await svgCheckVectorizability(quiverAI, {
     image: {
-      url: "https://example.com/image.png",
+      url: "https://example.com/uploads/reference1.png",
     },
   });
   if (res.ok) {
@@ -104,7 +104,7 @@ Events (SSE) with partial SVG updates followed by a final completion event.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="createSVGAnimation" method="post" path="/svg/animate" -->
+<!-- UsageSnippet language="typescript" operationID="CreateSVGAnimation" method="post" path="/svg/animate" -->
 ```typescript
 import { QuiverAI } from "@quiverai/sdk";
 
@@ -114,12 +114,14 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.svg.createSVGAnimation({
+    duration: 3,
     easing: "ease-in-out",
     input: {
-      motionPrompt: "Add a gentle floating animation",
-      source: "{\"svg\":\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\">...</svg>\"}",
+      motionPrompt: "Make the icon pulse and rotate slowly",
+      source: "{\"svg_url\":\"https://example.com/icon.svg\"}",
     },
     model: "arrow-0.5",
+    stream: true,
     temperature: 0.8,
   });
 
@@ -145,12 +147,14 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await svgCreateSVGAnimation(quiverAI, {
+    duration: 3,
     easing: "ease-in-out",
     input: {
-      motionPrompt: "Add a gentle floating animation",
-      source: "{\"svg\":\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\">...</svg>\"}",
+      motionPrompt: "Make the icon pulse and rotate slowly",
+      source: "{\"svg_url\":\"https://example.com/icon.svg\"}",
     },
     model: "arrow-0.5",
+    stream: true,
     temperature: 0.8,
   });
   if (res.ok) {
@@ -195,7 +199,7 @@ Supports streaming for real-time progressive rendering.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="createSVGCollection" method="post" path="/svg/collections" -->
+<!-- UsageSnippet language="typescript" operationID="CreateSVGCollection" method="post" path="/svg/collections" -->
 ```typescript
 import { QuiverAI } from "@quiverai/sdk";
 
@@ -282,7 +286,7 @@ Events (SSE) with partial SVG updates followed by a final completion event.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="createSVGEdit" method="post" path="/svg/edits" -->
+<!-- UsageSnippet language="typescript" operationID="CreateSVGEdit" method="post" path="/svg/edits" -->
 ```typescript
 import { QuiverAI } from "@quiverai/sdk";
 
@@ -370,7 +374,7 @@ Events (SSE) with partial SVG updates followed by a final completion event.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="createSVGGeneration" method="post" path="/svg/generate" -->
+<!-- UsageSnippet language="typescript" operationID="CreateSVGGeneration" method="post" path="/svg/generate" -->
 ```typescript
 import { QuiverAI } from "@quiverai/sdk";
 
@@ -386,32 +390,29 @@ async function run() {
       prompt: "Generate an icon of a unicorn",
       references: [
         {
-          url: "https://example.com/uploads/reference1.png",
+          url: "https://example.com/uploads/source1.png",
         },
       ],
-      source: "<svg xmlns=\"http://www.w3.org/2000/svg\">...</svg>",
     },
     maxOutputTokens: 2560,
     model: "arrow-0.5",
-    n: 1,
+    n: 2,
     presencePenalty: 0,
-    stream: false,
+    stream: true,
     svgParams: {
       canvas: {
         aspectRatio: "1:1",
         safeZone: {
           mode: "relative",
+          overrides: {
+            bottom: 0.15,
+          },
           value: 0.1,
         },
         viewBox: {
           height: 24,
           width: 24,
         },
-      },
-      constraints: {
-        maxElements: 128,
-        maxPaths: 64,
-        maxPointsPerPath: 256,
       },
       design: {
         colors: {
@@ -478,32 +479,29 @@ async function run() {
       prompt: "Generate an icon of a unicorn",
       references: [
         {
-          url: "https://example.com/uploads/reference1.png",
+          url: "https://example.com/uploads/source1.png",
         },
       ],
-      source: "<svg xmlns=\"http://www.w3.org/2000/svg\">...</svg>",
     },
     maxOutputTokens: 2560,
     model: "arrow-0.5",
-    n: 1,
+    n: 2,
     presencePenalty: 0,
-    stream: false,
+    stream: true,
     svgParams: {
       canvas: {
         aspectRatio: "1:1",
         safeZone: {
           mode: "relative",
+          overrides: {
+            bottom: 0.15,
+          },
           value: 0.1,
         },
         viewBox: {
           height: 24,
           width: 24,
         },
-      },
-      constraints: {
-        maxElements: 128,
-        maxPaths: 64,
-        maxPointsPerPath: 256,
       },
       design: {
         colors: {
@@ -589,7 +587,7 @@ When `stream` is set to `true`, the response uses a two-phase streaming model:
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="createSVGVectorization" method="post" path="/svg/vectorize" -->
+<!-- UsageSnippet language="typescript" operationID="CreateSVGVectorization" method="post" path="/svg/vectorize" -->
 ```typescript
 import { QuiverAI } from "@quiverai/sdk";
 
