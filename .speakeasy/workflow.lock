@@ -1,19 +1,21 @@
-speakeasyVersion: 1.680.12
+speakeasyVersion: 1.681.0
 sources:
     OpenAPI:
         sourceNamespace: open-api
-        sourceRevisionDigest: sha256:1d9e070650a4a9490b6140f7246881705138ed3546639d260ef38d831cf334c8
-        sourceBlobDigest: sha256:b49203dfdfe4ba4a3bddd70697e414bb2b3184036f13cf923eb8921cd3207091
+        sourceRevisionDigest: sha256:c4524395a7f964544ac33049ce9ec21a79021e171ffa4437beff61016d1abf23
+        sourceBlobDigest: sha256:c52d727ffaffc69989172dfed1808f6820899a0d328529bd06ac8da4c067f520
         tags:
             - latest
-            - speakeasy-sdk-regen-1767479963
+            - speakeasy-sdk-regen-1767658044
             - 1.0.0
 targets:
     '@quiverai/sdk':
         source: OpenAPI
         sourceNamespace: open-api
-        sourceRevisionDigest: sha256:1d9e070650a4a9490b6140f7246881705138ed3546639d260ef38d831cf334c8
-        sourceBlobDigest: sha256:b49203dfdfe4ba4a3bddd70697e414bb2b3184036f13cf923eb8921cd3207091
+        sourceRevisionDigest: sha256:c4524395a7f964544ac33049ce9ec21a79021e171ffa4437beff61016d1abf23
+        sourceBlobDigest: sha256:c52d727ffaffc69989172dfed1808f6820899a0d328529bd06ac8da4c067f520
+        codeSamplesNamespace: open-api-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:af5fb08537232cdeb97efe2954c84ac91dce1728afb46b14643613bd1c35433f
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -31,3 +33,9 @@ workflow:
             publish:
                 npm:
                     token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/quiverai/clients/open-api-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (SDK)
+                blocking: false
