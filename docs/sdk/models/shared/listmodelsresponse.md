@@ -20,7 +20,7 @@ let value: ListModelsResponse = {
         "image",
       ],
       maxOutputLength: 16384,
-      name: "Quiver: Arrow 0.5",
+      name: "Arrow 0.5",
       outputModalities: [
         "svg",
       ],
