@@ -32,40 +32,16 @@ let value: Model = {
     request: "0",
   },
   supportedOperations: [
-    "svg_generate",
-    "svg_edit",
-    "svg_animate",
-    "svg_collections",
     "chat_completions",
   ],
   supportedSamplingParameters: [
     "temperature",
     "top_p",
     "stop",
+    "frequency_penalty",
+    "presence_penalty",
     "seed",
   ],
-  svgCapabilities: {
-    maxComplexity: 4,
-    recommendedViewboxSizes: [
-      24,
-      48,
-      64,
-      128,
-      256,
-      512,
-    ],
-    supportedModes: [
-      "icon",
-      "illustration",
-      "logo",
-    ],
-    supportedStyles: [
-      "flat",
-      "outline",
-      "duotone",
-      "gradient",
-    ],
-  },
 };
 ```
 
@@ -84,6 +60,5 @@ let value: Model = {
 | `outputModalities`                                                                               | [shared.Modality](../../../sdk/models/shared/modality.md)[]                                      | :heavy_minus_sign:                                                                               | Output modalities supported by the model.                                                        | [<br/>"svg"<br/>]                                                                                |
 | `ownedBy`                                                                                        | *string*                                                                                         | :heavy_minus_sign:                                                                               | The organization that owns the model.                                                            | quiver                                                                                           |
 | `pricing`                                                                                        | [shared.ModelPricing](../../../sdk/models/shared/modelpricing.md)                                | :heavy_minus_sign:                                                                               | Pricing information for the model (per token, in USD as strings to avoid floating point issues). |                                                                                                  |
-| `supportedOperations`                                                                            | [shared.SupportedOperation](../../../sdk/models/shared/supportedoperation.md)[]                  | :heavy_minus_sign:                                                                               | API operations supported by this model.                                                          | [<br/>"svg_generate",<br/>"svg_edit",<br/>"svg_animate",<br/>"svg_collections",<br/>"chat_completions"<br/>] |
-| `supportedSamplingParameters`                                                                    | [shared.SamplingParameter](../../../sdk/models/shared/samplingparameter.md)[]                    | :heavy_minus_sign:                                                                               | Sampling parameters supported by the model.                                                      | [<br/>"temperature",<br/>"top_p",<br/>"stop",<br/>"seed"<br/>]                                   |
-| `svgCapabilities`                                                                                | [shared.SVGCapabilities](../../../sdk/models/shared/svgcapabilities.md)                          | :heavy_minus_sign:                                                                               | SVG-specific capabilities and recommendations for the model.                                     |                                                                                                  |
+| `supportedOperations`                                                                            | [shared.SupportedOperation](../../../sdk/models/shared/supportedoperation.md)[]                  | :heavy_minus_sign:                                                                               | API operations supported by this model.                                                          | [<br/>"chat_completions"<br/>]                                                                   |
+| `supportedSamplingParameters`                                                                    | [shared.SamplingParameter](../../../sdk/models/shared/samplingparameter.md)[]                    | :heavy_minus_sign:                                                                               | Sampling parameters supported by the model.                                                      | [<br/>"temperature",<br/>"top_p",<br/>"stop",<br/>"frequency_penalty",<br/>"presence_penalty",<br/>"seed"<br/>] |

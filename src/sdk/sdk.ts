@@ -3,8 +3,10 @@
  */
 
 import { ClientSDK } from "../lib/sdks.js";
+import { CreateSVGs } from "./createsvgs.js";
 import { Models } from "./models.js";
-import { Svg } from "./svg.js";
+import { ModifySVGs } from "./modifysvgs.js";
+import { SVGUtilities } from "./svgutilities.js";
 
 export class QuiverAI extends ClientSDK {
   private _models?: Models;
@@ -12,8 +14,18 @@ export class QuiverAI extends ClientSDK {
     return (this._models ??= new Models(this._options));
   }
 
-  private _svg?: Svg;
-  get svg(): Svg {
-    return (this._svg ??= new Svg(this._options));
+  private _modifySVGs?: ModifySVGs;
+  get modifySVGs(): ModifySVGs {
+    return (this._modifySVGs ??= new ModifySVGs(this._options));
+  }
+
+  private _createSVGs?: CreateSVGs;
+  get createSVGs(): CreateSVGs {
+    return (this._createSVGs ??= new CreateSVGs(this._options));
+  }
+
+  private _svgUtilities?: SVGUtilities;
+  get svgUtilities(): SVGUtilities {
+    return (this._svgUtilities ??= new SVGUtilities(this._options));
   }
 }

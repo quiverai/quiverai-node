@@ -40,40 +40,16 @@ const value: shared.Model = {
     request: "0",
   },
   supportedOperations: [
-    "svg_generate",
-    "svg_edit",
-    "svg_animate",
-    "svg_collections",
     "chat_completions",
   ],
   supportedSamplingParameters: [
     "temperature",
     "top_p",
     "stop",
+    "frequency_penalty",
+    "presence_penalty",
     "seed",
   ],
-  svgCapabilities: {
-    maxComplexity: 4,
-    recommendedViewboxSizes: [
-      24,
-      48,
-      64,
-      128,
-      256,
-      512,
-    ],
-    supportedModes: [
-      "icon",
-      "illustration",
-      "logo",
-    ],
-    supportedStyles: [
-      "flat",
-      "outline",
-      "duotone",
-      "gradient",
-    ],
-  },
 };
 ```
 

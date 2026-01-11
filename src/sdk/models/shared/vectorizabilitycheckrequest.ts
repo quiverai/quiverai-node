@@ -4,21 +4,24 @@
 
 import * as z from "zod/v3";
 import {
-  InputReference,
-  InputReference$Outbound,
-  InputReference$outboundSchema,
-} from "./inputreference.js";
+  ImageInputReference,
+  ImageInputReference$Outbound,
+  ImageInputReference$outboundSchema,
+} from "./imageinputreference.js";
 
 /**
  * Request to check if an image is suitable for vectorization
  */
 export type VectorizabilityCheckRequest = {
-  image: InputReference;
+  /**
+   * Reference image input (URL or base64-encoded)
+   */
+  image: ImageInputReference;
 };
 
 /** @internal */
 export type VectorizabilityCheckRequest$Outbound = {
-  image: InputReference$Outbound;
+  image: ImageInputReference$Outbound;
 };
 
 /** @internal */
@@ -27,7 +30,7 @@ export const VectorizabilityCheckRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   VectorizabilityCheckRequest
 > = z.object({
-  image: InputReference$outboundSchema,
+  image: ImageInputReference$outboundSchema,
 });
 
 export function vectorizabilityCheckRequestToJSON(

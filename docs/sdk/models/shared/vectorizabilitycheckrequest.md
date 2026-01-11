@@ -9,13 +9,14 @@ import { VectorizabilityCheckRequest } from "@quiverai/sdk/sdk/models/shared";
 
 let value: VectorizabilityCheckRequest = {
   image: {
-    url: "https://example.com/uploads/reference1.png",
+    base64:
+      "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
   },
 };
 ```
 
 ## Fields
 
-| Field                                                                 | Type                                                                  | Required                                                              | Description                                                           |
-| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `image`                                                               | [shared.InputReference](../../../sdk/models/shared/inputreference.md) | :heavy_check_mark:                                                    | N/A                                                                   |
+| Field                                         | Type                                          | Required                                      | Description                                   |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| `image`                                       | *shared.ImageInputReference*                  | :heavy_check_mark:                            | Reference image input (URL or base64-encoded) |

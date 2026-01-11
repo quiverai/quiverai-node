@@ -6,7 +6,6 @@ import { modelsListModels } from "../funcs/modelsListModels.js";
 import { modelsRetrieveModel } from "../funcs/modelsRetrieveModel.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "./models/operations/index.js";
-import * as shared from "./models/shared/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export class Models extends ClientSDK {
@@ -19,7 +18,7 @@ export class Models extends ClientSDK {
    */
   async listModels(
     options?: RequestOptions,
-  ): Promise<shared.ListModelsResponse> {
+  ): Promise<operations.ListModelsResponse> {
     return unwrapAsync(modelsListModels(
       this,
       options,

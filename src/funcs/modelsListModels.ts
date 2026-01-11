@@ -18,7 +18,7 @@ import {
 import { QuiverAiError } from "../sdk/models/errors/quiveraierror.js";
 import { ResponseValidationError } from "../sdk/models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
-import * as shared from "../sdk/models/shared/index.js";
+import * as operations from "../sdk/models/operations/index.js";
 import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
@@ -34,7 +34,7 @@ export function modelsListModels(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    shared.ListModelsResponse,
+    operations.ListModelsResponse,
     | QuiverAiError
     | ResponseValidationError
     | ConnectionError
@@ -57,7 +57,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      shared.ListModelsResponse,
+      operations.ListModelsResponse,
       | QuiverAiError
       | ResponseValidationError
       | ConnectionError
@@ -70,7 +70,7 @@ async function $do(
     APICall,
   ]
 > {
-  const path = pathToFunc("/models")();
+  const path = pathToFunc("/v1/models")();
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
@@ -83,7 +83,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "ListModels",
+    operationID: "listModels",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -121,7 +121,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    shared.ListModelsResponse,
+    operations.ListModelsResponse,
     | QuiverAiError
     | ResponseValidationError
     | ConnectionError
@@ -131,7 +131,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, shared.ListModelsResponse$inboundSchema),
+    M.json(200, operations.ListModelsResponse$inboundSchema),
+    M.json([401, 429], operations.ListModelsResponse$inboundSchema),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];

@@ -18,10 +18,6 @@ import {
   SupportedOperation,
   SupportedOperation$inboundSchema,
 } from "./supportedoperation.js";
-import {
-  SVGCapabilities,
-  SVGCapabilities$inboundSchema,
-} from "./svgcapabilities.js";
 
 /**
  * The object type, always "model" for model objects.
@@ -93,10 +89,6 @@ export type Model = {
    * Sampling parameters supported by the model.
    */
   supportedSamplingParameters?: Array<SamplingParameter> | undefined;
-  /**
-   * SVG-specific capabilities and recommendations for the model.
-   */
-  svgCapabilities?: SVGCapabilities | undefined;
 };
 
 /** @internal */
@@ -120,7 +112,6 @@ export const Model$inboundSchema: z.ZodType<Model, z.ZodTypeDef, unknown> = z
     supported_operations: z.array(SupportedOperation$inboundSchema).optional(),
     supported_sampling_parameters: z.array(SamplingParameter$inboundSchema)
       .optional(),
-    svg_capabilities: SVGCapabilities$inboundSchema.optional(),
   }).transform((v) => {
     return remap$(v, {
       "context_length": "contextLength",
@@ -130,7 +121,6 @@ export const Model$inboundSchema: z.ZodType<Model, z.ZodTypeDef, unknown> = z
       "owned_by": "ownedBy",
       "supported_operations": "supportedOperations",
       "supported_sampling_parameters": "supportedSamplingParameters",
-      "svg_capabilities": "svgCapabilities",
     });
   });
 

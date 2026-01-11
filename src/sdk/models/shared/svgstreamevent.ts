@@ -4,93 +4,78 @@
 
 import * as z from "zod/v3";
 import { safeParse } from "../../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  SVGAnimateContentEvent,
-  SVGAnimateContentEvent$inboundSchema,
-} from "./svganimatecontentevent.js";
-import {
-  SVGAnimateDraftEvent,
-  SVGAnimateDraftEvent$inboundSchema,
-} from "./svganimatedraftevent.js";
-import {
-  SVGAnimateReasoningEvent,
-  SVGAnimateReasoningEvent$inboundSchema,
-} from "./svganimatereasoningevent.js";
-import {
-  SVGEditContentEvent,
-  SVGEditContentEvent$inboundSchema,
-} from "./svgeditcontentevent.js";
-import {
-  SVGEditDraftEvent,
-  SVGEditDraftEvent$inboundSchema,
-} from "./svgeditdraftevent.js";
-import {
-  SVGEditReasoningEvent,
-  SVGEditReasoningEvent$inboundSchema,
-} from "./svgeditreasoningevent.js";
-import {
-  SVGGenerateContentEvent,
-  SVGGenerateContentEvent$inboundSchema,
-} from "./svggeneratecontentevent.js";
-import {
-  SVGGenerateDraftEvent,
-  SVGGenerateDraftEvent$inboundSchema,
-} from "./svggeneratedraftevent.js";
-import {
-  SVGGenerateReasoningEvent,
-  SVGGenerateReasoningEvent$inboundSchema,
-} from "./svggeneratereasoningevent.js";
-import {
-  SVGVectorizeContentEvent,
-  SVGVectorizeContentEvent$inboundSchema,
-} from "./svgvectorizecontentevent.js";
-import {
-  SVGVectorizeDraftEvent,
-  SVGVectorizeDraftEvent$inboundSchema,
-} from "./svgvectorizedraftevent.js";
+  SVGStreamEventData,
+  SVGStreamEventData$inboundSchema,
+} from "./svgstreameventdata.js";
 
 /**
- * Streaming event for SVG operations (SSE format).
+ * The SSE event name (sent via the `event:` line).
+ */
+export const Event = {
+  Reasoning: "reasoning",
+  Draft: "draft",
+  Content: "content",
+} as const;
+/**
+ * The SSE event name (sent via the `event:` line).
+ */
+export type Event = ClosedEnum<typeof Event>;
+
+/**
+ * Server-sent event (SSE) envelope for SVG streaming operations.
  *
  * @remarks
- * Events flow in up to three phases:
- * 1. `*.reasoning` - Model thinking about design approach (generate/edit/animate only)
- * 2. `*.draft` - Streaming partial SVG chunks as generated
- * 3. `*.content` - Final postprocessed, optimized SVG
+ *
+ * Speakeasy expects SSE event schemas to only declare the canonical SSE fields
+ * (`id`, `event`, `data`, `retry`) at the top level. The server uses the SSE `event:`
+ * line for the phase discriminator and the `data:` line for a JSON payload.
  */
-export type SVGStreamEvent =
-  | SVGAnimateContentEvent
-  | SVGAnimateDraftEvent
-  | SVGAnimateReasoningEvent
-  | SVGEditContentEvent
-  | SVGEditDraftEvent
-  | SVGEditReasoningEvent
-  | SVGGenerateContentEvent
-  | SVGGenerateDraftEvent
-  | SVGGenerateReasoningEvent
-  | SVGVectorizeContentEvent
-  | SVGVectorizeDraftEvent;
+export type SVGStreamEvent = {
+  /**
+   * JSON payload for SVG streaming SSE events (sent in the `data:` line).
+   */
+  data: SVGStreamEventData;
+  /**
+   * The SSE event name (sent via the `event:` line).
+   */
+  event: Event;
+  /**
+   * Optional SSE event id (sent via the `id:` line).
+   */
+  id?: string | undefined;
+  /**
+   * Optional SSE retry value in milliseconds (sent via the `retry:` line).
+   */
+  retry?: number | undefined;
+};
+
+/** @internal */
+export const Event$inboundSchema: z.ZodNativeEnum<typeof Event> = z.nativeEnum(
+  Event,
+);
 
 /** @internal */
 export const SVGStreamEvent$inboundSchema: z.ZodType<
   SVGStreamEvent,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  SVGAnimateContentEvent$inboundSchema,
-  SVGAnimateDraftEvent$inboundSchema,
-  SVGAnimateReasoningEvent$inboundSchema,
-  SVGEditContentEvent$inboundSchema,
-  SVGEditDraftEvent$inboundSchema,
-  SVGEditReasoningEvent$inboundSchema,
-  SVGGenerateContentEvent$inboundSchema,
-  SVGGenerateDraftEvent$inboundSchema,
-  SVGGenerateReasoningEvent$inboundSchema,
-  SVGVectorizeContentEvent$inboundSchema,
-  SVGVectorizeDraftEvent$inboundSchema,
-]);
+> = z.object({
+  data: z.string().transform((v, ctx) => {
+    try {
+      return JSON.parse(v);
+    } catch (err) {
+      ctx.addIssue({ code: "custom", message: `malformed json: ${err}` });
+      return z.NEVER;
+    }
+  }).pipe(SVGStreamEventData$inboundSchema),
+  event: Event$inboundSchema,
+  id: z.string().optional(),
+  retry: z.number().int().optional(),
+});
 
 export function svgStreamEventFromJSON(
   jsonString: string,
