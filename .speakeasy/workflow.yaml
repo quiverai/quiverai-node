@@ -7,7 +7,7 @@ sources:
         registry:
             location: registry.speakeasyapi.dev/quiverai/clients/open-api
 targets:
-    "@quiverai/sdk":
+    '@quiverai/sdk':
         target: typescript
         source: OpenAPI
         output: .

@@ -11,15 +11,7 @@ let value: SVGResponse = {
   id: "svg-abc123",
   usage: {
     inputTokens: 256,
-    inputTokensDetails: {
-      imageTokens: 128,
-      svgTokens: 128,
-      textTokens: 128,
-    },
     outputTokens: 768,
-    outputTokensDetails: {
-      svgTokens: 768,
-    },
     totalTokens: 1024,
   },
 };

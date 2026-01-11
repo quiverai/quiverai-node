@@ -5,17 +5,21 @@
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
 import {
-  SVGParams,
-  SVGParams$Outbound,
-  SVGParams$outboundSchema,
-} from "./svgparams.js";
-import {
-  SVGVectorizeInput,
-  SVGVectorizeInput$Outbound,
-  SVGVectorizeInput$outboundSchema,
-} from "./svgvectorizeinput.js";
+  ImageInputReference,
+  ImageInputReference$Outbound,
+  ImageInputReference$outboundSchema,
+} from "./imageinputreference.js";
 
 export type VectorizeSVGRequest = {
+  /**
+   * If true, the image is automatically cropped to the subject before vectorization.
+   *
+   * @remarks
+   * This can improve results for images with large amounts of empty space or
+   * distracting backgrounds. We generally recommend users to crop their images
+   * manually for best results.
+   */
+  autoCrop?: boolean | undefined;
   /**
    * Number between -2.0 and 2.0. Positive values penalize new tokens based on
    *
@@ -25,9 +29,9 @@ export type VectorizeSVGRequest = {
    */
   frequencyPenalty?: number | null | undefined;
   /**
-   * Input configuration for image-to-SVG vectorization
+   * Reference image input (URL or base64-encoded)
    */
-  input: SVGVectorizeInput;
+  image: ImageInputReference;
   /**
    * Maximum tokens in the output
    */
@@ -71,13 +75,6 @@ export type VectorizeSVGRequest = {
    */
   stream?: boolean | undefined;
   /**
-   * SVG-specific generation parameters for controlling canvas, design, and styling.
-   *
-   * @remarks
-   * These parameters give fine-grained control over the generated SVG output.
-   */
-  svgParams?: SVGParams | undefined;
-  /**
    * Sampling temperature
    */
   temperature?: number | undefined;
@@ -89,8 +86,9 @@ export type VectorizeSVGRequest = {
 
 /** @internal */
 export type VectorizeSVGRequest$Outbound = {
+  auto_crop: boolean;
   frequency_penalty: number | null;
-  input: SVGVectorizeInput$Outbound;
+  image: ImageInputReference$Outbound;
   max_output_tokens?: number | undefined;
   model: string;
   n: number;
@@ -98,7 +96,6 @@ export type VectorizeSVGRequest$Outbound = {
   seed?: number | null | undefined;
   simplify_if_needed: boolean;
   stream: boolean;
-  svg_params?: SVGParams$Outbound | undefined;
   temperature: number;
   top_p: number;
 };
@@ -109,8 +106,9 @@ export const VectorizeSVGRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   VectorizeSVGRequest
 > = z.object({
+  autoCrop: z.boolean().default(false),
   frequencyPenalty: z.nullable(z.number().default(0)),
-  input: SVGVectorizeInput$outboundSchema,
+  image: ImageInputReference$outboundSchema,
   maxOutputTokens: z.number().int().optional(),
   model: z.string(),
   n: z.number().int().default(1),
@@ -118,16 +116,15 @@ export const VectorizeSVGRequest$outboundSchema: z.ZodType<
   seed: z.nullable(z.number().int()).optional(),
   simplifyIfNeeded: z.boolean().default(false),
   stream: z.boolean().default(false),
-  svgParams: SVGParams$outboundSchema.optional(),
   temperature: z.number().default(1),
   topP: z.number().default(1),
 }).transform((v) => {
   return remap$(v, {
+    autoCrop: "auto_crop",
     frequencyPenalty: "frequency_penalty",
     maxOutputTokens: "max_output_tokens",
     presencePenalty: "presence_penalty",
     simplifyIfNeeded: "simplify_if_needed",
-    svgParams: "svg_params",
     topP: "top_p",
   });
 });

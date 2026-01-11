@@ -95,7 +95,7 @@ async function $do(
     }),
   };
 
-  const path = pathToFunc("/models/{model}")(pathParams);
+  const path = pathToFunc("/v1/models/{model}")(pathParams);
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
@@ -108,7 +108,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "RetrieveModel",
+    operationID: "retrieveModel",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -158,7 +158,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, operations.RetrieveModelResponse$inboundSchema),
-    M.json(404, operations.RetrieveModelResponse$inboundSchema),
+    M.json([401, 404, 429], operations.RetrieveModelResponse$inboundSchema),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];

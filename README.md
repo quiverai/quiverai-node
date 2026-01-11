@@ -13,7 +13,7 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 <!-- Start Summary [summary] -->
 ## Summary
 
-Quiver Arrow API: The Quiver Arrow API enables developers to generate and edit SVG graphics using AI,
+QuiverAI API: The QuiverAI API enables developers to generate and edit SVG graphics using AI,
 as well as create chat completions with OpenAI-compatible endpoints.
 The API provides endpoints for model discovery, chat completions, and SVG generation/editing
 with support for streaming responses.
@@ -139,19 +139,25 @@ run();
 <details open>
 <summary>Available methods</summary>
 
+### [CreateSVGs](docs/sdks/createsvgs/README.md)
+
+* [generateIcon](docs/sdks/createsvgs/README.md#generateicon) - Generate Icons
+* [generateSVG](docs/sdks/createsvgs/README.md#generatesvg) - Text to SVG
+* [vectorizeSVG](docs/sdks/createsvgs/README.md#vectorizesvg) - Image to SVG
+
 ### [Models](docs/sdks/models/README.md)
 
 * [listModels](docs/sdks/models/README.md#listmodels) - List models
 * [retrieveModel](docs/sdks/models/README.md#retrievemodel) - Retrieve model
 
-### [Svg](docs/sdks/svg/README.md)
+### [ModifySVGs](docs/sdks/modifysvgs/README.md)
 
-* [checkVectorizability](docs/sdks/svg/README.md#checkvectorizability) - Check image vectorizability
-* [createSVGAnimation](docs/sdks/svg/README.md#createsvganimation) - Animate SVGs
-* [createSVGCollection](docs/sdks/svg/README.md#createsvgcollection) - Generate SVG collections
-* [createSVGEdit](docs/sdks/svg/README.md#createsvgedit) - Edit SVGs
-* [createSVGGeneration](docs/sdks/svg/README.md#createsvggeneration) - Generate SVGs
-* [createSVGVectorization](docs/sdks/svg/README.md#createsvgvectorization) - Vectorize image to SVG
+* [animateSVG](docs/sdks/modifysvgs/README.md#animatesvg) - Animate SVGs
+* [editSVG](docs/sdks/modifysvgs/README.md#editsvg) - Edit SVGs
+
+### [SVGUtilities](docs/sdks/svgutilities/README.md)
+
+* [checkSVGVectorizability](docs/sdks/svgutilities/README.md#checksvgvectorizability) - Check image vectorizability
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -171,14 +177,14 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
+- [`createSVGsGenerateIcon`](docs/sdks/createsvgs/README.md#generateicon) - Generate Icons
+- [`createSVGsGenerateSVG`](docs/sdks/createsvgs/README.md#generatesvg) - Text to SVG
+- [`createSVGsVectorizeSVG`](docs/sdks/createsvgs/README.md#vectorizesvg) - Image to SVG
 - [`modelsListModels`](docs/sdks/models/README.md#listmodels) - List models
 - [`modelsRetrieveModel`](docs/sdks/models/README.md#retrievemodel) - Retrieve model
-- [`svgCheckVectorizability`](docs/sdks/svg/README.md#checkvectorizability) - Check image vectorizability
-- [`svgCreateSVGAnimation`](docs/sdks/svg/README.md#createsvganimation) - Animate SVGs
-- [`svgCreateSVGCollection`](docs/sdks/svg/README.md#createsvgcollection) - Generate SVG collections
-- [`svgCreateSVGEdit`](docs/sdks/svg/README.md#createsvgedit) - Edit SVGs
-- [`svgCreateSVGGeneration`](docs/sdks/svg/README.md#createsvggeneration) - Generate SVGs
-- [`svgCreateSVGVectorization`](docs/sdks/svg/README.md#createsvgvectorization) - Vectorize image to SVG
+- [`modifySVGsAnimateSVG`](docs/sdks/modifysvgs/README.md#animatesvg) - Animate SVGs
+- [`modifySVGsEditSVG`](docs/sdks/modifysvgs/README.md#editsvg) - Edit SVGs
+- [`svgUtilitiesCheckSVGVectorizability`](docs/sdks/svgutilities/README.md#checksvgvectorizability) - Check image vectorizability
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -200,17 +206,7 @@ const quiverAI = new QuiverAI({
 });
 
 async function run() {
-  const result = await quiverAI.svg.createSVGAnimation({
-    duration: 3,
-    easing: "ease-in-out",
-    input: {
-      motionPrompt: "Make the icon pulse and rotate slowly",
-      source: "{\"svg_url\":\"https://example.com/icon.svg\"}",
-    },
-    model: "arrow-0.5",
-    stream: true,
-    temperature: 0.8,
-  });
+  const result = await quiverAI.modifySVGs.animateSVG({});
 
   console.log(result);
 }
@@ -359,7 +355,7 @@ The default server can be overridden globally by passing a URL to the `serverURL
 import { QuiverAI } from "@quiverai/sdk";
 
 const quiverAI = new QuiverAI({
-  serverURL: "https://api.quiver.ai/v1",
+  serverURL: "https://api.quiver.ai",
   bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
 });
 

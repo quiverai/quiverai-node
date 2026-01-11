@@ -3,152 +3,21 @@
  */
 
 import * as z from "zod/v3";
-import { remap as remap$ } from "../../../lib/primitives.js";
-import { ClosedEnum } from "../../types/enums.js";
-import {
-  SVGAnimateInput,
-  SVGAnimateInput$Outbound,
-  SVGAnimateInput$outboundSchema,
-} from "./svganimateinput.js";
-import {
-  SVGParams,
-  SVGParams$Outbound,
-  SVGParams$outboundSchema,
-} from "./svgparams.js";
 
 /**
- * CSS easing function
+ * Not Implemented
  */
-export const Easing = {
-  Linear: "linear",
-  Ease: "ease",
-  EaseIn: "ease-in",
-  EaseOut: "ease-out",
-  EaseInOut: "ease-in-out",
-} as const;
-/**
- * CSS easing function
- */
-export type Easing = ClosedEnum<typeof Easing>;
-
-export type AnimateSVGRequest = {
-  /**
-   * Animation duration in seconds
-   */
-  duration?: number | undefined;
-  /**
-   * CSS easing function
-   */
-  easing?: Easing | undefined;
-  /**
-   * Number between -2.0 and 2.0. Positive values penalize new tokens based on
-   *
-   * @remarks
-   * their existing frequency in the text so far, decreasing the model's
-   * likelihood to repeat the same line verbatim.
-   */
-  frequencyPenalty?: number | null | undefined;
-  input: SVGAnimateInput;
-  /**
-   * Maximum tokens in the output
-   */
-  maxOutputTokens?: number | undefined;
-  /**
-   * The model to use for generation/editing
-   */
-  model: string;
-  /**
-   * Number of SVGs to generate
-   */
-  n?: number | undefined;
-  /**
-   * Number between -2.0 and 2.0. Positive values penalize new tokens based on
-   *
-   * @remarks
-   * whether they appear in the text so far, increasing the model's likelihood
-   * to talk about new topics.
-   */
-  presencePenalty?: number | null | undefined;
-  /**
-   * This feature is in Beta.
-   *
-   * @remarks
-   * If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.
-   * Determinism is not guaranteed.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  seed?: number | null | undefined;
-  /**
-   * If true, responses are streamed as Server-Sent Events
-   */
-  stream?: boolean | undefined;
-  /**
-   * SVG-specific generation parameters for controlling canvas, design, and styling.
-   *
-   * @remarks
-   * These parameters give fine-grained control over the generated SVG output.
-   */
-  svgParams?: SVGParams | undefined;
-  /**
-   * Sampling temperature
-   */
-  temperature?: number | undefined;
-  /**
-   * Nucleus sampling parameter
-   */
-  topP?: number | undefined;
-};
+export type AnimateSVGRequest = {};
 
 /** @internal */
-export const Easing$outboundSchema: z.ZodNativeEnum<typeof Easing> = z
-  .nativeEnum(Easing);
-
-/** @internal */
-export type AnimateSVGRequest$Outbound = {
-  duration: number;
-  easing: string;
-  frequency_penalty: number | null;
-  input: SVGAnimateInput$Outbound;
-  max_output_tokens?: number | undefined;
-  model: string;
-  n: number;
-  presence_penalty: number | null;
-  seed?: number | null | undefined;
-  stream: boolean;
-  svg_params?: SVGParams$Outbound | undefined;
-  temperature: number;
-  top_p: number;
-};
+export type AnimateSVGRequest$Outbound = {};
 
 /** @internal */
 export const AnimateSVGRequest$outboundSchema: z.ZodType<
   AnimateSVGRequest$Outbound,
   z.ZodTypeDef,
   AnimateSVGRequest
-> = z.object({
-  duration: z.number().int().default(2),
-  easing: Easing$outboundSchema.default("ease"),
-  frequencyPenalty: z.nullable(z.number().default(0)),
-  input: SVGAnimateInput$outboundSchema,
-  maxOutputTokens: z.number().int().optional(),
-  model: z.string(),
-  n: z.number().int().default(1),
-  presencePenalty: z.nullable(z.number().default(0)),
-  seed: z.nullable(z.number().int()).optional(),
-  stream: z.boolean().default(false),
-  svgParams: SVGParams$outboundSchema.optional(),
-  temperature: z.number().default(1),
-  topP: z.number().default(1),
-}).transform((v) => {
-  return remap$(v, {
-    frequencyPenalty: "frequency_penalty",
-    maxOutputTokens: "max_output_tokens",
-    presencePenalty: "presence_penalty",
-    svgParams: "svg_params",
-    topP: "top_p",
-  });
-});
+> = z.object({});
 
 export function animateSVGRequestToJSON(
   animateSVGRequest: AnimateSVGRequest,

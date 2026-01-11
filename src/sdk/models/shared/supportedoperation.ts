@@ -13,7 +13,6 @@ export const SupportedOperation = {
   SvgEdit: "svg_edit",
   SvgAnimate: "svg_animate",
   SvgVectorize: "svg_vectorize",
-  SvgCollections: "svg_collections",
   ChatCompletions: "chat_completions",
 } as const;
 /**

@@ -17,7 +17,7 @@ about each one including capabilities, pricing, and supported features.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="ListModels" method="get" path="/models" -->
+<!-- UsageSnippet language="typescript" operationID="listModels" method="get" path="/v1/models" -->
 ```typescript
 import { QuiverAI } from "@quiverai/sdk";
 
@@ -71,7 +71,7 @@ run();
 
 ### Response
 
-**Promise\<[shared.ListModelsResponse](../../sdk/models/shared/listmodelsresponse.md)\>**
+**Promise\<[operations.ListModelsResponse](../../sdk/models/operations/listmodelsresponse.md)\>**
 
 ### Errors
 
@@ -89,7 +89,7 @@ This endpoint is compatible with the OpenAI SDK.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="RetrieveModel" method="get" path="/models/{model}" -->
+<!-- UsageSnippet language="typescript" operationID="retrieveModel" method="get" path="/v1/models/{model}" -->
 ```typescript
 import { QuiverAI } from "@quiverai/sdk";
 
