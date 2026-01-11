@@ -3,11 +3,11 @@ speakeasyVersion: latest
 sources:
     OpenAPI:
         inputs:
-            - location: https://api.quiver.ai/v1/openapi.json
+            - location: https://raw.githubusercontent.com/quiverai/quiverai-openapi/refs/heads/main/quiver.openapi.yml
         registry:
             location: registry.speakeasyapi.dev/quiverai/clients/open-api
 targets:
-    '@quiverai/sdk':
+    "@quiverai/sdk":
         target: typescript
         source: OpenAPI
         output: .
