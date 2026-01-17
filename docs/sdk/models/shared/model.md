@@ -38,9 +38,7 @@ let value: Model = {
     "temperature",
     "top_p",
     "stop",
-    "frequency_penalty",
     "presence_penalty",
-    "seed",
   ],
 };
 ```
@@ -61,4 +59,4 @@ let value: Model = {
 | `ownedBy`                                                                                        | *string*                                                                                         | :heavy_minus_sign:                                                                               | The organization that owns the model.                                                            | quiver                                                                                           |
 | `pricing`                                                                                        | [shared.ModelPricing](../../../sdk/models/shared/modelpricing.md)                                | :heavy_minus_sign:                                                                               | Pricing information for the model (per token, in USD as strings to avoid floating point issues). |                                                                                                  |
 | `supportedOperations`                                                                            | [shared.SupportedOperation](../../../sdk/models/shared/supportedoperation.md)[]                  | :heavy_minus_sign:                                                                               | API operations supported by this model.                                                          | [<br/>"chat_completions"<br/>]                                                                   |
-| `supportedSamplingParameters`                                                                    | [shared.SamplingParameter](../../../sdk/models/shared/samplingparameter.md)[]                    | :heavy_minus_sign:                                                                               | Sampling parameters supported by the model.                                                      | [<br/>"temperature",<br/>"top_p",<br/>"stop",<br/>"frequency_penalty",<br/>"presence_penalty",<br/>"seed"<br/>] |
+| `supportedSamplingParameters`                                                                    | [shared.SamplingParameter](../../../sdk/models/shared/samplingparameter.md)[]                    | :heavy_minus_sign:                                                                               | Sampling parameters supported by the model.                                                      | [<br/>"temperature",<br/>"top_p",<br/>"stop",<br/>"presence_penalty"<br/>]                       |

@@ -3,7 +3,6 @@
  */
 
 export * from "./animatesvgrequest.js";
-export * from "./aspectratio.js";
 export * from "./editsvgrequest.js";
 export * from "./error.js";
 export * from "./generateiconrequest.js";

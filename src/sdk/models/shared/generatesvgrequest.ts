@@ -4,7 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { AspectRatio, AspectRatio$outboundSchema } from "./aspectratio.js";
 import {
   ImageInputReference,
   ImageInputReference$Outbound,
@@ -12,28 +11,6 @@ import {
 } from "./imageinputreference.js";
 
 export type GenerateSVGRequest = {
-  /**
-   * Aspect ratio constraint for the generated SVG, specified as "width:height".
-   *
-   * @remarks
-   * - `1:1`: Square
-   * - `4:3`: Standard/classic
-   * - `3:4`: Portrait standard
-   * - `16:9`: Landscape/widescreen
-   * - `9:16`: Portrait/tall (mobile)
-   * - `3:2`: Photo landscape
-   * - `2:3`: Photo portrait
-   * - `21:9`: Ultra-wide/cinematic
-   */
-  aspectRatio?: AspectRatio | undefined;
-  /**
-   * Number between -2.0 and 2.0. Positive values penalize new tokens based on
-   *
-   * @remarks
-   * their existing frequency in the text so far, decreasing the model's
-   * likelihood to repeat the same line verbatim.
-   */
-  frequencyPenalty?: number | null | undefined;
   /**
    * Additional instructions for the model
    */
@@ -70,16 +47,6 @@ export type GenerateSVGRequest = {
    */
   references?: Array<ImageInputReference> | undefined;
   /**
-   * This feature is in Beta.
-   *
-   * @remarks
-   * If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.
-   * Determinism is not guaranteed.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  seed?: number | null | undefined;
-  /**
    * If true, responses are streamed as Server-Sent Events
    */
   stream?: boolean | undefined;
@@ -95,8 +62,6 @@ export type GenerateSVGRequest = {
 
 /** @internal */
 export type GenerateSVGRequest$Outbound = {
-  aspect_ratio: string;
-  frequency_penalty: number | null;
   instructions?: string | undefined;
   max_output_tokens?: number | undefined;
   model: string;
@@ -104,7 +69,6 @@ export type GenerateSVGRequest$Outbound = {
   presence_penalty: number | null;
   prompt: string;
   references?: Array<ImageInputReference$Outbound> | undefined;
-  seed?: number | null | undefined;
   stream: boolean;
   temperature: number;
   top_p: number;
@@ -116,8 +80,6 @@ export const GenerateSVGRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GenerateSVGRequest
 > = z.object({
-  aspectRatio: AspectRatio$outboundSchema.default("1:1"),
-  frequencyPenalty: z.nullable(z.number().default(0)),
   instructions: z.string().optional(),
   maxOutputTokens: z.number().int().optional(),
   model: z.string(),
@@ -125,14 +87,11 @@ export const GenerateSVGRequest$outboundSchema: z.ZodType<
   presencePenalty: z.nullable(z.number().default(0)),
   prompt: z.string(),
   references: z.array(ImageInputReference$outboundSchema).optional(),
-  seed: z.nullable(z.number().int()).optional(),
   stream: z.boolean().default(false),
   temperature: z.number().default(1),
   topP: z.number().default(1),
 }).transform((v) => {
   return remap$(v, {
-    aspectRatio: "aspect_ratio",
-    frequencyPenalty: "frequency_penalty",
     maxOutputTokens: "max_output_tokens",
     presencePenalty: "presence_penalty",
     topP: "top_p",

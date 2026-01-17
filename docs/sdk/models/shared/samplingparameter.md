@@ -7,11 +7,11 @@ Supported sampling parameter.
 ```typescript
 import { SamplingParameter } from "@quiverai/sdk/sdk/models/shared";
 
-let value: SamplingParameter = "seed";
+let value: SamplingParameter = "stop";
 ```
 
 ## Values
 
 ```typescript
-"temperature" | "top_p" | "top_k" | "repetition_penalty" | "frequency_penalty" | "presence_penalty" | "stop" | "seed"
+"temperature" | "top_p" | "top_k" | "repetition_penalty" | "presence_penalty" | "stop"
 ```

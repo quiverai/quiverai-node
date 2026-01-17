@@ -46,9 +46,7 @@ const value: shared.Model = {
     "temperature",
     "top_p",
     "stop",
-    "frequency_penalty",
     "presence_penalty",
-    "seed",
   ],
 };
 ```

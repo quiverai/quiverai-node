@@ -13,10 +13,8 @@ export const SamplingParameter = {
   TopP: "top_p",
   TopK: "top_k",
   RepetitionPenalty: "repetition_penalty",
-  FrequencyPenalty: "frequency_penalty",
   PresencePenalty: "presence_penalty",
   Stop: "stop",
-  Seed: "seed",
 } as const;
 /**
  * Supported sampling parameter.
