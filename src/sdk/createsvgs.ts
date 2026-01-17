@@ -3,10 +3,6 @@
  */
 
 import {
-  createSVGsGenerateIcon,
-  GenerateIconAcceptEnum,
-} from "../funcs/createSVGsGenerateIcon.js";
-import {
   createSVGsGenerateSVG,
   GenerateSVGAcceptEnum,
 } from "../funcs/createSVGsGenerateSVG.js";
@@ -19,38 +15,11 @@ import * as operations from "./models/operations/index.js";
 import * as shared from "./models/shared/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
-export { GenerateIconAcceptEnum } from "../funcs/createSVGsGenerateIcon.js";
-
 export { GenerateSVGAcceptEnum } from "../funcs/createSVGsGenerateSVG.js";
 
 export { VectorizeSVGAcceptEnum } from "../funcs/createSVGsVectorizeSVG.js";
 
 export class CreateSVGs extends ClientSDK {
-  /**
-   * Generate Icons
-   *
-   * @remarks
-   * Generates one or more icons based on a text prompt.
-   * Icons are always generated with a 1:1 aspect ratio and optimized
-   * for use at various scales.
-   *
-   * **NOTE: This endpoint is currently not implemented.**
-   *
-   * Supports streaming for real-time progressive rendering.
-   */
-  async generateIcon(
-    request: shared.GenerateIconRequest,
-    options?: RequestOptions & {
-      acceptHeaderOverride?: GenerateIconAcceptEnum;
-    },
-  ): Promise<operations.GenerateIconResponse> {
-    return unwrapAsync(createSVGsGenerateIcon(
-      this,
-      request,
-      options,
-    ));
-  }
-
   /**
    * Text to SVG
    *
