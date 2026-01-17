@@ -11,6 +11,7 @@ generation:
     requestResponseComponentNamesFeb2024: false
     securityFeb2025: false
     sharedErrorComponentsApr2025: false
+    sharedNestedComponentsJan2026: false
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
@@ -27,7 +28,7 @@ generate:
   version: ""
   baseServerUrl: https://api.quiver.ai/v1
 typescript:
-  version: 0.1.6
+  version: 0.2.0
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}

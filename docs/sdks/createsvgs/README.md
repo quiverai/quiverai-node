@@ -201,7 +201,6 @@ async function run() {
       url: "https://example.com/logo.png",
     },
     model: "arrow-0.5",
-    simplifyIfNeeded: true,
     temperature: 0.8,
   });
 
@@ -232,7 +231,6 @@ async function run() {
       url: "https://example.com/logo.png",
     },
     model: "arrow-0.5",
-    simplifyIfNeeded: true,
     temperature: 0.8,
   });
   if (res.ok) {

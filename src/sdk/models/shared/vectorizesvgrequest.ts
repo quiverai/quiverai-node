@@ -21,14 +21,6 @@ export type VectorizeSVGRequest = {
    */
   autoCrop?: boolean | undefined;
   /**
-   * Number between -2.0 and 2.0. Positive values penalize new tokens based on
-   *
-   * @remarks
-   * their existing frequency in the text so far, decreasing the model's
-   * likelihood to repeat the same line verbatim.
-   */
-  frequencyPenalty?: number | null | undefined;
-  /**
    * Reference image input (URL or base64-encoded)
    */
   image: ImageInputReference;
@@ -53,24 +45,6 @@ export type VectorizeSVGRequest = {
    */
   presencePenalty?: number | null | undefined;
   /**
-   * This feature is in Beta.
-   *
-   * @remarks
-   * If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.
-   * Determinism is not guaranteed.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  seed?: number | null | undefined;
-  /**
-   * If true, the image is analyzed for vectorizability. Images deemed
-   *
-   * @remarks
-   * unsuitable (e.g., photos with complex textures) are automatically
-   * simplified before vectorization to improve results.
-   */
-  simplifyIfNeeded?: boolean | undefined;
-  /**
    * If true, responses are streamed as Server-Sent Events
    */
   stream?: boolean | undefined;
@@ -87,14 +61,11 @@ export type VectorizeSVGRequest = {
 /** @internal */
 export type VectorizeSVGRequest$Outbound = {
   auto_crop: boolean;
-  frequency_penalty: number | null;
   image: ImageInputReference$Outbound;
   max_output_tokens?: number | undefined;
   model: string;
   n: number;
   presence_penalty: number | null;
-  seed?: number | null | undefined;
-  simplify_if_needed: boolean;
   stream: boolean;
   temperature: number;
   top_p: number;
@@ -107,24 +78,19 @@ export const VectorizeSVGRequest$outboundSchema: z.ZodType<
   VectorizeSVGRequest
 > = z.object({
   autoCrop: z.boolean().default(false),
-  frequencyPenalty: z.nullable(z.number().default(0)),
   image: ImageInputReference$outboundSchema,
   maxOutputTokens: z.number().int().optional(),
   model: z.string(),
   n: z.number().int().default(1),
   presencePenalty: z.nullable(z.number().default(0)),
-  seed: z.nullable(z.number().int()).optional(),
-  simplifyIfNeeded: z.boolean().default(false),
   stream: z.boolean().default(false),
   temperature: z.number().default(1),
   topP: z.number().default(1),
 }).transform((v) => {
   return remap$(v, {
     autoCrop: "auto_crop",
-    frequencyPenalty: "frequency_penalty",
     maxOutputTokens: "max_output_tokens",
     presencePenalty: "presence_penalty",
-    simplifyIfNeeded: "simplify_if_needed",
     topP: "top_p",
   });
 });
