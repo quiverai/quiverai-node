@@ -141,7 +141,6 @@ run();
 
 ### [CreateSVGs](docs/sdks/createsvgs/README.md)
 
-* [generateIcon](docs/sdks/createsvgs/README.md#generateicon) - Generate Icons
 * [generateSVG](docs/sdks/createsvgs/README.md#generatesvg) - Text to SVG
 * [vectorizeSVG](docs/sdks/createsvgs/README.md#vectorizesvg) - Image to SVG
 
@@ -149,15 +148,6 @@ run();
 
 * [listModels](docs/sdks/models/README.md#listmodels) - List models
 * [retrieveModel](docs/sdks/models/README.md#retrievemodel) - Retrieve model
-
-### [ModifySVGs](docs/sdks/modifysvgs/README.md)
-
-* [animateSVG](docs/sdks/modifysvgs/README.md#animatesvg) - Animate SVGs
-* [editSVG](docs/sdks/modifysvgs/README.md#editsvg) - Edit SVGs
-
-### [SVGUtilities](docs/sdks/svgutilities/README.md)
-
-* [checkSVGVectorizability](docs/sdks/svgutilities/README.md#checksvgvectorizability) - Check image vectorizability
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -177,14 +167,10 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`createSVGsGenerateIcon`](docs/sdks/createsvgs/README.md#generateicon) - Generate Icons
 - [`createSVGsGenerateSVG`](docs/sdks/createsvgs/README.md#generatesvg) - Text to SVG
 - [`createSVGsVectorizeSVG`](docs/sdks/createsvgs/README.md#vectorizesvg) - Image to SVG
 - [`modelsListModels`](docs/sdks/models/README.md#listmodels) - List models
 - [`modelsRetrieveModel`](docs/sdks/models/README.md#retrievemodel) - Retrieve model
-- [`modifySVGsAnimateSVG`](docs/sdks/modifysvgs/README.md#animatesvg) - Animate SVGs
-- [`modifySVGsEditSVG`](docs/sdks/modifysvgs/README.md#editsvg) - Edit SVGs
-- [`svgUtilitiesCheckSVGVectorizability`](docs/sdks/svgutilities/README.md#checksvgvectorizability) - Check image vectorizability
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -206,7 +192,11 @@ const quiverAI = new QuiverAI({
 });
 
 async function run() {
-  const result = await quiverAI.modifySVGs.animateSVG({});
+  const result = await quiverAI.createSVGs.generateSVG({
+    model: "arrow-0.5",
+    prompt: "Generate an icon of a unicorn",
+    temperature: 0.8,
+  });
 
   console.log(result);
 }

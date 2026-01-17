@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 0f33c9fc-1c93-4296-9792-fbb1c4caef92
 management:
-  docChecksum: ac44b9810e76f041ae7c024e387bf2f6
+  docChecksum: 7a644e9e808809f44547797f245ec1c9
   docVersion: 1.0.0
   speakeasyVersion: 1.687.1
   generationVersion: 2.796.1
-  releaseVersion: 0.2.0
-  configChecksum: cf4fe9ea4c5aa72698e17cb679fad523
+  releaseVersion: 0.2.1
+  configChecksum: 2aeb1c8eec76acfa79fff5f61989743a
   repoURL: https://github.com/quiverai/quiverai-node.git
   installationURL: https://github.com/quiverai/quiverai-node
   published: true
 persistentEdits:
-  generation_id: 899c0a66-fb86-439e-b6c9-3e154da7c092
-  pristine_commit_hash: 0e71b99e6827d581b62dba4ceb4616256a956ffe
-  pristine_tree_hash: 2777cff56492e5940ecce7dd962c941ac06b4cd6
+  generation_id: 24a03381-97ec-4e4b-85aa-31c1a120cd5b
+  pristine_commit_hash: 5b33f8d0edb8372f50626bf0cd276e86f508a218
+  pristine_tree_hash: f229d617c604ee1fabc017b9455371198ab14c25
 features:
   typescript:
     acceptHeaders: 2.81.2
@@ -61,22 +61,6 @@ trackedFiles:
     id: 0ce9707cb848
     last_write_checksum: sha1:bc4454e196fcd219f5a78da690375a884f5ed07b
     pristine_git_object: 08f95f4552349360b2c0b01802aa71ec3a55d2c2
-  docs/sdk/models/operations/animatesvgresponse.md:
-    id: 05852bcb79ec
-    last_write_checksum: sha1:4d9f93d632f6279fab2c2ae621a47c7b29810e68
-    pristine_git_object: 3f3225c89aeaf014bd03cdc82cd0c02755f8563f
-  docs/sdk/models/operations/checksvgvectorizabilityresponse.md:
-    id: 80d2ccddc3aa
-    last_write_checksum: sha1:dc791491e05832b9a85685f29635f8ccf68620da
-    pristine_git_object: 2297e369b0721c8beca32bebf50896ab69261f24
-  docs/sdk/models/operations/editsvgresponse.md:
-    id: c02f3d8ee8b6
-    last_write_checksum: sha1:de5236e837b2c5b6d63561a842f40fab530ec5f0
-    pristine_git_object: 4c9ca0d4dbbcedcfc39eec01505051f31a124a6d
-  docs/sdk/models/operations/generateiconresponse.md:
-    id: 84bc20899fae
-    last_write_checksum: sha1:23e0e8794897ddf3a44105f75564f2f6fbe0d3f8
-    pristine_git_object: 0f4148c22b5ce34be4ff1250c40110961a71e39b
   docs/sdk/models/operations/generatesvgresponse.md:
     id: 736431b6ecab
     last_write_checksum: sha1:2050d5692f4f7db53988c12986f780412c25bb2a
@@ -97,14 +81,6 @@ trackedFiles:
     id: 2c57d444d317
     last_write_checksum: sha1:b4115d7ee298a1907f4c8b7754138427628ecae9
     pristine_git_object: 9c6e971908f1478b1eb9a679e6a4d08d2a34d5f2
-  docs/sdk/models/shared/animatesvgrequest.md:
-    id: 55d356f65031
-    last_write_checksum: sha1:312c0d44bc27ca988f63495acfd522cafda824a3
-    pristine_git_object: e1a117d0af5d1e799f0d13f07d403c46e8c7b1e3
-  docs/sdk/models/shared/editsvgrequest.md:
-    id: c0e5d802f6ac
-    last_write_checksum: sha1:1edc1548f19392784f4ec58abb13f9f0ecf448af
-    pristine_git_object: a883a2a82f9e5a70fdb4491fa599df2934d2aca0
   docs/sdk/models/shared/errort.md:
     id: 0b95532b92dd
     last_write_checksum: sha1:1b7d2e2f69662a14eca81ab006bb2d4b144b8a4e
@@ -113,10 +89,6 @@ trackedFiles:
     id: f90780173068
     last_write_checksum: sha1:fe4ede7f6b33f00b5c5f62b395ddd7d63632abcf
     pristine_git_object: 721f4718454010c4b577a25f3faa2d32e7a72250
-  docs/sdk/models/shared/generateiconrequest.md:
-    id: df5b38fe1cb6
-    last_write_checksum: sha1:f24da47ce32e71dd8a4dbee35546330f9409ec57
-    pristine_git_object: 97aa678d275bc5e4e0c38fad7be4091437b96793
   docs/sdk/models/shared/generatesvgrequest.md:
     id: 5c17111bcc8d
     last_write_checksum: sha1:94f3cdcec1c1008bfa0e570db7df77cf43f7c8d3
@@ -201,34 +173,18 @@ trackedFiles:
     id: 0b2959b4bc86
     last_write_checksum: sha1:3a6d14bbbebcd1adfae7e63a9fcfa4680de53f2f
     pristine_git_object: 5dcb72f6c40a66af74ccf39745f5bdffe5112ada
-  docs/sdk/models/shared/vectorizabilitycheckrequest.md:
-    id: 87e491a61888
-    last_write_checksum: sha1:54ae8e616ff48ecd653d45c47dc05d50f61d7648
-    pristine_git_object: e4de10a2ad0776441c9ec8c3500027e4310cf054
-  docs/sdk/models/shared/vectorizabilitycheckresponse.md:
-    id: 087c6bea7f16
-    last_write_checksum: sha1:591b9b515bc9ccf926ed0ff0958a9429f81b5518
-    pristine_git_object: b4b5a622459442750ff07e52941c58053a968b69
   docs/sdk/models/shared/vectorizesvgrequest.md:
     id: 5e6a1ab1ca22
     last_write_checksum: sha1:464a220d45dfbdecc40e336a5fea006fbbd37163
     pristine_git_object: 4ccdceb8a5633bceab45dd469fb6a671beb9d843
   docs/sdks/createsvgs/README.md:
     id: 3037e9dee7b8
-    last_write_checksum: sha1:685f68d79ec58cfebfea532f840fd04ee6832d8b
-    pristine_git_object: be988e5fb94bc951e9a06458a490ee32c6feba92
+    last_write_checksum: sha1:03fa778d48f78bdc17f1d5620dd524e27e78e1e3
+    pristine_git_object: 15460c9cce5740c9b910a02ececd068db386c9b1
   docs/sdks/models/README.md:
     id: b35bdf4bc7ed
     last_write_checksum: sha1:8929f68ece47abf08f04696ac5146fb4202a02a6
     pristine_git_object: 5a3a0af484749af2950ae48cca888654ece6de83
-  docs/sdks/modifysvgs/README.md:
-    id: 4840403cce11
-    last_write_checksum: sha1:501b6b893b023155d000aa17807bb98bb94a5568
-    pristine_git_object: c7e17e6d926d161525500e707945fef5d610b7ba
-  docs/sdks/svgutilities/README.md:
-    id: 89406f2904f0
-    last_write_checksum: sha1:f9fd7adf569f819cd8d151ef34a95a159b96a0b3
-    pristine_git_object: 1e65a8ddb8adb31476659baec472f585b716ade2
   eslint.config.mjs:
     id: 461c8d07f6da
     last_write_checksum: sha1:9398f326377fe47f67af2df6eb6370750c0790b4
@@ -251,20 +207,16 @@ trackedFiles:
     pristine_git_object: cc173cc598005ddf714e2215e0304c0ab85583a9
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:f5b5a95336e7691980f4973fb09e94a9311bbdf8
-    pristine_git_object: ec89d990830cb70a89c0bd0235fedd9c35f96286
+    last_write_checksum: sha1:ac78493fde321579bde89630d16ab2390b19cd15
+    pristine_git_object: f84187b94fd018c3534c6d0d1594d35d64465797
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:40bb5071cde97a62dddc0c33e4b63dd2cc90ef93
-    pristine_git_object: eaf75e9e61eb648f8983386182002e98a711985e
+    last_write_checksum: sha1:15ecdf9a79dcd25979f4d89331ad561c15043cd8
+    pristine_git_object: 1fc5948f38068c5efe643e3cbb7b2e7196534666
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:f68eeda1706ded6626e158d7a1e7bda00e0e71e2
     pristine_git_object: aaa82282a6a5dddaac0fddcd3ec3edae8c35acd6
-  src/funcs/createSVGsGenerateIcon.ts:
-    id: 0936c2331b53
-    last_write_checksum: sha1:ec8f11f14f7747f1dd1134ce98c669b62746ab41
-    pristine_git_object: f4e99d82993df8e38f7506364a285890b734e1c3
   src/funcs/createSVGsGenerateSVG.ts:
     id: 6441ad61d6d6
     last_write_checksum: sha1:11e2f314b5451b7e2615f7ef50d89754033929f5
@@ -281,18 +233,6 @@ trackedFiles:
     id: c0a1d8859476
     last_write_checksum: sha1:ab813eaf1542793b2fbf31b070a2f801c40cd67b
     pristine_git_object: 323402b7d1a531158825e89096377a9b7b4253e0
-  src/funcs/modifySVGsAnimateSVG.ts:
-    id: 9564b3a12068
-    last_write_checksum: sha1:5fcbac682f3d156c3667f97129ab283576e39572
-    pristine_git_object: 0afe3f2b55167f8da6048c3d407c8be63bfc541b
-  src/funcs/modifySVGsEditSVG.ts:
-    id: 8da389b99202
-    last_write_checksum: sha1:24bfd408d7449bb83183572db61aa9ed2f08dc10
-    pristine_git_object: 17b25aa5872708f8a3937aeec69fc250a7d3636c
-  src/funcs/svgUtilitiesCheckSVGVectorizability.ts:
-    id: 545376c98b56
-    last_write_checksum: sha1:cab40e041a536b5750889564f2ff1d7e83b4765c
-    pristine_git_object: aab38477011a2d7fe56d49eda09bbbd2ac3cbaaa
   src/hooks/hooks.ts:
     id: a2463fc6f69b
     last_write_checksum: sha1:9a569ea8f3177ddcdfe6cd903feaf5c2d2c36a9a
@@ -315,8 +255,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:05a58669d08e828a8e8355d5a4db49d4b4f5e203
-    pristine_git_object: 16a2f7ecf1f56724c527a2b8c6e3cf430ba21bf0
+    last_write_checksum: sha1:a3e3b432ad676ee2656e09998e4d484606d69c6e
+    pristine_git_object: 5a22654f89227ee89fa67f127e47ef648355af53
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -375,8 +315,8 @@ trackedFiles:
     pristine_git_object: f3a8de6c021de59c991707946cd294596cae954d
   src/sdk/createsvgs.ts:
     id: f96ad0b9fa73
-    last_write_checksum: sha1:80d5473b73ef182306b147ea08ece646a87a05e3
-    pristine_git_object: 357f07e42b4702526c31e00c5b9ad2cf6c7ebc9a
+    last_write_checksum: sha1:0590653acc18321231160a2d059b392e2126b822
+    pristine_git_object: a483e7f2ba6344ea609ef76131e1d40ffbdcd175
   src/sdk/index.ts:
     id: a857902a703f
     last_write_checksum: sha1:ed6d64f2a6135349aa8498b8d8cff9ba85c7fb8f
@@ -409,30 +349,14 @@ trackedFiles:
     id: 7c8a11e099b9
     last_write_checksum: sha1:a69da17627bcc32b820544608f3400423ea53f26
     pristine_git_object: 6826e1208a5d7b7d310535d18909646522bf0fbd
-  src/sdk/models/operations/animatesvg.ts:
-    id: 51dbd5a203a1
-    last_write_checksum: sha1:d7691f09cafc19542e4860f202cd02186e6fa505
-    pristine_git_object: bc2870b8102f2248617d60280074c00402e60947
-  src/sdk/models/operations/checksvgvectorizability.ts:
-    id: a0bddaa04052
-    last_write_checksum: sha1:23035437d9d100f0d55413d18a9b52289e755355
-    pristine_git_object: fa5a157309f6c4bc1fe39fd1a9c14a1b751d72bd
-  src/sdk/models/operations/editsvg.ts:
-    id: 72cf04be6f25
-    last_write_checksum: sha1:9a19d8130ca1a86976e0a36c94f2180f81f8fa64
-    pristine_git_object: ed2f533be3b1fd2e51e6c474903a09d3457bd3b0
-  src/sdk/models/operations/generateicon.ts:
-    id: be6a4ece4129
-    last_write_checksum: sha1:4ee349dfee61c62762078f8c7023ac57b1f80135
-    pristine_git_object: 5f9c6067ce75ffb2ad4a79f2a10a8c207059cccf
   src/sdk/models/operations/generatesvg.ts:
     id: 3a7b0bd9e270
     last_write_checksum: sha1:45465b03120afe931d0c846b32791a1545f87338
     pristine_git_object: 19bfc95a254a274a4d9487767da8c6802da85851
   src/sdk/models/operations/index.ts:
     id: b2864d0519d7
-    last_write_checksum: sha1:6b640c092da12ee45f9e8c62c37f98cdcf7733ea
-    pristine_git_object: 0b307a511145c7dbe603cb91b58a9e1da2b5288a
+    last_write_checksum: sha1:ee1a359e3f7935ec9c826831272099d27d863422
+    pristine_git_object: 302f738fc5a492ebc7e0ccec80bc44d7e1e235d1
   src/sdk/models/operations/listmodels.ts:
     id: 4bcd80c1aa2a
     last_write_checksum: sha1:12e274ac44e3919e478b90fae80b7ee76fd294de
@@ -445,22 +369,10 @@ trackedFiles:
     id: 97b79652a83c
     last_write_checksum: sha1:aeb43fbeb5846812dadd612566586dd81931ae78
     pristine_git_object: 2e1972a5b84e3f704d1067a2762ccfbdaa14fb2c
-  src/sdk/models/shared/animatesvgrequest.ts:
-    id: 5e080a3737fa
-    last_write_checksum: sha1:1d146594100e69c7ffafe102f395c43efaf8d1e9
-    pristine_git_object: fe82d3dd63bd337d359d73c6384d463350fe717d
-  src/sdk/models/shared/editsvgrequest.ts:
-    id: e7c40435d0ca
-    last_write_checksum: sha1:5a0677446a1b94c2e4c9e1721496679b91cf5248
-    pristine_git_object: d0234959383db5df2b0c2af72a782b1b1005d6f0
   src/sdk/models/shared/error.ts:
     id: 12cb8c3a8e71
     last_write_checksum: sha1:8c8069d93d1dd2e6b79bb9037611b819ea340335
     pristine_git_object: dcebf1ac4ba43f40761dce46823f801afa786dd8
-  src/sdk/models/shared/generateiconrequest.ts:
-    id: e6fb531cc1a2
-    last_write_checksum: sha1:36598652a8f1b99f47b42b199acbb529d95bd1f8
-    pristine_git_object: a94af4af4e2f2e36e382c84710defdf497d7ef13
   src/sdk/models/shared/generatesvgrequest.ts:
     id: d0a0727cbb80
     last_write_checksum: sha1:8bca361ebe79539c8f8c4a2bcff9a464aa440316
@@ -479,8 +391,8 @@ trackedFiles:
     pristine_git_object: 0b84004f819dc5679df01a5511d0923d4f070231
   src/sdk/models/shared/index.ts:
     id: e97e906e3c14
-    last_write_checksum: sha1:f381e0eb3b6196bc33ebb72ad611719a4e6462a7
-    pristine_git_object: d313d1399ce0271b9bcef403bf76cf2ecb8af2e6
+    last_write_checksum: sha1:1e4c3ab684d9e40f85a5e97a40fae470b3a2e466
+    pristine_git_object: 707b927066223c5bd9987c1eb3e34b5f02800f83
   src/sdk/models/shared/listmodelsresponse.ts:
     id: d2d28dc575ca
     last_write_checksum: sha1:00173a56968fdc6e8db85f3521cf92de1d6b78b0
@@ -533,30 +445,14 @@ trackedFiles:
     id: fe97be25dd02
     last_write_checksum: sha1:9d3e5c5ad661649cd7c9715e08f6769e9866712c
     pristine_git_object: 755390bae1b2e753084308493943f9f35e01a2f1
-  src/sdk/models/shared/vectorizabilitycheckrequest.ts:
-    id: 488276ad9f77
-    last_write_checksum: sha1:55c3d8e305b7827ed896ab8b02c8c5d110734c63
-    pristine_git_object: 15b9ffe060ca13eac1047e4e6898768890be78fa
-  src/sdk/models/shared/vectorizabilitycheckresponse.ts:
-    id: b1fee3fbf8f6
-    last_write_checksum: sha1:0eeba69f4b3bb8965bf7a5c430012583b708fe32
-    pristine_git_object: 0cea92a0c4948e78c65d23b578f14ab047c3b331
   src/sdk/models/shared/vectorizesvgrequest.ts:
     id: 2ca683a025ca
     last_write_checksum: sha1:f3e8dbef498b074ac169fe305444c4e1fb728df1
     pristine_git_object: 92ac96bc6f96c1ce852cba289e693a64ee4a8a08
-  src/sdk/modifysvgs.ts:
-    id: 196ee9c11b46
-    last_write_checksum: sha1:00ced8d256b2d1ec7bae38de6e1aa963b42ca4e6
-    pristine_git_object: e5f35506e41ef683c763cdb47ac7ba818849ce4c
   src/sdk/sdk.ts:
     id: 784571af2f69
-    last_write_checksum: sha1:2feda24b10ffa7b8d82f3aa67bc4b7570bae446b
-    pristine_git_object: 7a1696e0db7221553a15188090bc5291953fc35d
-  src/sdk/svgutilities.ts:
-    id: a95fe5a5e6b7
-    last_write_checksum: sha1:9663ccf0a039ec62e039527cab8e89a15332d449
-    pristine_git_object: 3aec4cb2157c7b2f2ad61f3942e1ca0d3cab30b6
+    last_write_checksum: sha1:60421e21c04c667f29aff270b180aeba0358887c
+    pristine_git_object: 90ebd4825d0a408e28dcf3448bded24b57d9a4e4
   src/sdk/types/async.ts:
     id: 966026768b05
     last_write_checksum: sha1:3ff07b3feaf390ec1aeb18ff938e139c6c4a9585
@@ -1157,5 +1053,7 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Typescript SDK Changes:
-  * `quiverai.createSvGs.generateSvg()`:  `request` **Changed** **Breaking** :warning:
-  * `quiverai.createSvGs.vectorizeSvg()`:  `request` **Changed** **Breaking** :warning:
+  * `quiverai.modifySvGs.animateSvg()`: **Deleted** **Breaking** :warning:
+  * `quiverai.modifySvGs.editSvg()`: **Deleted** **Breaking** :warning:
+  * `quiverai.createSvGs.generateIcon()`: **Deleted** **Breaking** :warning:
+  * `quiverai.svgUtilities.checkSvgVectorizability()`: **Deleted** **Breaking** :warning:
