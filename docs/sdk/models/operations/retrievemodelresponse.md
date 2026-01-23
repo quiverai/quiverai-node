@@ -26,7 +26,7 @@ const value: shared.Model = {
     "text",
     "image",
   ],
-  maxOutputLength: 16384,
+  maxOutputLength: 32768,
   name: "Arrow 0.5",
   outputModalities: [
     "svg",
