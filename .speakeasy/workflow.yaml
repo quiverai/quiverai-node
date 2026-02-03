@@ -3,7 +3,7 @@ speakeasyVersion: latest
 sources:
     OpenAPI:
         inputs:
-            - location: https://raw.githubusercontent.com/quiverai/quiverai-openapi/refs/heads/main/quiver.openapi.yml
+            - location: https://api.quiver.ai/v1/openapi.json
         registry:
             location: registry.speakeasyapi.dev/quiverai/clients/open-api
 targets:
