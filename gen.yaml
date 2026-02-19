@@ -19,6 +19,7 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
+  versioningStrategy: automatic
   persistentEdits: {}
   tests:
     generateTests: true
@@ -28,7 +29,7 @@ generate:
   version: ""
   baseServerUrl: https://api.quiver.ai/v1
 typescript:
-  version: 0.2.2
+  version: 0.3.0
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -66,6 +67,7 @@ typescript:
   inputModelSuffix: input
   jsonpath: legacy
   laxMode: strict
+  legacyFileNaming: true
   maxMethodParams: 0
   methodArguments: infer-optional-args
   modelPropertyCasing: camel

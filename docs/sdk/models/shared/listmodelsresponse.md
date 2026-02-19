@@ -10,7 +10,7 @@ import { ListModelsResponse } from "@quiverai/sdk/sdk/models/shared";
 let value: ListModelsResponse = {
   data: [
     {
-      contextLength: 128000,
+      contextLength: 131072,
       created: 1704067200,
       description:
         "Optimized for high-quality icon and illustration generation",
@@ -19,7 +19,7 @@ let value: ListModelsResponse = {
         "text",
         "image",
       ],
-      maxOutputLength: 32768,
+      maxOutputLength: 131072,
       name: "Arrow 0.5",
       outputModalities: [
         "svg",

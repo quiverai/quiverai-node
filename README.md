@@ -193,9 +193,24 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
+    instructions:
+      "Use a flat monochrome style with rounded corners and clean geometry. Avoid gradients. Return only SVG markup.",
+    maxOutputTokens: 4096,
     model: "arrow-0.5",
-    prompt: "Generate an icon of a unicorn",
-    temperature: 0.8,
+    n: 2,
+    presencePenalty: 0.2,
+    prompt: "Generate a minimalist unicorn icon for a SaaS dashboard",
+    references: [
+      {
+        url: "https://example.com/uploads/reference-style.png",
+      },
+      {
+        base64:
+          "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+      },
+    ],
+    temperature: 0.4,
+    topP: 0.95,
   });
 
   console.log(result);
@@ -373,19 +388,23 @@ The `HTTPClient` constructor takes an optional `fetcher` argument that can be
 used to integrate a third-party HTTP client or when writing tests to mock out
 the HTTP client and feed in fixtures.
 
-The following example shows how to use the `"beforeRequest"` hook to to add a
-custom header and a timeout to requests and how to use the `"requestError"` hook
-to log errors:
+The following example shows how to:
+- route requests through a proxy server using [undici](https://www.npmjs.com/package/undici)'s ProxyAgent
+- use the `"beforeRequest"` hook to add a custom header and a timeout to requests
+- use the `"requestError"` hook to log errors
 
 ```typescript
 import { QuiverAI } from "@quiverai/sdk";
+import { ProxyAgent } from "undici";
 import { HTTPClient } from "@quiverai/sdk/lib/http";
 
+const dispatcher = new ProxyAgent("http://proxy.example.com:8080");
+
 const httpClient = new HTTPClient({
-  // fetcher takes a function that has the same signature as native `fetch`.
-  fetcher: (request) => {
-    return fetch(request);
-  }
+  // 'fetcher' takes a function that has the same signature as native 'fetch'.
+  fetcher: (input, init) =>
+    // 'dispatcher' is specific to undici and not part of the standard Fetch API.
+    fetch(input, { ...init, dispatcher } as RequestInit),
 });
 
 httpClient.addHook("beforeRequest", (request) => {

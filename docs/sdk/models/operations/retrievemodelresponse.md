@@ -18,7 +18,7 @@ const value: shared.ErrorT = {
 
 ```typescript
 const value: shared.Model = {
-  contextLength: 128000,
+  contextLength: 131072,
   created: 1704067200,
   description: "Optimized for high-quality icon and illustration generation",
   id: "arrow-0.5",
@@ -26,7 +26,7 @@ const value: shared.Model = {
     "text",
     "image",
   ],
-  maxOutputLength: 32768,
+  maxOutputLength: 131072,
   name: "Arrow 0.5",
   outputModalities: [
     "svg",

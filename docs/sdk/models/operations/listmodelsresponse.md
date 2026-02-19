@@ -20,7 +20,7 @@ const value: shared.ErrorT = {
 const value: shared.ListModelsResponse = {
   data: [
     {
-      contextLength: 128000,
+      contextLength: 131072,
       created: 1704067200,
       description:
         "Optimized for high-quality icon and illustration generation",
@@ -29,7 +29,7 @@ const value: shared.ListModelsResponse = {
         "text",
         "image",
       ],
-      maxOutputLength: 32768,
+      maxOutputLength: 131072,
       name: "Arrow 0.5",
       outputModalities: [
         "svg",

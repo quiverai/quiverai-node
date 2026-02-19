@@ -59,3 +59,13 @@ Based on:
 - [typescript v0.2.2] .
 ### Releases
 - [NPM v0.2.2] https://www.npmjs.com/package/@quiverai/sdk/v/0.2.2 - .
+
+## 2026-02-19 00:10:00
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.722.2 (2.832.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.3.0] .
+### Releases
+- [NPM v0.3.0] https://www.npmjs.com/package/@quiverai/sdk/v/0.3.0 - .
