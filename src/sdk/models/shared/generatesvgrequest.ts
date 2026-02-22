@@ -12,50 +12,40 @@ import {
 
 export type GenerateSVGRequest = {
   /**
-   * Additional instructions for the model
+   * Additional style or formatting guidance.
    */
   instructions?: string | undefined;
   /**
-   * Maximum tokens in the output
+   * Upper bound for output token count.
    */
   maxOutputTokens?: number | undefined;
   /**
-   * The model to use for generation/editing
+   * Model identifier to use for generation or vectorization.
    */
   model: string;
   /**
-   * Number of SVGs to generate
+   * Number of outputs to generate.
    */
   n?: number | undefined;
   /**
-   * Number between -2.0 and 2.0. Positive values penalize new tokens based on
-   *
-   * @remarks
-   * whether they appear in the text so far, increasing the model's likelihood
-   * to talk about new topics.
+   * Penalty for tokens already present in prior output.
    */
   presencePenalty?: number | null | undefined;
   /**
-   * The main text prompt describing the desired SVG
+   * Primary text prompt that describes the desired SVG.
    */
   prompt: string;
-  /**
-   * Optional reference images to guide style/composition.
-   *
-   * @remarks
-   * Maximum of 4 images.
-   */
   references?: Array<ImageInputReference> | undefined;
   /**
-   * If true, responses are streamed as Server-Sent Events
+   * When true, emits a Server-Sent Events stream.
    */
   stream?: boolean | undefined;
   /**
-   * Sampling temperature
+   * Sampling temperature.
    */
   temperature?: number | undefined;
   /**
-   * Nucleus sampling parameter
+   * Nucleus sampling probability.
    */
   topP?: number | undefined;
 };

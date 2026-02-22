@@ -12,6 +12,6 @@ let value: ImageInputReferenceUrl = {
 
 ## Fields
 
-| Field                                      | Type                                       | Required                                   | Description                                | Example                                    |
-| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| `url`                                      | *string*                                   | :heavy_check_mark:                         | Image URL or base64 data URI               | https://example.com/uploads/reference1.png |
+| Field                                                | Type                                                 | Required                                             | Description                                          | Example                                              |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| `url`                                                | *string*                                             | :heavy_check_mark:                                   | Network image URL. Only http/https URLs are allowed. | https://example.com/uploads/reference1.png           |

@@ -3,16 +3,15 @@
  */
 
 import * as z from "zod/v3";
-import { EventStream } from "../../../lib/event-streams.js";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GenerateSVGResponse =
-  | shared.SVGResponse
-  | shared.ErrorT
-  | EventStream<shared.SVGStreamEvent>;
+  | shared.PublicErrorEnvelope
+  | shared.SvgResponse
+  | string;
 
 /** @internal */
 export const GenerateSVGResponse$inboundSchema: z.ZodType<
@@ -20,15 +19,9 @@ export const GenerateSVGResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  shared.SVGResponse$inboundSchema,
-  shared.ErrorT$inboundSchema,
-  z.instanceof(ReadableStream<Uint8Array>)
-    .transform(stream => {
-      return new EventStream(stream, rawEvent => {
-        if (rawEvent.data === "[DONE]") return { done: true };
-        return { value: shared.SVGStreamEvent$inboundSchema.parse(rawEvent) };
-      });
-    }),
+  shared.PublicErrorEnvelope$inboundSchema,
+  shared.SvgResponse$inboundSchema,
+  z.string(),
 ]);
 
 export function generateSVGResponseFromJSON(

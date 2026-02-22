@@ -14,9 +14,6 @@ import {
   ImageInputReferenceUrl$outboundSchema,
 } from "./imageinputreferenceurl.js";
 
-/**
- * Reference image input (URL or base64-encoded)
- */
 export type ImageInputReference =
   | ImageInputReferenceUrl
   | ImageInputReferenceBase64;

@@ -23,11 +23,10 @@ import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
- * List models
+ * List Models
  *
  * @remarks
- * Lists the currently available Arrow models, providing detailed information
- * about each one including capabilities, pricing, and supported features.
+ * Returns all models available to the authenticated organization.
  */
 export function modelsListModels(
   client: QuiverAICore,
@@ -132,7 +131,8 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, operations.ListModelsResponse$inboundSchema),
-    M.json([401, 429], operations.ListModelsResponse$inboundSchema),
+    M.json([400, 401, 403, 429], operations.ListModelsResponse$inboundSchema),
+    M.json(500, operations.ListModelsResponse$inboundSchema),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];

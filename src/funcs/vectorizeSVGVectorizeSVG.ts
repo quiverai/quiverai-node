@@ -3,7 +3,7 @@
  */
 
 import { QuiverAICore } from "../core.js";
-import { encodeSimple } from "../lib/encodings.js";
+import { encodeJSON } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -21,25 +21,28 @@ import { QuiverAiError } from "../sdk/models/errors/quiveraierror.js";
 import { ResponseValidationError } from "../sdk/models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
+import * as shared from "../sdk/models/shared/index.js";
 import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
+export enum VectorizeSVGAcceptEnum {
+  applicationJson = "application/json",
+  textEventStream = "text/event-stream",
+}
+
 /**
- * Retrieve model
+ * Image to SVG
  *
  * @remarks
- * Retrieves a model instance, providing detailed information about the model
- * including capabilities, pricing, and supported features.
- *
- * This endpoint is compatible with the OpenAI SDK.
+ * Converts an image input into one or more SVG outputs.
  */
-export function modelsRetrieveModel(
+export function vectorizeSVGVectorizeSVG(
   client: QuiverAICore,
-  request: operations.RetrieveModelRequest,
-  options?: RequestOptions,
+  request: shared.VectorizeSVGRequest,
+  options?: RequestOptions & { acceptHeaderOverride?: VectorizeSVGAcceptEnum },
 ): APIPromise<
   Result<
-    operations.RetrieveModelResponse,
+    operations.VectorizeSVGResponse,
     | QuiverAiError
     | ResponseValidationError
     | ConnectionError
@@ -59,12 +62,12 @@ export function modelsRetrieveModel(
 
 async function $do(
   client: QuiverAICore,
-  request: operations.RetrieveModelRequest,
-  options?: RequestOptions,
+  request: shared.VectorizeSVGRequest,
+  options?: RequestOptions & { acceptHeaderOverride?: VectorizeSVGAcceptEnum },
 ): Promise<
   [
     Result<
-      operations.RetrieveModelResponse,
+      operations.VectorizeSVGResponse,
       | QuiverAiError
       | ResponseValidationError
       | ConnectionError
@@ -79,26 +82,21 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.RetrieveModelRequest$outboundSchema.parse(value),
+    (value) => shared.VectorizeSVGRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = null;
+  const body = encodeJSON("body", payload, { explode: true });
 
-  const pathParams = {
-    model: encodeSimple("model", payload.model, {
-      explode: false,
-      charEncoding: "percent",
-    }),
-  };
-
-  const path = pathToFunc("/v1/models/{model}")(pathParams);
+  const path = pathToFunc("/v1/svgs/vectorizations")();
 
   const headers = new Headers(compactMap({
-    Accept: "application/json",
+    "Content-Type": "application/json",
+    Accept: options?.acceptHeaderOverride
+      || "application/json;q=1, text/event-stream;q=0",
   }));
 
   const secConfig = await extractSecurity(client._options.bearerAuth);
@@ -108,7 +106,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "retrieveModel",
+    operationID: "vectorizeSVG",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -122,7 +120,7 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "GET",
+    method: "POST",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -147,7 +145,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.RetrieveModelResponse,
+    operations.VectorizeSVGResponse,
     | QuiverAiError
     | ResponseValidationError
     | ConnectionError
@@ -157,8 +155,15 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.RetrieveModelResponse$inboundSchema),
-    M.json([401, 404, 429], operations.RetrieveModelResponse$inboundSchema),
+    M.json(200, operations.VectorizeSVGResponse$inboundSchema),
+    M.text(200, operations.VectorizeSVGResponse$inboundSchema, {
+      ctype: "text/event-stream",
+    }),
+    M.json(
+      [400, 401, 403, 404, 429],
+      operations.VectorizeSVGResponse$inboundSchema,
+    ),
+    M.json(500, operations.VectorizeSVGResponse$inboundSchema),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];

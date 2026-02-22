@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 
 export type ImageInputReferenceUrl = {
   /**
-   * Image URL or base64 data URI
+   * Network image URL. Only http/https URLs are allowed.
    */
   url: string;
 };

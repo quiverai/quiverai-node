@@ -3,7 +3,7 @@
  */
 
 import { QuiverAICore } from "../core.js";
-import { encodeJSON } from "../lib/encodings.js";
+import { encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -21,39 +21,22 @@ import { QuiverAiError } from "../sdk/models/errors/quiveraierror.js";
 import { ResponseValidationError } from "../sdk/models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
-import * as shared from "../sdk/models/shared/index.js";
 import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
-export enum VectorizeSVGAcceptEnum {
-  applicationJson = "application/json",
-  textEventStream = "text/event-stream",
-}
-
 /**
- * Image to SVG
+ * Get Model
  *
  * @remarks
- * Converts a raster image (PNG, JPEG, WebP) into an SVG graphic.
- * Requires exactly one input image. Supports streaming for real-time
- * progressive rendering.
- *
- * When `stream` is set to `true`, the response uses a two-phase streaming model:
- *
- * 1. **Draft phase** (`draft` events): Raw SVG chunks are streamed
- *    in real-time as the model generates them. These provide immediate visual
- *    feedback but may not be fully optimized.
- *
- * 2. **Content phase** (`content` event): After the draft is complete,
- *    a refined and optimized SVG is sent as the final result with usage statistics.
+ * Returns metadata for a single model.
  */
-export function createSVGsVectorizeSVG(
+export function modelsGetModel(
   client: QuiverAICore,
-  request: shared.VectorizeSVGRequest,
-  options?: RequestOptions & { acceptHeaderOverride?: VectorizeSVGAcceptEnum },
+  request: operations.GetModelRequest,
+  options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.VectorizeSVGResponse,
+    operations.GetModelResponse,
     | QuiverAiError
     | ResponseValidationError
     | ConnectionError
@@ -73,12 +56,12 @@ export function createSVGsVectorizeSVG(
 
 async function $do(
   client: QuiverAICore,
-  request: shared.VectorizeSVGRequest,
-  options?: RequestOptions & { acceptHeaderOverride?: VectorizeSVGAcceptEnum },
+  request: operations.GetModelRequest,
+  options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.VectorizeSVGResponse,
+      operations.GetModelResponse,
       | QuiverAiError
       | ResponseValidationError
       | ConnectionError
@@ -93,21 +76,26 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => shared.VectorizeSVGRequest$outboundSchema.parse(value),
+    (value) => operations.GetModelRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload, { explode: true });
+  const body = null;
 
-  const path = pathToFunc("/v1/svgs/vectorizations")();
+  const pathParams = {
+    model: encodeSimple("model", payload.model, {
+      explode: false,
+      charEncoding: "percent",
+    }),
+  };
+
+  const path = pathToFunc("/v1/models/{model}")(pathParams);
 
   const headers = new Headers(compactMap({
-    "Content-Type": "application/json",
-    Accept: options?.acceptHeaderOverride
-      || "application/json;q=1, text/event-stream;q=0",
+    Accept: "application/json",
   }));
 
   const secConfig = await extractSecurity(client._options.bearerAuth);
@@ -117,7 +105,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "vectorizeSVG",
+    operationID: "getModel",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -131,7 +119,7 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "POST",
+    method: "GET",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -156,7 +144,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.VectorizeSVGResponse,
+    operations.GetModelResponse,
     | QuiverAiError
     | ResponseValidationError
     | ConnectionError
@@ -166,9 +154,12 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.VectorizeSVGResponse$inboundSchema),
-    M.sse(200, operations.VectorizeSVGResponse$inboundSchema),
-    M.json([400, 401, 429], operations.VectorizeSVGResponse$inboundSchema),
+    M.json(200, operations.GetModelResponse$inboundSchema),
+    M.json(
+      [400, 401, 403, 404, 429],
+      operations.GetModelResponse$inboundSchema,
+    ),
+    M.json(500, operations.GetModelResponse$inboundSchema),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];

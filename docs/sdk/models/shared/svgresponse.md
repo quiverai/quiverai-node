@@ -1,18 +1,18 @@
-# SVGResponse
+# SvgResponse
 
 ## Example Usage
 
 ```typescript
-import { SVGResponse } from "@quiverai/sdk/sdk/models/shared";
+import { SvgResponse } from "@quiverai/sdk/sdk/models/shared";
 
-let value: SVGResponse = {
+let value: SvgResponse = {
   created: 1704067200,
   data: [],
-  id: "svg-abc123",
+  id: "resp_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   usage: {
-    inputTokens: 256,
-    outputTokens: 768,
-    totalTokens: 1024,
+    inputTokens: 1200,
+    outputTokens: 440,
+    totalTokens: 1640,
   },
 };
 ```
@@ -21,7 +21,7 @@ let value: SVGResponse = {
 
 | Field                                                             | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `created`                                                         | *number*                                                          | :heavy_check_mark:                                                | Unix timestamp of when the response was created                   | 1704067200                                                        |
-| `data`                                                            | [shared.SVGDocument](../../../sdk/models/shared/svgdocument.md)[] | :heavy_check_mark:                                                | Array of generated SVG documents                                  |                                                                   |
-| `id`                                                              | *string*                                                          | :heavy_check_mark:                                                | A unique identifier for the SVG generation.                       | svg-abc123                                                        |
-| `usage`                                                           | [shared.Usage](../../../sdk/models/shared/usage.md)               | :heavy_minus_sign:                                                | N/A                                                               |                                                                   |
+| `created`                                                         | *number*                                                          | :heavy_check_mark:                                                | N/A                                                               | 1704067200                                                        |
+| `data`                                                            | [shared.SvgDocument](../../../sdk/models/shared/svgdocument.md)[] | :heavy_check_mark:                                                | N/A                                                               |                                                                   |
+| `id`                                                              | *string*                                                          | :heavy_check_mark:                                                | N/A                                                               | resp_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N                                   |
+| `usage`                                                           | [shared.SvgUsage](../../../sdk/models/shared/svgusage.md)         | :heavy_minus_sign:                                                | N/A                                                               |                                                                   |

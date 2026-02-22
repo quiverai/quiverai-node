@@ -9,24 +9,15 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-/**
- * MIME type of the SVG
- */
 export const MimeType = {
   ImageSvgPlusXml: "image/svg+xml",
 } as const;
-/**
- * MIME type of the SVG
- */
 export type MimeType = ClosedEnum<typeof MimeType>;
 
-export type SVGDocument = {
-  /**
-   * MIME type of the SVG
-   */
+export type SvgDocument = {
   mimeType: MimeType;
   /**
-   * The generated SVG markup
+   * Raw SVG markup.
    */
   svg: string;
 };
@@ -36,8 +27,8 @@ export const MimeType$inboundSchema: z.ZodNativeEnum<typeof MimeType> = z
   .nativeEnum(MimeType);
 
 /** @internal */
-export const SVGDocument$inboundSchema: z.ZodType<
-  SVGDocument,
+export const SvgDocument$inboundSchema: z.ZodType<
+  SvgDocument,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -51,10 +42,10 @@ export const SVGDocument$inboundSchema: z.ZodType<
 
 export function svgDocumentFromJSON(
   jsonString: string,
-): SafeParseResult<SVGDocument, SDKValidationError> {
+): SafeParseResult<SvgDocument, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SVGDocument$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SVGDocument' from JSON`,
+    (x) => SvgDocument$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SvgDocument' from JSON`,
   );
 }

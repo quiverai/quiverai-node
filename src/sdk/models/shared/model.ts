@@ -8,92 +8,121 @@ import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Modality, Modality$inboundSchema } from "./modality.js";
-import { ModelPricing, ModelPricing$inboundSchema } from "./modelpricing.js";
-import {
-  SamplingParameter,
-  SamplingParameter$inboundSchema,
-} from "./samplingparameter.js";
-import {
-  SupportedOperation,
-  SupportedOperation$inboundSchema,
-} from "./supportedoperation.js";
 
-/**
- * The object type, always "model" for model objects.
- */
+export const InputModalities = {
+  Text: "text",
+  Image: "image",
+  Svg: "svg",
+} as const;
+export type InputModalities = ClosedEnum<typeof InputModalities>;
+
 export const ModelObject = {
   Model: "model",
 } as const;
-/**
- * The object type, always "model" for model objects.
- */
 export type ModelObject = ClosedEnum<typeof ModelObject>;
 
-/**
- * Describes a QuiverAI model offering that can be used with the API.
- *
- * @remarks
- * This schema is compatible with OpenAI SDK and OpenRouter.
- */
-export type Model = {
-  /**
-   * Maximum context length in tokens.
-   */
-  contextLength?: number | undefined;
-  /**
-   * The Unix timestamp (in seconds) when the model was created.
-   */
-  created: number;
-  /**
-   * A description of the model and its capabilities.
-   */
-  description?: string | undefined;
-  /**
-   * The model identifier, which can be referenced in the API endpoints.
-   */
-  id: string;
-  /**
-   * Input modalities supported by the model.
-   */
-  inputModalities?: Array<Modality> | undefined;
-  /**
-   * Maximum output length in tokens.
-   */
-  maxOutputLength?: number | undefined;
-  /**
-   * Human-readable name of the model.
-   */
-  name?: string | undefined;
-  /**
-   * The object type, always "model" for model objects.
-   */
-  object: ModelObject;
-  /**
-   * Output modalities supported by the model.
-   */
-  outputModalities?: Array<Modality> | undefined;
-  /**
-   * The organization that owns the model.
-   */
-  ownedBy: string;
-  /**
-   * Pricing information for the model (per token, in USD as strings to avoid floating point issues).
-   */
-  pricing?: ModelPricing | undefined;
-  /**
-   * API operations supported by this model.
-   */
-  supportedOperations?: Array<SupportedOperation> | undefined;
-  /**
-   * Sampling parameters supported by the model.
-   */
-  supportedSamplingParameters?: Array<SamplingParameter> | undefined;
+export const OutputModalities = {
+  Text: "text",
+  Image: "image",
+  Svg: "svg",
+} as const;
+export type OutputModalities = ClosedEnum<typeof OutputModalities>;
+
+export type Pricing = {
+  completion: string;
+  image?: string | undefined;
+  inputCacheReads?: string | undefined;
+  inputCacheWrites?: string | undefined;
+  prompt: string;
+  request?: string | undefined;
 };
+
+export const SupportedOperations = {
+  SvgGenerate: "svg_generate",
+  SvgEdit: "svg_edit",
+  SvgAnimate: "svg_animate",
+  SvgVectorize: "svg_vectorize",
+  ChatCompletions: "chat_completions",
+} as const;
+export type SupportedOperations = ClosedEnum<typeof SupportedOperations>;
+
+export const SupportedSamplingParameters = {
+  Temperature: "temperature",
+  TopP: "top_p",
+  TopK: "top_k",
+  RepetitionPenalty: "repetition_penalty",
+  PresencePenalty: "presence_penalty",
+  Stop: "stop",
+} as const;
+export type SupportedSamplingParameters = ClosedEnum<
+  typeof SupportedSamplingParameters
+>;
+
+export type Model = {
+  contextLength?: number | undefined;
+  created: number;
+  description?: string | undefined;
+  id: string;
+  inputModalities?: Array<InputModalities> | undefined;
+  maxOutputLength?: number | undefined;
+  name?: string | undefined;
+  object: ModelObject;
+  outputModalities?: Array<OutputModalities> | undefined;
+  ownedBy: string;
+  pricing?: Pricing | undefined;
+  supportedOperations?: Array<SupportedOperations> | undefined;
+  supportedSamplingParameters?: Array<SupportedSamplingParameters> | undefined;
+};
+
+/** @internal */
+export const InputModalities$inboundSchema: z.ZodNativeEnum<
+  typeof InputModalities
+> = z.nativeEnum(InputModalities);
 
 /** @internal */
 export const ModelObject$inboundSchema: z.ZodNativeEnum<typeof ModelObject> = z
   .nativeEnum(ModelObject);
+
+/** @internal */
+export const OutputModalities$inboundSchema: z.ZodNativeEnum<
+  typeof OutputModalities
+> = z.nativeEnum(OutputModalities);
+
+/** @internal */
+export const Pricing$inboundSchema: z.ZodType<Pricing, z.ZodTypeDef, unknown> =
+  z.object({
+    completion: z.string(),
+    image: z.string().optional(),
+    input_cache_reads: z.string().optional(),
+    input_cache_writes: z.string().optional(),
+    prompt: z.string(),
+    request: z.string().optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      "input_cache_reads": "inputCacheReads",
+      "input_cache_writes": "inputCacheWrites",
+    });
+  });
+
+export function pricingFromJSON(
+  jsonString: string,
+): SafeParseResult<Pricing, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Pricing$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Pricing' from JSON`,
+  );
+}
+
+/** @internal */
+export const SupportedOperations$inboundSchema: z.ZodNativeEnum<
+  typeof SupportedOperations
+> = z.nativeEnum(SupportedOperations);
+
+/** @internal */
+export const SupportedSamplingParameters$inboundSchema: z.ZodNativeEnum<
+  typeof SupportedSamplingParameters
+> = z.nativeEnum(SupportedSamplingParameters);
 
 /** @internal */
 export const Model$inboundSchema: z.ZodType<Model, z.ZodTypeDef, unknown> = z
@@ -102,16 +131,17 @@ export const Model$inboundSchema: z.ZodType<Model, z.ZodTypeDef, unknown> = z
     created: z.number().int(),
     description: z.string().optional(),
     id: z.string(),
-    input_modalities: z.array(Modality$inboundSchema).optional(),
+    input_modalities: z.array(InputModalities$inboundSchema).optional(),
     max_output_length: z.number().int().optional(),
     name: z.string().optional(),
-    object: ModelObject$inboundSchema.default("model"),
-    output_modalities: z.array(Modality$inboundSchema).optional(),
-    owned_by: z.string().default("quiver"),
-    pricing: ModelPricing$inboundSchema.optional(),
-    supported_operations: z.array(SupportedOperation$inboundSchema).optional(),
-    supported_sampling_parameters: z.array(SamplingParameter$inboundSchema)
-      .optional(),
+    object: ModelObject$inboundSchema,
+    output_modalities: z.array(OutputModalities$inboundSchema).optional(),
+    owned_by: z.string(),
+    pricing: z.lazy(() => Pricing$inboundSchema).optional(),
+    supported_operations: z.array(SupportedOperations$inboundSchema).optional(),
+    supported_sampling_parameters: z.array(
+      SupportedSamplingParameters$inboundSchema,
+    ).optional(),
   }).transform((v) => {
     return remap$(v, {
       "context_length": "contextLength",

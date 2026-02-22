@@ -1,7 +1,5 @@
 # ModelObject
 
-The object type, always "model" for model objects.
-
 ## Example Usage
 
 ```typescript

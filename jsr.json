@@ -2,7 +2,7 @@
 
 {
   "name": "@quiverai/sdk",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "exports": {
     ".": "./src/index.ts",    
     "./sdk/models/errors": "./src/sdk/models/errors/index.ts",    
@@ -12,7 +12,6 @@
     "./lib/http": "./src/lib/http.ts",
     "./lib/retries": "./src/lib/retries.ts",
     "./lib/sdks": "./src/lib/sdks.ts",
-    "./lib/event-streams": "./src/lib/event-streams.ts",
     "./types": "./src/sdk/types/index.ts"
   },
   "publish": {

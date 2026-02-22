@@ -13,10 +13,7 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 <!-- Start Summary [summary] -->
 ## Summary
 
-QuiverAI API: The QuiverAI API enables developers to generate and edit SVG graphics using AI,
-as well as create chat completions with OpenAI-compatible endpoints.
-The API provides endpoints for model discovery, chat completions, and SVG generation/editing
-with support for streaming responses.
+QuiverAI API: The QuiverAI API enables developers to generate and edit SVG graphics using AI, with support for streaming responses and model discovery.
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -29,7 +26,6 @@ with support for streaming responses.
   * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Standalone functions](#standalone-functions)
-  * [Server-sent event streaming](#server-sent-event-streaming)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
@@ -93,7 +89,9 @@ const quiverAI = new QuiverAI({
 });
 
 async function run() {
-  const result = await quiverAI.models.listModels();
+  const result = await quiverAI.models.getModel({
+    model: "arrow-0.5",
+  });
 
   console.log(result);
 }
@@ -123,7 +121,9 @@ const quiverAI = new QuiverAI({
 });
 
 async function run() {
-  const result = await quiverAI.models.listModels();
+  const result = await quiverAI.models.getModel({
+    model: "arrow-0.5",
+  });
 
   console.log(result);
 }
@@ -142,12 +142,15 @@ run();
 ### [CreateSVGs](docs/sdks/createsvgs/README.md)
 
 * [generateSVG](docs/sdks/createsvgs/README.md#generatesvg) - Text to SVG
-* [vectorizeSVG](docs/sdks/createsvgs/README.md#vectorizesvg) - Image to SVG
 
 ### [Models](docs/sdks/models/README.md)
 
-* [listModels](docs/sdks/models/README.md#listmodels) - List models
-* [retrieveModel](docs/sdks/models/README.md#retrievemodel) - Retrieve model
+* [getModel](docs/sdks/models/README.md#getmodel) - Get Model
+* [listModels](docs/sdks/models/README.md#listmodels) - List Models
+
+### [VectorizeSVG](docs/sdks/vectorizesvg/README.md)
+
+* [vectorizeSVG](docs/sdks/vectorizesvg/README.md#vectorizesvg) - Image to SVG
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -168,46 +171,12 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 <summary>Available standalone functions</summary>
 
 - [`createSVGsGenerateSVG`](docs/sdks/createsvgs/README.md#generatesvg) - Text to SVG
-- [`createSVGsVectorizeSVG`](docs/sdks/createsvgs/README.md#vectorizesvg) - Image to SVG
-- [`modelsListModels`](docs/sdks/models/README.md#listmodels) - List models
-- [`modelsRetrieveModel`](docs/sdks/models/README.md#retrievemodel) - Retrieve model
+- [`modelsGetModel`](docs/sdks/models/README.md#getmodel) - Get Model
+- [`modelsListModels`](docs/sdks/models/README.md#listmodels) - List Models
+- [`vectorizeSVGVectorizeSVG`](docs/sdks/vectorizesvg/README.md#vectorizesvg) - Image to SVG
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
-
-<!-- Start Server-sent event streaming [eventstream] -->
-## Server-sent event streaming
-
-[Server-sent events][mdn-sse] are used to stream content from certain
-operations. These operations will expose the stream as an async iterable that
-can be consumed using a [`for await...of`][mdn-for-await-of] loop. The loop will
-terminate when the server no longer has any events to send and closes the
-underlying connection.
-
-```typescript
-import { QuiverAI } from "@quiverai/sdk";
-
-const quiverAI = new QuiverAI({
-  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
-});
-
-async function run() {
-  const result = await quiverAI.createSVGs.generateSVG({
-    model: "arrow-0.5",
-    prompt: "Generate an icon of a unicorn",
-    temperature: 0.8,
-  });
-
-  console.log(result);
-}
-
-run();
-
-```
-
-[mdn-sse]: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
-[mdn-for-await-of]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of
-<!-- End Server-sent event streaming [eventstream] -->
 
 <!-- Start Retries [retries] -->
 ## Retries
@@ -223,7 +192,9 @@ const quiverAI = new QuiverAI({
 });
 
 async function run() {
-  const result = await quiverAI.models.listModels({
+  const result = await quiverAI.models.getModel({
+    model: "arrow-0.5",
+  }, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -262,7 +233,9 @@ const quiverAI = new QuiverAI({
 });
 
 async function run() {
-  const result = await quiverAI.models.listModels();
+  const result = await quiverAI.models.getModel({
+    model: "arrow-0.5",
+  });
 
   console.log(result);
 }
@@ -296,7 +269,9 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   try {
-    const result = await quiverAI.models.listModels();
+    const result = await quiverAI.models.getModel({
+      model: "arrow-0.5",
+    });
 
     console.log(result);
   } catch (error) {
@@ -350,7 +325,9 @@ const quiverAI = new QuiverAI({
 });
 
 async function run() {
-  const result = await quiverAI.models.listModels();
+  const result = await quiverAI.models.getModel({
+    model: "arrow-0.5",
+  });
 
   console.log(result);
 }
@@ -373,19 +350,23 @@ The `HTTPClient` constructor takes an optional `fetcher` argument that can be
 used to integrate a third-party HTTP client or when writing tests to mock out
 the HTTP client and feed in fixtures.
 
-The following example shows how to use the `"beforeRequest"` hook to to add a
-custom header and a timeout to requests and how to use the `"requestError"` hook
-to log errors:
+The following example shows how to:
+- route requests through a proxy server using [undici](https://www.npmjs.com/package/undici)'s ProxyAgent
+- use the `"beforeRequest"` hook to add a custom header and a timeout to requests
+- use the `"requestError"` hook to log errors
 
 ```typescript
 import { QuiverAI } from "@quiverai/sdk";
+import { ProxyAgent } from "undici";
 import { HTTPClient } from "@quiverai/sdk/lib/http";
 
+const dispatcher = new ProxyAgent("http://proxy.example.com:8080");
+
 const httpClient = new HTTPClient({
-  // fetcher takes a function that has the same signature as native `fetch`.
-  fetcher: (request) => {
-    return fetch(request);
-  }
+  // 'fetcher' takes a function that has the same signature as native 'fetch'.
+  fetcher: (input, init) =>
+    // 'dispatcher' is specific to undici and not part of the standard Fetch API.
+    fetch(input, { ...init, dispatcher } as RequestInit),
 });
 
 httpClient.addHook("beforeRequest", (request) => {

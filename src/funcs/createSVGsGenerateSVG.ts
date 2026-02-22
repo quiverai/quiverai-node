@@ -34,11 +34,7 @@ export enum GenerateSVGAcceptEnum {
  * Text to SVG
  *
  * @remarks
- * Generates one or more SVG graphics based on a text prompt and optional
- * reference images. Supports streaming for real-time progressive rendering.
- *
- * When `stream` is set to `true`, the response will be sent as Server-Sent
- * Events (SSE) with partial SVG updates followed by a final completion event.
+ * Generates one or more SVGs from a prompt and optional references.
  */
 export function createSVGsGenerateSVG(
   client: QuiverAICore,
@@ -160,8 +156,14 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, operations.GenerateSVGResponse$inboundSchema),
-    M.sse(200, operations.GenerateSVGResponse$inboundSchema),
-    M.json([400, 401, 429], operations.GenerateSVGResponse$inboundSchema),
+    M.text(200, operations.GenerateSVGResponse$inboundSchema, {
+      ctype: "text/event-stream",
+    }),
+    M.json(
+      [400, 401, 403, 404, 429],
+      operations.GenerateSVGResponse$inboundSchema,
+    ),
+    M.json(500, operations.GenerateSVGResponse$inboundSchema),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
