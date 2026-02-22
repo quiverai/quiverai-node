@@ -8,7 +8,7 @@ dotenv.config();
  * Example usage of the @quiverai/sdk SDK
  *
  * To run this example from the examples directory:
- * npm run build && npx tsx modelsListModels.example.ts
+ * npm run build && npx tsx modelsGetModel.example.ts
  */
 
 import { QuiverAI } from "@quiverai/sdk";
@@ -18,7 +18,9 @@ const quiverAI = new QuiverAI({
 });
 
 async function main() {
-  const result = await quiverAI.models.listModels();
+  const result = await quiverAI.models.getModel({
+    model: "arrow-0.5",
+  });
 
   console.log(result);
 }

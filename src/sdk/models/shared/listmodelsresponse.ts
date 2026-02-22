@@ -9,28 +9,13 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Model, Model$inboundSchema } from "./model.js";
 
-/**
- * The object type, always "list" for list responses.
- */
 export const ObjectT = {
   List: "list",
 } as const;
-/**
- * The object type, always "list" for list responses.
- */
 export type ObjectT = ClosedEnum<typeof ObjectT>;
 
-/**
- * Response containing a list of available models. Compatible with OpenAI SDK.
- */
 export type ListModelsResponse = {
-  /**
-   * Array of model objects.
-   */
   data: Array<Model>;
-  /**
-   * The object type, always "list" for list responses.
-   */
   object: ObjectT;
 };
 
@@ -45,7 +30,7 @@ export const ListModelsResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   data: z.array(Model$inboundSchema),
-  object: ObjectT$inboundSchema.default("list"),
+  object: ObjectT$inboundSchema,
 });
 
 export function listModelsResponseFromJSON(

@@ -1,7 +1,5 @@
 # ObjectT
 
-The object type, always "list" for list responses.
-
 ## Example Usage
 
 ```typescript

@@ -3,31 +3,35 @@
 
 ## Supported Types
 
-### `shared.ErrorT`
+### `shared.PublicErrorEnvelope`
 
 ```typescript
-const value: shared.ErrorT = {
-  code: "invalid_api_key",
-  message: "Invalid API key provided",
-  param: "api_key",
-  type: "invalid_request_error",
+const value: shared.PublicErrorEnvelope = {
+  code: "account_frozen",
+  message: "<value>",
+  requestId: "<id>",
+  status: 474294,
 };
 ```
 
-### `shared.SVGResponse`
+### `shared.SvgResponse`
 
 ```typescript
-const value: shared.SVGResponse = {
+const value: shared.SvgResponse = {
   created: 1704067200,
   data: [],
-  id: "svg-abc123",
+  id: "resp_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   usage: {
-    inputTokens: 256,
-    outputTokens: 768,
-    totalTokens: 1024,
+    inputTokens: 1200,
+    outputTokens: 440,
+    totalTokens: 1640,
   },
 };
 ```
 
-### `EventStream<shared.SVGStreamEvent>`
+### `string`
+
+```typescript
+const value: string = "<value>";
+```
 

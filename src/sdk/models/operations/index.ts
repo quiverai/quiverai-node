@@ -3,6 +3,6 @@
  */
 
 export * from "./generatesvg.js";
+export * from "./getmodel.js";
 export * from "./listmodels.js";
-export * from "./retrievemodel.js";
 export * from "./vectorizesvg.js";

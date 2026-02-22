@@ -7,7 +7,9 @@ const quiverAI = new QuiverAI({
 });
 
 async function run() {
-  const result = await quiverAI.models.listModels();
+  const result = await quiverAI.models.getModel({
+    model: "arrow-0.5",
+  });
 
   console.log(result);
 }

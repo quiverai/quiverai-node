@@ -1,7 +1,5 @@
 # MimeType
 
-MIME type of the SVG
-
 ## Example Usage
 
 ```typescript

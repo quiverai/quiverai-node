@@ -6,43 +6,34 @@ import * as z from "zod/v3";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { SVGDocument, SVGDocument$inboundSchema } from "./svgdocument.js";
-import { Usage, Usage$inboundSchema } from "./usage.js";
+import { SvgDocument, SvgDocument$inboundSchema } from "./svgdocument.js";
+import { SvgUsage, SvgUsage$inboundSchema } from "./svgusage.js";
 
-export type SVGResponse = {
-  /**
-   * Unix timestamp of when the response was created
-   */
+export type SvgResponse = {
   created: number;
-  /**
-   * Array of generated SVG documents
-   */
-  data: Array<SVGDocument>;
-  /**
-   * A unique identifier for the SVG generation.
-   */
+  data: Array<SvgDocument>;
   id: string;
-  usage?: Usage | undefined;
+  usage?: SvgUsage | undefined;
 };
 
 /** @internal */
-export const SVGResponse$inboundSchema: z.ZodType<
-  SVGResponse,
+export const SvgResponse$inboundSchema: z.ZodType<
+  SvgResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
   created: z.number().int(),
-  data: z.array(SVGDocument$inboundSchema),
+  data: z.array(SvgDocument$inboundSchema),
   id: z.string(),
-  usage: Usage$inboundSchema.optional(),
+  usage: SvgUsage$inboundSchema.optional(),
 });
 
 export function svgResponseFromJSON(
   jsonString: string,
-): SafeParseResult<SVGResponse, SDKValidationError> {
+): SafeParseResult<SvgResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SVGResponse$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SVGResponse' from JSON`,
+    (x) => SvgResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SvgResponse' from JSON`,
   );
 }

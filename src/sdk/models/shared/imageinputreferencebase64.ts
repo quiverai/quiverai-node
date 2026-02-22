@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 
 export type ImageInputReferenceBase64 = {
   /**
-   * Base64-encoded image data
+   * Base64-encoded image payload.
    */
   base64: string;
 };

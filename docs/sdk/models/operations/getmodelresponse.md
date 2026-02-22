@@ -1,21 +1,16 @@
-# ListModelsResponse
+# GetModelResponse
 
 
 ## Supported Types
 
-### `shared.ListModelsResponse`
+### `shared.Model`
 
 ```typescript
-const value: shared.ListModelsResponse = {
-  data: [
-    {
-      created: 840036,
-      id: "<id>",
-      object: "model",
-      ownedBy: "<value>",
-    },
-  ],
-  object: "list",
+const value: shared.Model = {
+  created: 958093,
+  id: "<id>",
+  object: "model",
+  ownedBy: "<value>",
 };
 ```
 

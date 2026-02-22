@@ -1,7 +1,5 @@
 # ImageInputReference
 
-Reference image input (URL or base64-encoded)
-
 
 ## Supported Types
 

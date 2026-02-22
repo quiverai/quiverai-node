@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { QuiverAICore } from "@quiverai/sdk/core.js";
-import { modelsListModels } from "@quiverai/sdk/funcs/modelsListModels.js";
+import { modelsGetModel } from "@quiverai/sdk/funcs/modelsGetModel.js";
 
 // Use `QuiverAICore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -29,12 +29,14 @@ const quiverAI = new QuiverAICore({
 });
 
 async function run() {
-  const res = await modelsListModels(quiverAI);
+  const res = await modelsGetModel(quiverAI, {
+    model: "arrow-0.5",
+  });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("modelsListModels failed:", res.error);
+    console.log("modelsGetModel failed:", res.error);
   }
 }
 

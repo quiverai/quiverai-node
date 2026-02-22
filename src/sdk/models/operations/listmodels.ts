@@ -8,7 +8,9 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
-export type ListModelsResponse = shared.ErrorT | shared.ListModelsResponse;
+export type ListModelsResponse =
+  | shared.PublicErrorEnvelope
+  | shared.ListModelsResponse;
 
 /** @internal */
 export const ListModelsResponse$inboundSchema: z.ZodType<
@@ -16,7 +18,7 @@ export const ListModelsResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  shared.ErrorT$inboundSchema,
+  shared.PublicErrorEnvelope$inboundSchema,
   shared.ListModelsResponse$inboundSchema,
 ]);
 

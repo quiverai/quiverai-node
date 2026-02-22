@@ -12,48 +12,40 @@ import {
 
 export type VectorizeSVGRequest = {
   /**
-   * If true, the image is automatically cropped to the subject before vectorization.
-   *
-   * @remarks
-   * This can improve results for images with large amounts of empty space or
-   * distracting backgrounds. We generally recommend users to crop their images
-   * manually for best results.
+   * Auto-crop image to the dominant subject before vectorization.
    */
   autoCrop?: boolean | undefined;
-  /**
-   * Reference image input (URL or base64-encoded)
-   */
   image: ImageInputReference;
   /**
-   * Maximum tokens in the output
+   * Upper bound for output token count.
    */
   maxOutputTokens?: number | undefined;
   /**
-   * The model to use for generation/editing
+   * Model identifier to use for generation or vectorization.
    */
   model: string;
   /**
-   * Number of SVGs to generate
+   * Number of outputs to generate.
    */
   n?: number | undefined;
   /**
-   * Number between -2.0 and 2.0. Positive values penalize new tokens based on
-   *
-   * @remarks
-   * whether they appear in the text so far, increasing the model's likelihood
-   * to talk about new topics.
+   * Penalty for tokens already present in prior output.
    */
   presencePenalty?: number | null | undefined;
   /**
-   * If true, responses are streamed as Server-Sent Events
+   * When true, emits a Server-Sent Events stream.
    */
   stream?: boolean | undefined;
   /**
-   * Sampling temperature
+   * Square resize target in pixels before inference.
+   */
+  targetSize?: number | undefined;
+  /**
+   * Sampling temperature.
    */
   temperature?: number | undefined;
   /**
-   * Nucleus sampling parameter
+   * Nucleus sampling probability.
    */
   topP?: number | undefined;
 };
@@ -67,6 +59,7 @@ export type VectorizeSVGRequest$Outbound = {
   n: number;
   presence_penalty: number | null;
   stream: boolean;
+  target_size?: number | undefined;
   temperature: number;
   top_p: number;
 };
@@ -84,6 +77,7 @@ export const VectorizeSVGRequest$outboundSchema: z.ZodType<
   n: z.number().int().default(1),
   presencePenalty: z.nullable(z.number().default(0)),
   stream: z.boolean().default(false),
+  targetSize: z.number().int().optional(),
   temperature: z.number().default(1),
   topP: z.number().default(1),
 }).transform((v) => {
@@ -91,6 +85,7 @@ export const VectorizeSVGRequest$outboundSchema: z.ZodType<
     autoCrop: "auto_crop",
     maxOutputTokens: "max_output_tokens",
     presencePenalty: "presence_penalty",
+    targetSize: "target_size",
     topP: "top_p",
   });
 });
