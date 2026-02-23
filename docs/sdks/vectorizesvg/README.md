@@ -93,7 +93,7 @@ async function run() {
     image: {
       url: "https://example.com/uploads/logo.png",
     },
-    model: "arrow-0.5",
+    model: "arrow-preview",
     temperature: 0.8,
   });
 
@@ -123,7 +123,7 @@ async function run() {
     image: {
       url: "https://example.com/uploads/logo.png",
     },
-    model: "arrow-0.5",
+    model: "arrow-preview",
     temperature: 0.8,
   });
   if (res.ok) {

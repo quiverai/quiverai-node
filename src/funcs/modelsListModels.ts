@@ -132,7 +132,7 @@ async function $do(
   >(
     M.json(200, operations.ListModelsResponse$inboundSchema),
     M.json([400, 401, 403, 429], operations.ListModelsResponse$inboundSchema),
-    M.json(500, operations.ListModelsResponse$inboundSchema),
+    M.json([500, 503], operations.ListModelsResponse$inboundSchema),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];

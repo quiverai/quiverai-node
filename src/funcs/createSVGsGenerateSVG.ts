@@ -163,7 +163,7 @@ async function $do(
       [400, 401, 403, 404, 429],
       operations.GenerateSVGResponse$inboundSchema,
     ),
-    M.json(500, operations.GenerateSVGResponse$inboundSchema),
+    M.json([500, 503], operations.GenerateSVGResponse$inboundSchema),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
