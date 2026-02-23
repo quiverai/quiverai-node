@@ -11,7 +11,7 @@ let value: VectorizeSVGRequest = {
     url: "https://example.com/uploads/reference1.png",
   },
   maxOutputTokens: 4096,
-  model: "arrow-0.5",
+  model: "arrow-preview",
   presencePenalty: 0.2,
   targetSize: 1024,
   temperature: 0.4,
@@ -26,7 +26,7 @@ let value: VectorizeSVGRequest = {
 | `autoCrop`                                                    | *boolean*                                                     | :heavy_minus_sign:                                            | Auto-crop image to the dominant subject before vectorization. | true                                                          |
 | `image`                                                       | *shared.ImageInputReference*                                  | :heavy_check_mark:                                            | N/A                                                           |                                                               |
 | `maxOutputTokens`                                             | *number*                                                      | :heavy_minus_sign:                                            | Upper bound for output token count.                           | 4096                                                          |
-| `model`                                                       | *string*                                                      | :heavy_check_mark:                                            | Model identifier to use for generation or vectorization.      | arrow-0.5                                                     |
+| `model`                                                       | *string*                                                      | :heavy_check_mark:                                            | Model identifier to use for generation or vectorization.      | arrow-preview                                                 |
 | `n`                                                           | *number*                                                      | :heavy_minus_sign:                                            | Number of outputs to generate.                                | 1                                                             |
 | `presencePenalty`                                             | *number*                                                      | :heavy_minus_sign:                                            | Penalty for tokens already present in prior output.           | 0.2                                                           |
 | `stream`                                                      | *boolean*                                                     | :heavy_minus_sign:                                            | When true, emits a Server-Sent Events stream.                 | false                                                         |

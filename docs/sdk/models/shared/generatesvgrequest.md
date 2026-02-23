@@ -8,7 +8,7 @@ import { GenerateSVGRequest } from "@quiverai/sdk/sdk/models/shared";
 let value: GenerateSVGRequest = {
   instructions: "Use a flat monochrome style with clean geometry.",
   maxOutputTokens: 4096,
-  model: "arrow-0.5",
+  model: "arrow-preview",
   presencePenalty: 0.2,
   prompt: "Generate an icon of a unicorn",
   references: [
@@ -27,7 +27,7 @@ let value: GenerateSVGRequest = {
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `instructions`                                           | *string*                                                 | :heavy_minus_sign:                                       | Additional style or formatting guidance.                 | Use a flat monochrome style with clean geometry.         |
 | `maxOutputTokens`                                        | *number*                                                 | :heavy_minus_sign:                                       | Upper bound for output token count.                      | 4096                                                     |
-| `model`                                                  | *string*                                                 | :heavy_check_mark:                                       | Model identifier to use for generation or vectorization. | arrow-0.5                                                |
+| `model`                                                  | *string*                                                 | :heavy_check_mark:                                       | Model identifier to use for generation or vectorization. | arrow-preview                                            |
 | `n`                                                      | *number*                                                 | :heavy_minus_sign:                                       | Number of outputs to generate.                           | 1                                                        |
 | `presencePenalty`                                        | *number*                                                 | :heavy_minus_sign:                                       | Penalty for tokens already present in prior output.      | 0.2                                                      |
 | `prompt`                                                 | *string*                                                 | :heavy_check_mark:                                       | Primary text prompt that describes the desired SVG.      | Generate an icon of a unicorn                            |

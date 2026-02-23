@@ -159,7 +159,7 @@ async function $do(
       [400, 401, 403, 404, 429],
       operations.GetModelResponse$inboundSchema,
     ),
-    M.json(500, operations.GetModelResponse$inboundSchema),
+    M.json([500, 503], operations.GetModelResponse$inboundSchema),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
