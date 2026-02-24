@@ -7,7 +7,7 @@
 
 ```typescript
 const value: shared.PublicErrorEnvelope = {
-  code: "account_frozen",
+  code: "insufficient_credits",
   message: "<value>",
   requestId: "<id>",
   status: 474294,
@@ -29,9 +29,5 @@ const value: shared.SvgResponse = {
 };
 ```
 
-### `string`
-
-```typescript
-const value: string = "<value>";
-```
+### `EventStream<shared.SvgStreamEvent>`
 

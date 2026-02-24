@@ -6,7 +6,7 @@
 import { PublicErrorEnvelope } from "@quiverai/sdk/sdk/models/shared";
 
 let value: PublicErrorEnvelope = {
-  code: "account_frozen",
+  code: "insufficient_credits",
   message: "<value>",
   requestId: "<id>",
   status: 474294,

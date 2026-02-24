@@ -26,6 +26,7 @@ QuiverAI API: The QuiverAI API enables developers to generate and edit SVG graph
   * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Standalone functions](#standalone-functions)
+  * [Server-sent event streaming](#server-sent-event-streaming)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
@@ -177,6 +178,40 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
+
+<!-- Start Server-sent event streaming [eventstream] -->
+## Server-sent event streaming
+
+[Server-sent events][mdn-sse] are used to stream content from certain
+operations. These operations will expose the stream as an async iterable that
+can be consumed using a [`for await...of`][mdn-for-await-of] loop. The loop will
+terminate when the server no longer has any events to send and closes the
+underlying connection.
+
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    model: "arrow-preview",
+    prompt: "Generate an icon of a unicorn",
+    temperature: 0.8,
+  });
+
+  console.log(result);
+}
+
+run();
+
+```
+
+[mdn-sse]: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
+[mdn-for-await-of]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of
+<!-- End Server-sent event streaming [eventstream] -->
 
 <!-- Start Retries [retries] -->
 ## Retries

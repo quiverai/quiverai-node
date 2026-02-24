@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v3";
+import { EventStream } from "../../../lib/event-streams.js";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -11,7 +12,7 @@ import * as shared from "../shared/index.js";
 export type VectorizeSVGResponse =
   | shared.PublicErrorEnvelope
   | shared.SvgResponse
-  | string;
+  | EventStream<shared.SvgStreamEvent>;
 
 /** @internal */
 export const VectorizeSVGResponse$inboundSchema: z.ZodType<
@@ -21,7 +22,12 @@ export const VectorizeSVGResponse$inboundSchema: z.ZodType<
 > = z.union([
   shared.PublicErrorEnvelope$inboundSchema,
   shared.SvgResponse$inboundSchema,
-  z.string(),
+  z.instanceof(ReadableStream<Uint8Array>)
+    .transform(stream => {
+      return new EventStream(stream, rawEvent => {
+        return { value: shared.SvgStreamEvent$inboundSchema.parse(rawEvent) };
+      });
+    }),
 ]);
 
 export function vectorizeSVGResponseFromJSON(

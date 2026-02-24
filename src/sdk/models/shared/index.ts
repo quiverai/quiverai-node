@@ -12,5 +12,7 @@ export * from "./publicerrorenvelope.js";
 export * from "./security.js";
 export * from "./svgdocument.js";
 export * from "./svgresponse.js";
+export * from "./svgstreamevent.js";
+export * from "./svgstreameventdata.js";
 export * from "./svgusage.js";
 export * from "./vectorizesvgrequest.js";
