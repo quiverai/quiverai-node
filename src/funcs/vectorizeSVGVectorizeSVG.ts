@@ -156,14 +156,12 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, operations.VectorizeSVGResponse$inboundSchema),
-    M.text(200, operations.VectorizeSVGResponse$inboundSchema, {
-      ctype: "text/event-stream",
-    }),
+    M.sse(200, operations.VectorizeSVGResponse$inboundSchema),
     M.json(
-      [400, 401, 403, 404, 429],
+      [400, 401, 402, 403, 404, 429],
       operations.VectorizeSVGResponse$inboundSchema,
     ),
-    M.json([500, 503], operations.VectorizeSVGResponse$inboundSchema),
+    M.json([500, 502, 503], operations.VectorizeSVGResponse$inboundSchema),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];

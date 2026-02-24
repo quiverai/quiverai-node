@@ -23,7 +23,7 @@ const value: shared.ListModelsResponse = {
 
 ```typescript
 const value: shared.PublicErrorEnvelope = {
-  code: "account_frozen",
+  code: "insufficient_credits",
   message: "<value>",
   requestId: "<id>",
   status: 474294,

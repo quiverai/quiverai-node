@@ -156,10 +156,10 @@ async function $do(
   >(
     M.json(200, operations.GetModelResponse$inboundSchema),
     M.json(
-      [400, 401, 403, 404, 429],
+      [400, 401, 402, 403, 404, 429],
       operations.GetModelResponse$inboundSchema,
     ),
-    M.json([500, 503], operations.GetModelResponse$inboundSchema),
+    M.json([500, 502, 503], operations.GetModelResponse$inboundSchema),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
