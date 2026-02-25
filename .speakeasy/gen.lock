@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 0f33c9fc-1c93-4296-9792-fbb1c4caef92
 management:
-  docChecksum: 545bbe830757f8e44c5cf2364ec20e29
+  docChecksum: 067a76b92cfb1aa46361dacef3e2ee55
   docVersion: 1.0.0
-  speakeasyVersion: 1.727.0
+  speakeasyVersion: 1.728.0
   generationVersion: 2.839.0
-  releaseVersion: 0.4.0
-  configChecksum: 533622ed60ffd87ac6b7c2fffbb48323
+  releaseVersion: 0.4.1
+  configChecksum: 6e77367fde67729f6121bd33100b2f74
   repoURL: https://github.com/quiverai/quiverai-node.git
   installationURL: https://github.com/quiverai/quiverai-node
   published: true
 persistentEdits:
-  generation_id: f2393bdb-b87b-41c2-98b4-adb555a649e7
-  pristine_commit_hash: 6eb6b5eeb66e8354c6d3db3b03dca2b97df858aa
-  pristine_tree_hash: 257d722a091f94dc80743459182c63134b2fa6b8
+  generation_id: cdde6030-217b-46eb-be5b-2755b33c5720
+  pristine_commit_hash: 101adea082e98790cafeff6cb39194e546431133
+  pristine_tree_hash: 9d08f82b1ab73e816d9d9f8bbd9ac48ee75e864f
 features:
   typescript:
     acceptHeaders: 2.81.2
@@ -81,8 +81,8 @@ trackedFiles:
     pristine_git_object: 64c1cdb3c209599899a594fd2729bad01e83766c
   docs/sdk/models/shared/code.md:
     id: 476a2901930a
-    last_write_checksum: sha1:7bf7cb940af3157292fd8978b68a60a5e4217246
-    pristine_git_object: 734ccc478eb5ecc08203fbdf6445553f389d67bd
+    last_write_checksum: sha1:29e8a72839918a9ab75650975576332f4a26ea7b
+    pristine_git_object: 4764b20bd936063b314d1d2cdf6dd7e0ca0b7616
   docs/sdk/models/shared/event.md:
     id: f90780173068
     last_write_checksum: sha1:fe4ede7f6b33f00b5c5f62b395ddd7d63632abcf
@@ -213,12 +213,12 @@ trackedFiles:
     pristine_git_object: cc173cc598005ddf714e2215e0304c0ab85583a9
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:5712cc130956c50f41b93dbf0c5a5293cab0787e
-    pristine_git_object: b1ee2b206802c3370f678abb86db97acbd4d7cff
+    last_write_checksum: sha1:216aec4a3456effa9141eaf79502a0ee9a6410ca
+    pristine_git_object: f2ba418eec18785e0037c41913ab1f9cae92b228
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:4db7de3ab540e30d1adc40c189fa9c56778e08c7
-    pristine_git_object: 2ffef5b8cac67312e22326a1e2c8f42307cf2d19
+    last_write_checksum: sha1:76799d5d99dc22df9bb532d05c8ee679177f2971
+    pristine_git_object: 1f9f8e1ae90557bb8e67fd83e34279db131b7e1b
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:f68eeda1706ded6626e158d7a1e7bda00e0e71e2
@@ -261,8 +261,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:8d66cad06402d44ad9d069e18b002d985f66a358
-    pristine_git_object: a1999d59daf88c9d19592f787b4de18a51349575
+    last_write_checksum: sha1:5400e0378777625aeeccb174508b665a196b72be
+    pristine_git_object: 522ac8251815f5b9de24b553388dc09334648411
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -405,8 +405,8 @@ trackedFiles:
     pristine_git_object: 7ed157106954d76658c99eea09165fed3514f8db
   src/sdk/models/shared/publicerrorenvelope.ts:
     id: 5406176b09ff
-    last_write_checksum: sha1:9554f8f8b590ba494ad8d547c8acad0b8bfad252
-    pristine_git_object: f124f5fee42e1b0d2b065790b3c4549aebc926e1
+    last_write_checksum: sha1:61277d3ef2d54f9b40afda417c456f3e2fad44a1
+    pristine_git_object: 0542182d49f39171fc606c112c69f0edfb6eab56
   src/sdk/models/shared/security.ts:
     id: 4a9790ed1c2f
     last_write_checksum: sha1:f54ff18620a0612537f0a766f9c493414b073f6b
@@ -1093,7 +1093,7 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Typescript SDK Changes:
-  * `quiverai.models.getModel()`:  `response` **Changed** (Breaking ⚠️)
-  * `quiverai.models.listModels()`:  `response` **Changed** (Breaking ⚠️)
-  * `quiverai.createSvGs.generateSvg()`:  `response` **Changed** (Breaking ⚠️)
-  * `quiverai.vectorizeSvg.vectorizeSvg()`:  `response` **Changed** (Breaking ⚠️)
+  * `quiverai.models.getModel()`:  `response.code` **Changed** (Breaking ⚠️)
+  * `quiverai.models.listModels()`:  `response.code` **Changed** (Breaking ⚠️)
+  * `quiverai.createSvGs.generateSvg()`:  `response.code` **Changed** (Breaking ⚠️)
+  * `quiverai.vectorizeSvg.vectorizeSvg()`:  `response.code` **Changed** (Breaking ⚠️)
