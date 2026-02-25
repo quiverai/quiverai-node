@@ -15,7 +15,7 @@ export const Code = {
   Unauthorized: "unauthorized",
   Forbidden: "forbidden",
   RateLimitExceeded: "rate_limit_exceeded",
-  DailyLimitExceeded: "daily_limit_exceeded",
+  WeeklyLimitExceeded: "weekly_limit_exceeded",
   InsufficientCredits: "insufficient_credits",
   AccountFrozen: "account_frozen",
   ModelNotFound: "model_not_found",
