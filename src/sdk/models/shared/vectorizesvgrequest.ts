@@ -37,7 +37,7 @@ export type VectorizeSVGRequest = {
    */
   stream?: boolean | undefined;
   /**
-   * Square resize target in pixels before inference.
+   * Square resize target in pixels.
    */
   targetSize?: number | undefined;
   /**

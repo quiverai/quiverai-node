@@ -1,32 +1,39 @@
 # ListModelsResponse
 
-
-## Supported Types
-
-### `shared.ListModelsResponse`
+## Example Usage
 
 ```typescript
-const value: shared.ListModelsResponse = {
-  data: [
-    {
-      created: 840036,
-      id: "<id>",
-      object: "model",
-      ownedBy: "<value>",
-    },
-  ],
-  object: "list",
+import { ListModelsResponse } from "@quiverai/sdk/sdk/models/operations";
+
+let value: ListModelsResponse = {
+  headers: {
+    "key": [
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
+    ],
+    "key1": [
+      "<value 1>",
+    ],
+    "key2": [],
+  },
+  result: {
+    data: [
+      {
+        created: 840036,
+        id: "<id>",
+        object: "model",
+        ownedBy: "<value>",
+      },
+    ],
+    object: "list",
+  },
 };
 ```
 
-### `shared.PublicErrorEnvelope`
+## Fields
 
-```typescript
-const value: shared.PublicErrorEnvelope = {
-  code: "insufficient_credits",
-  message: "<value>",
-  requestId: "<id>",
-  status: 474294,
-};
-```
-
+| Field                                 | Type                                  | Required                              | Description                           |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| `headers`                             | Record<string, *string*[]>            | :heavy_check_mark:                    | N/A                                   |
+| `result`                              | *operations.ListModelsResponseResult* | :heavy_check_mark:                    | N/A                                   |

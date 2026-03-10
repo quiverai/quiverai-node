@@ -4,19 +4,28 @@
 
 import * as z from "zod/v3";
 import { EventStream } from "../../../lib/event-streams.js";
+import { remap as remap$ } from "../../../lib/primitives.js";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
-export type VectorizeSVGResponse =
+export type VectorizeSVGResponseResult =
   | shared.PublicErrorEnvelope
   | shared.SvgResponse
   | EventStream<shared.SvgStreamEvent>;
 
+export type VectorizeSVGResponse = {
+  headers: { [k: string]: Array<string> };
+  result:
+    | shared.PublicErrorEnvelope
+    | shared.SvgResponse
+    | EventStream<shared.SvgStreamEvent>;
+};
+
 /** @internal */
-export const VectorizeSVGResponse$inboundSchema: z.ZodType<
-  VectorizeSVGResponse,
+export const VectorizeSVGResponseResult$inboundSchema: z.ZodType<
+  VectorizeSVGResponseResult,
   z.ZodTypeDef,
   unknown
 > = z.union([
@@ -25,10 +34,50 @@ export const VectorizeSVGResponse$inboundSchema: z.ZodType<
   z.instanceof(ReadableStream<Uint8Array>)
     .transform(stream => {
       return new EventStream(stream, rawEvent => {
-        return { value: shared.SvgStreamEvent$inboundSchema.parse(rawEvent) };
+        return {
+          done: false,
+          value: shared.SvgStreamEvent$inboundSchema.parse(rawEvent),
+        };
       });
     }),
 ]);
+
+export function vectorizeSVGResponseResultFromJSON(
+  jsonString: string,
+): SafeParseResult<VectorizeSVGResponseResult, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => VectorizeSVGResponseResult$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'VectorizeSVGResponseResult' from JSON`,
+  );
+}
+
+/** @internal */
+export const VectorizeSVGResponse$inboundSchema: z.ZodType<
+  VectorizeSVGResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  Headers: z.record(z.array(z.string())).default({}),
+  Result: z.union([
+    shared.PublicErrorEnvelope$inboundSchema,
+    shared.SvgResponse$inboundSchema,
+    z.instanceof(ReadableStream<Uint8Array>)
+      .transform(stream => {
+        return new EventStream(stream, rawEvent => {
+          return {
+            done: false,
+            value: shared.SvgStreamEvent$inboundSchema.parse(rawEvent),
+          };
+        });
+      }),
+  ]),
+}).transform((v) => {
+  return remap$(v, {
+    "Headers": "headers",
+    "Result": "result",
+  });
+});
 
 export function vectorizeSVGResponseFromJSON(
   jsonString: string,

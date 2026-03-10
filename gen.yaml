@@ -30,7 +30,7 @@ generate:
   version: ""
   baseServerUrl: https://api.quiver.ai/v1
 typescript:
-  version: 0.4.1
+  version: 0.4.2
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -84,4 +84,6 @@ typescript:
   unionStrategy: left-to-right
   usageSDKInitImports: []
   useIndexModules: true
+  useOxlint: false
+  useTsgo: false
   zodVersion: v3

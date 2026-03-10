@@ -1,27 +1,29 @@
 # GetModelResponse
 
-
-## Supported Types
-
-### `shared.Model`
+## Example Usage
 
 ```typescript
-const value: shared.Model = {
-  created: 958093,
-  id: "<id>",
-  object: "model",
-  ownedBy: "<value>",
+import { GetModelResponse } from "@quiverai/sdk/sdk/models/operations";
+
+let value: GetModelResponse = {
+  headers: {
+    "key": [
+      "<value 1>",
+      "<value 2>",
+    ],
+  },
+  result: {
+    code: "model_not_found",
+    message: "<value>",
+    requestId: "<id>",
+    status: 915608,
+  },
 };
 ```
 
-### `shared.PublicErrorEnvelope`
+## Fields
 
-```typescript
-const value: shared.PublicErrorEnvelope = {
-  code: "insufficient_credits",
-  message: "<value>",
-  requestId: "<id>",
-  status: 474294,
-};
-```
-
+| Field                               | Type                                | Required                            | Description                         |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| `headers`                           | Record<string, *string*[]>          | :heavy_check_mark:                  | N/A                                 |
+| `result`                            | *operations.GetModelResponseResult* | :heavy_check_mark:                  | N/A                                 |
