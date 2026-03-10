@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v3";
+import { remap as remap$ } from "../../../lib/primitives.js";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -15,7 +16,12 @@ export type GetModelRequest = {
   model: string;
 };
 
-export type GetModelResponse = shared.Model | shared.PublicErrorEnvelope;
+export type GetModelResponseResult = shared.Model | shared.PublicErrorEnvelope;
+
+export type GetModelResponse = {
+  headers: { [k: string]: Array<string> };
+  result: shared.Model | shared.PublicErrorEnvelope;
+};
 
 /** @internal */
 export type GetModelRequest$Outbound = {
@@ -38,14 +44,42 @@ export function getModelRequestToJSON(
 }
 
 /** @internal */
-export const GetModelResponse$inboundSchema: z.ZodType<
-  GetModelResponse,
+export const GetModelResponseResult$inboundSchema: z.ZodType<
+  GetModelResponseResult,
   z.ZodTypeDef,
   unknown
 > = z.union([
   shared.Model$inboundSchema,
   shared.PublicErrorEnvelope$inboundSchema,
 ]);
+
+export function getModelResponseResultFromJSON(
+  jsonString: string,
+): SafeParseResult<GetModelResponseResult, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetModelResponseResult$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetModelResponseResult' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetModelResponse$inboundSchema: z.ZodType<
+  GetModelResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  Headers: z.record(z.array(z.string())).default({}),
+  Result: z.union([
+    shared.Model$inboundSchema,
+    shared.PublicErrorEnvelope$inboundSchema,
+  ]),
+}).transform((v) => {
+  return remap$(v, {
+    "Headers": "headers",
+    "Result": "result",
+  });
+});
 
 export function getModelResponseFromJSON(
   jsonString: string,

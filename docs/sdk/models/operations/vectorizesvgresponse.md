@@ -1,33 +1,16 @@
 # VectorizeSVGResponse
 
-
-## Supported Types
-
-### `shared.PublicErrorEnvelope`
+## Example Usage
 
 ```typescript
-const value: shared.PublicErrorEnvelope = {
-  code: "insufficient_credits",
-  message: "<value>",
-  requestId: "<id>",
-  status: 474294,
-};
+import { VectorizeSVGResponse } from "@quiverai/sdk/sdk/models/operations";
+
+// No examples available for this model
 ```
 
-### `shared.SvgResponse`
+## Fields
 
-```typescript
-const value: shared.SvgResponse = {
-  created: 1704067200,
-  data: [],
-  id: "resp_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
-  usage: {
-    inputTokens: 1200,
-    outputTokens: 440,
-    totalTokens: 1640,
-  },
-};
-```
-
-### `EventStream<shared.SvgStreamEvent>`
-
+| Field                                   | Type                                    | Required                                | Description                             |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| `headers`                               | Record<string, *string*[]>              | :heavy_check_mark:                      | N/A                                     |
+| `result`                                | *operations.VectorizeSVGResponseResult* | :heavy_check_mark:                      | N/A                                     |

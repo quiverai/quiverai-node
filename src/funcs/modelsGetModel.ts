@@ -143,6 +143,10 @@ async function $do(
   }
   const response = doResult.value;
 
+  const responseFields = {
+    HttpMeta: { Response: response, Request: req },
+  };
+
   const [result] = await M.match<
     operations.GetModelResponse,
     | QuiverAiError
@@ -154,13 +158,20 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.GetModelResponse$inboundSchema),
+    M.json(200, operations.GetModelResponse$inboundSchema, {
+      hdrs: true,
+      key: "Result",
+    }),
     M.json(
       [400, 401, 402, 403, 404, 429],
       operations.GetModelResponse$inboundSchema,
+      { hdrs: true, key: "Result" },
     ),
-    M.json([500, 502, 503], operations.GetModelResponse$inboundSchema),
-  )(response, req);
+    M.json([500, 502, 503], operations.GetModelResponse$inboundSchema, {
+      hdrs: true,
+      key: "Result",
+    }),
+  )(response, req, { extraFields: responseFields });
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
   }

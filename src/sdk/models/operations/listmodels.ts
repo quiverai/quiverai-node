@@ -3,24 +3,58 @@
  */
 
 import * as z from "zod/v3";
+import { remap as remap$ } from "../../../lib/primitives.js";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
-export type ListModelsResponse =
+export type ListModelsResponseResult =
   | shared.PublicErrorEnvelope
   | shared.ListModelsResponse;
 
+export type ListModelsResponse = {
+  headers: { [k: string]: Array<string> };
+  result: shared.PublicErrorEnvelope | shared.ListModelsResponse;
+};
+
 /** @internal */
-export const ListModelsResponse$inboundSchema: z.ZodType<
-  ListModelsResponse,
+export const ListModelsResponseResult$inboundSchema: z.ZodType<
+  ListModelsResponseResult,
   z.ZodTypeDef,
   unknown
 > = z.union([
   shared.PublicErrorEnvelope$inboundSchema,
   shared.ListModelsResponse$inboundSchema,
 ]);
+
+export function listModelsResponseResultFromJSON(
+  jsonString: string,
+): SafeParseResult<ListModelsResponseResult, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListModelsResponseResult$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListModelsResponseResult' from JSON`,
+  );
+}
+
+/** @internal */
+export const ListModelsResponse$inboundSchema: z.ZodType<
+  ListModelsResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  Headers: z.record(z.array(z.string())).default({}),
+  Result: z.union([
+    shared.PublicErrorEnvelope$inboundSchema,
+    shared.ListModelsResponse$inboundSchema,
+  ]),
+}).transform((v) => {
+  return remap$(v, {
+    "Headers": "headers",
+    "Result": "result",
+  });
+});
 
 export function listModelsResponseFromJSON(
   jsonString: string,

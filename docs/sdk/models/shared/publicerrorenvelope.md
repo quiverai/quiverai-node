@@ -6,7 +6,7 @@
 import { PublicErrorEnvelope } from "@quiverai/sdk/sdk/models/shared";
 
 let value: PublicErrorEnvelope = {
-  code: "insufficient_credits",
+  code: "weekly_limit_exceeded",
   message: "<value>",
   requestId: "<id>",
   status: 474294,

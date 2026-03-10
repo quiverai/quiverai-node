@@ -144,6 +144,10 @@ async function $do(
   }
   const response = doResult.value;
 
+  const responseFields = {
+    HttpMeta: { Response: response, Request: req },
+  };
+
   const [result] = await M.match<
     operations.GenerateSVGResponse,
     | QuiverAiError
@@ -155,14 +159,24 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.GenerateSVGResponse$inboundSchema),
-    M.sse(200, operations.GenerateSVGResponse$inboundSchema),
+    M.json(200, operations.GenerateSVGResponse$inboundSchema, {
+      hdrs: true,
+      key: "Result",
+    }),
+    M.sse(200, operations.GenerateSVGResponse$inboundSchema, {
+      hdrs: true,
+      key: "Result",
+    }),
     M.json(
       [400, 401, 402, 403, 404, 429],
       operations.GenerateSVGResponse$inboundSchema,
+      { hdrs: true, key: "Result" },
     ),
-    M.json([500, 502, 503], operations.GenerateSVGResponse$inboundSchema),
-  )(response, req);
+    M.json([500, 502, 503], operations.GenerateSVGResponse$inboundSchema, {
+      hdrs: true,
+      key: "Result",
+    }),
+  )(response, req, { extraFields: responseFields });
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
   }
