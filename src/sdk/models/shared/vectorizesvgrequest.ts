@@ -25,10 +25,6 @@ export type VectorizeSVGRequest = {
    */
   model: string;
   /**
-   * Number of outputs to generate.
-   */
-  n?: number | undefined;
-  /**
    * Penalty for tokens already present in prior output.
    */
   presencePenalty?: number | null | undefined;
@@ -56,7 +52,6 @@ export type VectorizeSVGRequest$Outbound = {
   image: ImageInputReference$Outbound;
   max_output_tokens?: number | undefined;
   model: string;
-  n: number;
   presence_penalty: number | null;
   stream: boolean;
   target_size?: number | undefined;
@@ -74,7 +69,6 @@ export const VectorizeSVGRequest$outboundSchema: z.ZodType<
   image: ImageInputReference$outboundSchema,
   maxOutputTokens: z.number().int().optional(),
   model: z.string(),
-  n: z.number().int().default(1),
   presencePenalty: z.nullable(z.number().default(0)),
   stream: z.boolean().default(false),
   targetSize: z.number().int().optional(),

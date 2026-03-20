@@ -24,9 +24,13 @@ export type Type = ClosedEnum<typeof Type>;
 
 export type SvgStreamEventData = {
   /**
-   * A unique identifier for the SVG operation.
+   * A unique identifier for the SVG output. For streaming multi-output requests (`n > 1`), each output has a distinct `id` and all events for that output reuse that same `id`.
    */
   id: string;
+  /**
+   * Zero-based output index for this event. Present for multi-output streams (`n > 1`).
+   */
+  index?: number | undefined;
   /**
    * The SVG markup (partial during draft, complete during content).
    */
@@ -54,6 +58,7 @@ export const SvgStreamEventData$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
+  index: z.number().int().optional(),
   svg: z.string(),
   text: z.string().optional(),
   type: Type$inboundSchema,

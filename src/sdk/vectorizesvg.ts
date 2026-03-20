@@ -18,7 +18,7 @@ export class VectorizeSVG extends ClientSDK {
    * Image to SVG
    *
    * @remarks
-   * Converts an image input into one or more SVG outputs.
+   * Converts an image input into an SVG output.
    */
   async vectorizeSVG(
     request: shared.VectorizeSVGRequest,
