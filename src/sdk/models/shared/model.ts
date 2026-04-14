@@ -29,12 +29,14 @@ export const OutputModalities = {
 export type OutputModalities = ClosedEnum<typeof OutputModalities>;
 
 export type Pricing = {
-  completion: string;
-  image?: string | undefined;
-  inputCacheReads?: string | undefined;
-  inputCacheWrites?: string | undefined;
-  prompt: string;
-  request?: string | undefined;
+  /**
+   * USD price per SVG generation request.
+   */
+  svgGenerate: string;
+  /**
+   * USD price per SVG vectorization request.
+   */
+  svgVectorize: string;
 };
 
 export const SupportedOperations = {
@@ -42,7 +44,6 @@ export const SupportedOperations = {
   SvgEdit: "svg_edit",
   SvgAnimate: "svg_animate",
   SvgVectorize: "svg_vectorize",
-  ChatCompletions: "chat_completions",
 } as const;
 export type SupportedOperations = ClosedEnum<typeof SupportedOperations>;
 
@@ -91,16 +92,12 @@ export const OutputModalities$inboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const Pricing$inboundSchema: z.ZodType<Pricing, z.ZodTypeDef, unknown> =
   z.object({
-    completion: z.string(),
-    image: z.string().optional(),
-    input_cache_reads: z.string().optional(),
-    input_cache_writes: z.string().optional(),
-    prompt: z.string(),
-    request: z.string().optional(),
+    svg_generate: z.string(),
+    svg_vectorize: z.string(),
   }).transform((v) => {
     return remap$(v, {
-      "input_cache_reads": "inputCacheReads",
-      "input_cache_writes": "inputCacheWrites",
+      "svg_generate": "svgGenerate",
+      "svg_vectorize": "svgVectorize",
     });
   });
 
