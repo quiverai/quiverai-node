@@ -6,18 +6,14 @@
 import { Pricing } from "@quiverai/sdk/sdk/models/shared";
 
 let value: Pricing = {
-  completion: "<value>",
-  prompt: "<value>",
+  svgGenerate: "0.03",
+  svgVectorize: "0.03",
 };
 ```
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `completion`       | *string*           | :heavy_check_mark: | N/A                |
-| `image`            | *string*           | :heavy_minus_sign: | N/A                |
-| `inputCacheReads`  | *string*           | :heavy_minus_sign: | N/A                |
-| `inputCacheWrites` | *string*           | :heavy_minus_sign: | N/A                |
-| `prompt`           | *string*           | :heavy_check_mark: | N/A                |
-| `request`          | *string*           | :heavy_minus_sign: | N/A                |
+| Field                                    | Type                                     | Required                                 | Description                              | Example                                  |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| `svgGenerate`                            | *string*                                 | :heavy_check_mark:                       | USD price per SVG generation request.    | 0.03                                     |
+| `svgVectorize`                           | *string*                                 | :heavy_check_mark:                       | USD price per SVG vectorization request. | 0.03                                     |

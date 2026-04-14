@@ -12,6 +12,10 @@ let value: ListModelsResponse = {
       id: "<id>",
       object: "model",
       ownedBy: "<value>",
+      pricing: {
+        svgGenerate: "0.03",
+        svgVectorize: "0.03",
+      },
     },
   ],
   object: "list",
