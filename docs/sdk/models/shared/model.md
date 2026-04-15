@@ -11,8 +11,8 @@ let value: Model = {
   object: "model",
   ownedBy: "<value>",
   pricing: {
-    svgGenerate: "0.03",
-    svgVectorize: "0.03",
+    svgGenerate: "0.30",
+    svgVectorize: "0.30",
   },
 };
 ```
