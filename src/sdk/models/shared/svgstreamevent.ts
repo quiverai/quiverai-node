@@ -4,7 +4,6 @@
 
 import * as z from "zod/v3";
 import { safeParse } from "../../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -12,28 +11,15 @@ import {
   SvgStreamEventData$inboundSchema,
 } from "./svgstreameventdata.js";
 
-/**
- * The SSE event name (sent via the `event:` line).
- */
-export const Event = {
-  Reasoning: "reasoning",
-  Draft: "draft",
-  Content: "content",
-} as const;
-/**
- * The SSE event name (sent via the `event:` line).
- */
-export type Event = ClosedEnum<typeof Event>;
-
-/**
- * Server-sent event (SSE) envelope for SVG streaming operations. Each SSE message uses the `event:` line for the phase discriminator and the `data:` line for a JSON payload. For `n > 1`, events are interleaved: use `data.index` for output position and `data.id` as the stable per-output identifier. The stream terminates with `data: [DONE]`.
- */
-export type SvgStreamEvent = {
+export type Four = {
+  /**
+   * The event payload. Shape depends on the `type` phase discriminator.
+   */
   data: SvgStreamEventData;
   /**
    * The SSE event name (sent via the `event:` line).
    */
-  event: Event;
+  event: "content";
   /**
    * Optional SSE event id (sent via the `id:` line).
    */
@@ -44,29 +30,183 @@ export type SvgStreamEvent = {
   retry?: number | undefined;
 };
 
+export type Three = {
+  /**
+   * The event payload. Shape depends on the `type` phase discriminator.
+   */
+  data: SvgStreamEventData;
+  /**
+   * The SSE event name (sent via the `event:` line).
+   */
+  event: "draft";
+  /**
+   * Optional SSE event id (sent via the `id:` line).
+   */
+  id?: string | undefined;
+  /**
+   * Optional SSE retry value in milliseconds (sent via the `retry:` line).
+   */
+  retry?: number | undefined;
+};
+
+export type Two = {
+  /**
+   * The event payload. Shape depends on the `type` phase discriminator.
+   */
+  data: SvgStreamEventData;
+  /**
+   * The SSE event name (sent via the `event:` line).
+   */
+  event: "reasoning";
+  /**
+   * Optional SSE event id (sent via the `id:` line).
+   */
+  id?: string | undefined;
+  /**
+   * Optional SSE retry value in milliseconds (sent via the `retry:` line).
+   */
+  retry?: number | undefined;
+};
+
+export type One = {
+  /**
+   * The event payload. Shape depends on the `type` phase discriminator.
+   */
+  data: SvgStreamEventData;
+  /**
+   * The SSE event name (sent via the `event:` line).
+   */
+  event: "generating";
+  /**
+   * Optional SSE event id (sent via the `id:` line).
+   */
+  id?: string | undefined;
+  /**
+   * Optional SSE retry value in milliseconds (sent via the `retry:` line).
+   */
+  retry?: number | undefined;
+};
+
+/**
+ * Server-sent event (SSE) envelope for SVG streaming operations. Each SSE message uses the `event:` line for the phase discriminator and the `data:` line for a JSON payload. For `n > 1`, events are interleaved: use `data.index` for output position and `data.id` as the stable per-output identifier. The stream terminates with `data: [DONE]`.
+ */
+export type SvgStreamEvent = One | Two | Three | Four;
+
 /** @internal */
-export const Event$inboundSchema: z.ZodNativeEnum<typeof Event> = z.nativeEnum(
-  Event,
-);
+export const Four$inboundSchema: z.ZodType<Four, z.ZodTypeDef, unknown> = z
+  .object({
+    data: z.string().transform((v, ctx) => {
+      try {
+        return JSON.parse(v);
+      } catch (err) {
+        ctx.addIssue({ code: "custom", message: `malformed json: ${err}` });
+        return z.NEVER;
+      }
+    }).pipe(SvgStreamEventData$inboundSchema),
+    event: z.literal("content"),
+    id: z.string().optional(),
+    retry: z.number().int().optional(),
+  });
+
+export function fourFromJSON(
+  jsonString: string,
+): SafeParseResult<Four, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Four$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Four' from JSON`,
+  );
+}
+
+/** @internal */
+export const Three$inboundSchema: z.ZodType<Three, z.ZodTypeDef, unknown> = z
+  .object({
+    data: z.string().transform((v, ctx) => {
+      try {
+        return JSON.parse(v);
+      } catch (err) {
+        ctx.addIssue({ code: "custom", message: `malformed json: ${err}` });
+        return z.NEVER;
+      }
+    }).pipe(SvgStreamEventData$inboundSchema),
+    event: z.literal("draft"),
+    id: z.string().optional(),
+    retry: z.number().int().optional(),
+  });
+
+export function threeFromJSON(
+  jsonString: string,
+): SafeParseResult<Three, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Three$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Three' from JSON`,
+  );
+}
+
+/** @internal */
+export const Two$inboundSchema: z.ZodType<Two, z.ZodTypeDef, unknown> = z
+  .object({
+    data: z.string().transform((v, ctx) => {
+      try {
+        return JSON.parse(v);
+      } catch (err) {
+        ctx.addIssue({ code: "custom", message: `malformed json: ${err}` });
+        return z.NEVER;
+      }
+    }).pipe(SvgStreamEventData$inboundSchema),
+    event: z.literal("reasoning"),
+    id: z.string().optional(),
+    retry: z.number().int().optional(),
+  });
+
+export function twoFromJSON(
+  jsonString: string,
+): SafeParseResult<Two, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Two$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Two' from JSON`,
+  );
+}
+
+/** @internal */
+export const One$inboundSchema: z.ZodType<One, z.ZodTypeDef, unknown> = z
+  .object({
+    data: z.string().transform((v, ctx) => {
+      try {
+        return JSON.parse(v);
+      } catch (err) {
+        ctx.addIssue({ code: "custom", message: `malformed json: ${err}` });
+        return z.NEVER;
+      }
+    }).pipe(SvgStreamEventData$inboundSchema),
+    event: z.literal("generating"),
+    id: z.string().optional(),
+    retry: z.number().int().optional(),
+  });
+
+export function oneFromJSON(
+  jsonString: string,
+): SafeParseResult<One, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => One$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'One' from JSON`,
+  );
+}
 
 /** @internal */
 export const SvgStreamEvent$inboundSchema: z.ZodType<
   SvgStreamEvent,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  data: z.string().transform((v, ctx) => {
-    try {
-      return JSON.parse(v);
-    } catch (err) {
-      ctx.addIssue({ code: "custom", message: `malformed json: ${err}` });
-      return z.NEVER;
-    }
-  }).pipe(SvgStreamEventData$inboundSchema),
-  event: Event$inboundSchema,
-  id: z.string().optional(),
-  retry: z.number().int().optional(),
-});
+> = z.union([
+  z.lazy(() => One$inboundSchema),
+  z.lazy(() => Two$inboundSchema),
+  z.lazy(() => Three$inboundSchema),
+  z.lazy(() => Four$inboundSchema),
+]);
 
 export function svgStreamEventFromJSON(
   jsonString: string,

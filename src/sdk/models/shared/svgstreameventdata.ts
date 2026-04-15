@@ -4,66 +4,45 @@
 
 import * as z from "zod/v3";
 import { safeParse } from "../../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { SvgUsage, SvgUsage$inboundSchema } from "./svgusage.js";
+import {
+  SvgContentEventData,
+  SvgContentEventData$inboundSchema,
+} from "./svgcontenteventdata.js";
+import {
+  SvgDraftEventData,
+  SvgDraftEventData$inboundSchema,
+} from "./svgdrafteventdata.js";
+import {
+  SvgGeneratingEventData,
+  SvgGeneratingEventData$inboundSchema,
+} from "./svggeneratingeventdata.js";
+import {
+  SvgReasoningEventData,
+  SvgReasoningEventData$inboundSchema,
+} from "./svgreasoningeventdata.js";
 
 /**
- * The event type indicating the phase.
+ * The event payload. Shape depends on the `type` phase discriminator.
  */
-export const Type = {
-  Reasoning: "reasoning",
-  Draft: "draft",
-  Content: "content",
-} as const;
-/**
- * The event type indicating the phase.
- */
-export type Type = ClosedEnum<typeof Type>;
-
-export type SvgStreamEventData = {
-  /**
-   * A unique identifier for the SVG output. For streaming multi-output requests (`n > 1`), each output has a distinct `id` and all events for that output reuse that same `id`.
-   */
-  id: string;
-  /**
-   * Zero-based output index for this event. Present for multi-output streams (`n > 1`).
-   */
-  index?: number | undefined;
-  /**
-   * The SVG markup (partial during draft, complete during content).
-   */
-  svg: string;
-  /**
-   * Optional reasoning text (present on reasoning events for some operations).
-   */
-  text?: string | undefined;
-  /**
-   * The event type indicating the phase.
-   */
-  type: Type;
-  usage?: SvgUsage | undefined;
-};
-
-/** @internal */
-export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
-  Type,
-);
+export type SvgStreamEventData =
+  | SvgContentEventData
+  | SvgDraftEventData
+  | SvgGeneratingEventData
+  | SvgReasoningEventData;
 
 /** @internal */
 export const SvgStreamEventData$inboundSchema: z.ZodType<
   SvgStreamEventData,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  index: z.number().int().optional(),
-  svg: z.string(),
-  text: z.string().optional(),
-  type: Type$inboundSchema,
-  usage: SvgUsage$inboundSchema.optional(),
-});
+> = z.union([
+  SvgContentEventData$inboundSchema,
+  SvgDraftEventData$inboundSchema,
+  SvgGeneratingEventData$inboundSchema,
+  SvgReasoningEventData$inboundSchema,
+]);
 
 export function svgStreamEventDataFromJSON(
   jsonString: string,

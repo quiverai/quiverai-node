@@ -1,11 +1,14 @@
 # SvgStreamEventData
 
-## Example Usage
+The event payload. Shape depends on the `type` phase discriminator.
+
+
+## Supported Types
+
+### `shared.SvgContentEventData`
 
 ```typescript
-import { SvgStreamEventData } from "@quiverai/sdk/sdk/models/shared";
-
-let value: SvgStreamEventData = {
+const value: shared.SvgContentEventData = {
   id: "<id>",
   index: 0,
   svg: "<value>",
@@ -18,13 +21,47 @@ let value: SvgStreamEventData = {
 };
 ```
 
-## Fields
+### `shared.SvgDraftEventData`
 
-| Field                                                                                                                                                                       | Type                                                                                                                                                                        | Required                                                                                                                                                                    | Description                                                                                                                                                                 | Example                                                                                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                                                                                        | *string*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | A unique identifier for the SVG output. For streaming multi-output requests (`n > 1`), each output has a distinct `id` and all events for that output reuse that same `id`. |                                                                                                                                                                             |
-| `index`                                                                                                                                                                     | *number*                                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                          | Zero-based output index for this event. Present for multi-output streams (`n > 1`).                                                                                         | 0                                                                                                                                                                           |
-| `svg`                                                                                                                                                                       | *string*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | The SVG markup (partial during draft, complete during content).                                                                                                             |                                                                                                                                                                             |
-| `text`                                                                                                                                                                      | *string*                                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                          | Optional reasoning text (present on reasoning events for some operations).                                                                                                  |                                                                                                                                                                             |
-| `type`                                                                                                                                                                      | [shared.Type](../../../sdk/models/shared/type.md)                                                                                                                           | :heavy_check_mark:                                                                                                                                                          | The event type indicating the phase.                                                                                                                                        |                                                                                                                                                                             |
-| `usage`                                                                                                                                                                     | [shared.SvgUsage](../../../sdk/models/shared/svgusage.md)                                                                                                                   | :heavy_minus_sign:                                                                                                                                                          | N/A                                                                                                                                                                         |                                                                                                                                                                             |
+```typescript
+const value: shared.SvgDraftEventData = {
+  id: "<id>",
+  index: 0,
+  svg: "<value>",
+  type: "draft",
+  usage: {
+    inputTokens: 1200,
+    outputTokens: 440,
+    totalTokens: 1640,
+  },
+};
+```
+
+### `shared.SvgGeneratingEventData`
+
+```typescript
+const value: shared.SvgGeneratingEventData = {
+  index: 0,
+  type: "generating",
+  usage: {
+    inputTokens: 1200,
+    outputTokens: 440,
+    totalTokens: 1640,
+  },
+};
+```
+
+### `shared.SvgReasoningEventData`
+
+```typescript
+const value: shared.SvgReasoningEventData = {
+  index: 0,
+  type: "reasoning",
+  usage: {
+    inputTokens: 1200,
+    outputTokens: 440,
+    totalTokens: 1640,
+  },
+};
+```
+

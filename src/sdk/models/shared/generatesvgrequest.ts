@@ -5,10 +5,10 @@
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
 import {
-  ImageInputReference,
-  ImageInputReference$Outbound,
-  ImageInputReference$outboundSchema,
-} from "./imageinputreference.js";
+  ImageInputReferenceInput,
+  ImageInputReferenceInput$Outbound,
+  ImageInputReferenceInput$outboundSchema,
+} from "./imageinputreferenceinput.js";
 
 export type GenerateSVGRequest = {
   /**
@@ -35,7 +35,10 @@ export type GenerateSVGRequest = {
    * Primary text prompt that describes the desired SVG.
    */
   prompt: string;
-  references?: Array<ImageInputReference> | undefined;
+  /**
+   * Optional reference images to guide style/composition. Accepts `{ url }`, `{ base64 }`, or URL string shorthand.
+   */
+  references?: Array<ImageInputReferenceInput> | undefined;
   /**
    * When true, emits a Server-Sent Events stream.
    */
@@ -58,7 +61,7 @@ export type GenerateSVGRequest$Outbound = {
   n: number;
   presence_penalty: number | null;
   prompt: string;
-  references?: Array<ImageInputReference$Outbound> | undefined;
+  references?: Array<ImageInputReferenceInput$Outbound> | undefined;
   stream: boolean;
   temperature: number;
   top_p: number;
@@ -76,7 +79,7 @@ export const GenerateSVGRequest$outboundSchema: z.ZodType<
   n: z.number().int().default(1),
   presencePenalty: z.nullable(z.number().default(0)),
   prompt: z.string(),
-  references: z.array(ImageInputReference$outboundSchema).optional(),
+  references: z.array(ImageInputReferenceInput$outboundSchema).optional(),
   stream: z.boolean().default(false),
   temperature: z.number().default(1),
   topP: z.number().default(1),

@@ -129,3 +129,13 @@ Based on:
 - [typescript v0.4.4] .
 ### Releases
 - [NPM v0.4.4] https://www.npmjs.com/package/@quiverai/sdk/v/0.4.4 - .
+
+## 2026-04-15 00:17:23
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.761.5 (2.879.13) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.5.0] .
+### Releases
+- [NPM v0.5.0] https://www.npmjs.com/package/@quiverai/sdk/v/0.5.0 - .
