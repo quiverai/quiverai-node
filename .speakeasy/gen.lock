@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 0f33c9fc-1c93-4296-9792-fbb1c4caef92
 management:
-  docChecksum: d7a7cfa5933eef9436bc4842935454d6
+  docChecksum: 1637c60dcc9f8f2534fb0a62a4fb9e38
   docVersion: 1.0.0
   speakeasyVersion: 1.761.6
   generationVersion: 2.879.13
-  releaseVersion: 0.6.0
-  configChecksum: 439d4abaf8a4d0560258d81e8d67eb70
+  releaseVersion: 0.6.1
+  configChecksum: b7ec589baadc913cc3d2c6080db2b0b3
   repoURL: https://github.com/quiverai/quiverai-node.git
   installationURL: https://github.com/quiverai/quiverai-node
   published: true
 persistentEdits:
-  generation_id: 041f2902-5f15-46ab-b5f6-72acc718ded2
-  pristine_commit_hash: 0531c776cd39a3b27c92e19e3901449ce1d763e8
-  pristine_tree_hash: 6c89d337f3e7a9241a8bee2ef396f035fe9eb1f8
+  generation_id: 3651e3f4-0fa0-4be7-8c7e-bf9b452e881d
+  pristine_commit_hash: bdbaae220e1ce640ff53c1d5b884b5ec4deb0824
+  pristine_tree_hash: ba724e3b92021e37052f20f891637178bce638df
 features:
   typescript:
     acceptHeaders: 2.81.2
@@ -263,12 +263,12 @@ trackedFiles:
     pristine_git_object: cc173cc598005ddf714e2215e0304c0ab85583a9
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:989131bb0025a73167a0b0d482f5a37ccdb9ea9b
-    pristine_git_object: 4fe6c0333a78063857a2b4b82c4231f39c1cea85
+    last_write_checksum: sha1:d57aa1f02c30fbc4882adc43c8ae93f1e8e03a18
+    pristine_git_object: 53da08122e38e6213983ad3175db8da10a451c87
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:c339ee7a3aaff1399a15c511a247807e63e3add4
-    pristine_git_object: 68ba40904c208167ecac6d79930ce29d55f2acde
+    last_write_checksum: sha1:3fe1e03ad56d3aac3a3bd24eec9fccc694b4a244
+    pristine_git_object: 906e383f77ece0e5e6c996d9d0bb47e113ae0589
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:f68eeda1706ded6626e158d7a1e7bda00e0e71e2
@@ -311,8 +311,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:644eb366023df06e6c6d071dd5d2d9ebf24a04f2
-    pristine_git_object: 9d1e35acc738ab7f2be4f7aa2ea61e40321c9ea5
+    last_write_checksum: sha1:487d41a843689b785a5998951f890f6a8fe53f57
+    pristine_git_object: d45e07af80a676a2aa2ce92b26ee9db327c2f476
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -576,7 +576,7 @@ examples:
     default:
       responses:
         "200":
-          application/json: {"data": [{"context_length": 131072, "created": 1704067200, "description": "QuiverAI API flagship SVG generation model for text-to-SVG and image-to-SVG.", "id": "arrow-1", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.0", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.30", "svg_vectorize": "0.30"}, "pricing_credits": {"svg_generate": 30, "svg_vectorize": 30}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}], "object": "list"}
+          application/json: {"data": [{"context_length": 131072, "created": 1704067200, "description": "QuiverAI API flagship SVG generation model for text-to-SVG and image-to-SVG.", "id": "arrow-1", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.0", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.30", "svg_vectorize": "0.30"}, "pricing_credits": {"svg_generate": 30, "svg_vectorize": 30}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}, {"context_length": 131072, "created": 1704067200, "description": "QuiverAI API flagship SVG generation model for text-to-SVG and image-to-SVG.", "id": "arrow-1.1", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.1", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.20", "svg_vectorize": "0.15"}, "pricing_credits": {"svg_generate": 20, "svg_vectorize": 15}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}, {"context_length": 131072, "created": 1704067200, "description": "QuiverAI API flagship SVG generation model for text-to-SVG and image-to-SVG.", "id": "arrow-1.1-max", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.1 Max", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.25", "svg_vectorize": "0.20"}, "pricing_credits": {"svg_generate": 25, "svg_vectorize": 20}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}], "object": "list"}
   retrieveModel:
     speakeasy-default-retrieve-model:
       parameters:
@@ -1069,7 +1069,7 @@ examples:
         application/json: {"instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
       responses:
         "200":
-          text/event-stream: {"event": "content", "data": {"type": "content", "index": 1, "id": "svg_out_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 2l8 20H4z\"/></svg>", "usage": {"total_tokens": 0, "input_tokens": 0, "output_tokens": 0}, "credits": 2}}
+          text/event-stream: {"event": "content", "data": {"type": "content", "index": 1, "id": "svg_out_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 2l8 20H4z\"/></svg>", "usage": {"total_tokens": 0, "input_tokens": 0, "output_tokens": 0}, "credits": 20}}
   vectorizeSVG:
     basic:
       requestBody:
@@ -1148,7 +1148,7 @@ examples:
         application/json: {"auto_crop": true, "image": {"url": "https://example.com/uploads/reference1.png"}, "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
       responses:
         "200":
-          text/event-stream: {"event": "content", "data": {"type": "content", "id": "svg_0A1B2C3D4E5F", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M5 5h14v14H5z\"/></svg>", "usage": {"total_tokens": 0, "input_tokens": 0, "output_tokens": 0}, "credits": 1}}
+          text/event-stream: {"event": "content", "data": {"type": "content", "id": "svg_0A1B2C3D4E5F", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M5 5h14v14H5z\"/></svg>", "usage": {"total_tokens": 0, "input_tokens": 0, "output_tokens": 0}, "credits": 15}}
   checkSVGVectorizability:
     url:
       requestBody:
@@ -1191,7 +1191,7 @@ examples:
           model: "arrow-0.5"
       responses:
         "200":
-          application/json: {"context_length": 131072, "created": 1704067200, "description": "QuiverAI API flagship SVG generation model for text-to-SVG and image-to-SVG.", "id": "arrow-1", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.0", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.30", "svg_vectorize": "0.30"}, "pricing_credits": {"svg_generate": 30, "svg_vectorize": 30}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}
+          application/json: {"context_length": 131072, "created": 1704067200, "description": "QuiverAI API flagship SVG generation model for text-to-SVG and image-to-SVG.", "id": "arrow-1.1", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.1", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.20", "svg_vectorize": "0.15"}, "pricing_credits": {"svg_generate": 20, "svg_vectorize": 15}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}
     speakeasy-default-get-model:
       parameters:
         path:
@@ -1205,9 +1205,3 @@ examples:
           application/json: {"code": "model_not_found", "message": "<value>", "request_id": "<id>", "status": 705234}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Typescript SDK Changes:
-  * `quiverai.models.getModel()`:  `response.pricingCredits` **Added**
-  * `quiverai.models.listModels()`:  `response.data[].pricingCredits` **Added**
-  * `quiverai.createSvGs.generateSvg()`:  `response` **Changed**
-  * `quiverai.vectorizeSvg.vectorizeSvg()`:  `response` **Changed**
