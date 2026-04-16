@@ -11,8 +11,17 @@ import { SvgUsage, SvgUsage$inboundSchema } from "./svgusage.js";
 
 export type SvgResponse = {
   created: number;
+  /**
+   * Credit cost for this request. Use this for billing instead of `usage` tokens.
+   */
+  credits?: number | undefined;
   data: Array<SvgDocument>;
   id: string;
+  /**
+   * Deprecated. Use `credits` for billing values.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   usage?: SvgUsage | undefined;
 };
 
@@ -23,6 +32,7 @@ export const SvgResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   created: z.number().int(),
+  credits: z.number().int().optional(),
   data: z.array(SvgDocument$inboundSchema),
   id: z.string(),
   usage: SvgUsage$inboundSchema.optional(),

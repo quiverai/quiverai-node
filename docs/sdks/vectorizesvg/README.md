@@ -91,7 +91,7 @@ async function run() {
     image: {
       url: "https://example.com/uploads/logo.png",
     },
-    model: "arrow-preview",
+    model: "arrow-1.1",
     temperature: 0.8,
   });
 
@@ -121,7 +121,7 @@ async function run() {
     image: {
       url: "https://example.com/uploads/logo.png",
     },
-    model: "arrow-preview",
+    model: "arrow-1.1",
     temperature: 0.8,
   });
   if (res.ok) {
@@ -449,7 +449,7 @@ async function run() {
     image: {
       url: "https://example.com/uploads/logo.png",
     },
-    model: "arrow-preview",
+    model: "arrow-1.1",
     presencePenalty: 0.2,
     stream: true,
     temperature: 0.4,
@@ -482,7 +482,7 @@ async function run() {
     image: {
       url: "https://example.com/uploads/logo.png",
     },
-    model: "arrow-preview",
+    model: "arrow-1.1",
     presencePenalty: 0.2,
     stream: true,
     temperature: 0.4,

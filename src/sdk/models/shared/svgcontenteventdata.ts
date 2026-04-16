@@ -13,6 +13,10 @@ import { SvgUsage, SvgUsage$inboundSchema } from "./svgusage.js";
 
 export type SvgContentEventData = {
   /**
+   * Credit cost for this completed SVG output. Emitted on `content` events.
+   */
+  credits?: number | undefined;
+  /**
    * A unique identifier for the SVG output. For streaming multi-output requests (`n > 1`), each output has a distinct `id` and all events for that output reuse that same `id`.
    */
   id: string;
@@ -29,6 +33,11 @@ export type SvgContentEventData = {
    */
   text?: string | undefined;
   type: "content";
+  /**
+   * Deprecated. Use `credits` for billing values.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   usage?: SvgUsage | undefined;
   additionalProperties?: { [k: string]: any } | undefined;
 };
@@ -40,6 +49,7 @@ export const SvgContentEventData$inboundSchema: z.ZodType<
   unknown
 > = collectExtraKeys$(
   z.object({
+    credits: z.number().int().optional(),
     id: z.string(),
     index: z.number().int().optional(),
     svg: z.string(),

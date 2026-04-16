@@ -24,9 +24,9 @@ let value: ListModelsResponse = {
         id: "<id>",
         object: "model",
         ownedBy: "<value>",
-        pricing: {
-          svgGenerate: "0.30",
-          svgVectorize: "0.30",
+        pricingCredits: {
+          svgGenerate: 30,
+          svgVectorize: 30,
         },
       },
     ],

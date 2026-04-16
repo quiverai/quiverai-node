@@ -36,7 +36,7 @@ export type GenerateSVGRequest = {
    */
   prompt: string;
   /**
-   * Optional reference images to guide style/composition. Accepts `{ url }`, `{ base64 }`, or URL string shorthand.
+   * Optional reference images to guide style/composition. Accepts `{ url }`, `{ base64 }`, or URL string shorthand. Runtime limits are model-specific: 4 for Arrow 1.1/Arrow 1.x aliases, 16 for Arrow 1.1 Max.
    */
   references?: Array<ImageInputReferenceInput> | undefined;
   /**

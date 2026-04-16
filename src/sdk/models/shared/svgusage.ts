@@ -8,9 +8,29 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+/**
+ * Deprecated. Use `credits` for billing values.
+ *
+ * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
 export type SvgUsage = {
+  /**
+   * Deprecated. Token counts are retained for compatibility and may be zeroed.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   inputTokens: number;
+  /**
+   * Deprecated. Token counts are retained for compatibility and may be zeroed.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   outputTokens: number;
+  /**
+   * Deprecated. Token counts are retained for compatibility and may be zeroed.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   totalTokens: number;
 };
 

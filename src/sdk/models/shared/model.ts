@@ -28,15 +28,35 @@ export const OutputModalities = {
 } as const;
 export type OutputModalities = ClosedEnum<typeof OutputModalities>;
 
+/**
+ * Deprecated. Prefer `pricing_credits` for per-request credit debits. USD strings are legacy placeholders.
+ *
+ * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
 export type Pricing = {
   /**
-   * USD price per SVG generation request.
+   * Deprecated — use `pricing_credits`. Legacy USD price string per SVG generation request.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   svgGenerate: string;
   /**
-   * USD price per SVG vectorization request.
+   * Deprecated — use `pricing_credits`. Legacy USD price string per SVG vectorization request.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   svgVectorize: string;
+};
+
+export type PricingCredits = {
+  /**
+   * Credits debited from the organization balance per SVG generation request for this model.
+   */
+  svgGenerate: number;
+  /**
+   * Credits debited from the organization balance per SVG vectorization request for this model.
+   */
+  svgVectorize: number;
 };
 
 export const SupportedOperations = {
@@ -70,7 +90,13 @@ export type Model = {
   object: ModelObject;
   outputModalities?: Array<OutputModalities> | undefined;
   ownedBy: string;
+  /**
+   * Deprecated. Prefer `pricing_credits` for per-request credit debits. USD strings are legacy placeholders.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   pricing?: Pricing | undefined;
+  pricingCredits?: PricingCredits | undefined;
   supportedOperations?: Array<SupportedOperations> | undefined;
   supportedSamplingParameters?: Array<SupportedSamplingParameters> | undefined;
 };
@@ -112,6 +138,31 @@ export function pricingFromJSON(
 }
 
 /** @internal */
+export const PricingCredits$inboundSchema: z.ZodType<
+  PricingCredits,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  svg_generate: z.number().int(),
+  svg_vectorize: z.number().int(),
+}).transform((v) => {
+  return remap$(v, {
+    "svg_generate": "svgGenerate",
+    "svg_vectorize": "svgVectorize",
+  });
+});
+
+export function pricingCreditsFromJSON(
+  jsonString: string,
+): SafeParseResult<PricingCredits, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PricingCredits$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PricingCredits' from JSON`,
+  );
+}
+
+/** @internal */
 export const SupportedOperations$inboundSchema: z.ZodNativeEnum<
   typeof SupportedOperations
 > = z.nativeEnum(SupportedOperations);
@@ -135,6 +186,7 @@ export const Model$inboundSchema: z.ZodType<Model, z.ZodTypeDef, unknown> = z
     output_modalities: z.array(OutputModalities$inboundSchema).optional(),
     owned_by: z.string(),
     pricing: z.lazy(() => Pricing$inboundSchema).optional(),
+    pricing_credits: z.lazy(() => PricingCredits$inboundSchema).optional(),
     supported_operations: z.array(SupportedOperations$inboundSchema).optional(),
     supported_sampling_parameters: z.array(
       SupportedSamplingParameters$inboundSchema,
@@ -146,6 +198,7 @@ export const Model$inboundSchema: z.ZodType<Model, z.ZodTypeDef, unknown> = z
       "max_output_length": "maxOutputLength",
       "output_modalities": "outputModalities",
       "owned_by": "ownedBy",
+      "pricing_credits": "pricingCredits",
       "supported_operations": "supportedOperations",
       "supported_sampling_parameters": "supportedSamplingParameters",
     });

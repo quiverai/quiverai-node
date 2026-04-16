@@ -197,7 +197,7 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
-    model: "arrow-preview",
+    model: "arrow-1.1",
     prompt: "Generate an icon of a unicorn",
     temperature: 0.8,
   });
