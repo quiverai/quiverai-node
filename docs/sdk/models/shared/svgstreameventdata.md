@@ -9,15 +9,11 @@ The event payload. Shape depends on the `type` phase discriminator.
 
 ```typescript
 const value: shared.SvgContentEventData = {
+  credits: 1,
   id: "<id>",
   index: 0,
   svg: "<value>",
   type: "content",
-  usage: {
-    inputTokens: 1200,
-    outputTokens: 440,
-    totalTokens: 1640,
-  },
 };
 ```
 
@@ -29,11 +25,6 @@ const value: shared.SvgDraftEventData = {
   index: 0,
   svg: "<value>",
   type: "draft",
-  usage: {
-    inputTokens: 1200,
-    outputTokens: 440,
-    totalTokens: 1640,
-  },
 };
 ```
 
@@ -43,11 +34,6 @@ const value: shared.SvgDraftEventData = {
 const value: shared.SvgGeneratingEventData = {
   index: 0,
   type: "generating",
-  usage: {
-    inputTokens: 1200,
-    outputTokens: 440,
-    totalTokens: 1640,
-  },
 };
 ```
 
@@ -57,11 +43,6 @@ const value: shared.SvgGeneratingEventData = {
 const value: shared.SvgReasoningEventData = {
   index: 0,
   type: "reasoning",
-  usage: {
-    inputTokens: 1200,
-    outputTokens: 440,
-    totalTokens: 1640,
-  },
 };
 ```
 

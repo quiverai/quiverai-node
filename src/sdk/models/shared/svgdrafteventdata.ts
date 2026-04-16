@@ -29,6 +29,11 @@ export type SvgDraftEventData = {
    */
   text?: string | undefined;
   type: "draft";
+  /**
+   * Deprecated. Use `credits` for billing values.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   usage?: SvgUsage | undefined;
   additionalProperties?: { [k: string]: any } | undefined;
 };

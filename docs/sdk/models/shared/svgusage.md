@@ -1,4 +1,8 @@
-# SvgUsage
+# ~~SvgUsage~~
+
+Deprecated. Use `credits` for billing values.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ## Example Usage
 
@@ -6,16 +10,16 @@
 import { SvgUsage } from "@quiverai/sdk/sdk/models/shared";
 
 let value: SvgUsage = {
-  inputTokens: 1200,
-  outputTokens: 440,
-  totalTokens: 1640,
+  inputTokens: 0,
+  outputTokens: 0,
+  totalTokens: 0,
 };
 ```
 
 ## Fields
 
-| Field              | Type               | Required           | Description        | Example            |
-| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `inputTokens`      | *number*           | :heavy_check_mark: | N/A                | 1200               |
-| `outputTokens`     | *number*           | :heavy_check_mark: | N/A                | 440                |
-| `totalTokens`      | *number*           | :heavy_check_mark: | N/A                | 1640               |
+| Field                                                                                                                                                                                               | Type                                                                                                                                                                                                | Required                                                                                                                                                                                            | Description                                                                                                                                                                                         | Example                                                                                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ~~`inputTokens`~~                                                                                                                                                                                   | *number*                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                  | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.<br/><br/>Deprecated. Token counts are retained for compatibility and may be zeroed. | 0                                                                                                                                                                                                   |
+| ~~`outputTokens`~~                                                                                                                                                                                  | *number*                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                  | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.<br/><br/>Deprecated. Token counts are retained for compatibility and may be zeroed. | 0                                                                                                                                                                                                   |
+| ~~`totalTokens`~~                                                                                                                                                                                   | *number*                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                  | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.<br/><br/>Deprecated. Token counts are retained for compatibility and may be zeroed. | 0                                                                                                                                                                                                   |

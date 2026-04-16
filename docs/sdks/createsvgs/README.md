@@ -105,7 +105,7 @@ async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
     instructions: "Use a flat monochrome style with rounded corners and clean geometry.",
     maxOutputTokens: 4096,
-    model: "arrow-preview",
+    model: "arrow-1.1",
     n: 2,
     presencePenalty: 0.2,
     prompt: "Generate a minimalist unicorn icon for a SaaS dashboard",
@@ -137,7 +137,7 @@ async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
     instructions: "Use a flat monochrome style with rounded corners and clean geometry.",
     maxOutputTokens: 4096,
-    model: "arrow-preview",
+    model: "arrow-1.1",
     n: 2,
     presencePenalty: 0.2,
     prompt: "Generate a minimalist unicorn icon for a SaaS dashboard",
@@ -166,7 +166,7 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
-    model: "arrow-preview",
+    model: "arrow-1.1",
     prompt: "Generate an icon of a unicorn",
     temperature: 0.8,
   });
@@ -193,7 +193,7 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
-    model: "arrow-preview",
+    model: "arrow-1.1",
     prompt: "Generate an icon of a unicorn",
     temperature: 0.8,
   });
@@ -515,7 +515,7 @@ const quiverAI = new QuiverAI({
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
     instructions: "Use flat monochrome geometry and keep them visually distinct.",
-    model: "arrow-preview",
+    model: "arrow-1.1",
     n: 2,
     presencePenalty: 0.2,
     prompt: "Generate two minimalist unicorn badge variants",
@@ -547,7 +547,7 @@ const quiverAI = new QuiverAICore({
 async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
     instructions: "Use flat monochrome geometry and keep them visually distinct.",
-    model: "arrow-preview",
+    model: "arrow-1.1",
     n: 2,
     presencePenalty: 0.2,
     prompt: "Generate two minimalist unicorn badge variants",
