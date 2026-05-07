@@ -197,9 +197,15 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
+    instructions:
+      "Use a flat monochrome style with rounded corners and clean geometry.",
+    maxOutputTokens: 4096,
     model: "arrow-1.1",
-    prompt: "Generate an icon of a unicorn",
-    temperature: 0.8,
+    n: 2,
+    presencePenalty: 0.2,
+    prompt: "Generate a minimalist unicorn icon for a SaaS dashboard",
+    temperature: 0.4,
+    topP: 0.95,
   });
 
   console.log(result);
