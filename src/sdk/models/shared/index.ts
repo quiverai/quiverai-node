@@ -11,6 +11,7 @@ export * from "./listmodelsresponse.js";
 export * from "./model.js";
 export * from "./publicerrorenvelope.js";
 export * from "./security.js";
+export * from "./svgattributes.js";
 export * from "./svgcontenteventdata.js";
 export * from "./svgdocument.js";
 export * from "./svgdrafteventdata.js";

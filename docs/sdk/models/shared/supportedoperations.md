@@ -11,5 +11,5 @@ let value: SupportedOperations = "svg_generate";
 ## Values
 
 ```typescript
-"svg_generate" | "svg_edit" | "svg_animate" | "svg_vectorize"
+"svg_generate" | "svg_edit" | "svg_vectorize"
 ```

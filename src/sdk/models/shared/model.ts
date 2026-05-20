@@ -62,7 +62,6 @@ export type PricingCredits = {
 export const SupportedOperations = {
   SvgGenerate: "svg_generate",
   SvgEdit: "svg_edit",
-  SvgAnimate: "svg_animate",
   SvgVectorize: "svg_vectorize",
 } as const;
 export type SupportedOperations = ClosedEnum<typeof SupportedOperations>;

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 0f33c9fc-1c93-4296-9792-fbb1c4caef92
 management:
-  docChecksum: 0fa415bcdba9e2ca7bf4870a51cee903
+  docChecksum: b69397bfde2ff009686b153f97e069f1
   docVersion: 1.0.0
-  speakeasyVersion: 1.762.0
-  generationVersion: 2.882.0
-  releaseVersion: 0.6.2
-  configChecksum: 2070f1f89d2b15d6e3a643dfd3ad4d1d
+  speakeasyVersion: 1.763.2
+  generationVersion: 2.884.4
+  releaseVersion: 0.6.3
+  configChecksum: 54ddb6273219f5c27b2d7a1dab4b4888
   repoURL: https://github.com/quiverai/quiverai-node.git
   installationURL: https://github.com/quiverai/quiverai-node
   published: true
 persistentEdits:
-  generation_id: cec4d69e-32f4-44d3-9656-8af9276ca900
-  pristine_commit_hash: eb343bc7b18335eda6c26b0eab3ed75a5d7b682d
-  pristine_tree_hash: bd26b0c8b8197c3cdcd9ddd8e7f7103af8906c42
+  generation_id: 42d427d2-1aef-4197-878e-835aa15360a7
+  pristine_commit_hash: 39934a1c35f84d55d32a2e3ee982bf1de1720064
+  pristine_tree_hash: bd36d2ded9a2389138ee41f7ba11926d41c94168
 features:
   typescript:
     acceptHeaders: 2.81.2
@@ -107,8 +107,8 @@ trackedFiles:
     pristine_git_object: f075a24b436add876cd876eeb6b3d1a8626913e6
   docs/sdk/models/shared/generatesvgrequest.md:
     id: 5c17111bcc8d
-    last_write_checksum: sha1:2800434a3e059af86cad2497a058667e3735755e
-    pristine_git_object: c0cd823401fd273df30568471e364c1fb892caaf
+    last_write_checksum: sha1:f8889f94950aacfcef2152c2b3308f99326eda1d
+    pristine_git_object: 9a4a064ff497f89e5af569a3556350aeea0b25f0
   docs/sdk/models/shared/imageinputreference.md:
     id: c63f4dc6d42a
     last_write_checksum: sha1:dbaadb8f825baaa373d6134c455854dc18bc71ff
@@ -175,12 +175,16 @@ trackedFiles:
     pristine_git_object: e2bc469ea25ed54c0fa181624a7233389169a31c
   docs/sdk/models/shared/supportedoperations.md:
     id: 46b652fbcc9e
-    last_write_checksum: sha1:ab60da570f82050a2af2b04f4e1835f69a24bef5
-    pristine_git_object: db781e92cb7f284111fa58ff0354a44e6177e313
+    last_write_checksum: sha1:b54d14f379371226aeeb48ede4b1b524f56fe521
+    pristine_git_object: 17b3facf8a56dfe2d6a46a4f4b5631168fea7063
   docs/sdk/models/shared/supportedsamplingparameters.md:
     id: ed6b2c04324d
     last_write_checksum: sha1:a8ef88036b7f9c055cb3cfea9e2fe3c314c2845a
     pristine_git_object: 72d8bb8dbcf78c38966ed1bbfbaeeac8c4e409ba
+  docs/sdk/models/shared/svgattributes.md:
+    id: bd0175533f10
+    last_write_checksum: sha1:aab8ee72db67b4a45e8ed6b1ee501628ffcdaaca
+    pristine_git_object: 2a4eefde3f2a984009dad67555bd7c0130c471ad
   docs/sdk/models/shared/svgcontenteventdata.md:
     id: bdfc6b8c1ab7
     last_write_checksum: sha1:6f300521275ada249a4a3c266558a99085e4eac8
@@ -227,20 +231,24 @@ trackedFiles:
     pristine_git_object: 6eb58d4d3ad5e6f33cb601372f6480ec9f82282d
   docs/sdk/models/shared/vectorizesvgrequest.md:
     id: 5e6a1ab1ca22
-    last_write_checksum: sha1:e039fc59b111cd8504cdab374f7d368c65a6db48
-    pristine_git_object: 476d1b64f92fc36f96a39b2effb5a170e492ac2c
+    last_write_checksum: sha1:c3803600cb5ff84838805cef20d69525cdf05b0d
+    pristine_git_object: 355450779faefa571518f9013ec161c5f5121049
+  docs/sdk/models/shared/viewbox.md:
+    id: 738758ef6f13
+    last_write_checksum: sha1:e800d80a343c186a258994ad1e22f7bc58b3eecc
+    pristine_git_object: fe1a1d2660149dda3d5847a48310ab59350f80c4
   docs/sdks/createsvgs/README.md:
     id: 3037e9dee7b8
-    last_write_checksum: sha1:33720a4bb83402bdf9bdeaced01376ed28a49211
-    pristine_git_object: ec6531830f1ad0da884ab3ee49054a6484f0aef0
+    last_write_checksum: sha1:2c3b4d49aad5b9ca3bb963ac426b6a21683da7a2
+    pristine_git_object: 93b54b92269879fc395c8a8cce6e415b9ad43faf
   docs/sdks/models/README.md:
     id: b35bdf4bc7ed
     last_write_checksum: sha1:c706776ed0c26b368dc1acc9ab8143706ef89717
     pristine_git_object: 062ca93e65a1e1d3076e38afa561a98db7e30b12
   docs/sdks/vectorizesvg/README.md:
     id: 3aa82aec666b
-    last_write_checksum: sha1:2a781b8350d821669b82b0c6b6bb3dcc0c9bc0d7
-    pristine_git_object: 933358b916cc6290e1a1dcbb7f4d542d2fcb8d1a
+    last_write_checksum: sha1:b91364b14262f1ed8b54016623fc222ddb2dff20
+    pristine_git_object: 06e00ec5f7fd1483dedb46efc02c7bd304922371
   eslint.config.mjs:
     id: 461c8d07f6da
     last_write_checksum: sha1:9398f326377fe47f67af2df6eb6370750c0790b4
@@ -263,12 +271,12 @@ trackedFiles:
     pristine_git_object: cc173cc598005ddf714e2215e0304c0ab85583a9
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:91918984f62fe2f0665bded1b3f290e6b55ced89
-    pristine_git_object: 4c508e32f900c0a9dd2fc9cccc3061a8dd524cad
+    last_write_checksum: sha1:ef073c488a1cd2b83c1e216313aebc55a8bf4505
+    pristine_git_object: 13d42252edffb357cbe9b8789e7fbae3eafe836f
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:107edbf9f05884152f4765f4673f97b1f6dcbb77
-    pristine_git_object: 779e691844dc0115487769c1634e82d752f90fb3
+    last_write_checksum: sha1:0ef1a5bee0d95ea1bba62118d72045d2e9f0847f
+    pristine_git_object: cd4d6b2fbfa5b23b309e044db5305343c9cc43e7
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:f68eeda1706ded6626e158d7a1e7bda00e0e71e2
@@ -311,8 +319,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:5ef84a55da080f51c65b81fd086f7208c8123d0c
-    pristine_git_object: 219679bf37e56454cc10cf0b331670c85b75e7e5
+    last_write_checksum: sha1:d2fa029cece23cddbe56441b46fb55c6077f41a3
+    pristine_git_object: 69278e2c03be2841da771d3b1667818dc516559c
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -427,8 +435,8 @@ trackedFiles:
     pristine_git_object: 23df50aefb043c02094faf0881543a6cc0a73fa1
   src/sdk/models/shared/generatesvgrequest.ts:
     id: d0a0727cbb80
-    last_write_checksum: sha1:41fe49e67efb45030b2ce81f12744ea89ad87837
-    pristine_git_object: add365de37cb409e0e09cc8a9733c10fce444bc6
+    last_write_checksum: sha1:82f2088aa536dafe22899f5ae1c711568c60f5c0
+    pristine_git_object: c7c9302fd1641f5e5eec48dfc8295745613de1b2
   src/sdk/models/shared/imageinputreference.ts:
     id: 136320bd2a3c
     last_write_checksum: sha1:83689345d1f368439ed4033563302897773c4a97
@@ -447,16 +455,16 @@ trackedFiles:
     pristine_git_object: 90f68ade24728b03089e534f9f75a2587bb7fdd7
   src/sdk/models/shared/index.ts:
     id: e97e906e3c14
-    last_write_checksum: sha1:a6b23ce67bd44b7c42f85da35f1bd1c94c39425d
-    pristine_git_object: 64edae34e69ef3a8eb8584abd15bf6bafc1c695d
+    last_write_checksum: sha1:be495cf36900c22bfc5af15bd6c5bb3d33ec2aab
+    pristine_git_object: 026bcd7bd59dcd291366995474ab43fa0c3afc94
   src/sdk/models/shared/listmodelsresponse.ts:
     id: d2d28dc575ca
     last_write_checksum: sha1:ef0b7f2e0d2143ef4f7e3482ec48ab9f6283c347
     pristine_git_object: 7c7d9aad9ab4313cb97a03bd8538dafad9cda8b1
   src/sdk/models/shared/model.ts:
     id: d8032b6e82b8
-    last_write_checksum: sha1:060f6e636452bf95468210260c554edf1cd080df
-    pristine_git_object: 4b3af3c38ea81c7e92606bcdd996688374e3219a
+    last_write_checksum: sha1:c7044eaa5f104d647684b73f704afd5df8eecd15
+    pristine_git_object: 4badd950e8f57992459dca43eb346b52bcc024e0
   src/sdk/models/shared/publicerrorenvelope.ts:
     id: 5406176b09ff
     last_write_checksum: sha1:0a3c70c439ef729ab676bbc51a52185a0683d191
@@ -465,6 +473,10 @@ trackedFiles:
     id: 4a9790ed1c2f
     last_write_checksum: sha1:f54ff18620a0612537f0a766f9c493414b073f6b
     pristine_git_object: 0a76161c0e9e5361d53187bc1da027a4f99e651d
+  src/sdk/models/shared/svgattributes.ts:
+    id: c8d671f2e778
+    last_write_checksum: sha1:71416ca6d30d2fd489cd9ff929c378a485f13265
+    pristine_git_object: c1f12c0ec6923ffe2af1b4d43d88f658c2fcff62
   src/sdk/models/shared/svgcontenteventdata.ts:
     id: bfadc32b3ea8
     last_write_checksum: sha1:8518c547ab511b07945d2164afad28b034088fc8
@@ -503,8 +515,8 @@ trackedFiles:
     pristine_git_object: 23e874a1bef5228f307488bfb82ce3b55a83b334
   src/sdk/models/shared/vectorizesvgrequest.ts:
     id: 2ca683a025ca
-    last_write_checksum: sha1:3ac29fecef5523b5097954b3769b48e83fa8189e
-    pristine_git_object: 159c3ea1c1ae529363b4bd9ac146778032fd0773
+    last_write_checksum: sha1:865dee9f2093fa2cfabd09f70c5aa5a9e11d98ef
+    pristine_git_object: 7a72a45b8329c6e8c389f0bc127fe8e52fb64ce4
   src/sdk/sdk.ts:
     id: 784571af2f69
     last_write_checksum: sha1:7560dd1ccf23223e59c319354371d1e181c50eb8
@@ -562,7 +574,7 @@ examples:
     speakeasy-default-list-models:
       responses:
         "200":
-          application/json: {"data": [{"context_length": 128000, "created": 1704067200, "description": "Optimized for high-quality icon and illustration generation", "id": "arrow-0.5", "input_modalities": ["text", "image"], "max_output_length": 16384, "name": "Quiver: Arrow 0.5", "object": "model", "output_modalities": ["svg"], "owned_by": "quiver", "pricing": {"svg_generate": "0.03", "svg_vectorize": "0.03"}, "supported_operations": ["svg_generate", "svg_edit", "svg_animate", "svg_animate", "svg_animate"], "supported_sampling_parameters": ["temperature", "top_p", "stop", "repetition_penalty"]}], "object": "list"}
+          application/json: {"data": [{"context_length": 128000, "created": 1704067200, "description": "Optimized for high-quality icon and illustration generation", "id": "arrow-0.5", "input_modalities": ["text", "image"], "max_output_length": 16384, "name": "Quiver: Arrow 0.5", "object": "model", "output_modalities": ["svg"], "owned_by": "quiver", "pricing": {"svg_generate": "0.03", "svg_vectorize": "0.03"}, "supported_operations": ["svg_generate", "svg_edit", "svg_edit", "svg_generate", "svg_edit"], "supported_sampling_parameters": ["temperature", "top_p", "stop", "repetition_penalty"]}], "object": "list"}
         "401":
           application/json: {"code": "invalid_api_key", "message": "Invalid API key provided", "param": "api_key", "type": "invalid_request_error"}
         "400":
@@ -576,7 +588,7 @@ examples:
     default:
       responses:
         "200":
-          application/json: {"data": [{"context_length": 131072, "created": 1704067200, "description": "QuiverAI API flagship SVG generation model for text-to-SVG and image-to-SVG.", "id": "arrow-1", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.0", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.30", "svg_vectorize": "0.30"}, "pricing_credits": {"svg_generate": 30, "svg_vectorize": 30}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}, {"context_length": 131072, "created": 1704067200, "description": "QuiverAI API flagship SVG generation model for text-to-SVG and image-to-SVG.", "id": "arrow-1.1", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.1", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.20", "svg_vectorize": "0.15"}, "pricing_credits": {"svg_generate": 20, "svg_vectorize": 15}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}, {"context_length": 131072, "created": 1704067200, "description": "QuiverAI API flagship SVG generation model for text-to-SVG and image-to-SVG.", "id": "arrow-1.1-max", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.1 Max", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.25", "svg_vectorize": "0.20"}, "pricing_credits": {"svg_generate": 25, "svg_vectorize": 20}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}], "object": "list"}
+          application/json: {"data": [{"context_length": 131072, "created": 1704067200, "description": "First-generation vector-native model for editable logos, icons, and illustrations.", "id": "arrow-1", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.0", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.30", "svg_vectorize": "0.30"}, "pricing_credits": {"svg_generate": 30, "svg_vectorize": 30}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}, {"context_length": 131072, "created": 1704067200, "description": "Best default for speed and quality, with stronger prompt following and more precise SVG structure.", "id": "arrow-1.1", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.1", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.20", "svg_vectorize": "0.15"}, "pricing_credits": {"svg_generate": 20, "svg_vectorize": 15}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}, {"context_length": 131072, "created": 1704067200, "description": "Higher-fidelity model for detailed diagrams and illustrations where precision matters most.", "id": "arrow-1.1-max", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.1 Max", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.25", "svg_vectorize": "0.20"}, "pricing_credits": {"svg_generate": 25, "svg_vectorize": 20}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}], "object": "list"}
   retrieveModel:
     speakeasy-default-retrieve-model:
       parameters:
@@ -1022,7 +1034,7 @@ examples:
           application/json: {"created": 1704067200, "data": [{"mime_type": "image/svg+xml", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">...</svg>"}, {"mime_type": "image/svg+xml", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">...</svg>"}], "id": "svg-abc123", "usage": {"input_tokens": 300, "output_tokens": 1500, "total_tokens": 1800}}
     speakeasy-default-generate-SVG:
       requestBody:
-        application/json: {"instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
       responses:
         "200":
           application/json: {"created": 1704067200, "credits": 1, "data": [{"mime_type": "image/svg+xml", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">...</svg>"}], "id": "svg-abc123"}
@@ -1060,13 +1072,13 @@ examples:
           application/json: {"code": "invalid_api_key", "message": "Invalid API key provided", "request_id": "<id>", "status": 923598}
     n2DraftEvent:
       requestBody:
-        application/json: {"instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
       responses:
         "200":
           text/event-stream: {"data": {"id": "svg_out_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N", "index": 1, "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2\"/></svg>", "type": "draft"}, "event": "draft"}
     n2ContentEvent:
       requestBody:
-        application/json: {"instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
       responses:
         "200":
           text/event-stream: {"data": {"credits": 20, "id": "svg_out_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N", "index": 1, "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 2l8 20H4z\"/></svg>", "type": "content", "usage": {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}}, "event": "content"}
@@ -1112,7 +1124,7 @@ examples:
           application/json: {"created": 1704067200, "data": [{"mime_type": "image/svg+xml", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">...</svg>"}, {"mime_type": "image/svg+xml", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\">...</svg>"}], "id": "svg-xyz789", "usage": {"input_tokens": 700, "output_tokens": 1100, "total_tokens": 1800}}
     speakeasy-default-vectorize-SVG:
       requestBody:
-        application/json: {"auto_crop": true, "image": {"url": "https://example.com/uploads/reference1.png"}, "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": {"url": "https://example.com/uploads/reference1.png"}, "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
       responses:
         "200":
           application/json: {"created": 1704067200, "credits": 1, "data": [], "id": "svg-abc123"}
@@ -1139,13 +1151,13 @@ examples:
           application/json: {"code": "invalid_api_key", "message": "Invalid API key provided", "request_id": "<id>", "status": 144878}
     draftEvent:
       requestBody:
-        application/json: {"auto_crop": true, "image": {"url": "https://example.com/uploads/reference1.png"}, "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": {"url": "https://example.com/uploads/reference1.png"}, "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
       responses:
         "200":
           text/event-stream: {"data": {"id": "svg_0A1B2C3D4E5F", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2 2\"/></svg>", "type": "draft"}, "event": "draft"}
     contentEvent:
       requestBody:
-        application/json: {"auto_crop": true, "image": {"url": "https://example.com/uploads/reference1.png"}, "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": {"url": "https://example.com/uploads/reference1.png"}, "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
       responses:
         "200":
           text/event-stream: {"data": {"credits": 15, "id": "svg_0A1B2C3D4E5F", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M5 5h14v14H5z\"/></svg>", "type": "content", "usage": {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}}, "event": "content"}
@@ -1191,7 +1203,7 @@ examples:
           model: "arrow-0.5"
       responses:
         "200":
-          application/json: {"context_length": 131072, "created": 1704067200, "description": "QuiverAI API flagship SVG generation model for text-to-SVG and image-to-SVG.", "id": "arrow-1.1", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.1", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.20", "svg_vectorize": "0.15"}, "pricing_credits": {"svg_generate": 20, "svg_vectorize": 15}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}
+          application/json: {"context_length": 131072, "created": 1704067200, "description": "Best default for speed and quality, with stronger prompt following and more precise SVG structure.", "id": "arrow-1.1", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.1", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.20", "svg_vectorize": "0.15"}, "pricing_credits": {"svg_generate": 20, "svg_vectorize": 15}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}
     speakeasy-default-get-model:
       parameters:
         path:
@@ -1205,3 +1217,4 @@ examples:
           application/json: {"code": "model_not_found", "message": "<value>", "request_id": "<id>", "status": 705234}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Typescript SDK Changes:\n* `quiverai.models.getModel()`:  `response.supportedOperations[].enum(svgAnimate)` **Removed** (Breaking ⚠️)\n* `quiverai.models.listModels()`:  `response.data[].supportedOperations[].enum(svgAnimate)` **Removed** (Breaking ⚠️)\n* `quiverai.createSvGs.generateSvg()`: \n  *  `request.attributes` **Added**\n* `quiverai.vectorizeSvg.vectorizeSvg()`: \n  *  `request.attributes` **Added**\n"
