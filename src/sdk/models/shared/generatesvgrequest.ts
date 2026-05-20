@@ -9,8 +9,17 @@ import {
   ImageInputReferenceInput$Outbound,
   ImageInputReferenceInput$outboundSchema,
 } from "./imageinputreferenceinput.js";
+import {
+  SvgAttributes,
+  SvgAttributes$Outbound,
+  SvgAttributes$outboundSchema,
+} from "./svgattributes.js";
 
 export type GenerateSVGRequest = {
+  /**
+   * Optional SVG root attributes requested by the caller.
+   */
+  attributes?: SvgAttributes | null | undefined;
   /**
    * Additional style or formatting guidance.
    */
@@ -55,6 +64,7 @@ export type GenerateSVGRequest = {
 
 /** @internal */
 export type GenerateSVGRequest$Outbound = {
+  attributes?: SvgAttributes$Outbound | null | undefined;
   instructions?: string | undefined;
   max_output_tokens?: number | undefined;
   model: string;
@@ -73,6 +83,7 @@ export const GenerateSVGRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GenerateSVGRequest
 > = z.object({
+  attributes: z.nullable(SvgAttributes$outboundSchema).optional(),
   instructions: z.string().optional(),
   maxOutputTokens: z.number().int().optional(),
   model: z.string(),

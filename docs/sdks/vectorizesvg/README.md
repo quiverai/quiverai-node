@@ -146,6 +146,14 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.vectorizeSVG.vectorizeSVG({
+    attributes: {
+      viewBox: {
+        height: 512,
+        minX: 0,
+        minY: 0,
+        width: 512,
+      },
+    },
     autoCrop: true,
     image: {
       url: "https://example.com/uploads/reference1.png",
@@ -180,6 +188,14 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await vectorizeSVGVectorizeSVG(quiverAI, {
+    attributes: {
+      viewBox: {
+        height: 512,
+        minX: 0,
+        minY: 0,
+        width: 512,
+      },
+    },
     autoCrop: true,
     image: {
       url: "https://example.com/uploads/reference1.png",
@@ -213,6 +229,14 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.vectorizeSVG.vectorizeSVG({
+    attributes: {
+      viewBox: {
+        height: 512,
+        minX: 0,
+        minY: 0,
+        width: 512,
+      },
+    },
     autoCrop: true,
     image: {
       url: "https://example.com/uploads/reference1.png",
@@ -247,6 +271,14 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await vectorizeSVGVectorizeSVG(quiverAI, {
+    attributes: {
+      viewBox: {
+        height: 512,
+        minX: 0,
+        minY: 0,
+        width: 512,
+      },
+    },
     autoCrop: true,
     image: {
       url: "https://example.com/uploads/reference1.png",

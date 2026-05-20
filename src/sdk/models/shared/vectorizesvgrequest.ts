@@ -9,8 +9,17 @@ import {
   ImageInputReference$Outbound,
   ImageInputReference$outboundSchema,
 } from "./imageinputreference.js";
+import {
+  SvgAttributes,
+  SvgAttributes$Outbound,
+  SvgAttributes$outboundSchema,
+} from "./svgattributes.js";
 
 export type VectorizeSVGRequest = {
+  /**
+   * Optional SVG root attributes requested by the caller.
+   */
+  attributes?: SvgAttributes | null | undefined;
   /**
    * Auto-crop image to the dominant subject before vectorization.
    */
@@ -48,6 +57,7 @@ export type VectorizeSVGRequest = {
 
 /** @internal */
 export type VectorizeSVGRequest$Outbound = {
+  attributes?: SvgAttributes$Outbound | null | undefined;
   auto_crop: boolean;
   image: ImageInputReference$Outbound;
   max_output_tokens?: number | undefined;
@@ -65,6 +75,7 @@ export const VectorizeSVGRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   VectorizeSVGRequest
 > = z.object({
+  attributes: z.nullable(SvgAttributes$outboundSchema).optional(),
   autoCrop: z.boolean().default(false),
   image: ImageInputReference$outboundSchema,
   maxOutputTokens: z.number().int().optional(),

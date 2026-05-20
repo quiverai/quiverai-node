@@ -321,6 +321,14 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
+    attributes: {
+      viewBox: {
+        height: 512,
+        minX: 0,
+        minY: 0,
+        width: 512,
+      },
+    },
     instructions: "Use a flat monochrome style with clean geometry.",
     maxOutputTokens: 4096,
     model: "arrow-preview",
@@ -357,6 +365,14 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
+    attributes: {
+      viewBox: {
+        height: 512,
+        minX: 0,
+        minY: 0,
+        width: 512,
+      },
+    },
     instructions: "Use a flat monochrome style with clean geometry.",
     maxOutputTokens: 4096,
     model: "arrow-preview",
@@ -392,6 +408,14 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
+    attributes: {
+      viewBox: {
+        height: 512,
+        minX: 0,
+        minY: 0,
+        width: 512,
+      },
+    },
     instructions: "Use a flat monochrome style with clean geometry.",
     maxOutputTokens: 4096,
     model: "arrow-preview",
@@ -428,6 +452,14 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
+    attributes: {
+      viewBox: {
+        height: 512,
+        minX: 0,
+        minY: 0,
+        width: 512,
+      },
+    },
     instructions: "Use a flat monochrome style with clean geometry.",
     maxOutputTokens: 4096,
     model: "arrow-preview",
