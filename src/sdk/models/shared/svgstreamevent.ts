@@ -95,7 +95,8 @@ export type SvgStreamEvent = One | Two | Three | Four;
 /** @internal */
 export const Four$inboundSchema: z.ZodType<Four, z.ZodTypeDef, unknown> = z
   .object({
-    data: z.string().transform((v, ctx) => {
+    data: z.unknown().transform((v, ctx) => {
+      if (typeof v !== "string") return v;
       try {
         return JSON.parse(v);
       } catch (err) {
@@ -121,7 +122,8 @@ export function fourFromJSON(
 /** @internal */
 export const Three$inboundSchema: z.ZodType<Three, z.ZodTypeDef, unknown> = z
   .object({
-    data: z.string().transform((v, ctx) => {
+    data: z.unknown().transform((v, ctx) => {
+      if (typeof v !== "string") return v;
       try {
         return JSON.parse(v);
       } catch (err) {
@@ -147,7 +149,8 @@ export function threeFromJSON(
 /** @internal */
 export const Two$inboundSchema: z.ZodType<Two, z.ZodTypeDef, unknown> = z
   .object({
-    data: z.string().transform((v, ctx) => {
+    data: z.unknown().transform((v, ctx) => {
+      if (typeof v !== "string") return v;
       try {
         return JSON.parse(v);
       } catch (err) {
@@ -173,7 +176,8 @@ export function twoFromJSON(
 /** @internal */
 export const One$inboundSchema: z.ZodType<One, z.ZodTypeDef, unknown> = z
   .object({
-    data: z.string().transform((v, ctx) => {
+    data: z.unknown().transform((v, ctx) => {
+      if (typeof v !== "string") return v;
       try {
         return JSON.parse(v);
       } catch (err) {
