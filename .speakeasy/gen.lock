@@ -1,26 +1,26 @@
 lockVersion: 2.0.0
 id: 0f33c9fc-1c93-4296-9792-fbb1c4caef92
 management:
-  docChecksum: b69397bfde2ff009686b153f97e069f1
+  docChecksum: bed3dcc234bff3284744439513fb3e67
   docVersion: 1.0.0
-  speakeasyVersion: 1.763.2
-  generationVersion: 2.884.4
-  releaseVersion: 0.6.3
-  configChecksum: 54ddb6273219f5c27b2d7a1dab4b4888
+  speakeasyVersion: 1.769.2
+  generationVersion: 2.892.5
+  releaseVersion: 0.7.0
+  configChecksum: f2f0ce5f9e9eca9f96b0ada9ac571dcc
   repoURL: https://github.com/quiverai/quiverai-node.git
   installationURL: https://github.com/quiverai/quiverai-node
   published: true
 persistentEdits:
-  generation_id: 42d427d2-1aef-4197-878e-835aa15360a7
-  pristine_commit_hash: 39934a1c35f84d55d32a2e3ee982bf1de1720064
-  pristine_tree_hash: bd36d2ded9a2389138ee41f7ba11926d41c94168
+  generation_id: 367371c9-53e6-4eb4-b0f4-fdcfbdd5c6b4
+  pristine_commit_hash: eac03fcc7eaf6d4f4ae192d02c25d5b8e37ca931
+  pristine_tree_hash: 6b832c943c4c63c8522e1858b2a40cf3df969ee9
 features:
   typescript:
     acceptHeaders: 2.81.2
     additionalDependencies: 0.1.0
     additionalProperties: 0.1.3
     constsAndDefaults: 0.1.14
-    core: 3.26.50
+    core: 3.27.0
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     enumUnions: 0.1.0
@@ -34,7 +34,7 @@ features:
     responseFormat: 0.3.0
     retries: 2.83.0
     sdkHooks: 0.4.0
-    serverEvents: 0.1.16
+    serverEvents: 0.1.19
     unions: 2.86.4
 trackedFiles:
   .gitattributes:
@@ -271,12 +271,12 @@ trackedFiles:
     pristine_git_object: cc173cc598005ddf714e2215e0304c0ab85583a9
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:ef073c488a1cd2b83c1e216313aebc55a8bf4505
-    pristine_git_object: 13d42252edffb357cbe9b8789e7fbae3eafe836f
+    last_write_checksum: sha1:a5a239c4525d4ff8768a73cbe43f89bd45319d14
+    pristine_git_object: 53fb6053dcd2b8f19fea29b974306c324261ebd9
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:0ef1a5bee0d95ea1bba62118d72045d2e9f0847f
-    pristine_git_object: cd4d6b2fbfa5b23b309e044db5305343c9cc43e7
+    last_write_checksum: sha1:f932e89ccd6f977c3bc2f876d356685a6bac6d52
+    pristine_git_object: cd36bb5e255755934e7f6c80f4df66a08d2f5d79
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:f68eeda1706ded6626e158d7a1e7bda00e0e71e2
@@ -319,8 +319,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:d2fa029cece23cddbe56441b46fb55c6077f41a3
-    pristine_git_object: 69278e2c03be2841da771d3b1667818dc516559c
+    last_write_checksum: sha1:73997c46d27fb4805e85ae985499593ff61bb6ba
+    pristine_git_object: 2ed968566a2c681714c926d36a15bf92d48507bb
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -503,8 +503,8 @@ trackedFiles:
     pristine_git_object: 548cfe1756b7fa08a9b01a75ccaff691ce84a4f6
   src/sdk/models/shared/svgstreamevent.ts:
     id: 9e35b571a386
-    last_write_checksum: sha1:eac79fb26686ba4293ca0acca2d42380567b7cbe
-    pristine_git_object: 95676e184cbc62f53bb5e31aa8639cf644ed84b1
+    last_write_checksum: sha1:5f5e501ee275fca142ad62a6ad3b4da3b525637b
+    pristine_git_object: 47a5424fee944eb0ae3e2eda20a79569ff207a70
   src/sdk/models/shared/svgstreameventdata.ts:
     id: 95f3062249b0
     last_write_checksum: sha1:6490db33bc4797a2eb546cbb5a83e6a66a3ad40f
@@ -523,8 +523,8 @@ trackedFiles:
     pristine_git_object: 503808f86ce83eb0ae3021cc55c3cab58269a859
   src/sdk/types/async.ts:
     id: 966026768b05
-    last_write_checksum: sha1:3ff07b3feaf390ec1aeb18ff938e139c6c4a9585
-    pristine_git_object: 689dba5de50e8769e5f3bb913e3f42a146d15bc1
+    last_write_checksum: sha1:675d04bb4b4081dc3482f18de98674f9b446e7b4
+    pristine_git_object: 1543b95cf7be9b5a871d7395f259dbd65331dc21
   src/sdk/types/blobs.ts:
     id: 1def31341768
     last_write_checksum: sha1:cf45d78916671cb6345a11c97c633c64402bc27c
@@ -1217,4 +1217,3 @@ examples:
           application/json: {"code": "model_not_found", "message": "<value>", "request_id": "<id>", "status": 705234}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes:\n* `quiverai.models.getModel()`:  `response.supportedOperations[].enum(svgAnimate)` **Removed** (Breaking ⚠️)\n* `quiverai.models.listModels()`:  `response.data[].supportedOperations[].enum(svgAnimate)` **Removed** (Breaking ⚠️)\n* `quiverai.createSvGs.generateSvg()`: \n  *  `request.attributes` **Added**\n* `quiverai.vectorizeSvg.vectorizeSvg()`: \n  *  `request.attributes` **Added**\n"
