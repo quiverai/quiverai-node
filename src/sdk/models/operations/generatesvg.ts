@@ -10,6 +10,14 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
+export type GenerateSVGRequest = {
+  generateSVGRequest: shared.GenerateSVGRequest;
+  /**
+   * Optional client-supplied trace identifier. The API echoes this value in `X-Trace-ID` and includes it in request logs for client-side correlation.
+   */
+  xTraceId?: string | undefined;
+};
+
 export type GenerateSVGResponseResult =
   | shared.PublicErrorEnvelope
   | shared.SvgResponse
@@ -22,6 +30,35 @@ export type GenerateSVGResponse = {
     | shared.SvgResponse
     | EventStream<shared.SvgStreamEvent>;
 };
+
+/** @internal */
+export type GenerateSVGRequest$Outbound = {
+  GenerateSVGRequest: shared.GenerateSVGRequest$Outbound;
+  "x-trace-id"?: string | undefined;
+};
+
+/** @internal */
+export const GenerateSVGRequest$outboundSchema: z.ZodType<
+  GenerateSVGRequest$Outbound,
+  z.ZodTypeDef,
+  GenerateSVGRequest
+> = z.object({
+  generateSVGRequest: shared.GenerateSVGRequest$outboundSchema,
+  xTraceId: z.string().optional(),
+}).transform((v) => {
+  return remap$(v, {
+    generateSVGRequest: "GenerateSVGRequest",
+    xTraceId: "x-trace-id",
+  });
+});
+
+export function generateSVGRequestToJSON(
+  generateSVGRequest: GenerateSVGRequest,
+): string {
+  return JSON.stringify(
+    GenerateSVGRequest$outboundSchema.parse(generateSVGRequest),
+  );
+}
 
 /** @internal */
 export const GenerateSVGResponseResult$inboundSchema: z.ZodType<

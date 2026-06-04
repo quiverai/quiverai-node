@@ -8,7 +8,6 @@ import {
 } from "../funcs/vectorizeSVGVectorizeSVG.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "./models/operations/index.js";
-import * as shared from "./models/shared/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export { VectorizeSVGAcceptEnum } from "../funcs/vectorizeSVGVectorizeSVG.js";
@@ -21,7 +20,7 @@ export class VectorizeSVG extends ClientSDK {
    * Converts an image input into an SVG output.
    */
   async vectorizeSVG(
-    request: shared.VectorizeSVGRequest,
+    request: operations.VectorizeSVGRequest,
     options?: RequestOptions & {
       acceptHeaderOverride?: VectorizeSVGAcceptEnum;
     },

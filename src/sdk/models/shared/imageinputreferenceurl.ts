@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 
 export type ImageInputReferenceUrl = {
   /**
-   * Network image URL. Only http/https URLs are allowed.
+   * Network image URL. Only http/https URLs are allowed. The API fetches the URL, follows up to 3 redirects, blocks private or reserved network targets, requires an image response content type, and applies the same decoded image limits as base64 inputs.
    */
   url: string;
 };

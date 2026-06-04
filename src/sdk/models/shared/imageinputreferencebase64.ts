@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 
 export type ImageInputReferenceBase64 = {
   /**
-   * Base64-encoded image payload.
+   * Base64-encoded image payload. Decoded images must be no larger than 12582912 bytes, 4096x4096 pixels, or 16777216 total pixels. Accepted direct media types: image/png, image/jpeg, image/webp, image/gif, image/svg+xml.
    */
   base64: string;
 };

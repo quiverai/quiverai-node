@@ -24,6 +24,9 @@ export type VectorizeSVGRequest = {
    * Auto-crop image to the dominant subject before vectorization.
    */
   autoCrop?: boolean | undefined;
+  /**
+   * Image input reference. Accepts a network image URL or a base64-encoded image payload. Decoded images must be no larger than 12582912 bytes, 4096x4096 pixels, or 16777216 total pixels. Accepted direct media types: image/png, image/jpeg, image/webp, image/gif, image/svg+xml.
+   */
   image: ImageInputReference;
   /**
    * Upper bound for output token count.

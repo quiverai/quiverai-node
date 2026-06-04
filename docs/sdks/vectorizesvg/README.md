@@ -24,14 +24,16 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.vectorizeSVG.vectorizeSVG({
-    autoCrop: true,
-    image: {
-      url: "https://example.com/photo.jpg",
+    vectorizeSVGRequest: {
+      autoCrop: true,
+      image: {
+        url: "https://example.com/photo.jpg",
+      },
+      maxOutputTokens: 4096,
+      model: "arrow-0.5",
+      temperature: 0.3,
+      topP: 0.9,
     },
-    maxOutputTokens: 4096,
-    model: "arrow-0.5",
-    temperature: 0.3,
-    topP: 0.9,
   });
 
   console.log(result);
@@ -56,14 +58,16 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await vectorizeSVGVectorizeSVG(quiverAI, {
-    autoCrop: true,
-    image: {
-      url: "https://example.com/photo.jpg",
+    vectorizeSVGRequest: {
+      autoCrop: true,
+      image: {
+        url: "https://example.com/photo.jpg",
+      },
+      maxOutputTokens: 4096,
+      model: "arrow-0.5",
+      temperature: 0.3,
+      topP: 0.9,
     },
-    maxOutputTokens: 4096,
-    model: "arrow-0.5",
-    temperature: 0.3,
-    topP: 0.9,
   });
   if (res.ok) {
     const { value: result } = res;
@@ -87,12 +91,15 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.vectorizeSVG.vectorizeSVG({
-    autoCrop: true,
-    image: {
-      url: "https://example.com/uploads/logo.png",
+    vectorizeSVGRequest: {
+      autoCrop: true,
+      image: {
+        url: "https://example.com/uploads/logo.png",
+      },
+      model: "arrow-1.1",
+      temperature: 0.8,
     },
-    model: "arrow-1.1",
-    temperature: 0.8,
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
 
   console.log(result);
@@ -117,12 +124,15 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await vectorizeSVGVectorizeSVG(quiverAI, {
-    autoCrop: true,
-    image: {
-      url: "https://example.com/uploads/logo.png",
+    vectorizeSVGRequest: {
+      autoCrop: true,
+      image: {
+        url: "https://example.com/uploads/logo.png",
+      },
+      model: "arrow-1.1",
+      temperature: 0.8,
     },
-    model: "arrow-1.1",
-    temperature: 0.8,
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -146,24 +156,27 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.vectorizeSVG.vectorizeSVG({
-    attributes: {
-      viewBox: {
-        height: 512,
-        minX: 0,
-        minY: 0,
-        width: 512,
+    vectorizeSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
       },
+      autoCrop: true,
+      image: {
+        url: "https://example.com/uploads/reference1.png",
+      },
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      targetSize: 1024,
+      temperature: 0.4,
+      topP: 0.95,
     },
-    autoCrop: true,
-    image: {
-      url: "https://example.com/uploads/reference1.png",
-    },
-    maxOutputTokens: 4096,
-    model: "arrow-preview",
-    presencePenalty: 0.2,
-    targetSize: 1024,
-    temperature: 0.4,
-    topP: 0.95,
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
 
   console.log(result);
@@ -188,24 +201,27 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await vectorizeSVGVectorizeSVG(quiverAI, {
-    attributes: {
-      viewBox: {
-        height: 512,
-        minX: 0,
-        minY: 0,
-        width: 512,
+    vectorizeSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
       },
+      autoCrop: true,
+      image: {
+        url: "https://example.com/uploads/reference1.png",
+      },
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      targetSize: 1024,
+      temperature: 0.4,
+      topP: 0.95,
     },
-    autoCrop: true,
-    image: {
-      url: "https://example.com/uploads/reference1.png",
-    },
-    maxOutputTokens: 4096,
-    model: "arrow-preview",
-    presencePenalty: 0.2,
-    targetSize: 1024,
-    temperature: 0.4,
-    topP: 0.95,
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -229,24 +245,27 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.vectorizeSVG.vectorizeSVG({
-    attributes: {
-      viewBox: {
-        height: 512,
-        minX: 0,
-        minY: 0,
-        width: 512,
+    vectorizeSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
       },
+      autoCrop: true,
+      image: {
+        url: "https://example.com/uploads/reference1.png",
+      },
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      targetSize: 1024,
+      temperature: 0.4,
+      topP: 0.95,
     },
-    autoCrop: true,
-    image: {
-      url: "https://example.com/uploads/reference1.png",
-    },
-    maxOutputTokens: 4096,
-    model: "arrow-preview",
-    presencePenalty: 0.2,
-    targetSize: 1024,
-    temperature: 0.4,
-    topP: 0.95,
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
 
   console.log(result);
@@ -271,24 +290,27 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await vectorizeSVGVectorizeSVG(quiverAI, {
-    attributes: {
-      viewBox: {
-        height: 512,
-        minX: 0,
-        minY: 0,
-        width: 512,
+    vectorizeSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
       },
+      autoCrop: true,
+      image: {
+        url: "https://example.com/uploads/reference1.png",
+      },
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      targetSize: 1024,
+      temperature: 0.4,
+      topP: 0.95,
     },
-    autoCrop: true,
-    image: {
-      url: "https://example.com/uploads/reference1.png",
-    },
-    maxOutputTokens: 4096,
-    model: "arrow-preview",
-    presencePenalty: 0.2,
-    targetSize: 1024,
-    temperature: 0.4,
-    topP: 0.95,
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -312,10 +334,12 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.vectorizeSVG.vectorizeSVG({
-    image: {
-      url: "https://example.com/logo.png",
+    vectorizeSVGRequest: {
+      image: {
+        url: "https://example.com/logo.png",
+      },
+      model: "arrow-0.5",
     },
-    model: "arrow-0.5",
   });
 
   console.log(result);
@@ -340,10 +364,12 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await vectorizeSVGVectorizeSVG(quiverAI, {
-    image: {
-      url: "https://example.com/logo.png",
+    vectorizeSVGRequest: {
+      image: {
+        url: "https://example.com/logo.png",
+      },
+      model: "arrow-0.5",
     },
-    model: "arrow-0.5",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -367,10 +393,12 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.vectorizeSVG.vectorizeSVG({
-    image: {
-      url: "https://example.com/logo.png",
+    vectorizeSVGRequest: {
+      image: {
+        url: "https://example.com/logo.png",
+      },
+      model: "arrow-0.5",
     },
-    model: "arrow-0.5",
   });
 
   console.log(result);
@@ -395,10 +423,12 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await vectorizeSVGVectorizeSVG(quiverAI, {
-    image: {
-      url: "https://example.com/logo.png",
+    vectorizeSVGRequest: {
+      image: {
+        url: "https://example.com/logo.png",
+      },
+      model: "arrow-0.5",
     },
-    model: "arrow-0.5",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -422,10 +452,12 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.vectorizeSVG.vectorizeSVG({
-    image: {
-      url: "https://example.com/logo.png",
+    vectorizeSVGRequest: {
+      image: {
+        url: "https://example.com/logo.png",
+      },
+      model: "arrow-0.5",
     },
-    model: "arrow-0.5",
   });
 
   console.log(result);
@@ -450,10 +482,12 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await vectorizeSVGVectorizeSVG(quiverAI, {
-    image: {
-      url: "https://example.com/logo.png",
+    vectorizeSVGRequest: {
+      image: {
+        url: "https://example.com/logo.png",
+      },
+      model: "arrow-0.5",
     },
-    model: "arrow-0.5",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -477,15 +511,18 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.vectorizeSVG.vectorizeSVG({
-    autoCrop: true,
-    image: {
-      url: "https://example.com/uploads/logo.png",
+    vectorizeSVGRequest: {
+      autoCrop: true,
+      image: {
+        url: "https://example.com/uploads/logo.png",
+      },
+      model: "arrow-1.1",
+      presencePenalty: 0.2,
+      stream: true,
+      temperature: 0.4,
+      topP: 0.95,
     },
-    model: "arrow-1.1",
-    presencePenalty: 0.2,
-    stream: true,
-    temperature: 0.4,
-    topP: 0.95,
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
 
   console.log(result);
@@ -510,15 +547,18 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await vectorizeSVGVectorizeSVG(quiverAI, {
-    autoCrop: true,
-    image: {
-      url: "https://example.com/uploads/logo.png",
+    vectorizeSVGRequest: {
+      autoCrop: true,
+      image: {
+        url: "https://example.com/uploads/logo.png",
+      },
+      model: "arrow-1.1",
+      presencePenalty: 0.2,
+      stream: true,
+      temperature: 0.4,
+      topP: 0.95,
     },
-    model: "arrow-1.1",
-    presencePenalty: 0.2,
-    stream: true,
-    temperature: 0.4,
-    topP: 0.95,
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -542,13 +582,15 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.vectorizeSVG.vectorizeSVG({
-    autoCrop: true,
-    image: {
-      url: "https://example.com/photo.jpg",
+    vectorizeSVGRequest: {
+      autoCrop: true,
+      image: {
+        url: "https://example.com/photo.jpg",
+      },
+      model: "arrow-0.5",
+      stream: true,
+      temperature: 0.8,
     },
-    model: "arrow-0.5",
-    stream: true,
-    temperature: 0.8,
   });
 
   console.log(result);
@@ -573,13 +615,15 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await vectorizeSVGVectorizeSVG(quiverAI, {
-    autoCrop: true,
-    image: {
-      url: "https://example.com/photo.jpg",
+    vectorizeSVGRequest: {
+      autoCrop: true,
+      image: {
+        url: "https://example.com/photo.jpg",
+      },
+      model: "arrow-0.5",
+      stream: true,
+      temperature: 0.8,
     },
-    model: "arrow-0.5",
-    stream: true,
-    temperature: 0.8,
   });
   if (res.ok) {
     const { value: result } = res;
@@ -596,7 +640,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [shared.VectorizeSVGRequest](../../sdk/models/shared/vectorizesvgrequest.md)                                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.VectorizeSVGRequest](../../sdk/models/operations/vectorizesvgrequest.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
