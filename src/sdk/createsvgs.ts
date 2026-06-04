@@ -8,7 +8,6 @@ import {
 } from "../funcs/createSVGsGenerateSVG.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "./models/operations/index.js";
-import * as shared from "./models/shared/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export { GenerateSVGAcceptEnum } from "../funcs/createSVGsGenerateSVG.js";
@@ -21,7 +20,7 @@ export class CreateSVGs extends ClientSDK {
    * Generates one or more SVGs from a prompt and optional references.
    */
   async generateSVG(
-    request: shared.GenerateSVGRequest,
+    request: operations.GenerateSVGRequest,
     options?: RequestOptions & { acceptHeaderOverride?: GenerateSVGAcceptEnum },
   ): Promise<operations.GenerateSVGResponse> {
     return unwrapAsync(createSVGsGenerateSVG(

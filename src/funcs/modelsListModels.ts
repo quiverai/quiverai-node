@@ -145,7 +145,7 @@ async function $do(
       operations.ListModelsResponse$inboundSchema,
       { hdrs: true, key: "Result" },
     ),
-    M.json([500, 502, 503], operations.ListModelsResponse$inboundSchema, {
+    M.json(500, operations.ListModelsResponse$inboundSchema, {
       hdrs: true,
       key: "Result",
     }),

@@ -10,6 +10,14 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
+export type VectorizeSVGRequest = {
+  vectorizeSVGRequest: shared.VectorizeSVGRequest;
+  /**
+   * Optional client-supplied trace identifier. The API echoes this value in `X-Trace-ID` and includes it in request logs for client-side correlation.
+   */
+  xTraceId?: string | undefined;
+};
+
 export type VectorizeSVGResponseResult =
   | shared.PublicErrorEnvelope
   | shared.SvgResponse
@@ -22,6 +30,35 @@ export type VectorizeSVGResponse = {
     | shared.SvgResponse
     | EventStream<shared.SvgStreamEvent>;
 };
+
+/** @internal */
+export type VectorizeSVGRequest$Outbound = {
+  VectorizeSVGRequest: shared.VectorizeSVGRequest$Outbound;
+  "x-trace-id"?: string | undefined;
+};
+
+/** @internal */
+export const VectorizeSVGRequest$outboundSchema: z.ZodType<
+  VectorizeSVGRequest$Outbound,
+  z.ZodTypeDef,
+  VectorizeSVGRequest
+> = z.object({
+  vectorizeSVGRequest: shared.VectorizeSVGRequest$outboundSchema,
+  xTraceId: z.string().optional(),
+}).transform((v) => {
+  return remap$(v, {
+    vectorizeSVGRequest: "VectorizeSVGRequest",
+    xTraceId: "x-trace-id",
+  });
+});
+
+export function vectorizeSVGRequestToJSON(
+  vectorizeSVGRequest: VectorizeSVGRequest,
+): string {
+  return JSON.stringify(
+    VectorizeSVGRequest$outboundSchema.parse(vectorizeSVGRequest),
+  );
+}
 
 /** @internal */
 export const VectorizeSVGResponseResult$inboundSchema: z.ZodType<

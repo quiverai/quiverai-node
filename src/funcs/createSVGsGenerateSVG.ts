@@ -3,7 +3,7 @@
  */
 
 import { QuiverAICore } from "../core.js";
-import { encodeJSON } from "../lib/encodings.js";
+import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -22,7 +22,6 @@ import { QuiverAiError } from "../sdk/models/errors/quiveraierror.js";
 import { ResponseValidationError } from "../sdk/models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
-import * as shared from "../sdk/models/shared/index.js";
 import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
@@ -39,7 +38,7 @@ export enum GenerateSVGAcceptEnum {
  */
 export function createSVGsGenerateSVG(
   client: QuiverAICore,
-  request: shared.GenerateSVGRequest,
+  request: operations.GenerateSVGRequest,
   options?: RequestOptions & { acceptHeaderOverride?: GenerateSVGAcceptEnum },
 ): APIPromise<
   Result<
@@ -63,7 +62,7 @@ export function createSVGsGenerateSVG(
 
 async function $do(
   client: QuiverAICore,
-  request: shared.GenerateSVGRequest,
+  request: operations.GenerateSVGRequest,
   options?: RequestOptions & { acceptHeaderOverride?: GenerateSVGAcceptEnum },
 ): Promise<
   [
@@ -83,14 +82,16 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => shared.GenerateSVGRequest$outboundSchema.parse(value),
+    (value) => operations.GenerateSVGRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload, { explode: true });
+  const body = encodeJSON("body", payload.GenerateSVGRequest, {
+    explode: true,
+  });
 
   const path = pathToFunc("/v1/svgs/generations")();
 
@@ -98,6 +99,10 @@ async function $do(
     "Content-Type": "application/json",
     Accept: options?.acceptHeaderOverride
       || "application/json;q=1, text/event-stream;q=0",
+    "x-trace-id": encodeSimple("x-trace-id", payload["x-trace-id"], {
+      explode: false,
+      charEncoding: "none",
+    }),
   }));
 
   const secConfig = await extractSecurity(client._options.bearerAuth);
@@ -174,7 +179,7 @@ async function $do(
       operations.GenerateSVGResponse$inboundSchema,
       { hdrs: true, key: "Result" },
     ),
-    M.json([500, 502, 503], operations.GenerateSVGResponse$inboundSchema, {
+    M.json(500, operations.GenerateSVGResponse$inboundSchema, {
       hdrs: true,
       key: "Result",
     }),

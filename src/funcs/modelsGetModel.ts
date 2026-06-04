@@ -168,7 +168,7 @@ async function $do(
       operations.GetModelResponse$inboundSchema,
       { hdrs: true, key: "Result" },
     ),
-    M.json([500, 502, 503], operations.GetModelResponse$inboundSchema, {
+    M.json(500, operations.GetModelResponse$inboundSchema, {
       hdrs: true,
       key: "Result",
     }),

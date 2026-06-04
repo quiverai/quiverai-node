@@ -24,22 +24,24 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
-    instructions: "Use a flat monochrome style with rounded corners and clean geometry. Avoid gradients. Return only SVG markup.",
-    maxOutputTokens: 4096,
-    model: "arrow-0.5",
-    n: 2,
-    presencePenalty: 0.2,
-    prompt: "Generate a minimalist unicorn icon for a SaaS dashboard",
-    references: [
-      {
-        url: "https://example.com/uploads/reference-style.png",
-      },
-      {
-        base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
-      },
-    ],
-    temperature: 0.4,
-    topP: 0.95,
+    generateSVGRequest: {
+      instructions: "Use a flat monochrome style with rounded corners and clean geometry. Avoid gradients. Return only SVG markup.",
+      maxOutputTokens: 4096,
+      model: "arrow-0.5",
+      n: 2,
+      presencePenalty: 0.2,
+      prompt: "Generate a minimalist unicorn icon for a SaaS dashboard",
+      references: [
+        {
+          url: "https://example.com/uploads/reference-style.png",
+        },
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
   });
 
   console.log(result);
@@ -64,22 +66,24 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
-    instructions: "Use a flat monochrome style with rounded corners and clean geometry. Avoid gradients. Return only SVG markup.",
-    maxOutputTokens: 4096,
-    model: "arrow-0.5",
-    n: 2,
-    presencePenalty: 0.2,
-    prompt: "Generate a minimalist unicorn icon for a SaaS dashboard",
-    references: [
-      {
-        url: "https://example.com/uploads/reference-style.png",
-      },
-      {
-        base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
-      },
-    ],
-    temperature: 0.4,
-    topP: 0.95,
+    generateSVGRequest: {
+      instructions: "Use a flat monochrome style with rounded corners and clean geometry. Avoid gradients. Return only SVG markup.",
+      maxOutputTokens: 4096,
+      model: "arrow-0.5",
+      n: 2,
+      presencePenalty: 0.2,
+      prompt: "Generate a minimalist unicorn icon for a SaaS dashboard",
+      references: [
+        {
+          url: "https://example.com/uploads/reference-style.png",
+        },
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -103,14 +107,17 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
-    instructions: "Use a flat monochrome style with rounded corners and clean geometry.",
-    maxOutputTokens: 4096,
-    model: "arrow-1.1",
-    n: 2,
-    presencePenalty: 0.2,
-    prompt: "Generate a minimalist unicorn icon for a SaaS dashboard",
-    temperature: 0.4,
-    topP: 0.95,
+    generateSVGRequest: {
+      instructions: "Use a flat monochrome style with rounded corners and clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-1.1",
+      n: 2,
+      presencePenalty: 0.2,
+      prompt: "Generate a minimalist unicorn icon for a SaaS dashboard",
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
 
   console.log(result);
@@ -135,14 +142,17 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
-    instructions: "Use a flat monochrome style with rounded corners and clean geometry.",
-    maxOutputTokens: 4096,
-    model: "arrow-1.1",
-    n: 2,
-    presencePenalty: 0.2,
-    prompt: "Generate a minimalist unicorn icon for a SaaS dashboard",
-    temperature: 0.4,
-    topP: 0.95,
+    generateSVGRequest: {
+      instructions: "Use a flat monochrome style with rounded corners and clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-1.1",
+      n: 2,
+      presencePenalty: 0.2,
+      prompt: "Generate a minimalist unicorn icon for a SaaS dashboard",
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -166,9 +176,12 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
-    model: "arrow-1.1",
-    prompt: "Generate an icon of a unicorn",
-    temperature: 0.8,
+    generateSVGRequest: {
+      model: "arrow-1.1",
+      prompt: "Generate an icon of a unicorn",
+      temperature: 0.8,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
 
   console.log(result);
@@ -193,9 +206,12 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
-    model: "arrow-1.1",
-    prompt: "Generate an icon of a unicorn",
-    temperature: 0.8,
+    generateSVGRequest: {
+      model: "arrow-1.1",
+      prompt: "Generate an icon of a unicorn",
+      temperature: 0.8,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -219,8 +235,10 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
-    model: "arrow-0.5",
-    prompt: "Generate an icon of a unicorn",
+    generateSVGRequest: {
+      model: "arrow-0.5",
+      prompt: "Generate an icon of a unicorn",
+    },
   });
 
   console.log(result);
@@ -245,8 +263,10 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
-    model: "arrow-0.5",
-    prompt: "Generate an icon of a unicorn",
+    generateSVGRequest: {
+      model: "arrow-0.5",
+      prompt: "Generate an icon of a unicorn",
+    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -270,8 +290,10 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
-    model: "arrow-0.5",
-    prompt: "Generate an icon of a unicorn",
+    generateSVGRequest: {
+      model: "arrow-0.5",
+      prompt: "Generate an icon of a unicorn",
+    },
   });
 
   console.log(result);
@@ -296,8 +318,10 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
-    model: "arrow-0.5",
-    prompt: "Generate an icon of a unicorn",
+    generateSVGRequest: {
+      model: "arrow-0.5",
+      prompt: "Generate an icon of a unicorn",
+    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -321,26 +345,29 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
-    attributes: {
-      viewBox: {
-        height: 512,
-        minX: 0,
-        minY: 0,
-        width: 512,
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
       },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
     },
-    instructions: "Use a flat monochrome style with clean geometry.",
-    maxOutputTokens: 4096,
-    model: "arrow-preview",
-    presencePenalty: 0.2,
-    prompt: "Generate an icon of a unicorn",
-    references: [
-      {
-        base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
-      },
-    ],
-    temperature: 0.4,
-    topP: 0.95,
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
 
   console.log(result);
@@ -365,26 +392,29 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
-    attributes: {
-      viewBox: {
-        height: 512,
-        minX: 0,
-        minY: 0,
-        width: 512,
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
       },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
     },
-    instructions: "Use a flat monochrome style with clean geometry.",
-    maxOutputTokens: 4096,
-    model: "arrow-preview",
-    presencePenalty: 0.2,
-    prompt: "Generate an icon of a unicorn",
-    references: [
-      {
-        base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
-      },
-    ],
-    temperature: 0.4,
-    topP: 0.95,
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -408,26 +438,29 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
-    attributes: {
-      viewBox: {
-        height: 512,
-        minX: 0,
-        minY: 0,
-        width: 512,
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
       },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
     },
-    instructions: "Use a flat monochrome style with clean geometry.",
-    maxOutputTokens: 4096,
-    model: "arrow-preview",
-    presencePenalty: 0.2,
-    prompt: "Generate an icon of a unicorn",
-    references: [
-      {
-        base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
-      },
-    ],
-    temperature: 0.4,
-    topP: 0.95,
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
 
   console.log(result);
@@ -452,26 +485,29 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
-    attributes: {
-      viewBox: {
-        height: 512,
-        minX: 0,
-        minY: 0,
-        width: 512,
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
       },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
     },
-    instructions: "Use a flat monochrome style with clean geometry.",
-    maxOutputTokens: 4096,
-    model: "arrow-preview",
-    presencePenalty: 0.2,
-    prompt: "Generate an icon of a unicorn",
-    references: [
-      {
-        base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
-      },
-    ],
-    temperature: 0.4,
-    topP: 0.95,
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -495,8 +531,10 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
-    model: "arrow-0.5",
-    prompt: "Generate an icon of a unicorn",
+    generateSVGRequest: {
+      model: "arrow-0.5",
+      prompt: "Generate an icon of a unicorn",
+    },
   });
 
   console.log(result);
@@ -521,8 +559,10 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
-    model: "arrow-0.5",
-    prompt: "Generate an icon of a unicorn",
+    generateSVGRequest: {
+      model: "arrow-0.5",
+      prompt: "Generate an icon of a unicorn",
+    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -546,14 +586,17 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
-    instructions: "Use flat monochrome geometry and keep them visually distinct.",
-    model: "arrow-1.1",
-    n: 2,
-    presencePenalty: 0.2,
-    prompt: "Generate two minimalist unicorn badge variants",
-    stream: true,
-    temperature: 0.4,
-    topP: 0.95,
+    generateSVGRequest: {
+      instructions: "Use flat monochrome geometry and keep them visually distinct.",
+      model: "arrow-1.1",
+      n: 2,
+      presencePenalty: 0.2,
+      prompt: "Generate two minimalist unicorn badge variants",
+      stream: true,
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
 
   console.log(result);
@@ -578,14 +621,17 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
-    instructions: "Use flat monochrome geometry and keep them visually distinct.",
-    model: "arrow-1.1",
-    n: 2,
-    presencePenalty: 0.2,
-    prompt: "Generate two minimalist unicorn badge variants",
-    stream: true,
-    temperature: 0.4,
-    topP: 0.95,
+    generateSVGRequest: {
+      instructions: "Use flat monochrome geometry and keep them visually distinct.",
+      model: "arrow-1.1",
+      n: 2,
+      presencePenalty: 0.2,
+      prompt: "Generate two minimalist unicorn badge variants",
+      stream: true,
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -609,18 +655,20 @@ const quiverAI = new QuiverAI({
 
 async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
-    instructions: "Create a minimal, modern icon",
-    maxOutputTokens: 2560,
-    model: "arrow-0.5",
-    n: 2,
-    prompt: "Generate an icon of a unicorn",
-    references: [
-      {
-        url: "https://example.com/uploads/source1.png",
-      },
-    ],
-    stream: true,
-    temperature: 0.8,
+    generateSVGRequest: {
+      instructions: "Create a minimal, modern icon",
+      maxOutputTokens: 2560,
+      model: "arrow-0.5",
+      n: 2,
+      prompt: "Generate an icon of a unicorn",
+      references: [
+        {
+          url: "https://example.com/uploads/source1.png",
+        },
+      ],
+      stream: true,
+      temperature: 0.8,
+    },
   });
 
   console.log(result);
@@ -645,18 +693,20 @@ const quiverAI = new QuiverAICore({
 
 async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
-    instructions: "Create a minimal, modern icon",
-    maxOutputTokens: 2560,
-    model: "arrow-0.5",
-    n: 2,
-    prompt: "Generate an icon of a unicorn",
-    references: [
-      {
-        url: "https://example.com/uploads/source1.png",
-      },
-    ],
-    stream: true,
-    temperature: 0.8,
+    generateSVGRequest: {
+      instructions: "Create a minimal, modern icon",
+      maxOutputTokens: 2560,
+      model: "arrow-0.5",
+      n: 2,
+      prompt: "Generate an icon of a unicorn",
+      references: [
+        {
+          url: "https://example.com/uploads/source1.png",
+        },
+      ],
+      stream: true,
+      temperature: 0.8,
+    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -673,7 +723,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [shared.GenerateSVGRequest](../../sdk/models/shared/generatesvgrequest.md)                                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.GenerateSVGRequest](../../sdk/models/operations/generatesvgrequest.md)                                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
