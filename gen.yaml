@@ -30,7 +30,7 @@ generate:
   version: ""
   baseServerUrl: https://api.quiver.ai/v1
 typescript:
-  version: 0.7.1
+  version: 0.8.0
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -39,6 +39,7 @@ typescript:
   additionalPackageJSON: {}
   additionalScripts: {}
   alwaysIncludeInboundAndOutbound: false
+  apiPromiseHelpers: false
   author: QuiverAI
   baseErrorName: QuiverAiError
   clientServerStatusCodesAsErrors: false
@@ -48,6 +49,7 @@ typescript:
   enableMCPServer: false
   enableReactQuery: false
   enumFormat: union
+  eventStreamClassName: EventStream
   exportZodModelNamespace: false
   fixEnumNameSanitization: false
   flatAdditionalProperties: false
@@ -80,6 +82,7 @@ typescript:
   preApplyUnionDiscriminators: true
   preserveModelFieldNames: false
   privateIdentifierPrefix: '#'
+  requestExtras: false
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2
