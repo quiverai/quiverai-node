@@ -13,7 +13,7 @@ let value: GetModelResponse = {
     ],
   },
   result: {
-    code: "model_not_found",
+    code: "account_frozen",
     message: "<value>",
     requestId: "<id>",
     status: 915608,

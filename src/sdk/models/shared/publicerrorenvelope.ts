@@ -18,7 +18,6 @@ export const Code = {
   InsufficientCredits: "insufficient_credits",
   AccountFrozen: "account_frozen",
   ModelNotFound: "model_not_found",
-  UpstreamError: "upstream_error",
   InternalError: "internal_error",
 } as const;
 export type Code = ClosedEnum<typeof Code>;
