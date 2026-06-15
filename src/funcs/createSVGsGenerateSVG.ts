@@ -175,11 +175,11 @@ async function $do(
       key: "Result",
     }),
     M.json(
-      [400, 401, 402, 403, 404, 429],
+      [400, 401, 402, 403, 404, 408, 413, 429],
       operations.GenerateSVGResponse$inboundSchema,
       { hdrs: true, key: "Result" },
     ),
-    M.json(500, operations.GenerateSVGResponse$inboundSchema, {
+    M.json([500, 502, 503, 504], operations.GenerateSVGResponse$inboundSchema, {
       hdrs: true,
       key: "Result",
     }),

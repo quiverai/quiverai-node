@@ -7,7 +7,7 @@
 
 ```typescript
 const value: shared.PublicErrorEnvelope = {
-  code: "weekly_limit_exceeded",
+  code: "model_not_found",
   message: "<value>",
   requestId: "<id>",
   status: 474294,

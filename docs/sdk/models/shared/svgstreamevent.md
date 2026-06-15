@@ -1,6 +1,6 @@
 # SvgStreamEvent
 
-Server-sent event (SSE) envelope for SVG streaming operations. Each SSE message uses the `event:` line for the phase discriminator and the `data:` line for a JSON payload. For `n > 1`, events are interleaved: use `data.index` for output position and `data.id` as the stable per-output identifier. The stream terminates with `data: [DONE]`.
+Server-sent event (SSE) envelope for SVG streaming operations. Each SSE message uses the `event:` line for the phase discriminator and the `data:` line for a JSON payload. For `n > 1`, events are interleaved: use `data.index` for output position and `data.id` as the stable per-output identifier. Terminal failures emit `event: error` with public error data. The stream terminates with `data: [DONE]`.
 
 
 ## Supported Types
@@ -10,11 +10,13 @@ Server-sent event (SSE) envelope for SVG streaming operations. Each SSE message 
 ```typescript
 const value: shared.One = {
   data: {
-    id: "<id>",
-    svg: "<value>",
-    type: "draft",
+    code: "model_not_found",
+    message: "<value>",
+    requestId: "<id>",
+    status: 23530,
+    type: "error",
   },
-  event: "generating",
+  event: "error",
 };
 ```
 
@@ -23,9 +25,9 @@ const value: shared.One = {
 ```typescript
 const value: shared.Two = {
   data: {
-    type: "reasoning",
+    type: "generating",
   },
-  event: "reasoning",
+  event: "generating",
 };
 ```
 
@@ -36,7 +38,7 @@ const value: shared.Three = {
   data: {
     type: "reasoning",
   },
-  event: "draft",
+  event: "reasoning",
 };
 ```
 
@@ -47,7 +49,18 @@ const value: shared.Four = {
   data: {
     id: "<id>",
     svg: "<value>",
-    type: "content",
+    type: "draft",
+  },
+  event: "draft",
+};
+```
+
+### `shared.Five`
+
+```typescript
+const value: shared.Five = {
+  data: {
+    type: "reasoning",
   },
   event: "content",
 };

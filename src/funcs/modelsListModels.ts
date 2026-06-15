@@ -141,11 +141,11 @@ async function $do(
       key: "Result",
     }),
     M.json(
-      [400, 401, 402, 403, 429],
+      [400, 401, 402, 403, 408, 413, 429],
       operations.ListModelsResponse$inboundSchema,
       { hdrs: true, key: "Result" },
     ),
-    M.json(500, operations.ListModelsResponse$inboundSchema, {
+    M.json([500, 502, 503, 504], operations.ListModelsResponse$inboundSchema, {
       hdrs: true,
       key: "Result",
     }),

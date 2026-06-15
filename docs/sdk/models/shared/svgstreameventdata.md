@@ -28,6 +28,18 @@ const value: shared.SvgDraftEventData = {
 };
 ```
 
+### `shared.PublicErrorSseEventData`
+
+```typescript
+const value: shared.PublicErrorSseEventData = {
+  code: "model_error",
+  message: "<value>",
+  requestId: "<id>",
+  status: 603625,
+  type: "error",
+};
+```
+
 ### `shared.SvgGeneratingEventData`
 
 ```typescript

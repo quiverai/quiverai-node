@@ -1,11 +1,11 @@
-# Code
+# PublicErrorSseEventDataCode
 
 ## Example Usage
 
 ```typescript
-import { Code } from "@quiverai/sdk/sdk/models/shared";
+import { PublicErrorSseEventDataCode } from "@quiverai/sdk/sdk/models/shared";
 
-let value: Code = "invalid_request";
+let value: PublicErrorSseEventDataCode = "invalid_api_key";
 ```
 
 ## Values

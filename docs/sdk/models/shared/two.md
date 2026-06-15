@@ -7,9 +7,9 @@ import { Two } from "@quiverai/sdk/sdk/models/shared";
 
 let value: Two = {
   data: {
-    type: "reasoning",
+    type: "generating",
   },
-  event: "reasoning",
+  event: "generating",
 };
 ```
 
@@ -18,6 +18,6 @@ let value: Two = {
 | Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | `data`                                                                 | *shared.SvgStreamEventData*                                            | :heavy_check_mark:                                                     | The event payload. Shape depends on the `type` phase discriminator.    |
-| `event`                                                                | *"reasoning"*                                                          | :heavy_check_mark:                                                     | The SSE event name (sent via the `event:` line).                       |
+| `event`                                                                | *"generating"*                                                         | :heavy_check_mark:                                                     | The SSE event name (sent via the `event:` line).                       |
 | `id`                                                                   | *string*                                                               | :heavy_minus_sign:                                                     | Optional SSE event id (sent via the `id:` line).                       |
 | `retry`                                                                | *number*                                                               | :heavy_minus_sign:                                                     | Optional SSE retry value in milliseconds (sent via the `retry:` line). |

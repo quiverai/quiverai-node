@@ -7,19 +7,21 @@ import { One } from "@quiverai/sdk/sdk/models/shared";
 
 let value: One = {
   data: {
-    id: "<id>",
-    svg: "<value>",
-    type: "draft",
+    code: "model_not_found",
+    message: "<value>",
+    requestId: "<id>",
+    status: 23530,
+    type: "error",
   },
-  event: "generating",
+  event: "error",
 };
 ```
 
 ## Fields
 
-| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `data`                                                                 | *shared.SvgStreamEventData*                                            | :heavy_check_mark:                                                     | The event payload. Shape depends on the `type` phase discriminator.    |
-| `event`                                                                | *"generating"*                                                         | :heavy_check_mark:                                                     | The SSE event name (sent via the `event:` line).                       |
-| `id`                                                                   | *string*                                                               | :heavy_minus_sign:                                                     | Optional SSE event id (sent via the `id:` line).                       |
-| `retry`                                                                | *number*                                                               | :heavy_minus_sign:                                                     | Optional SSE retry value in milliseconds (sent via the `retry:` line). |
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `data`                                                                                  | [shared.PublicErrorSseEventData](../../../sdk/models/shared/publicerrorsseeventdata.md) | :heavy_check_mark:                                                                      | N/A                                                                                     |
+| `event`                                                                                 | *"error"*                                                                               | :heavy_check_mark:                                                                      | The SSE event name (sent via the `event:` line).                                        |
+| `id`                                                                                    | *string*                                                                                | :heavy_minus_sign:                                                                      | Optional SSE event id (sent via the `id:` line).                                        |
+| `retry`                                                                                 | *number*                                                                                | :heavy_minus_sign:                                                                      | Optional SSE retry value in milliseconds (sent via the `retry:` line).                  |

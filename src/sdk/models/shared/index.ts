@@ -10,6 +10,7 @@ export * from "./imageinputreferenceurl.js";
 export * from "./listmodelsresponse.js";
 export * from "./model.js";
 export * from "./publicerrorenvelope.js";
+export * from "./publicerrorsseeventdata.js";
 export * from "./security.js";
 export * from "./svgattributes.js";
 export * from "./svgcontenteventdata.js";
