@@ -9,7 +9,7 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const Code = {
+export const PublicErrorSseEventDataCode = {
   InvalidRequest: "invalid_request",
   InvalidApiKey: "invalid_api_key",
   Unauthorized: "unauthorized",
@@ -25,42 +25,56 @@ export const Code = {
   ModelError: "model_error",
   ModelUnavailable: "model_unavailable",
 } as const;
-export type Code = ClosedEnum<typeof Code>;
+export type PublicErrorSseEventDataCode = ClosedEnum<
+  typeof PublicErrorSseEventDataCode
+>;
 
-export type PublicErrorEnvelope = {
-  code: Code;
+export const Type = {
+  Error: "error",
+} as const;
+export type Type = ClosedEnum<typeof Type>;
+
+export type PublicErrorSseEventData = {
+  code: PublicErrorSseEventDataCode;
   message: string;
   requestId: string;
   status: number;
+  type: Type;
 };
 
 /** @internal */
-export const Code$inboundSchema: z.ZodNativeEnum<typeof Code> = z.nativeEnum(
-  Code,
+export const PublicErrorSseEventDataCode$inboundSchema: z.ZodNativeEnum<
+  typeof PublicErrorSseEventDataCode
+> = z.nativeEnum(PublicErrorSseEventDataCode);
+
+/** @internal */
+export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
+  Type,
 );
 
 /** @internal */
-export const PublicErrorEnvelope$inboundSchema: z.ZodType<
-  PublicErrorEnvelope,
+export const PublicErrorSseEventData$inboundSchema: z.ZodType<
+  PublicErrorSseEventData,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  code: Code$inboundSchema,
+  code: PublicErrorSseEventDataCode$inboundSchema,
   message: z.string(),
   request_id: z.string(),
   status: z.number().int(),
+  type: Type$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "request_id": "requestId",
   });
 });
 
-export function publicErrorEnvelopeFromJSON(
+export function publicErrorSseEventDataFromJSON(
   jsonString: string,
-): SafeParseResult<PublicErrorEnvelope, SDKValidationError> {
+): SafeParseResult<PublicErrorSseEventData, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => PublicErrorEnvelope$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'PublicErrorEnvelope' from JSON`,
+    (x) => PublicErrorSseEventData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PublicErrorSseEventData' from JSON`,
   );
 }

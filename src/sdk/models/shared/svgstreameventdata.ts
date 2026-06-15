@@ -7,6 +7,10 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  PublicErrorSseEventData,
+  PublicErrorSseEventData$inboundSchema,
+} from "./publicerrorsseeventdata.js";
+import {
   SvgContentEventData,
   SvgContentEventData$inboundSchema,
 } from "./svgcontenteventdata.js";
@@ -29,6 +33,7 @@ import {
 export type SvgStreamEventData =
   | SvgContentEventData
   | SvgDraftEventData
+  | (PublicErrorSseEventData & { type: "error" })
   | SvgGeneratingEventData
   | SvgReasoningEventData;
 
@@ -40,6 +45,9 @@ export const SvgStreamEventData$inboundSchema: z.ZodType<
 > = z.union([
   SvgContentEventData$inboundSchema,
   SvgDraftEventData$inboundSchema,
+  PublicErrorSseEventData$inboundSchema.and(
+    z.object({ type: z.literal("error") }),
+  ),
   SvgGeneratingEventData$inboundSchema,
   SvgReasoningEventData$inboundSchema,
 ]);

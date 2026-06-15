@@ -13,7 +13,7 @@ let value: GetModelResponse = {
     ],
   },
   result: {
-    code: "account_frozen",
+    code: "weekly_limit_exceeded",
     message: "<value>",
     requestId: "<id>",
     status: 915608,

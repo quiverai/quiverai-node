@@ -7,11 +7,15 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  PublicErrorSseEventData,
+  PublicErrorSseEventData$inboundSchema,
+} from "./publicerrorsseeventdata.js";
+import {
   SvgStreamEventData,
   SvgStreamEventData$inboundSchema,
 } from "./svgstreameventdata.js";
 
-export type Four = {
+export type Five = {
   /**
    * The event payload. Shape depends on the `type` phase discriminator.
    */
@@ -30,7 +34,7 @@ export type Four = {
   retry?: number | undefined;
 };
 
-export type Three = {
+export type Four = {
   /**
    * The event payload. Shape depends on the `type` phase discriminator.
    */
@@ -49,7 +53,7 @@ export type Three = {
   retry?: number | undefined;
 };
 
-export type Two = {
+export type Three = {
   /**
    * The event payload. Shape depends on the `type` phase discriminator.
    */
@@ -68,7 +72,7 @@ export type Two = {
   retry?: number | undefined;
 };
 
-export type One = {
+export type Two = {
   /**
    * The event payload. Shape depends on the `type` phase discriminator.
    */
@@ -87,10 +91,53 @@ export type One = {
   retry?: number | undefined;
 };
 
+export type One = {
+  data: PublicErrorSseEventData;
+  /**
+   * The SSE event name (sent via the `event:` line).
+   */
+  event: "error";
+  /**
+   * Optional SSE event id (sent via the `id:` line).
+   */
+  id?: string | undefined;
+  /**
+   * Optional SSE retry value in milliseconds (sent via the `retry:` line).
+   */
+  retry?: number | undefined;
+};
+
 /**
- * Server-sent event (SSE) envelope for SVG streaming operations. Each SSE message uses the `event:` line for the phase discriminator and the `data:` line for a JSON payload. For `n > 1`, events are interleaved: use `data.index` for output position and `data.id` as the stable per-output identifier. The stream terminates with `data: [DONE]`.
+ * Server-sent event (SSE) envelope for SVG streaming operations. Each SSE message uses the `event:` line for the phase discriminator and the `data:` line for a JSON payload. For `n > 1`, events are interleaved: use `data.index` for output position and `data.id` as the stable per-output identifier. Terminal failures emit `event: error` with public error data. The stream terminates with `data: [DONE]`.
  */
-export type SvgStreamEvent = One | Two | Three | Four;
+export type SvgStreamEvent = One | Two | Three | Four | Five;
+
+/** @internal */
+export const Five$inboundSchema: z.ZodType<Five, z.ZodTypeDef, unknown> = z
+  .object({
+    data: z.unknown().transform((v, ctx) => {
+      if (typeof v !== "string") return v;
+      try {
+        return JSON.parse(v);
+      } catch (err) {
+        ctx.addIssue({ code: "custom", message: `malformed json: ${err}` });
+        return z.NEVER;
+      }
+    }).pipe(SvgStreamEventData$inboundSchema),
+    event: z.literal("content"),
+    id: z.string().optional(),
+    retry: z.number().int().optional(),
+  });
+
+export function fiveFromJSON(
+  jsonString: string,
+): SafeParseResult<Five, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Five$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Five' from JSON`,
+  );
+}
 
 /** @internal */
 export const Four$inboundSchema: z.ZodType<Four, z.ZodTypeDef, unknown> = z
@@ -104,7 +151,7 @@ export const Four$inboundSchema: z.ZodType<Four, z.ZodTypeDef, unknown> = z
         return z.NEVER;
       }
     }).pipe(SvgStreamEventData$inboundSchema),
-    event: z.literal("content"),
+    event: z.literal("draft"),
     id: z.string().optional(),
     retry: z.number().int().optional(),
   });
@@ -131,7 +178,7 @@ export const Three$inboundSchema: z.ZodType<Three, z.ZodTypeDef, unknown> = z
         return z.NEVER;
       }
     }).pipe(SvgStreamEventData$inboundSchema),
-    event: z.literal("draft"),
+    event: z.literal("reasoning"),
     id: z.string().optional(),
     retry: z.number().int().optional(),
   });
@@ -158,7 +205,7 @@ export const Two$inboundSchema: z.ZodType<Two, z.ZodTypeDef, unknown> = z
         return z.NEVER;
       }
     }).pipe(SvgStreamEventData$inboundSchema),
-    event: z.literal("reasoning"),
+    event: z.literal("generating"),
     id: z.string().optional(),
     retry: z.number().int().optional(),
   });
@@ -184,8 +231,8 @@ export const One$inboundSchema: z.ZodType<One, z.ZodTypeDef, unknown> = z
         ctx.addIssue({ code: "custom", message: `malformed json: ${err}` });
         return z.NEVER;
       }
-    }).pipe(SvgStreamEventData$inboundSchema),
-    event: z.literal("generating"),
+    }).pipe(PublicErrorSseEventData$inboundSchema),
+    event: z.literal("error"),
     id: z.string().optional(),
     retry: z.number().int().optional(),
   });
@@ -210,6 +257,7 @@ export const SvgStreamEvent$inboundSchema: z.ZodType<
   z.lazy(() => Two$inboundSchema),
   z.lazy(() => Three$inboundSchema),
   z.lazy(() => Four$inboundSchema),
+  z.lazy(() => Five$inboundSchema),
 ]);
 
 export function svgStreamEventFromJSON(

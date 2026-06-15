@@ -6,7 +6,7 @@
 import { PublicErrorEnvelope } from "@quiverai/sdk/sdk/models/shared";
 
 let value: PublicErrorEnvelope = {
-  code: "weekly_limit_exceeded",
+  code: "model_not_found",
   message: "<value>",
   requestId: "<id>",
   status: 474294,
