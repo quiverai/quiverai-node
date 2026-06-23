@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 0f33c9fc-1c93-4296-9792-fbb1c4caef92
 management:
-  docChecksum: 7d574c210c675c80011e3d999a2becac
+  docChecksum: feb2f1d94500ae43cdb839a1fabde2df
   docVersion: 1.0.0
-  speakeasyVersion: 1.778.0
-  generationVersion: 2.904.2
-  releaseVersion: 0.8.1
-  configChecksum: 6c1a6d8f7959b50e9b45e22f708a5f89
+  speakeasyVersion: 1.784.0
+  generationVersion: 2.911.0
+  releaseVersion: 0.8.2
+  configChecksum: ae3e1bf0a7ec183472d4326a15e939e6
   repoURL: https://github.com/quiverai/quiverai-node.git
   installationURL: https://github.com/quiverai/quiverai-node
   published: true
 persistentEdits:
-  generation_id: 99ba2f02-2892-4ad0-914b-0520565612ff
-  pristine_commit_hash: 1be02a33a2bbab31ed0fd4e97c4056bb8baded00
-  pristine_tree_hash: d52db5701241574ee9a7cca9c85328ed938436b9
+  generation_id: c86db7a3-8d24-4c50-ad9a-bcc231148196
+  pristine_commit_hash: 8585fc21264d0679bd9d3326838d43be61b35992
+  pristine_tree_hash: 244f7fca1aa21edbb92ad0980487b60442e2bcfb
 features:
   typescript:
     acceptHeaders: 2.81.2
@@ -32,9 +32,9 @@ features:
     methodArguments: 0.1.2
     nullables: 0.1.1
     responseFormat: 0.3.0
-    retries: 2.83.0
+    retries: 2.83.1
     sdkHooks: 0.4.0
-    serverEvents: 0.2.2
+    serverEvents: 0.2.3
     unions: 2.86.4
 trackedFiles:
   .gitattributes:
@@ -295,12 +295,12 @@ trackedFiles:
     pristine_git_object: cc173cc598005ddf714e2215e0304c0ab85583a9
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:278712b6b4973f4854beb48bc7503b502cfdc9f6
-    pristine_git_object: c08f10721df4204f70ae6d274221c037a0344133
+    last_write_checksum: sha1:8bbf82fb738727f7b822ef5baf2726d02e05cc08
+    pristine_git_object: 0cfbb658ccafeda058a6ea0a224c82c095fa1965
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:eccf6ef465e4255617f6128c1847a17d7841b09a
-    pristine_git_object: 9c1d7ffa5b7567f649e693cd4421960bef58a78f
+    last_write_checksum: sha1:c8fd2390ba0f3dfc5615b9dfaf16c216083afd66
+    pristine_git_object: 9d1d68bed511f1ad005a3be5da813aa5b0c47b36
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:f68eeda1706ded6626e158d7a1e7bda00e0e71e2
@@ -343,16 +343,16 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:43d1f1fe1d7dc65dd4dd004624b3e7a71a165ccd
-    pristine_git_object: 3adde8bbbec82def150de9de4c2bd6c3aa1cf5b4
+    last_write_checksum: sha1:8782e29deff2df72b8035670aecbb466cb39a960
+    pristine_git_object: db284e95c215683853da39fce1dda0aa16c20373
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:50d9b187dcfc3cca8d3bbd9fe074f865d715d2b0
     pristine_git_object: dcab511b4b4d98f1e4b7dd94866e2b41c478b7f0
   src/lib/event-streams.ts:
     id: 3f731f808a79
-    last_write_checksum: sha1:6faf3c48416ea5134f00aec87455257b0f354f0d
-    pristine_git_object: 2fdc42239027e7d78c50ab1ee5d3896040d53930
+    last_write_checksum: sha1:14599c02625a354d93c64a912ee58a25827753e3
+    pristine_git_object: b97f495ed0a47ff15abfb897e7d0a01d4df6d86e
   src/lib/files.ts:
     id: e5efa54fcb95
     last_write_checksum: sha1:795c14026405d547bfc47012f7ad9666e530fa7f
@@ -375,8 +375,8 @@ trackedFiles:
     pristine_git_object: 8ce65db0f7c0d6b68f5edc3ebf518121e284e954
   src/lib/retries.ts:
     id: b24a69d15639
-    last_write_checksum: sha1:f3da74dffcbe2756c69393f8600205aa1dc06e68
-    pristine_git_object: e3ce9aba72150fc3c18f3105d39b21aba809377b
+    last_write_checksum: sha1:42c8f6cc4c875be236230a8c760f4f32d8c1ab68
+    pristine_git_object: 21a647e1e9ae64817fcd63b5dd6bb5a51b63d225
   src/lib/schemas.ts:
     id: deb4b531fae1
     last_write_checksum: sha1:b8517a14d3043f488f44e3b10ddd6cabdd22242f
@@ -608,7 +608,7 @@ examples:
     default:
       responses:
         "200":
-          application/json: {"data": [{"context_length": 131072, "created": 1704067200, "description": "First-generation vector-native model for editable logos, icons, and illustrations.", "id": "arrow-1", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.0", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.30", "svg_vectorize": "0.30"}, "pricing_credits": {"svg_generate": 30, "svg_vectorize": 30}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}, {"context_length": 131072, "created": 1704067200, "description": "Best default for speed and quality, with stronger prompt following and more precise SVG structure.", "id": "arrow-1.1", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.1", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.20", "svg_vectorize": "0.15"}, "pricing_credits": {"svg_generate": 20, "svg_vectorize": 15}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}, {"context_length": 131072, "created": 1704067200, "description": "Higher-fidelity model for detailed diagrams and illustrations where precision matters most.", "id": "arrow-1.1-max", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.1 Max", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.25", "svg_vectorize": "0.20"}, "pricing_credits": {"svg_generate": 25, "svg_vectorize": 20}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}], "object": "list"}
+          application/json: {"data": [{"context_length": 131072, "created": 1704067200, "description": "First-gen vector-native model for editable logos, icons, and illustrations.", "id": "arrow-1", "input_modalities": ["text", "image"], "max_output_length": 65536, "name": "Arrow 1.0", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.30", "svg_vectorize": "0.30"}, "pricing_credits": {"svg_generate": 30, "svg_vectorize": 30}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}, {"context_length": 131072, "created": 1704067200, "description": "Best default for speed and quality, with strong prompt following and precise SVG.", "id": "arrow-1.1", "input_modalities": ["text", "image"], "max_output_length": 65536, "name": "Arrow 1.1", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.20", "svg_vectorize": "0.15"}, "pricing_credits": {"svg_generate": 20, "svg_vectorize": 15}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}, {"context_length": 131072, "created": 1704067200, "description": "Higher-fidelity model for detailed diagrams and illustrations.", "id": "arrow-1.1-max", "input_modalities": ["text", "image"], "max_output_length": 65536, "name": "Arrow 1.1 Max", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.25", "svg_vectorize": "0.20"}, "pricing_credits": {"svg_generate": 25, "svg_vectorize": 20}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}], "object": "list"}
   retrieveModel:
     speakeasy-default-retrieve-model:
       parameters:
@@ -1256,7 +1256,7 @@ examples:
           model: "arrow-0.5"
       responses:
         "200":
-          application/json: {"context_length": 131072, "created": 1704067200, "description": "Best default for speed and quality, with stronger prompt following and more precise SVG structure.", "id": "arrow-1.1", "input_modalities": ["text", "image"], "max_output_length": 131072, "name": "Arrow 1.1", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.20", "svg_vectorize": "0.15"}, "pricing_credits": {"svg_generate": 20, "svg_vectorize": 15}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}
+          application/json: {"context_length": 131072, "created": 1704067200, "description": "Best default for speed and quality, with strong prompt following and precise SVG.", "id": "arrow-1.1", "input_modalities": ["text", "image"], "max_output_length": 65536, "name": "Arrow 1.1", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "pricing": {"svg_generate": "0.20", "svg_vectorize": "0.15"}, "pricing_credits": {"svg_generate": 20, "svg_vectorize": 15}, "supported_operations": ["svg_generate", "svg_vectorize"], "supported_sampling_parameters": ["temperature", "top_p", "presence_penalty"]}
     speakeasy-default-get-model:
       parameters:
         path:
@@ -1270,9 +1270,3 @@ examples:
           application/json: {"code": "model_not_found", "message": "<value>", "request_id": "<id>", "status": 705234}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Typescript SDK Changes:
-  * `quiverai.models.getModel()`:  `response` **Changed** (Breaking ⚠️)
-  * `quiverai.models.listModels()`:  `response` **Changed** (Breaking ⚠️)
-  * `quiverai.createSvGs.generateSvg()`:  `response` **Changed** (Breaking ⚠️)
-  * `quiverai.vectorizeSvg.vectorizeSvg()`:  `response` **Changed** (Breaking ⚠️)
