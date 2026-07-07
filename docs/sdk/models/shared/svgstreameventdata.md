@@ -12,6 +12,8 @@ const value: shared.SvgContentEventData = {
   credits: 1,
   id: "<id>",
   index: 0,
+  loopPeriodMs: 1200,
+  openingAnimationMs: 500,
   svg: "<value>",
   type: "content",
 };
