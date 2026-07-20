@@ -20,6 +20,7 @@ export const Code = {
   PayloadTooLarge: "payload_too_large",
   RequestTimeout: "request_timeout",
   RateLimitExceeded: "rate_limit_exceeded",
+  OperationRateLimitExceeded: "operation_rate_limit_exceeded",
   WeeklyLimitExceeded: "weekly_limit_exceeded",
   ServerError: "server_error",
   ModelError: "model_error",
