@@ -2,8 +2,8 @@ speakeasyVersion: 1.790.3
 sources:
     OpenAPI:
         sourceNamespace: open-api
-        sourceRevisionDigest: sha256:d98e32a8987e74b385258eabce2c5a02ff10f3f2d2ff854198c4f7866690ae95
-        sourceBlobDigest: sha256:0980c3d9e265ff9f86c8ec5ccd8b09838daa0ff2fb9c2a0ce47cc6202a2b61aa
+        sourceRevisionDigest: sha256:5e3169e6906ebd2074f8007e04a42d6938e63360b15be2c1303071132f55e9b3
+        sourceBlobDigest: sha256:9d78d10cbca712b29eb6faf1651beeef4c11548192291cc78bfe532b6c5356ea
         tags:
             - latest
             - 1.0.0
@@ -11,10 +11,10 @@ targets:
     '@quiverai/sdk':
         source: OpenAPI
         sourceNamespace: open-api
-        sourceRevisionDigest: sha256:d98e32a8987e74b385258eabce2c5a02ff10f3f2d2ff854198c4f7866690ae95
-        sourceBlobDigest: sha256:0980c3d9e265ff9f86c8ec5ccd8b09838daa0ff2fb9c2a0ce47cc6202a2b61aa
+        sourceRevisionDigest: sha256:5e3169e6906ebd2074f8007e04a42d6938e63360b15be2c1303071132f55e9b3
+        sourceBlobDigest: sha256:9d78d10cbca712b29eb6faf1651beeef4c11548192291cc78bfe532b6c5356ea
         codeSamplesNamespace: open-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:e8ad87960529d193d0beb3eabd9bb80586e6cae616829da712943ca12e231ef3
+        codeSamplesRevisionDigest: sha256:1fe4376e6c18afc125077fcee202feef75b6c1bbc0b71bafcb90a317dee37ece
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
