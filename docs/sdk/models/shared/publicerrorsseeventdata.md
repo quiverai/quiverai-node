@@ -6,7 +6,7 @@
 import { PublicErrorSseEventData } from "@quiverai/sdk/sdk/models/shared";
 
 let value: PublicErrorSseEventData = {
-  code: "model_error",
+  code: "server_error",
   message: "<value>",
   requestId: "<id>",
   status: 603625,

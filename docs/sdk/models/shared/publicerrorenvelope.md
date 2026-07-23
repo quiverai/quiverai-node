@@ -6,7 +6,7 @@
 import { PublicErrorEnvelope } from "@quiverai/sdk/sdk/models/shared";
 
 let value: PublicErrorEnvelope = {
-  code: "model_not_found",
+  code: "payload_too_large",
   message: "<value>",
   requestId: "<id>",
   status: 474294,
