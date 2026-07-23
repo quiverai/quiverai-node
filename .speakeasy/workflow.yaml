@@ -4,6 +4,8 @@ sources:
     OpenAPI:
         inputs:
             - location: https://api.quiver.ai/v1/openapi.json
+        overlays:
+            - location: ./.speakeasy/svg-stream-forward-compat.overlay.yaml
         registry:
             location: registry.speakeasyapi.dev/quiverai/clients/open-api
 targets:
