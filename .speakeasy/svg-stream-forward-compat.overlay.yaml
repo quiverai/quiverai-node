@@ -1,0 +1,9 @@
+overlay: 1.0.0
+info:
+  title: Keep SVG event streams forward compatible
+  version: 1.0.0
+actions:
+  - target: $.components.schemas.SvgStreamEvent
+    description: Allow generated SDKs to preserve unknown future SSE event variants.
+    update:
+      x-speakeasy-unknown-values: allow
