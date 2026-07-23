@@ -7,7 +7,7 @@ import { One } from "@quiverai/sdk/sdk/models/shared";
 
 let value: One = {
   data: {
-    code: "model_not_found",
+    code: "payload_too_large",
     message: "<value>",
     requestId: "<id>",
     status: 23530,

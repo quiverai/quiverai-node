@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v3";
+import { remap as remap$ } from "../../../lib/primitives.js";
 import {
   collectExtraKeys as collectExtraKeys$,
   safeParse,
@@ -24,6 +25,14 @@ export type SvgContentEventData = {
    * Zero-based output index for this event. Present for multi-output streams (`n > 1`).
    */
   index?: number | undefined;
+  /**
+   * Loop period for the generated animation in milliseconds.
+   */
+  loopPeriodMs?: number | null | undefined;
+  /**
+   * Opening animation duration in milliseconds.
+   */
+  openingAnimationMs?: number | null | undefined;
   /**
    * The SVG markup (partial during draft, complete during content).
    */
@@ -52,6 +61,8 @@ export const SvgContentEventData$inboundSchema: z.ZodType<
     credits: z.number().int().optional(),
     id: z.string(),
     index: z.number().int().optional(),
+    loop_period_ms: z.nullable(z.number().int()).optional(),
+    opening_animation_ms: z.nullable(z.number().int()).optional(),
     svg: z.string(),
     text: z.string().optional(),
     type: z.literal("content"),
@@ -59,7 +70,12 @@ export const SvgContentEventData$inboundSchema: z.ZodType<
   }).catchall(z.any()),
   "additionalProperties",
   true,
-);
+).transform((v) => {
+  return remap$(v, {
+    "loop_period_ms": "loopPeriodMs",
+    "opening_animation_ms": "openingAnimationMs",
+  });
+});
 
 export function svgContentEventDataFromJSON(
   jsonString: string,

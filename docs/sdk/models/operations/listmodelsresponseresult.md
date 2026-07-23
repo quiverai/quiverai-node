@@ -27,7 +27,7 @@ const value: shared.ListModelsResponse = {
 
 ```typescript
 const value: shared.PublicErrorEnvelope = {
-  code: "model_not_found",
+  code: "payload_too_large",
   message: "<value>",
   requestId: "<id>",
   status: 474294,
