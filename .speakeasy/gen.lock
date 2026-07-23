@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 0f33c9fc-1c93-4296-9792-fbb1c4caef92
 management:
-  docChecksum: 0e02862a27d0f090c23f0cba7d4f0c97
+  docChecksum: ff8cdff2b25fafb9d923a354f2e6df54
   docVersion: 1.0.0
   speakeasyVersion: 1.790.3
   generationVersion: 2.918.4
-  releaseVersion: 0.8.3
-  configChecksum: 22189b490a97c1802ecb124a209da0ae
+  releaseVersion: 0.9.0
+  configChecksum: de49c2d785c8e881bd0f94b4b1ae2fdf
   repoURL: https://github.com/quiverai/quiverai-node.git
   installationURL: https://github.com/quiverai/quiverai-node
   published: true
 persistentEdits:
-  generation_id: ba153348-5c1d-4c5f-873c-749c96d98518
-  pristine_commit_hash: 7dfc230837626a8953abe7d8d780793e1cc8cca0
-  pristine_tree_hash: 9e5cbe54ec0eba563088f4da561db27cc5f8adf7
+  generation_id: 47e9e980-7c7c-4a2a-b919-e59844aaa747
+  pristine_commit_hash: 26506f538998c1e205f00e1e00ec7fcf5a364110
+  pristine_tree_hash: cb3e7fd67888c6e257aa9e9059f7bf478f20efb4
 features:
   typescript:
     acceptHeaders: 2.81.2
@@ -35,6 +35,7 @@ features:
     retries: 2.83.1
     sdkHooks: 0.4.0
     serverEvents: 0.2.3
+    serverEventsSentinels: 0.1.0
     unions: 2.86.4
 trackedFiles:
   .gitattributes:
@@ -295,12 +296,12 @@ trackedFiles:
     pristine_git_object: cc173cc598005ddf714e2215e0304c0ab85583a9
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:095a25b995d8e6ea71e4fcc6bba90fff6c4172c8
-    pristine_git_object: 5a231e077e0062dd2dd4da8689f0cc129d85402c
+    last_write_checksum: sha1:c35c8f95241f6d8d2037283a15fe2df982eab381
+    pristine_git_object: eabce8e1ab028146d694bca4738ec3e095451176
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:215c43421dd2c8c57e79c598b6a5b38ba82bd2d9
-    pristine_git_object: 082acf44b083768c36d06e44129530cf8fb2b412
+    last_write_checksum: sha1:2e99e149333c978df841fc4c795c94bcc40e4000
+    pristine_git_object: 8e8703e1dcb68155a641727de991715555b4d695
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:f68eeda1706ded6626e158d7a1e7bda00e0e71e2
@@ -343,8 +344,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:19f0bda0d82c10712351cd90c7085eba970546ae
-    pristine_git_object: a0d753ec9a1c2f0af67d3b3dd717d969e925924a
+    last_write_checksum: sha1:e7bd594ab5b00cac09e542361fee73b95333b8c6
+    pristine_git_object: 07dd2801e70490375eaefadcd057d7a38c71d313
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:50d9b187dcfc3cca8d3bbd9fe074f865d715d2b0
@@ -431,8 +432,8 @@ trackedFiles:
     pristine_git_object: 6826e1208a5d7b7d310535d18909646522bf0fbd
   src/sdk/models/operations/generatesvg.ts:
     id: 3a7b0bd9e270
-    last_write_checksum: sha1:4cccc29cab0463d731d5a2d6c025cba5498876ef
-    pristine_git_object: 1e5f3fd7eb28f301d2748b7d71f2f2219c553b42
+    last_write_checksum: sha1:47ead4ac090d57d6c8739ed3f4aaf63f101d0676
+    pristine_git_object: 13820a03168a98df47d2cd3f6e76fcb2f10dd98e
   src/sdk/models/operations/getmodel.ts:
     id: b75b9e499b09
     last_write_checksum: sha1:d5c074545b81117aef5bac2491379d785de006ca
@@ -447,8 +448,8 @@ trackedFiles:
     pristine_git_object: 81173e6b7ad9de3c6000f7a792613145ed9d3f02
   src/sdk/models/operations/vectorizesvg.ts:
     id: 97b79652a83c
-    last_write_checksum: sha1:2f9ba5f315f67a3e89bf8958e904e1e38c843aae
-    pristine_git_object: 86d28d85892e632996a41f2e2067fff12e9cddab
+    last_write_checksum: sha1:95fcb7de136d1e0b1cd3e1c2d9ba2b739b2090af
+    pristine_git_object: a6b82ffcb7792f40852fbf3813e7b192763d9847
   src/sdk/models/shared/generatesvgrequest.ts:
     id: d0a0727cbb80
     last_write_checksum: sha1:82f2088aa536dafe22899f5ae1c711568c60f5c0
@@ -1270,9 +1271,3 @@ examples:
           application/json: {"code": "model_not_found", "message": "<value>", "request_id": "<id>", "status": 705234}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Typescript SDK Changes:
-  * `quiverai.models.getModel()`:  `response.code.enum(operationRateLimitExceeded)` **Added** (Breaking ⚠️)
-  * `quiverai.models.listModels()`:  `response.code.enum(operationRateLimitExceeded)` **Added** (Breaking ⚠️)
-  * `quiverai.createSvGs.generateSvg()`:  `response` **Changed** (Breaking ⚠️)
-  * `quiverai.vectorizeSvg.vectorizeSvg()`:  `response` **Changed** (Breaking ⚠️)

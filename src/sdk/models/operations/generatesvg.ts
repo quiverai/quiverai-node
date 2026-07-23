@@ -71,6 +71,7 @@ export const GenerateSVGResponseResult$inboundSchema: z.ZodType<
   z.instanceof(ReadableStream<Uint8Array>)
     .transform(stream => {
       return new EventStream(stream, rawEvent => {
+        if (rawEvent.data === "[DONE]") return { done: true, value: undefined };
         return {
           done: false,
           value: shared.SvgStreamEvent$inboundSchema.parse(rawEvent),
@@ -102,6 +103,9 @@ export const GenerateSVGResponse$inboundSchema: z.ZodType<
     z.instanceof(ReadableStream<Uint8Array>)
       .transform(stream => {
         return new EventStream(stream, rawEvent => {
+          if (rawEvent.data === "[DONE]") {
+            return { done: true, value: undefined };
+          }
           return {
             done: false,
             value: shared.SvgStreamEvent$inboundSchema.parse(rawEvent),
