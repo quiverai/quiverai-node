@@ -10,7 +10,7 @@ Server-sent event (SSE) envelope for SVG streaming operations. Each SSE message 
 ```typescript
 const value: shared.One = {
   data: {
-    code: "payload_too_large",
+    code: "content_policy_violation",
     message: "<value>",
     requestId: "<id>",
     status: 23530,

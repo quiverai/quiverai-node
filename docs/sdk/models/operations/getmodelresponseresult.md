@@ -22,7 +22,7 @@ const value: shared.Model = {
 
 ```typescript
 const value: shared.PublicErrorEnvelope = {
-  code: "payload_too_large",
+  code: "content_policy_violation",
   message: "<value>",
   requestId: "<id>",
   status: 474294,

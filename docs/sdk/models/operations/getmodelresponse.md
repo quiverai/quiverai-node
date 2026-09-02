@@ -13,7 +13,7 @@ let value: GetModelResponse = {
     ],
   },
   result: {
-    code: "operation_rate_limit_exceeded",
+    code: "rate_limit_exceeded",
     message: "<value>",
     requestId: "<id>",
     status: 915608,
