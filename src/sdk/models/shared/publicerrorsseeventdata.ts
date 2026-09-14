@@ -13,6 +13,10 @@ export const PublicErrorSseEventDataCode = {
   InvalidRequest: "invalid_request",
   InvalidApiKey: "invalid_api_key",
   Unauthorized: "unauthorized",
+  FundingPaymentFailed: "funding_payment_failed",
+  FundingPaymentMethodRequired: "funding_payment_method_required",
+  FundingPaymentActionRequired: "funding_payment_action_required",
+  FundingPending: "funding_pending",
   InsufficientCredits: "insufficient_credits",
   AccountFrozen: "account_frozen",
   ContentPolicyViolation: "content_policy_violation",
@@ -39,6 +43,7 @@ export type PublicErrorSseEventData = {
   code: PublicErrorSseEventDataCode;
   message: string;
   requestId: string;
+  retryAfter?: number | undefined;
   status: number;
   type: Type;
 };
@@ -62,11 +67,13 @@ export const PublicErrorSseEventData$inboundSchema: z.ZodType<
   code: PublicErrorSseEventDataCode$inboundSchema,
   message: z.string(),
   request_id: z.string(),
+  retry_after: z.number().int().optional(),
   status: z.number().int(),
   type: Type$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "request_id": "requestId",
+    "retry_after": "retryAfter",
   });
 });
 

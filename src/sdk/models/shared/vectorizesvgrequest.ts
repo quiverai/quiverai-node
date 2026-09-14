@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { ClosedEnum } from "../../types/enums.js";
 import {
   ImageInputReference,
   ImageInputReference$Outbound,
@@ -14,6 +15,22 @@ import {
   SvgAttributes$Outbound,
   SvgAttributes$outboundSchema,
 } from "./svgattributes.js";
+
+/**
+ * Reasoning effort applied to this vectorization. When omitted, Arrow uses its default.
+ */
+export const VectorizeSVGRequestReasoningEffort = {
+  Low: "low",
+  Medium: "medium",
+  High: "high",
+  Xhigh: "xhigh",
+} as const;
+/**
+ * Reasoning effort applied to this vectorization. When omitted, Arrow uses its default.
+ */
+export type VectorizeSVGRequestReasoningEffort = ClosedEnum<
+  typeof VectorizeSVGRequestReasoningEffort
+>;
 
 export type VectorizeSVGRequest = {
   /**
@@ -41,6 +58,10 @@ export type VectorizeSVGRequest = {
    */
   presencePenalty?: number | null | undefined;
   /**
+   * Reasoning effort applied to this vectorization. When omitted, Arrow uses its default.
+   */
+  reasoningEffort?: VectorizeSVGRequestReasoningEffort | undefined;
+  /**
    * When true, emits a Server-Sent Events stream.
    */
   stream?: boolean | undefined;
@@ -59,6 +80,11 @@ export type VectorizeSVGRequest = {
 };
 
 /** @internal */
+export const VectorizeSVGRequestReasoningEffort$outboundSchema: z.ZodNativeEnum<
+  typeof VectorizeSVGRequestReasoningEffort
+> = z.nativeEnum(VectorizeSVGRequestReasoningEffort);
+
+/** @internal */
 export type VectorizeSVGRequest$Outbound = {
   attributes?: SvgAttributes$Outbound | null | undefined;
   auto_crop: boolean;
@@ -66,6 +92,7 @@ export type VectorizeSVGRequest$Outbound = {
   max_output_tokens?: number | undefined;
   model: string;
   presence_penalty: number | null;
+  reasoning_effort?: string | undefined;
   stream: boolean;
   target_size?: number | undefined;
   temperature: number;
@@ -84,6 +111,7 @@ export const VectorizeSVGRequest$outboundSchema: z.ZodType<
   maxOutputTokens: z.number().int().optional(),
   model: z.string(),
   presencePenalty: z.nullable(z.number().default(0)),
+  reasoningEffort: VectorizeSVGRequestReasoningEffort$outboundSchema.optional(),
   stream: z.boolean().default(false),
   targetSize: z.number().int().optional(),
   temperature: z.number().default(1),
@@ -93,6 +121,7 @@ export const VectorizeSVGRequest$outboundSchema: z.ZodType<
     autoCrop: "auto_crop",
     maxOutputTokens: "max_output_tokens",
     presencePenalty: "presence_penalty",
+    reasoningEffort: "reasoning_effort",
     targetSize: "target_size",
     topP: "top_p",
   });

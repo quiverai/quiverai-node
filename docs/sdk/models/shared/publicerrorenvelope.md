@@ -6,7 +6,7 @@
 import { PublicErrorEnvelope } from "@quiverai/sdk/sdk/models/shared";
 
 let value: PublicErrorEnvelope = {
-  code: "payload_too_large",
+  code: "content_policy_violation",
   message: "<value>",
   requestId: "<id>",
   status: 474294,
@@ -20,4 +20,5 @@ let value: PublicErrorEnvelope = {
 | `code`                                            | [shared.Code](../../../sdk/models/shared/code.md) | :heavy_check_mark:                                | N/A                                               |
 | `message`                                         | *string*                                          | :heavy_check_mark:                                | N/A                                               |
 | `requestId`                                       | *string*                                          | :heavy_check_mark:                                | N/A                                               |
+| `retryAfter`                                      | *number*                                          | :heavy_minus_sign:                                | N/A                                               |
 | `status`                                          | *number*                                          | :heavy_check_mark:                                | N/A                                               |

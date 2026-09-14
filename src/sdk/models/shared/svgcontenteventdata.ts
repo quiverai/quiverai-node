@@ -14,7 +14,7 @@ import { SvgUsage, SvgUsage$inboundSchema } from "./svgusage.js";
 
 export type SvgContentEventData = {
   /**
-   * Credit cost for this completed SVG output. Emitted on `content` events.
+   * Credit cost for a completed fixed-credit SVG output. Omitted for token-priced models.
    */
   credits?: number | undefined;
   /**
@@ -43,9 +43,7 @@ export type SvgContentEventData = {
   text?: string | undefined;
   type: "content";
   /**
-   * Deprecated. Use `credits` for billing values.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   * Token totals for token-priced models. Fixed-credit models use `credits` for billing and may report compatibility zeros here.
    */
   usage?: SvgUsage | undefined;
   additionalProperties?: { [k: string]: any } | undefined;

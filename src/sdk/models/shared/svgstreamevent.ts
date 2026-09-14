@@ -4,6 +4,8 @@
 
 import * as z from "zod/v3";
 import { safeParse } from "../../../lib/schemas.js";
+import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
+import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -110,7 +112,13 @@ export type One = {
 /**
  * Server-sent event (SSE) envelope for SVG streaming operations. Each SSE message uses the `event:` line for the phase discriminator and the `data:` line for a JSON payload. For `n > 1`, events are interleaved: use `data.index` for output position and `data.id` as the stable per-output identifier. Terminal failures emit `event: error` with public error data. The stream terminates with `data: [DONE]`.
  */
-export type SvgStreamEvent = One | Two | Three | Four | Five;
+export type SvgStreamEvent =
+  | One
+  | Two
+  | Three
+  | Four
+  | Five
+  | discriminatedUnionTypes.Unknown<"event">;
 
 /** @internal */
 export const Five$inboundSchema: z.ZodType<Five, z.ZodTypeDef, unknown> = z
@@ -252,13 +260,13 @@ export const SvgStreamEvent$inboundSchema: z.ZodType<
   SvgStreamEvent,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  z.lazy(() => One$inboundSchema),
-  z.lazy(() => Two$inboundSchema),
-  z.lazy(() => Three$inboundSchema),
-  z.lazy(() => Four$inboundSchema),
-  z.lazy(() => Five$inboundSchema),
-]);
+> = discriminatedUnion("event", {
+  error: z.lazy(() => One$inboundSchema),
+  generating: z.lazy(() => Two$inboundSchema),
+  reasoning: z.lazy(() => Three$inboundSchema),
+  draft: z.lazy(() => Four$inboundSchema),
+  content: z.lazy(() => Five$inboundSchema),
+});
 
 export function svgStreamEventFromJSON(
   jsonString: string,

@@ -12,15 +12,13 @@ import { SvgUsage, SvgUsage$inboundSchema } from "./svgusage.js";
 export type SvgResponse = {
   created: number;
   /**
-   * Credit cost for this request. Use this for billing instead of `usage` tokens.
+   * Credit cost for fixed-credit models. Omitted for token-priced models, whose measured totals are returned in `usage`.
    */
   credits?: number | undefined;
   data: Array<SvgDocument>;
   id: string;
   /**
-   * Deprecated. Use `credits` for billing values.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   * Token totals for token-priced models. Fixed-credit models use `credits` for billing and may report compatibility zeros here.
    */
   usage?: SvgUsage | undefined;
 };
