@@ -6,7 +6,15 @@ sources:
             - location: https://api.quiver.ai/v1/openapi.json
         overlays:
             - location: ./.speakeasy/svg-stream-forward-compat.overlay.yaml
-            - location: ./.speakeasy/ignore-responses.overlay.yaml
+        transformations:
+            # Public SDK does not expose Open Responses. Exclude before Validate —
+            # Speakeasy SSE lint rejects OpenResponsesStreamEvent (payload field
+            # `item` is not an SSE wire envelope). See Speakeasy docs:
+            # https://www.speakeasy.com/docs/sdks/prep-openapi/transformations
+            - filterOperations:
+                operations: createOpenResponse
+                exclude: true
+            - removeUnused: true
         registry:
             location: registry.speakeasyapi.dev/quiverai/clients/open-api
 targets:
@@ -23,4 +31,3 @@ targets:
             labelOverride:
                 fixedValue: Typescript (SDK)
             blocking: false
-
