@@ -1,0 +1,11 @@
+overlay: 1.0.0
+info:
+  title: Exclude Open Responses from public SDK generation
+  version: 1.0.0
+actions:
+  # Speakeasy expects text/event-stream schemas to be SSE wire envelopes
+  # (data/event/id/retry). OpenResponsesStreamEvent is the Open Responses
+  # payload (fields like `item`) and is not part of the published SDK surface.
+  - target: $.paths['/v1/responses']
+    description: Drop /v1/responses from Speakeasy SDK generation.
+    remove: true
