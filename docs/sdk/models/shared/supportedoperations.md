@@ -5,11 +5,11 @@
 ```typescript
 import { SupportedOperations } from "@quiverai/sdk/sdk/models/shared";
 
-let value: SupportedOperations = "svg_generate";
+let value: SupportedOperations = "open_responses";
 ```
 
 ## Values
 
 ```typescript
-"svg_generate" | "svg_edit" | "svg_vectorize"
+"open_responses" | "svg_generate" | "svg_edit" | "svg_vectorize"
 ```

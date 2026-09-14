@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { ClosedEnum } from "../../types/enums.js";
 import {
   ImageInputReferenceInput,
   ImageInputReferenceInput$Outbound,
@@ -14,6 +15,20 @@ import {
   SvgAttributes$Outbound,
   SvgAttributes$outboundSchema,
 } from "./svgattributes.js";
+
+/**
+ * Reasoning effort applied to this generation. When omitted, Arrow uses its default.
+ */
+export const ReasoningEffort = {
+  Low: "low",
+  Medium: "medium",
+  High: "high",
+  Xhigh: "xhigh",
+} as const;
+/**
+ * Reasoning effort applied to this generation. When omitted, Arrow uses its default.
+ */
+export type ReasoningEffort = ClosedEnum<typeof ReasoningEffort>;
 
 export type GenerateSVGRequest = {
   /**
@@ -45,6 +60,10 @@ export type GenerateSVGRequest = {
    */
   prompt: string;
   /**
+   * Reasoning effort applied to this generation. When omitted, Arrow uses its default.
+   */
+  reasoningEffort?: ReasoningEffort | undefined;
+  /**
    * Optional reference images to guide style/composition. Accepts `{ url }`, `{ base64 }`, or URL string shorthand. Runtime limits are model-specific: 4 for Arrow 1.1/Arrow 1.x aliases, 16 for Arrow 1.1 Max.
    */
   references?: Array<ImageInputReferenceInput> | undefined;
@@ -63,6 +82,11 @@ export type GenerateSVGRequest = {
 };
 
 /** @internal */
+export const ReasoningEffort$outboundSchema: z.ZodNativeEnum<
+  typeof ReasoningEffort
+> = z.nativeEnum(ReasoningEffort);
+
+/** @internal */
 export type GenerateSVGRequest$Outbound = {
   attributes?: SvgAttributes$Outbound | null | undefined;
   instructions?: string | undefined;
@@ -71,6 +95,7 @@ export type GenerateSVGRequest$Outbound = {
   n: number;
   presence_penalty: number | null;
   prompt: string;
+  reasoning_effort?: string | undefined;
   references?: Array<ImageInputReferenceInput$Outbound> | undefined;
   stream: boolean;
   temperature: number;
@@ -90,6 +115,7 @@ export const GenerateSVGRequest$outboundSchema: z.ZodType<
   n: z.number().int().default(1),
   presencePenalty: z.nullable(z.number().default(0)),
   prompt: z.string(),
+  reasoningEffort: ReasoningEffort$outboundSchema.optional(),
   references: z.array(ImageInputReferenceInput$outboundSchema).optional(),
   stream: z.boolean().default(false),
   temperature: z.number().default(1),
@@ -98,6 +124,7 @@ export const GenerateSVGRequest$outboundSchema: z.ZodType<
   return remap$(v, {
     maxOutputTokens: "max_output_tokens",
     presencePenalty: "presence_penalty",
+    reasoningEffort: "reasoning_effort",
     topP: "top_p",
   });
 });

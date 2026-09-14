@@ -15,6 +15,7 @@ let value: GenerateSVGRequest = {
     model: "arrow-1.1",
     presencePenalty: 0.2,
     prompt: "Generate an icon of a unicorn",
+    reasoningEffort: "medium",
     references: [
       "https://example.com/uploads/reference1.png",
     ],

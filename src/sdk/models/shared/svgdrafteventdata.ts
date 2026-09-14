@@ -3,13 +3,27 @@
  */
 
 import * as z from "zod/v3";
+import { remap as remap$ } from "../../../lib/primitives.js";
 import {
   collectExtraKeys as collectExtraKeys$,
   safeParse,
 } from "../../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { SvgUsage, SvgUsage$inboundSchema } from "./svgusage.js";
+
+/**
+ * Whether this draft SVG appends to the prior draft or replaces it with a full snapshot.
+ */
+export const UpdateType = {
+  Delta: "delta",
+  Snapshot: "snapshot",
+} as const;
+/**
+ * Whether this draft SVG appends to the prior draft or replaces it with a full snapshot.
+ */
+export type UpdateType = ClosedEnum<typeof UpdateType>;
 
 export type SvgDraftEventData = {
   /**
@@ -30,13 +44,19 @@ export type SvgDraftEventData = {
   text?: string | undefined;
   type: "draft";
   /**
-   * Deprecated. Use `credits` for billing values.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   * Whether this draft SVG appends to the prior draft or replaces it with a full snapshot.
+   */
+  updateType?: UpdateType | undefined;
+  /**
+   * Token totals for token-priced models. Fixed-credit models use `credits` for billing and may report compatibility zeros here.
    */
   usage?: SvgUsage | undefined;
   additionalProperties?: { [k: string]: any } | undefined;
 };
+
+/** @internal */
+export const UpdateType$inboundSchema: z.ZodNativeEnum<typeof UpdateType> = z
+  .nativeEnum(UpdateType);
 
 /** @internal */
 export const SvgDraftEventData$inboundSchema: z.ZodType<
@@ -50,11 +70,16 @@ export const SvgDraftEventData$inboundSchema: z.ZodType<
     svg: z.string(),
     text: z.string().optional(),
     type: z.literal("draft"),
+    update_type: UpdateType$inboundSchema.optional(),
     usage: SvgUsage$inboundSchema.optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
-);
+).transform((v) => {
+  return remap$(v, {
+    "update_type": "updateType",
+  });
+});
 
 export function svgDraftEventDataFromJSON(
   jsonString: string,

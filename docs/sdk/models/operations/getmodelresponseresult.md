@@ -7,7 +7,19 @@
 
 ```typescript
 const value: shared.Model = {
-  created: 958093,
+  billing: {
+    currency: "USD",
+    kind: "token_usage",
+    pricingModel: "token_usage_v1",
+    rates: {
+      cacheWrite: 73184,
+      cachedInput: 488710,
+      input: 420022,
+      output: 198579,
+    },
+    unit: "millicents_per_million_tokens",
+  },
+  created: 746320,
   id: "<id>",
   object: "model",
   ownedBy: "<value>",
@@ -22,7 +34,7 @@ const value: shared.Model = {
 
 ```typescript
 const value: shared.PublicErrorEnvelope = {
-  code: "payload_too_large",
+  code: "content_policy_violation",
   message: "<value>",
   requestId: "<id>",
   status: 474294,

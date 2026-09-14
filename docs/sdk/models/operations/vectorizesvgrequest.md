@@ -15,6 +15,7 @@ let value: VectorizeSVGRequest = {
     maxOutputTokens: 4096,
     model: "arrow-1.1",
     presencePenalty: 0.2,
+    reasoningEffort: "medium",
     targetSize: 1024,
     temperature: 0.4,
     topP: 0.95,

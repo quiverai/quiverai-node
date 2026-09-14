@@ -8,6 +8,7 @@ import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { ModelBilling, ModelBilling$inboundSchema } from "./modelbilling.js";
 
 export const InputModalities = {
   Text: "text",
@@ -29,19 +30,19 @@ export const OutputModalities = {
 export type OutputModalities = ClosedEnum<typeof OutputModalities>;
 
 /**
- * Deprecated. Prefer `pricing_credits` for per-request credit debits. USD strings are legacy placeholders.
+ * Deprecated. Prefer `pricing_credits` for operation-specific debits per generated output. USD strings are legacy placeholders.
  *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export type Pricing = {
   /**
-   * Deprecated — use `pricing_credits`. Legacy USD price string per SVG generation request.
+   * Deprecated — use `pricing_credits`. Legacy USD price string per generated SVG for an SVG generation operation.
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   svgGenerate: string;
   /**
-   * Deprecated — use `pricing_credits`. Legacy USD price string per SVG vectorization request.
+   * Deprecated — use `pricing_credits`. Legacy USD price string per generated SVG for an SVG vectorization operation.
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
@@ -50,16 +51,17 @@ export type Pricing = {
 
 export type PricingCredits = {
   /**
-   * Credits debited from the organization balance per SVG generation request for this model.
+   * Credits debited from the organization balance per generated SVG for this model's SVG generation operation.
    */
   svgGenerate: number;
   /**
-   * Credits debited from the organization balance per SVG vectorization request for this model.
+   * Credits debited from the organization balance per generated SVG for this model's SVG vectorization operation.
    */
   svgVectorize: number;
 };
 
 export const SupportedOperations = {
+  OpenResponses: "open_responses",
   SvgGenerate: "svg_generate",
   SvgEdit: "svg_edit",
   SvgVectorize: "svg_vectorize",
@@ -79,6 +81,7 @@ export type SupportedSamplingParameters = ClosedEnum<
 >;
 
 export type Model = {
+  billing: ModelBilling;
   contextLength?: number | undefined;
   created: number;
   description?: string | undefined;
@@ -90,7 +93,7 @@ export type Model = {
   outputModalities?: Array<OutputModalities> | undefined;
   ownedBy: string;
   /**
-   * Deprecated. Prefer `pricing_credits` for per-request credit debits. USD strings are legacy placeholders.
+   * Deprecated. Prefer `pricing_credits` for operation-specific debits per generated output. USD strings are legacy placeholders.
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
@@ -174,6 +177,7 @@ export const SupportedSamplingParameters$inboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const Model$inboundSchema: z.ZodType<Model, z.ZodTypeDef, unknown> = z
   .object({
+    billing: ModelBilling$inboundSchema,
     context_length: z.number().int().optional(),
     created: z.number().int(),
     description: z.string().optional(),
