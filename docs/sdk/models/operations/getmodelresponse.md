@@ -10,13 +10,18 @@ let value: GetModelResponse = {
     "key": [
       "<value 1>",
       "<value 2>",
+      "<value 3>",
+    ],
+    "key1": [
+      "<value 1>",
+      "<value 2>",
     ],
   },
   result: {
     code: "operation_rate_limit_exceeded",
     message: "<value>",
     requestId: "<id>",
-    status: 915608,
+    status: 704863,
   },
 };
 ```

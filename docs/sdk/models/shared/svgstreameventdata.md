@@ -16,6 +16,11 @@ const value: shared.SvgContentEventData = {
   openingAnimationMs: 500,
   svg: "<value>",
   type: "content",
+  usage: {
+    inputTokens: 0,
+    outputTokens: 0,
+    totalTokens: 0,
+  },
 };
 ```
 
@@ -27,6 +32,11 @@ const value: shared.SvgDraftEventData = {
   index: 0,
   svg: "<value>",
   type: "draft",
+  usage: {
+    inputTokens: 0,
+    outputTokens: 0,
+    totalTokens: 0,
+  },
 };
 ```
 
@@ -48,6 +58,11 @@ const value: shared.PublicErrorSseEventData = {
 const value: shared.SvgGeneratingEventData = {
   index: 0,
   type: "generating",
+  usage: {
+    inputTokens: 0,
+    outputTokens: 0,
+    totalTokens: 0,
+  },
 };
 ```
 
@@ -57,6 +72,11 @@ const value: shared.SvgGeneratingEventData = {
 const value: shared.SvgReasoningEventData = {
   index: 0,
   type: "reasoning",
+  usage: {
+    inputTokens: 0,
+    outputTokens: 0,
+    totalTokens: 0,
+  },
 };
 ```
 

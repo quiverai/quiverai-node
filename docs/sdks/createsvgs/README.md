@@ -359,6 +359,7 @@ async function run() {
       model: "arrow-preview",
       presencePenalty: 0.2,
       prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
       references: [
         {
           base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
@@ -406,6 +407,7 @@ async function run() {
       model: "arrow-preview",
       presencePenalty: 0.2,
       prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
       references: [
         {
           base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
@@ -452,6 +454,7 @@ async function run() {
       model: "arrow-preview",
       presencePenalty: 0.2,
       prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
       references: [
         {
           base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
@@ -499,6 +502,7 @@ async function run() {
       model: "arrow-preview",
       presencePenalty: 0.2,
       prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
       references: [
         {
           base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",

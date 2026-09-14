@@ -9,27 +9,19 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Deprecated. Use `credits` for billing values.
- *
- * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
+ * Token totals for token-priced models. Fixed-credit models use `credits` for billing and may report compatibility zeros here.
  */
 export type SvgUsage = {
   /**
-   * Deprecated. Token counts are retained for compatibility and may be zeroed.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   * Measured token count for token-priced models. Fixed-credit models retain this field for compatibility and may report zero.
    */
   inputTokens: number;
   /**
-   * Deprecated. Token counts are retained for compatibility and may be zeroed.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   * Measured token count for token-priced models. Fixed-credit models retain this field for compatibility and may report zero.
    */
   outputTokens: number;
   /**
-   * Deprecated. Token counts are retained for compatibility and may be zeroed.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   * Measured token count for token-priced models. Fixed-credit models retain this field for compatibility and may report zero.
    */
   totalTokens: number;
 };
