@@ -6,6 +6,7 @@ sources:
             - location: https://api.quiver.ai/v1/openapi.json
         overlays:
             - location: ./.speakeasy/svg-stream-forward-compat.overlay.yaml
+            - location: ./.speakeasy/ignore-responses.overlay.yaml
         registry:
             location: registry.speakeasyapi.dev/quiverai/clients/open-api
 targets:
@@ -22,3 +23,4 @@ targets:
             labelOverride:
                 fixedValue: Typescript (SDK)
             blocking: false
+
