@@ -13,6 +13,10 @@ export const Code = {
   InvalidRequest: "invalid_request",
   InvalidApiKey: "invalid_api_key",
   Unauthorized: "unauthorized",
+  FundingPaymentFailed: "funding_payment_failed",
+  FundingPaymentMethodRequired: "funding_payment_method_required",
+  FundingPaymentActionRequired: "funding_payment_action_required",
+  FundingPending: "funding_pending",
   InsufficientCredits: "insufficient_credits",
   AccountFrozen: "account_frozen",
   ContentPolicyViolation: "content_policy_violation",
@@ -32,6 +36,7 @@ export type PublicErrorEnvelope = {
   code: Code;
   message: string;
   requestId: string;
+  retryAfter?: number | undefined;
   status: number;
 };
 
@@ -49,10 +54,12 @@ export const PublicErrorEnvelope$inboundSchema: z.ZodType<
   code: Code$inboundSchema,
   message: z.string(),
   request_id: z.string(),
+  retry_after: z.number().int().optional(),
   status: z.number().int(),
 }).transform((v) => {
   return remap$(v, {
     "request_id": "requestId",
+    "retry_after": "retryAfter",
   });
 });
 

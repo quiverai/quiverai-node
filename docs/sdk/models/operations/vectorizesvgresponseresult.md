@@ -7,7 +7,7 @@
 
 ```typescript
 const value: shared.PublicErrorEnvelope = {
-  code: "payload_too_large",
+  code: "content_policy_violation",
   message: "<value>",
   requestId: "<id>",
   status: 474294,
@@ -22,6 +22,11 @@ const value: shared.SvgResponse = {
   credits: 1,
   data: [],
   id: "resp_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  usage: {
+    inputTokens: 0,
+    outputTokens: 0,
+    totalTokens: 0,
+  },
 };
 ```
 
