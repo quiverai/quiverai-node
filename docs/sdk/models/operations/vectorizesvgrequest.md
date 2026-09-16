@@ -13,7 +13,7 @@ let value: VectorizeSVGRequest = {
       url: "https://example.com/uploads/reference1.png",
     },
     maxOutputTokens: 4096,
-    model: "arrow-1.1",
+    model: "Charger",
     presencePenalty: 0.2,
     reasoningEffort: "medium",
     targetSize: 1024,

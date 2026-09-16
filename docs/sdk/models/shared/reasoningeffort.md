@@ -1,6 +1,6 @@
 # ReasoningEffort
 
-Reasoning effort applied to this generation. When omitted, Arrow uses its default.
+Reasoning effort applied to this animation. When omitted, Arrow uses its default.
 
 ## Example Usage
 

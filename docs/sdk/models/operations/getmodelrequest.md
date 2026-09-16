@@ -6,7 +6,7 @@
 import { GetModelRequest } from "@quiverai/sdk/sdk/models/operations";
 
 let value: GetModelRequest = {
-  model: "arrow-1.1",
+  model: "arrow-2",
 };
 ```
 
@@ -14,4 +14,4 @@ let value: GetModelRequest = {
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `model`            | *string*           | :heavy_check_mark: | Model identifier   | arrow-1.1          |
+| `model`            | *string*           | :heavy_check_mark: | Model identifier   | arrow-2            |

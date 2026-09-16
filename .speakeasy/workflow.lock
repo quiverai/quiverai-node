@@ -1,9 +1,9 @@
-speakeasyVersion: 1.796.4
+speakeasyVersion: 1.797.0
 sources:
     OpenAPI:
         sourceNamespace: open-api
-        sourceRevisionDigest: sha256:40021ac81931055a9c9c1e1b686b44362bdd7a868172e924c404ac5411b0a8cb
-        sourceBlobDigest: sha256:d92c01a882812a48f0a8e969dd75e7bd806013dd8b1344008c8ec4f12857ec56
+        sourceRevisionDigest: sha256:b40b2b3127841b5825afde79648573ad30528e1d17094a765209cbd7929bd8b7
+        sourceBlobDigest: sha256:b4a0ce23c823ac9a81a3a7e1b654b053bf4b7b2595ded76765b43c162768d032
         tags:
             - latest
             - 1.0.0
@@ -11,10 +11,10 @@ targets:
     '@quiverai/sdk':
         source: OpenAPI
         sourceNamespace: open-api
-        sourceRevisionDigest: sha256:40021ac81931055a9c9c1e1b686b44362bdd7a868172e924c404ac5411b0a8cb
-        sourceBlobDigest: sha256:d92c01a882812a48f0a8e969dd75e7bd806013dd8b1344008c8ec4f12857ec56
+        sourceRevisionDigest: sha256:b40b2b3127841b5825afde79648573ad30528e1d17094a765209cbd7929bd8b7
+        sourceBlobDigest: sha256:b4a0ce23c823ac9a81a3a7e1b654b053bf4b7b2595ded76765b43c162768d032
         codeSamplesNamespace: open-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:62990332c6d8acd738713161c31433427a726e1eccb1d593db46c4f122498f39
+        codeSamplesRevisionDigest: sha256:af86ff62ccf232a8802cbc5618dd9344d5cb07c07bce39b85244dde1d15d6d00
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -24,7 +24,11 @@ workflow:
                 - location: https://api.quiver.ai/v1/openapi.json
             overlays:
                 - location: ./.speakeasy/svg-stream-forward-compat.overlay.yaml
-                - location: ./.speakeasy/ignore-responses.overlay.yaml
+            transformations:
+                - filterOperations:
+                    operations: createOpenResponse
+                    exclude: true
+                - removeUnused: true
             registry:
                 location: registry.speakeasyapi.dev/quiverai/clients/open-api
     targets:
