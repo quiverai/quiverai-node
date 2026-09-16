@@ -140,9 +140,17 @@ run();
 <details open>
 <summary>Available methods</summary>
 
+### [AnimateSVG](docs/sdks/animatesvg/README.md)
+
+* [animateSVG](docs/sdks/animatesvg/README.md#animatesvg) - SVG animation
+
 ### [CreateSVGs](docs/sdks/createsvgs/README.md)
 
 * [generateSVG](docs/sdks/createsvgs/README.md#generatesvg) - Text to SVG
+
+### [EditSVG](docs/sdks/editsvg/README.md)
+
+* [editSVG](docs/sdks/editsvg/README.md#editsvg) - SVG edit
 
 ### [Models](docs/sdks/models/README.md)
 
@@ -171,7 +179,9 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
+- [`animateSVGAnimateSVG`](docs/sdks/animatesvg/README.md#animatesvg) - SVG animation
 - [`createSVGsGenerateSVG`](docs/sdks/createsvgs/README.md#generatesvg) - Text to SVG
+- [`editSVGEditSVG`](docs/sdks/editsvg/README.md#editsvg) - SVG edit
 - [`modelsGetModel`](docs/sdks/models/README.md#getmodel) - Get Model
 - [`modelsListModels`](docs/sdks/models/README.md#listmodels) - List Models
 - [`vectorizeSVGVectorizeSVG`](docs/sdks/vectorizesvg/README.md#vectorizesvg) - Image to SVG
@@ -196,17 +206,15 @@ const quiverAI = new QuiverAI({
 });
 
 async function run() {
-  const result = await quiverAI.createSVGs.generateSVG({
-    generateSVGRequest: {
-      instructions:
-        "Use a flat monochrome style with rounded corners and clean geometry.",
-      maxOutputTokens: 4096,
-      model: "arrow-1.1",
-      n: 2,
-      presencePenalty: 0.2,
-      prompt: "Generate a minimalist unicorn icon for a SaaS dashboard",
+  const result = await quiverAI.animateSVG.animateSVG({
+    animateSVGRequest: {
+      model: "arrow-2",
+      prompt: "Add a gentle pulsing animation to the triangle",
+      svgSource: {
+        base64:
+          "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJsOCAyMEg0eiIvPjwvc3ZnPg==",
+      },
       temperature: 0.4,
-      topP: 0.95,
     },
     xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });

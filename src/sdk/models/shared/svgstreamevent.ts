@@ -74,7 +74,7 @@ export type Three = {
   retry?: number | undefined;
 };
 
-export type Two = {
+export type SvgStreamEvent2 = {
   /**
    * The event payload. Shape depends on the `type` phase discriminator.
    */
@@ -93,7 +93,7 @@ export type Two = {
   retry?: number | undefined;
 };
 
-export type One = {
+export type SvgStreamEvent1 = {
   data: PublicErrorSseEventData;
   /**
    * The SSE event name (sent via the `event:` line).
@@ -113,8 +113,8 @@ export type One = {
  * Server-sent event (SSE) envelope for SVG streaming operations. Each SSE message uses the `event:` line for the phase discriminator and the `data:` line for a JSON payload. For `n > 1`, events are interleaved: use `data.index` for output position and `data.id` as the stable per-output identifier. Terminal failures emit `event: error` with public error data. The stream terminates with `data: [DONE]`.
  */
 export type SvgStreamEvent =
-  | One
-  | Two
+  | SvgStreamEvent1
+  | SvgStreamEvent2
   | Three
   | Four
   | Five
@@ -202,56 +202,62 @@ export function threeFromJSON(
 }
 
 /** @internal */
-export const Two$inboundSchema: z.ZodType<Two, z.ZodTypeDef, unknown> = z
-  .object({
-    data: z.unknown().transform((v, ctx) => {
-      if (typeof v !== "string") return v;
-      try {
-        return JSON.parse(v);
-      } catch (err) {
-        ctx.addIssue({ code: "custom", message: `malformed json: ${err}` });
-        return z.NEVER;
-      }
-    }).pipe(SvgStreamEventData$inboundSchema),
-    event: z.literal("generating"),
-    id: z.string().optional(),
-    retry: z.number().int().optional(),
-  });
+export const SvgStreamEvent2$inboundSchema: z.ZodType<
+  SvgStreamEvent2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  data: z.unknown().transform((v, ctx) => {
+    if (typeof v !== "string") return v;
+    try {
+      return JSON.parse(v);
+    } catch (err) {
+      ctx.addIssue({ code: "custom", message: `malformed json: ${err}` });
+      return z.NEVER;
+    }
+  }).pipe(SvgStreamEventData$inboundSchema),
+  event: z.literal("generating"),
+  id: z.string().optional(),
+  retry: z.number().int().optional(),
+});
 
-export function twoFromJSON(
+export function svgStreamEvent2FromJSON(
   jsonString: string,
-): SafeParseResult<Two, SDKValidationError> {
+): SafeParseResult<SvgStreamEvent2, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Two$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Two' from JSON`,
+    (x) => SvgStreamEvent2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SvgStreamEvent2' from JSON`,
   );
 }
 
 /** @internal */
-export const One$inboundSchema: z.ZodType<One, z.ZodTypeDef, unknown> = z
-  .object({
-    data: z.unknown().transform((v, ctx) => {
-      if (typeof v !== "string") return v;
-      try {
-        return JSON.parse(v);
-      } catch (err) {
-        ctx.addIssue({ code: "custom", message: `malformed json: ${err}` });
-        return z.NEVER;
-      }
-    }).pipe(PublicErrorSseEventData$inboundSchema),
-    event: z.literal("error"),
-    id: z.string().optional(),
-    retry: z.number().int().optional(),
-  });
+export const SvgStreamEvent1$inboundSchema: z.ZodType<
+  SvgStreamEvent1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  data: z.unknown().transform((v, ctx) => {
+    if (typeof v !== "string") return v;
+    try {
+      return JSON.parse(v);
+    } catch (err) {
+      ctx.addIssue({ code: "custom", message: `malformed json: ${err}` });
+      return z.NEVER;
+    }
+  }).pipe(PublicErrorSseEventData$inboundSchema),
+  event: z.literal("error"),
+  id: z.string().optional(),
+  retry: z.number().int().optional(),
+});
 
-export function oneFromJSON(
+export function svgStreamEvent1FromJSON(
   jsonString: string,
-): SafeParseResult<One, SDKValidationError> {
+): SafeParseResult<SvgStreamEvent1, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => One$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'One' from JSON`,
+    (x) => SvgStreamEvent1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SvgStreamEvent1' from JSON`,
   );
 }
 
@@ -261,8 +267,8 @@ export const SvgStreamEvent$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = discriminatedUnion("event", {
-  error: z.lazy(() => One$inboundSchema),
-  generating: z.lazy(() => Two$inboundSchema),
+  error: z.lazy(() => SvgStreamEvent1$inboundSchema),
+  generating: z.lazy(() => SvgStreamEvent2$inboundSchema),
   reasoning: z.lazy(() => Three$inboundSchema),
   draft: z.lazy(() => Four$inboundSchema),
   content: z.lazy(() => Five$inboundSchema),

@@ -11,5 +11,5 @@ let value: SupportedOperations = "open_responses";
 ## Values
 
 ```typescript
-"open_responses" | "svg_generate" | "svg_edit" | "svg_vectorize"
+"open_responses" | "svg_generate" | "svg_edit" | "svg_animate" | "svg_vectorize"
 ```

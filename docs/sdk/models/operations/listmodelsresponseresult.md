@@ -26,6 +26,8 @@ const value: shared.ListModelsResponse = {
       object: "model",
       ownedBy: "<value>",
       pricingCredits: {
+        svgAnimate: 25,
+        svgEdit: 20,
         svgGenerate: 30,
         svgVectorize: 30,
       },

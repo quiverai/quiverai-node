@@ -36,6 +36,18 @@ export type OutputModalities = ClosedEnum<typeof OutputModalities>;
  */
 export type Pricing = {
   /**
+   * Deprecated — use `pricing_credits`. Legacy USD price string per generated animated SVG for an SVG animation operation.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  svgAnimate?: string | undefined;
+  /**
+   * Deprecated — use `pricing_credits`. Legacy USD price string per generated SVG for an SVG edit operation.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  svgEdit?: string | undefined;
+  /**
    * Deprecated — use `pricing_credits`. Legacy USD price string per generated SVG for an SVG generation operation.
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -51,6 +63,14 @@ export type Pricing = {
 
 export type PricingCredits = {
   /**
+   * Credits debited from the organization balance per generated animated SVG for this model's SVG animation operation.
+   */
+  svgAnimate?: number | undefined;
+  /**
+   * Credits debited from the organization balance per generated SVG for this model's SVG edit operation.
+   */
+  svgEdit?: number | undefined;
+  /**
    * Credits debited from the organization balance per generated SVG for this model's SVG generation operation.
    */
   svgGenerate: number;
@@ -64,6 +84,7 @@ export const SupportedOperations = {
   OpenResponses: "open_responses",
   SvgGenerate: "svg_generate",
   SvgEdit: "svg_edit",
+  SvgAnimate: "svg_animate",
   SvgVectorize: "svg_vectorize",
 } as const;
 export type SupportedOperations = ClosedEnum<typeof SupportedOperations>;
@@ -120,10 +141,14 @@ export const OutputModalities$inboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const Pricing$inboundSchema: z.ZodType<Pricing, z.ZodTypeDef, unknown> =
   z.object({
+    svg_animate: z.string().optional(),
+    svg_edit: z.string().optional(),
     svg_generate: z.string(),
     svg_vectorize: z.string(),
   }).transform((v) => {
     return remap$(v, {
+      "svg_animate": "svgAnimate",
+      "svg_edit": "svgEdit",
       "svg_generate": "svgGenerate",
       "svg_vectorize": "svgVectorize",
     });
@@ -145,10 +170,14 @@ export const PricingCredits$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  svg_animate: z.number().int().optional(),
+  svg_edit: z.number().int().optional(),
   svg_generate: z.number().int(),
   svg_vectorize: z.number().int(),
 }).transform((v) => {
   return remap$(v, {
+    "svg_animate": "svgAnimate",
+    "svg_edit": "svgEdit",
     "svg_generate": "svgGenerate",
     "svg_vectorize": "svgVectorize",
   });

@@ -7,10 +7,6 @@ sources:
         overlays:
             - location: ./.speakeasy/svg-stream-forward-compat.overlay.yaml
         transformations:
-            # Public SDK does not expose Open Responses. Exclude before Validate —
-            # Speakeasy SSE lint rejects OpenResponsesStreamEvent (payload field
-            # `item` is not an SSE wire envelope). See Speakeasy docs:
-            # https://www.speakeasy.com/docs/sdks/prep-openapi/transformations
             - filterOperations:
                 operations: createOpenResponse
                 exclude: true

@@ -9,13 +9,13 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const MimeType = {
+export const SvgDocumentMimeType = {
   ImageSvgPlusXml: "image/svg+xml",
 } as const;
-export type MimeType = ClosedEnum<typeof MimeType>;
+export type SvgDocumentMimeType = ClosedEnum<typeof SvgDocumentMimeType>;
 
 export type SvgDocument = {
-  mimeType: MimeType;
+  mimeType: SvgDocumentMimeType;
   /**
    * Raw SVG markup.
    */
@@ -23,8 +23,9 @@ export type SvgDocument = {
 };
 
 /** @internal */
-export const MimeType$inboundSchema: z.ZodNativeEnum<typeof MimeType> = z
-  .nativeEnum(MimeType);
+export const SvgDocumentMimeType$inboundSchema: z.ZodNativeEnum<
+  typeof SvgDocumentMimeType
+> = z.nativeEnum(SvgDocumentMimeType);
 
 /** @internal */
 export const SvgDocument$inboundSchema: z.ZodType<
@@ -32,7 +33,7 @@ export const SvgDocument$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  mime_type: MimeType$inboundSchema,
+  mime_type: SvgDocumentMimeType$inboundSchema,
   svg: z.string(),
 }).transform((v) => {
   return remap$(v, {

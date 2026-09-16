@@ -19,7 +19,7 @@ import {
 /**
  * Reasoning effort applied to this generation. When omitted, Arrow uses its default.
  */
-export const ReasoningEffort = {
+export const GenerateSVGRequestReasoningEffort = {
   Low: "low",
   Medium: "medium",
   High: "high",
@@ -28,7 +28,9 @@ export const ReasoningEffort = {
 /**
  * Reasoning effort applied to this generation. When omitted, Arrow uses its default.
  */
-export type ReasoningEffort = ClosedEnum<typeof ReasoningEffort>;
+export type GenerateSVGRequestReasoningEffort = ClosedEnum<
+  typeof GenerateSVGRequestReasoningEffort
+>;
 
 export type GenerateSVGRequest = {
   /**
@@ -62,7 +64,7 @@ export type GenerateSVGRequest = {
   /**
    * Reasoning effort applied to this generation. When omitted, Arrow uses its default.
    */
-  reasoningEffort?: ReasoningEffort | undefined;
+  reasoningEffort?: GenerateSVGRequestReasoningEffort | undefined;
   /**
    * Optional reference images to guide style/composition. Accepts `{ url }`, `{ base64 }`, or URL string shorthand. Runtime limits are model-specific: 4 for Arrow 1.1/Arrow 1.x aliases, 16 for Arrow 1.1 Max.
    */
@@ -82,9 +84,9 @@ export type GenerateSVGRequest = {
 };
 
 /** @internal */
-export const ReasoningEffort$outboundSchema: z.ZodNativeEnum<
-  typeof ReasoningEffort
-> = z.nativeEnum(ReasoningEffort);
+export const GenerateSVGRequestReasoningEffort$outboundSchema: z.ZodNativeEnum<
+  typeof GenerateSVGRequestReasoningEffort
+> = z.nativeEnum(GenerateSVGRequestReasoningEffort);
 
 /** @internal */
 export type GenerateSVGRequest$Outbound = {
@@ -115,7 +117,7 @@ export const GenerateSVGRequest$outboundSchema: z.ZodType<
   n: z.number().int().default(1),
   presencePenalty: z.nullable(z.number().default(0)),
   prompt: z.string(),
-  reasoningEffort: ReasoningEffort$outboundSchema.optional(),
+  reasoningEffort: GenerateSVGRequestReasoningEffort$outboundSchema.optional(),
   references: z.array(ImageInputReferenceInput$outboundSchema).optional(),
   stream: z.boolean().default(false),
   temperature: z.number().default(1),

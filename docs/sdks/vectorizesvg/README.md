@@ -96,7 +96,7 @@ async function run() {
       image: {
         url: "https://example.com/uploads/logo.png",
       },
-      model: "arrow-1.1",
+      model: "arrow-1",
       temperature: 0.8,
     },
     xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
@@ -129,7 +129,7 @@ async function run() {
       image: {
         url: "https://example.com/uploads/logo.png",
       },
-      model: "arrow-1.1",
+      model: "arrow-1",
       temperature: 0.8,
     },
     xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
@@ -520,7 +520,7 @@ async function run() {
       image: {
         url: "https://example.com/uploads/logo.png",
       },
-      model: "arrow-1.1",
+      model: "arrow-1",
       presencePenalty: 0.2,
       stream: true,
       temperature: 0.4,
@@ -556,7 +556,7 @@ async function run() {
       image: {
         url: "https://example.com/uploads/logo.png",
       },
-      model: "arrow-1.1",
+      model: "arrow-1",
       presencePenalty: 0.2,
       stream: true,
       temperature: 0.4,

@@ -3,7 +3,9 @@
  */
 
 import { ClientSDK } from "../lib/sdks.js";
+import { AnimateSVG } from "./animatesvg.js";
 import { CreateSVGs } from "./createsvgs.js";
+import { EditSVG } from "./editsvg.js";
 import { Models } from "./models.js";
 import { VectorizeSVG } from "./vectorizesvg.js";
 
@@ -11,6 +13,16 @@ export class QuiverAI extends ClientSDK {
   private _models?: Models;
   get models(): Models {
     return (this._models ??= new Models(this._options));
+  }
+
+  private _animateSVG?: AnimateSVG;
+  get animateSVG(): AnimateSVG {
+    return (this._animateSVG ??= new AnimateSVG(this._options));
+  }
+
+  private _editSVG?: EditSVG;
+  get editSVG(): EditSVG {
+    return (this._editSVG ??= new EditSVG(this._options));
   }
 
   private _createSVGs?: CreateSVGs;

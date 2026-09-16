@@ -5,25 +5,25 @@ Server-sent event (SSE) envelope for SVG streaming operations. Each SSE message 
 
 ## Supported Types
 
-### `shared.One`
+### `shared.SvgStreamEvent1`
 
 ```typescript
-const value: shared.One = {
+const value: shared.SvgStreamEvent1 = {
   data: {
-    code: "content_policy_violation",
+    code: "request_timeout",
     message: "<value>",
     requestId: "<id>",
-    status: 23530,
+    status: 886719,
     type: "error",
   },
   event: "error",
 };
 ```
 
-### `shared.Two`
+### `shared.SvgStreamEvent2`
 
 ```typescript
-const value: shared.Two = {
+const value: shared.SvgStreamEvent2 = {
   data: {
     type: "generating",
   },

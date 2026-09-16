@@ -12,7 +12,7 @@ let value: GenerateSVGRequest = {
     },
     instructions: "Use a flat monochrome style with clean geometry.",
     maxOutputTokens: 4096,
-    model: "arrow-1.1",
+    model: "XC90",
     presencePenalty: 0.2,
     prompt: "Generate an icon of a unicorn",
     reasoningEffort: "medium",
