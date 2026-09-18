@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 0f33c9fc-1c93-4296-9792-fbb1c4caef92
 management:
-  docChecksum: c2a757871423c31d02358964b92d6ccf
+  docChecksum: 7385bd52f3d38a63cd87b3c1cb3ba408
   docVersion: 1.0.0
   speakeasyVersion: 1.797.0
   generationVersion: 2.937.18
-  releaseVersion: 0.9.2
-  configChecksum: c7bc9cd681b05f6e226e20418fbbd8d3
+  releaseVersion: 0.9.3
+  configChecksum: 2576664d89875be5062f6a3976a164c9
   repoURL: https://github.com/quiverai/quiverai-node.git
   installationURL: https://github.com/quiverai/quiverai-node
   published: true
 persistentEdits:
-  generation_id: 83aa9184-e414-48f7-b275-4c4d75fad381
-  pristine_commit_hash: f5450bdd52640801bc4e792b8e5ffd91ed8d4a04
-  pristine_tree_hash: a2da15c2f5880f4ba6d54a8598fd0bdb117b8229
+  generation_id: b6cf0532-f262-4564-91db-9437805eb7da
+  pristine_commit_hash: 8be426645c6019f85f075840c67577d42a60d6eb
+  pristine_tree_hash: 69d792cd902472787f5c14ca33fa9501bb200a9a
 features:
   typescript:
     acceptHeaders: 2.81.2
@@ -260,12 +260,12 @@ trackedFiles:
     pristine_git_object: 24e72b52aad6ed0960844df5d060de287cc7ce16
   docs/sdk/models/shared/publicerrorenvelope.md:
     id: 550a558b7624
-    last_write_checksum: sha1:d4782ac2ec4600f0e2f6ffd8418b26534c814ea5
-    pristine_git_object: a4b80f369ccd4e27f8a3d6428fa6825f86068748
+    last_write_checksum: sha1:fe9d0fb2390836fac92bfd1f9c77c29f39a27c62
+    pristine_git_object: 70410aef7b8984343b1aab357b6a54a093b543c1
   docs/sdk/models/shared/publicerrorsseeventdata.md:
     id: e1dc21d42969
-    last_write_checksum: sha1:e91acf2f594c68b6462fe429ac041123740f30a6
-    pristine_git_object: 6316512046468a3076b442d81199230dda32ad6d
+    last_write_checksum: sha1:23dc3584629e5b1ef7fcccd90853d51d9c87adfc
+    pristine_git_object: b16cea547a2162812ebd80ca3aa480c5c7328f7e
   docs/sdk/models/shared/publicerrorsseeventdatacode.md:
     id: 0e0b2f94d265
     last_write_checksum: sha1:17866e895f54d335feb43c5b1855c8670a302e4a
@@ -436,12 +436,12 @@ trackedFiles:
     pristine_git_object: cc173cc598005ddf714e2215e0304c0ab85583a9
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:2f3b6426a2d0d7b6b8f8aed37f4399f88b988c11
-    pristine_git_object: 9ca201564e9e55e8fa48e722ab2d66432265ce77
+    last_write_checksum: sha1:63a1a3421de87c3ca96fe8b069ab1402685df813
+    pristine_git_object: 68770414ee11208b710df6185ec362efbbf96883
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:e7e17a03fddb79ffd7f1484ca73026f166165fea
-    pristine_git_object: 7bb55ca5119a74b388e29217b181064e29e5557c
+    last_write_checksum: sha1:794a2938cc73a0c6ea49ff78f15064c4902c0405
+    pristine_git_object: 502c422ea065898b8c2fcb0680f7de9af4786aae
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:f68eeda1706ded6626e158d7a1e7bda00e0e71e2
@@ -492,8 +492,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:780ed398c63725751bc59ba01c88c40b55610f38
-    pristine_git_object: 762ba980fe1a1330b34becb057f7de84df8946dc
+    last_write_checksum: sha1:3e79de779657dcd8be4a920a4bdc72939fd490e2
+    pristine_git_object: a6ff3122fe85cb0b81902cf974d1450d11bb9deb
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:a257d6f6108693db2197617c579400bc8f0da914
@@ -672,12 +672,12 @@ trackedFiles:
     pristine_git_object: 5d62676e2550c13c0b15a6f3a3935ecb808cbab2
   src/sdk/models/shared/publicerrorenvelope.ts:
     id: 5406176b09ff
-    last_write_checksum: sha1:981c0d236d49960ce5849e9fac918f9ba98f623f
-    pristine_git_object: 1d4528492ff4785dd7cfb1c04116cf8cab16acc9
+    last_write_checksum: sha1:898eb8836c7f35c69df787b79f65314a7e3ddd47
+    pristine_git_object: d247e571471a3959efd628b9a5dff2d444d8210c
   src/sdk/models/shared/publicerrorsseeventdata.ts:
     id: 5ee172bb386a
-    last_write_checksum: sha1:86676c5bd96e1c1096c387fcbd72ab744f424b11
-    pristine_git_object: 8890f554d110e1882dc0d91d5a1c52ddf603e6ca
+    last_write_checksum: sha1:d53f82b82173444822a3b4f41e27c86d9c11f42c
+    pristine_git_object: 331a0bf02d1265d3c2fff1f10c04a494d9d4de1d
   src/sdk/models/shared/security.ts:
     id: 4a9790ed1c2f
     last_write_checksum: sha1:f54ff18620a0612537f0a766f9c493414b073f6b
@@ -1548,5 +1548,5 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Typescript SDK Changes:
-  * `quiverai.models.getModel()`:  `response` **Changed** (Breaking ⚠️)
-  * `quiverai.models.listModels()`:  `response.data[]` **Changed** (Breaking ⚠️)
+  * `quiverai.models.getModel()`:  `response.param` **Added**
+  * `quiverai.models.listModels()`:  `response.param` **Added**

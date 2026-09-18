@@ -2,7 +2,7 @@
 
 {
   "name": "@quiverai/sdk",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "exports": {
     ".": "./src/index.ts",    
     "./sdk/models/errors": "./src/sdk/models/errors/index.ts",    
