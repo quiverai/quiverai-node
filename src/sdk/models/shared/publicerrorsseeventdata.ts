@@ -42,6 +42,10 @@ export type Type = ClosedEnum<typeof Type>;
 export type PublicErrorSseEventData = {
   code: PublicErrorSseEventDataCode;
   message: string;
+  /**
+   * The request parameter the failure is about, as a path from the request body root: `size.width`, `input[0].content`. A parameter name, never a submitted value. The same field, with the same meaning, as `param` on the Open Responses error payload, so one name reads across a failure raised before streaming and one raised during it. Absent, rather than null, when the failure is not about one particular parameter.
+   */
+  param?: string | undefined;
   requestId: string;
   retryAfter?: number | undefined;
   status: number;
@@ -66,6 +70,7 @@ export const PublicErrorSseEventData$inboundSchema: z.ZodType<
 > = z.object({
   code: PublicErrorSseEventDataCode$inboundSchema,
   message: z.string(),
+  param: z.string().optional(),
   request_id: z.string(),
   retry_after: z.number().int().optional(),
   status: z.number().int(),
