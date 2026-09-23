@@ -96,7 +96,7 @@ async function run() {
       image: {
         url: "https://example.com/uploads/logo.png",
       },
-      model: "arrow-1",
+      model: "arrow-2",
       temperature: 0.8,
     },
     xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
@@ -129,7 +129,7 @@ async function run() {
       image: {
         url: "https://example.com/uploads/logo.png",
       },
-      model: "arrow-1",
+      model: "arrow-2",
       temperature: 0.8,
     },
     xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
@@ -385,6 +385,97 @@ async function run() {
 
 run();
 ```
+### Example Usage: invalid_request
+
+<!-- UsageSnippet language="typescript" operationID="vectorizeSVG" method="post" path="/v1/svgs/vectorizations" example="invalid_request" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.vectorizeSVG.vectorizeSVG({
+    vectorizeSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      autoCrop: true,
+      image: {
+        url: "https://example.com/uploads/reference1.png",
+      },
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      reasoningEffort: "medium",
+      targetSize: 1024,
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { vectorizeSVGVectorizeSVG } from "@quiverai/sdk/funcs/vectorizeSVGVectorizeSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await vectorizeSVGVectorizeSVG(quiverAI, {
+    vectorizeSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      autoCrop: true,
+      image: {
+        url: "https://example.com/uploads/reference1.png",
+      },
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      reasoningEffort: "medium",
+      targetSize: 1024,
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("vectorizeSVGVectorizeSVG failed:", res.error);
+  }
+}
+
+run();
+```
 ### Example Usage: multiple
 
 <!-- UsageSnippet language="typescript" operationID="vectorizeSVG" method="post" path="/v1/svgs/vectorizations" example="multiple" -->
@@ -520,7 +611,7 @@ async function run() {
       image: {
         url: "https://example.com/uploads/logo.png",
       },
-      model: "arrow-1",
+      model: "arrow-2",
       presencePenalty: 0.2,
       stream: true,
       temperature: 0.4,
@@ -556,7 +647,7 @@ async function run() {
       image: {
         url: "https://example.com/uploads/logo.png",
       },
-      model: "arrow-1",
+      model: "arrow-2",
       presencePenalty: 0.2,
       stream: true,
       temperature: 0.4,
