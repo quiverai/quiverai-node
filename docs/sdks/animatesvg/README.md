@@ -215,6 +215,75 @@ async function run() {
 
 run();
 ```
+### Example Usage: invalid_request
+
+<!-- UsageSnippet language="typescript" operationID="animateSVG" method="post" path="/v1/svgs/animations" example="invalid_request" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.animateSVG.animateSVG({
+    animateSVGRequest: {
+      maxOutputTokens: 4096,
+      model: "Mercielago",
+      prompt: "Make the logo pulse gently",
+      reasoningEffort: "medium",
+      svgSource: {
+        url: "https://example.com/uploads/source.svg",
+      },
+      temperature: 0.4,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { animateSVGAnimateSVG } from "@quiverai/sdk/funcs/animateSVGAnimateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await animateSVGAnimateSVG(quiverAI, {
+    animateSVGRequest: {
+      maxOutputTokens: 4096,
+      model: "Mercielago",
+      prompt: "Make the logo pulse gently",
+      reasoningEffort: "medium",
+      svgSource: {
+        url: "https://example.com/uploads/source.svg",
+      },
+      temperature: 0.4,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("animateSVGAnimateSVG failed:", res.error);
+  }
+}
+
+run();
+```
 
 ### Parameters
 

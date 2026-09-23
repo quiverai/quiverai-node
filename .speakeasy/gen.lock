@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 0f33c9fc-1c93-4296-9792-fbb1c4caef92
 management:
-  docChecksum: 7385bd52f3d38a63cd87b3c1cb3ba408
+  docChecksum: 33bedec48e13b07331e885c9fbd201a5
   docVersion: 1.0.0
-  speakeasyVersion: 1.797.0
-  generationVersion: 2.937.18
-  releaseVersion: 0.9.3
-  configChecksum: 2576664d89875be5062f6a3976a164c9
+  speakeasyVersion: 1.798.0
+  generationVersion: 2.938.0
+  releaseVersion: 0.9.4
+  configChecksum: eaf3c45f32c592624e96a6ecd9d3232d
   repoURL: https://github.com/quiverai/quiverai-node.git
   installationURL: https://github.com/quiverai/quiverai-node
   published: true
 persistentEdits:
-  generation_id: b6cf0532-f262-4564-91db-9437805eb7da
-  pristine_commit_hash: 8be426645c6019f85f075840c67577d42a60d6eb
-  pristine_tree_hash: 69d792cd902472787f5c14ca33fa9501bb200a9a
+  generation_id: 464de887-f900-45b3-a44f-3a731528a0a1
+  pristine_commit_hash: 49d69e7f487045955f2e7e46d03114c6fb109e39
+  pristine_tree_hash: ffa226e7a8f8dadad9adf1f0b07a3ec3d1dc903b
 features:
   typescript:
     acceptHeaders: 2.81.2
@@ -396,24 +396,24 @@ trackedFiles:
     pristine_git_object: fe1a1d2660149dda3d5847a48310ab59350f80c4
   docs/sdks/animatesvg/README.md:
     id: 1282482a15b1
-    last_write_checksum: sha1:8b3fcbe8ed843b26dcef1d812d0f0aea09e3cd0b
-    pristine_git_object: b0af530a4dd6bd1d5332665deb2113dbd3bfeced
+    last_write_checksum: sha1:a6e168eed9f71f65fda77b1d675e8e7e9c5996c9
+    pristine_git_object: 6b5daf0cfbf7dd4d7df9a3192d3971014528a616
   docs/sdks/createsvgs/README.md:
     id: 3037e9dee7b8
-    last_write_checksum: sha1:c9564b05c8d05a6c0e050d4568298dbeefa77131
-    pristine_git_object: d31c5146a79619df1086b4810fdc4ab840441593
+    last_write_checksum: sha1:6cb1d48a455d7fa0be3170affa81b07e32c871b4
+    pristine_git_object: 316dc5265935a9127f7cb78b4586f78c4b220910
   docs/sdks/editsvg/README.md:
     id: ef43b0a27e5f
-    last_write_checksum: sha1:627af5bf1f539531a783831750bf50901edce443
-    pristine_git_object: f71066ba2d920695097ac967a37bf2c907f5771b
+    last_write_checksum: sha1:452a6b999c20cf705d61485c0f9cb5a63e67feb3
+    pristine_git_object: 5a44a20aee3acc1c9489f8d196a50818caf70aee
   docs/sdks/models/README.md:
     id: b35bdf4bc7ed
-    last_write_checksum: sha1:c706776ed0c26b368dc1acc9ab8143706ef89717
-    pristine_git_object: 062ca93e65a1e1d3076e38afa561a98db7e30b12
+    last_write_checksum: sha1:048e6c54e012b817b9dec55f280fbdb64bf9b76f
+    pristine_git_object: 7d888bbfbe554b695ea3ae680019b3189d70ede2
   docs/sdks/vectorizesvg/README.md:
     id: 3aa82aec666b
-    last_write_checksum: sha1:7c1d215ec71f6da14380e8088f60d9995b07dbfc
-    pristine_git_object: 1a157ca765e69681fb0309ca1549f757693045ac
+    last_write_checksum: sha1:2612887e204fbd99e29ad0278c49fe91cf59798f
+    pristine_git_object: 63ba6c54933bab55767cfeabe973d6ae43f354aa
   eslint.config.mjs:
     id: 461c8d07f6da
     last_write_checksum: sha1:9398f326377fe47f67af2df6eb6370750c0790b4
@@ -436,12 +436,12 @@ trackedFiles:
     pristine_git_object: cc173cc598005ddf714e2215e0304c0ab85583a9
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:63a1a3421de87c3ca96fe8b069ab1402685df813
-    pristine_git_object: 68770414ee11208b710df6185ec362efbbf96883
+    last_write_checksum: sha1:72f6767dcb4a9d545a4ca31a01e325fe3c3c627c
+    pristine_git_object: b21dba058596a0843a3120db4950a260df643f81
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:794a2938cc73a0c6ea49ff78f15064c4902c0405
-    pristine_git_object: 502c422ea065898b8c2fcb0680f7de9af4786aae
+    last_write_checksum: sha1:9699167cad67e8a9d28dc078caaa962ac4ab38a9
+    pristine_git_object: 0b6fbedc617b5dc54a8a9c7f85aa717e8189afd8
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:f68eeda1706ded6626e158d7a1e7bda00e0e71e2
@@ -492,8 +492,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:3e79de779657dcd8be4a920a4bdc72939fd490e2
-    pristine_git_object: a6ff3122fe85cb0b81902cf974d1450d11bb9deb
+    last_write_checksum: sha1:9eb85efc4b2a1343fe11df4c9f5658a6e5001c40
+    pristine_git_object: cb42fba6fa98d2ca70d24182247645890cd127fd
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:a257d6f6108693db2197617c579400bc8f0da914
@@ -818,6 +818,12 @@ examples:
       responses:
         "200":
           application/json: {"data": [{"billing": {"currency": "USD", "kind": "token_usage", "pricing_model": "token_usage_v1", "rates": {"cache_write": 500000, "cached_input": 40000, "input": 400000, "output": 2000000}, "unit": "millicents_per_million_tokens"}, "context_length": 131072, "created": 1704067200, "description": "Flagship model that balances high quality and speed.", "id": "arrow-2", "input_modalities": ["text", "image", "svg"], "max_output_length": 65536, "name": "Arrow 2", "object": "model", "output_modalities": ["svg"], "owned_by": "quiverai", "supported_operations": ["open_responses", "svg_animate", "svg_edit", "svg_generate", "svg_vectorize"], "supported_sampling_parameters": []}], "object": "list"}
+    invalid_request:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
   retrieveModel:
     speakeasy-default-retrieve-model:
       parameters:
@@ -1235,6 +1241,17 @@ examples:
       responses:
         "200":
           text/event-stream: {"data": {"id": "svg_0A1B2C3D4E5F", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2\"/></svg>", "type": "draft"}, "event": "draft"}
+    invalid_request:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
   editSVG:
     speakeasy-default-edit-SVG:
       parameters:
@@ -1277,6 +1294,17 @@ examples:
           application/json: {"code": "insufficient_credits", "message": "<value>", "request_id": "<id>", "status": 655972}
         "500":
           application/json: {"code": "insufficient_credits", "message": "<value>", "request_id": "<id>", "status": 655972}
+    invalid_request:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "El Camino", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "settings": {"max_output_tokens": 4096, "orchestrator_max_output_tokens": 4096, "shallow_max_output_tokens": 2048, "temperature": 0.4}, "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
   generateIcon:
     speakeasy-default-generate-icon:
       requestBody:
@@ -1396,13 +1424,24 @@ examples:
       responses:
         "200":
           text/event-stream: {"data": {"credits": 20, "id": "svg_out_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N", "index": 1, "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 2l8 20H4z\"/></svg>", "type": "content", "usage": {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}}, "event": "content"}
+    invalid_request:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
   vectorizeSVG:
     basic:
       parameters:
         header:
           x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
       requestBody:
-        application/json: {"auto_crop": true, "image": {"url": "https://example.com/uploads/logo.png"}, "model": "arrow-1", "presence_penalty": 0, "stream": false, "temperature": 0.8, "top_p": 1}
+        application/json: {"auto_crop": true, "image": {"url": "https://example.com/uploads/logo.png"}, "model": "arrow-2", "presence_penalty": 0, "stream": false, "temperature": 0.8, "top_p": 1}
       responses:
         "200":
           application/json: {"created": 1704067200, "credits": 1, "data": [], "id": "svg-abc123", "usage": {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}}
@@ -1464,7 +1503,7 @@ examples:
         header:
           x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
       requestBody:
-        application/json: {"auto_crop": true, "image": {"url": "https://example.com/uploads/logo.png"}, "model": "arrow-1", "presence_penalty": 0.2, "stream": true, "temperature": 0.4, "top_p": 0.95}
+        application/json: {"auto_crop": true, "image": {"url": "https://example.com/uploads/logo.png"}, "model": "arrow-2", "presence_penalty": 0.2, "stream": true, "temperature": 0.4, "top_p": 0.95}
       responses:
         "200":
           application/json: {"created": 1704067200, "credits": 1, "data": [], "id": "svg-abc123", "usage": {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}}
@@ -1490,6 +1529,17 @@ examples:
       responses:
         "200":
           text/event-stream: {"data": {"credits": 15, "id": "svg_0A1B2C3D4E5F", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M5 5h14v14H5z\"/></svg>", "type": "content", "usage": {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}}, "event": "content"}
+    invalid_request:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": {"url": "https://example.com/uploads/reference1.png"}, "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
   checkSVGVectorizability:
     url:
       requestBody:
@@ -1544,9 +1594,14 @@ examples:
           application/json: {"code": "model_not_found", "message": "<value>", "request_id": "<id>", "status": 705234}
         "500":
           application/json: {"code": "model_not_found", "message": "<value>", "request_id": "<id>", "status": 705234}
+    invalid_request:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Typescript SDK Changes:
-  * `quiverai.models.getModel()`:  `response.param` **Added**
-  * `quiverai.models.listModels()`:  `response.param` **Added**
