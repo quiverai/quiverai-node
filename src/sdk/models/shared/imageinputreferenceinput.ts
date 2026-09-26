@@ -14,6 +14,9 @@ import {
   ImageInputReferenceUrl$outboundSchema,
 } from "./imageinputreferenceurl.js";
 
+/**
+ * Image input reference. Accepts `{ url }`, `{ base64 }`, or URL string shorthand. The same URL safety and decoded image limits apply to every form.
+ */
 export type ImageInputReferenceInput =
   | ImageInputReferenceUrl
   | ImageInputReferenceBase64

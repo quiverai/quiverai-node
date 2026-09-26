@@ -12,10 +12,7 @@ let value: EditSVGRequest = {
     prompt: "Make the mark bolder and simplify the star points.",
     reasoningEffort: "medium",
     referenceImages: [
-      {
-        base64:
-          "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
-      },
+      "https://example.com/uploads/reference1.png",
     ],
     settings: {
       maxOutputTokens: 4096,

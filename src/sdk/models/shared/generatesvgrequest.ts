@@ -66,7 +66,7 @@ export type GenerateSVGRequest = {
    */
   reasoningEffort?: GenerateSVGRequestReasoningEffort | undefined;
   /**
-   * Optional reference images to guide style/composition. Accepts `{ url }`, `{ base64 }`, or URL string shorthand. Runtime limits are model-specific: 4 for Arrow 1.1/Arrow 1.x aliases, 16 for Arrow 1.1 Max.
+   * Optional reference images to guide style/composition. Accepts `{ url }`, `{ base64 }`, or URL string shorthand. Runtime limits are model-specific, and a request that exceeds the selected model's limit is rejected.
    */
   references?: Array<ImageInputReferenceInput> | undefined;
   /**

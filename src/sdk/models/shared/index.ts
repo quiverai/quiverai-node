@@ -8,7 +8,6 @@ export * from "./editsettings.js";
 export * from "./editsvgrequest.js";
 export * from "./fixedcreditmodelbilling.js";
 export * from "./generatesvgrequest.js";
-export * from "./imageinputreference.js";
 export * from "./imageinputreferencebase64.js";
 export * from "./imageinputreferenceinput.js";
 export * from "./imageinputreferenceurl.js";
