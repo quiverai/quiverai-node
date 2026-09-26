@@ -6,10 +6,10 @@ import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
 import { ClosedEnum } from "../../types/enums.js";
 import {
-  ImageInputReference,
-  ImageInputReference$Outbound,
-  ImageInputReference$outboundSchema,
-} from "./imageinputreference.js";
+  ImageInputReferenceInput,
+  ImageInputReferenceInput$Outbound,
+  ImageInputReferenceInput$outboundSchema,
+} from "./imageinputreferenceinput.js";
 import {
   SvgAttributes,
   SvgAttributes$Outbound,
@@ -42,9 +42,9 @@ export type VectorizeSVGRequest = {
    */
   autoCrop?: boolean | undefined;
   /**
-   * Image input reference. Accepts a network image URL or a base64-encoded image payload. Decoded images must be no larger than 12582912 bytes, 4096x4096 pixels, or 16777216 total pixels. Accepted direct media types: image/png, image/jpeg, image/webp, image/gif, image/svg+xml.
+   * Image input reference. Accepts `{ url }`, `{ base64 }`, or URL string shorthand. The same URL safety and decoded image limits apply to every form.
    */
-  image: ImageInputReference;
+  image: ImageInputReferenceInput;
   /**
    * Upper bound for output token count.
    */
@@ -88,7 +88,7 @@ export const VectorizeSVGRequestReasoningEffort$outboundSchema: z.ZodNativeEnum<
 export type VectorizeSVGRequest$Outbound = {
   attributes?: SvgAttributes$Outbound | null | undefined;
   auto_crop: boolean;
-  image: ImageInputReference$Outbound;
+  image: ImageInputReferenceInput$Outbound;
   max_output_tokens?: number | undefined;
   model: string;
   presence_penalty: number | null;
@@ -107,7 +107,7 @@ export const VectorizeSVGRequest$outboundSchema: z.ZodType<
 > = z.object({
   attributes: z.nullable(SvgAttributes$outboundSchema).optional(),
   autoCrop: z.boolean().default(false),
-  image: ImageInputReference$outboundSchema,
+  image: ImageInputReferenceInput$outboundSchema,
   maxOutputTokens: z.number().int().optional(),
   model: z.string(),
   presencePenalty: z.nullable(z.number().default(0)),

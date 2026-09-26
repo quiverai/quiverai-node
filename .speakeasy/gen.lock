@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 0f33c9fc-1c93-4296-9792-fbb1c4caef92
 management:
-  docChecksum: 33bedec48e13b07331e885c9fbd201a5
+  docChecksum: fa988975ac7ac2203f329fbc2c1a9609
   docVersion: 1.0.0
-  speakeasyVersion: 1.798.0
-  generationVersion: 2.938.0
-  releaseVersion: 0.9.4
-  configChecksum: eaf3c45f32c592624e96a6ecd9d3232d
+  speakeasyVersion: 1.799.0
+  generationVersion: 2.941.0
+  releaseVersion: 0.9.5
+  configChecksum: e08f2adaeece249d594ad2d466190311
   repoURL: https://github.com/quiverai/quiverai-node.git
   installationURL: https://github.com/quiverai/quiverai-node
   published: true
 persistentEdits:
-  generation_id: 464de887-f900-45b3-a44f-3a731528a0a1
-  pristine_commit_hash: 49d69e7f487045955f2e7e46d03114c6fb109e39
-  pristine_tree_hash: ffa226e7a8f8dadad9adf1f0b07a3ec3d1dc903b
+  generation_id: a788e66d-7d2c-4948-a938-8b3d9dc780b3
+  pristine_commit_hash: 8a1740b485bb8b6086e84fb6243f645eb1fb0bfb
+  pristine_tree_hash: 831b3ff96f51be32c688a95c9d04f0c27690b7b6
 features:
   typescript:
     acceptHeaders: 2.81.2
@@ -84,8 +84,8 @@ trackedFiles:
     pristine_git_object: 2d2646ccf6f6cde1bb7a3ceba3d51b15a0b3231a
   docs/sdk/models/operations/editsvgrequest.md:
     id: 127f67cc5efc
-    last_write_checksum: sha1:67c8c542876f6d47cbee5440aae52d7ff2901ff3
-    pristine_git_object: f5f874457060c6d26ab65beec7f4ca5b7e090899
+    last_write_checksum: sha1:ceb14879cda2a105822e18af4213099656a12397
+    pristine_git_object: c396acf8c531fdec53d9b44af0b4ad72f051f939
   docs/sdk/models/operations/editsvgresponse.md:
     id: c02f3d8ee8b6
     last_write_checksum: sha1:e6dddec1653f8fdafff23d362ed624e83eadf431
@@ -132,8 +132,8 @@ trackedFiles:
     pristine_git_object: 05c40e15bc7f22d315ee611be43d8dda133e326b
   docs/sdk/models/operations/vectorizesvgrequest.md:
     id: cbe3e7226a83
-    last_write_checksum: sha1:b91b4e0acc806ad50dc6f76dc3410dddee2a1bbb
-    pristine_git_object: 0431da0c7908e2622aa65e50023ec70e22e8ffe1
+    last_write_checksum: sha1:7d1f7492ad037fd3bfadfc9c651359ddb785aa19
+    pristine_git_object: eb26b98dad619df6eb0db51ecd99aebf64d869e0
   docs/sdk/models/operations/vectorizesvgresponse.md:
     id: 2c57d444d317
     last_write_checksum: sha1:9326208b2a6d96f8e2f120fc921251523ff84b99
@@ -188,24 +188,20 @@ trackedFiles:
     pristine_git_object: efb845954c913026627ac0d2567dc19a837410d6
   docs/sdk/models/shared/generatesvgrequest.md:
     id: 5c17111bcc8d
-    last_write_checksum: sha1:86df3a206ef5463ff6dbe32949c97b360d8cfb12
-    pristine_git_object: 5e10a91cd19bbd4b3fe45840635733857e3f0f82
+    last_write_checksum: sha1:43d81232207f822b0edb4f76bf257f69b180f875
+    pristine_git_object: b06869900176092a23d91cb1bb87675bc0bbd7b7
   docs/sdk/models/shared/generatesvgrequestreasoningeffort.md:
     id: c59221ba2dd7
     last_write_checksum: sha1:1f228f403c4100a46d0cbfdc3ad3cf2c8578df3e
     pristine_git_object: 0acbf783673298b874777021699010f6d51d2390
-  docs/sdk/models/shared/imageinputreference.md:
-    id: c63f4dc6d42a
-    last_write_checksum: sha1:07635c721022dee8bf41bb4345fe4205c14855a8
-    pristine_git_object: 3ee27fc18c572f033fc9d6f2291ca6016f1c9659
   docs/sdk/models/shared/imageinputreferencebase64.md:
     id: 3d98941349d9
     last_write_checksum: sha1:76057198f7a671fa802a5eb9c104d605e9f9eb09
     pristine_git_object: 1dda1369669900227bb33f691b63663b572a4401
   docs/sdk/models/shared/imageinputreferenceinput.md:
     id: f81624dae3b0
-    last_write_checksum: sha1:7ef25d6f8f11282024b133493173a4fd65ebfa61
-    pristine_git_object: c7a08a0c2f176ed945adf1c0cad61cf1fa82e96a
+    last_write_checksum: sha1:edba8324d239a26691c68c332e5687227b9aa799
+    pristine_git_object: 4805beb390b3ee8b4899720a0dfa9c0a2fb68ae1
   docs/sdk/models/shared/imageinputreferenceurl.md:
     id: 3f222a30add6
     last_write_checksum: sha1:2b5447d4963100ff563a687da2c00ea0432dd8e5
@@ -240,8 +236,8 @@ trackedFiles:
     pristine_git_object: 0a8c6345f134f03ee95daef025a4193fbb27052b
   docs/sdk/models/shared/one.md:
     id: cfea86b11a47
-    last_write_checksum: sha1:dc016046a1e2f8000e285e11ce201f91899c9bf1
-    pristine_git_object: 167aa0782fbc927030cbee22a70b0466dfc6598a
+    last_write_checksum: sha1:8d5cc4ad321127f53bcd8e58a402c0ab84cea863
+    pristine_git_object: a800e68aec477266a73af876ba956df0b3b53672
   docs/sdk/models/shared/outputmodalities.md:
     id: 2faa108cc4ff
     last_write_checksum: sha1:cda5c7e2c0676052413f015d17abdcf8af0044fb
@@ -368,8 +364,8 @@ trackedFiles:
     pristine_git_object: 803a74c73b9aa4f716e4c524072556efe61de6e1
   docs/sdk/models/shared/two.md:
     id: c46a75063e06
-    last_write_checksum: sha1:7a1b56ae0c5bd40d32c468d40e3b4be31d7a8ede
-    pristine_git_object: a08d0f9c5f24313bf7dca827161cf9b8f8a15e46
+    last_write_checksum: sha1:85eb0870c7d067e73c3816a454758e7d6c39454d
+    pristine_git_object: 7fea91cb284212ee2facfbd0e48413f875410c2c
   docs/sdk/models/shared/type.md:
     id: 04645f7284d8
     last_write_checksum: sha1:c11d1e88e22f305507f4f1c02c67b63d6d06aeeb
@@ -384,8 +380,8 @@ trackedFiles:
     pristine_git_object: 26c9174138cadba52482c3e2b25d82820e5feead
   docs/sdk/models/shared/vectorizesvgrequest.md:
     id: 5e6a1ab1ca22
-    last_write_checksum: sha1:1a69e89c9ee0b9c376ea1e5436cca8e042b093f9
-    pristine_git_object: dd4a0e343388b8ff7786d6e8fb568157a81b5963
+    last_write_checksum: sha1:737fb24d64ce026046ecd428a7d45ee85ff785ea
+    pristine_git_object: 336b4ed14e02cd36c289604c98426c2655636f5d
   docs/sdk/models/shared/vectorizesvgrequestreasoningeffort.md:
     id: a611ace30226
     last_write_checksum: sha1:ab6b041c3e1cb6b0dda2a6d86b9140a14d1beb08
@@ -396,24 +392,24 @@ trackedFiles:
     pristine_git_object: fe1a1d2660149dda3d5847a48310ab59350f80c4
   docs/sdks/animatesvg/README.md:
     id: 1282482a15b1
-    last_write_checksum: sha1:a6e168eed9f71f65fda77b1d675e8e7e9c5996c9
-    pristine_git_object: 6b5daf0cfbf7dd4d7df9a3192d3971014528a616
+    last_write_checksum: sha1:33eb8e5f70642a14cfaff28c790d33ab7653cb80
+    pristine_git_object: 52876f494598fa3805ecf428b0394b43da1b7cbf
   docs/sdks/createsvgs/README.md:
     id: 3037e9dee7b8
-    last_write_checksum: sha1:6cb1d48a455d7fa0be3170affa81b07e32c871b4
-    pristine_git_object: 316dc5265935a9127f7cb78b4586f78c4b220910
+    last_write_checksum: sha1:e7017de5445859e7dcf4cadf515e2b9a8e1a7317
+    pristine_git_object: 050bca07c996094864951b61d62d21511a4ea1da
   docs/sdks/editsvg/README.md:
     id: ef43b0a27e5f
-    last_write_checksum: sha1:452a6b999c20cf705d61485c0f9cb5a63e67feb3
-    pristine_git_object: 5a44a20aee3acc1c9489f8d196a50818caf70aee
+    last_write_checksum: sha1:e1d24b98b4a7071ca4c6cfd8736c4cdadf43ed51
+    pristine_git_object: 1a966bba1d7095a0062b412dd4dbef37b60692b5
   docs/sdks/models/README.md:
     id: b35bdf4bc7ed
-    last_write_checksum: sha1:048e6c54e012b817b9dec55f280fbdb64bf9b76f
-    pristine_git_object: 7d888bbfbe554b695ea3ae680019b3189d70ede2
+    last_write_checksum: sha1:70538761c8636a06da30f8de7c7093f80e65205c
+    pristine_git_object: f52820a6edee9570a97cc7ec5b714046e8c2a6c3
   docs/sdks/vectorizesvg/README.md:
     id: 3aa82aec666b
-    last_write_checksum: sha1:2612887e204fbd99e29ad0278c49fe91cf59798f
-    pristine_git_object: 63ba6c54933bab55767cfeabe973d6ae43f354aa
+    last_write_checksum: sha1:ba6849444ef692ffb84fd568138b394923cc8e30
+    pristine_git_object: 543188f27aafa357f1f7b0a2fbe70ef5a024b5b9
   eslint.config.mjs:
     id: 461c8d07f6da
     last_write_checksum: sha1:9398f326377fe47f67af2df6eb6370750c0790b4
@@ -436,28 +432,28 @@ trackedFiles:
     pristine_git_object: cc173cc598005ddf714e2215e0304c0ab85583a9
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:72f6767dcb4a9d545a4ca31a01e325fe3c3c627c
-    pristine_git_object: b21dba058596a0843a3120db4950a260df643f81
+    last_write_checksum: sha1:be2d07ff972ad393f638fd2cb097434e4d468115
+    pristine_git_object: b211fcd0f96cb63f2f2066ab4ada0ffa81964c1d
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:9699167cad67e8a9d28dc078caaa962ac4ab38a9
-    pristine_git_object: 0b6fbedc617b5dc54a8a9c7f85aa717e8189afd8
+    last_write_checksum: sha1:95f35dfff39d6be04c01ec320960a761ce0fdb76
+    pristine_git_object: 267095a48883fbfeb2c816b108249bfab3cea57a
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:f68eeda1706ded6626e158d7a1e7bda00e0e71e2
     pristine_git_object: aaa82282a6a5dddaac0fddcd3ec3edae8c35acd6
   src/funcs/animateSVGAnimateSVG.ts:
     id: 38571313d3b8
-    last_write_checksum: sha1:3a71b8f6db6d1661f2241ad0840c498a58e1d79f
-    pristine_git_object: b5ea32d4403122b60350bb62e0a0f46874924551
+    last_write_checksum: sha1:a8b8786c0919be3230cc705828cd4b663b6d25ff
+    pristine_git_object: 2ccdfcf00d7f88faeba92225fb077933637c899f
   src/funcs/createSVGsGenerateSVG.ts:
     id: 6441ad61d6d6
-    last_write_checksum: sha1:4ecd546df6f9a05b5c7381edd39eacf442ff9be7
-    pristine_git_object: 8c9643620b55ec166a90399e32013037c1530b75
+    last_write_checksum: sha1:0088228f97de476da206c718b06619c1b1ec0746
+    pristine_git_object: 08612fe9393ba5a3be7b40e12e0eac4938b74633
   src/funcs/editSVGEditSVG.ts:
     id: 273d36776ca9
-    last_write_checksum: sha1:c37f7de35a03c0cb3412f2f5760d30ee22810ff2
-    pristine_git_object: 2cea4ecac23e365abb72f163d167bac9ab2d46d1
+    last_write_checksum: sha1:4f41658c35c54258724e419a5be34a95b1dde55c
+    pristine_git_object: bbe6758e9a3d379e0a67417faee567046df2429c
   src/funcs/modelsGetModel.ts:
     id: 3c8e1af6fdc2
     last_write_checksum: sha1:0c0221efccfe35280c10caa5eeadcecfc7d204fc
@@ -468,8 +464,8 @@ trackedFiles:
     pristine_git_object: 16f7111ddda169f1459d20378c10c66210320106
   src/funcs/vectorizeSVGVectorizeSVG.ts:
     id: 4daef8810dcd
-    last_write_checksum: sha1:6470b0ad8cd0fd86b2c0a146277d23da6fad844d
-    pristine_git_object: 4ad3a0d36a98d518a03ef6e1bd5fcf3d3f89361f
+    last_write_checksum: sha1:dd45d9dc7019d6efa936b4a416e228bf1e6509d8
+    pristine_git_object: 2d9ffa9d75bb570b2a6dc3dc38fa35f40ad1953c
   src/hooks/hooks.ts:
     id: a2463fc6f69b
     last_write_checksum: sha1:9a569ea8f3177ddcdfe6cd903feaf5c2d2c36a9a
@@ -492,8 +488,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:9eb85efc4b2a1343fe11df4c9f5658a6e5001c40
-    pristine_git_object: cb42fba6fa98d2ca70d24182247645890cd127fd
+    last_write_checksum: sha1:eaf52bbae2163659a8c9b77a432fc7e9d78bc1ee
+    pristine_git_object: 2d53555ac20c41842581a707804d5be576ee9279
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:a257d6f6108693db2197617c579400bc8f0da914
@@ -628,36 +624,32 @@ trackedFiles:
     pristine_git_object: fd02ff3c2bd40e898bf4dd953aec3c9647d7ca7f
   src/sdk/models/shared/editsvgrequest.ts:
     id: e7c40435d0ca
-    last_write_checksum: sha1:3ead90ee1b7c7446bbbb11ee80f52e338e3f07c7
-    pristine_git_object: 62d66cd5932579ecbaf563ba23c201a0b22eb5f3
+    last_write_checksum: sha1:faa42c10a666d35350d7c0aa60cc9f4ee4f7ff17
+    pristine_git_object: 2009a9ab171b4a5cd1560cfd4ddc8da3fb9f3f9f
   src/sdk/models/shared/fixedcreditmodelbilling.ts:
     id: 33650a722f8c
     last_write_checksum: sha1:985b25e2abb218bb70df016680b4256d2201bc01
     pristine_git_object: 4c813dd2a49882b09861c196d0109235d6fd9571
   src/sdk/models/shared/generatesvgrequest.ts:
     id: d0a0727cbb80
-    last_write_checksum: sha1:ca34933f013be34498d975f1a1375ba0f36e5c49
-    pristine_git_object: ba0ee13c2829ec87907bdc80b1ae91ff3093f163
-  src/sdk/models/shared/imageinputreference.ts:
-    id: 136320bd2a3c
-    last_write_checksum: sha1:faff8b53a34d0f58973393363436294ce9b41672
-    pristine_git_object: c001c9910d4b7b1daac9b105ff5bf1a5ba7ad265
+    last_write_checksum: sha1:8993f3ed485c2766231fa47b9d91243c2aaaa5a9
+    pristine_git_object: a3220b9c2b35366617983e18a4ff9b8f8a816f3a
   src/sdk/models/shared/imageinputreferencebase64.ts:
     id: 40fbaedaf6ea
     last_write_checksum: sha1:2e72203df62f262e027bd458cdc9b566589b9833
     pristine_git_object: ab9751a20a6ea5e59498f145d4155a8b2eacc794
   src/sdk/models/shared/imageinputreferenceinput.ts:
     id: aae4f3902921
-    last_write_checksum: sha1:0f421748d1811b1eb00f2e5377d7000a052b43df
-    pristine_git_object: c52cc1713eefb9e55e2820c46bb05f33f18c2f64
+    last_write_checksum: sha1:1c9014c71837fcbfcbb795068c02e1dcd592926d
+    pristine_git_object: 8f673eb848d441c59ac24bde07bf527f791855e8
   src/sdk/models/shared/imageinputreferenceurl.ts:
     id: 96f59f311866
     last_write_checksum: sha1:9e6516ff776bdb4723cf0b67d2d49f78ef7ded49
     pristine_git_object: 9e2d538d2c6fe75de05df56ab1a0c0ed48448e6f
   src/sdk/models/shared/index.ts:
     id: e97e906e3c14
-    last_write_checksum: sha1:8f2e100f272880f407944c275dc3429936a0142b
-    pristine_git_object: 3c7f2ef9aecd3f00da037ff3302065a8b5c485ab
+    last_write_checksum: sha1:bb8789256dba7ec1f8576bfef9c4e6236623bb50
+    pristine_git_object: 0ea36d39cf57cc60801cb126aec1b4d0cb50788f
   src/sdk/models/shared/listmodelsresponse.ts:
     id: d2d28dc575ca
     last_write_checksum: sha1:ef0b7f2e0d2143ef4f7e3482ec48ab9f6283c347
@@ -740,8 +732,8 @@ trackedFiles:
     pristine_git_object: cecc87c964fcb80c8fbff5f6ae5e714c3a6314b7
   src/sdk/models/shared/vectorizesvgrequest.ts:
     id: 2ca683a025ca
-    last_write_checksum: sha1:844c7b30952d2efd9adf51eb1ac3617ff12f67c4
-    pristine_git_object: 65459c49b060fa76eed7b335a40a9d8412f08d00
+    last_write_checksum: sha1:7f4b40bbf3ea41ef6f96dcfabf28d8016913798f
+    pristine_git_object: f743b80dba9df64eea5dcae615fa930b6c10f155
   src/sdk/sdk.ts:
     id: 784571af2f69
     last_write_checksum: sha1:639e2c0d76a49bf2543784790f1f4e2d3c0b17f8
@@ -824,6 +816,90 @@ examples:
           application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
         "500":
           application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceInvalid:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source must contain SVG markup", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source must contain SVG markup", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceTooLarge:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source exceeds the allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source exceeds the allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceUnsupported:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source contains unsupported SVG content", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source contains unsupported SVG content", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    invalidRequestBody:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Invalid request body", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Invalid request body", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    invalidRequestImage:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "An image in the request is invalid. Check its URL or encoded image data, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "An image in the request is invalid. Check its URL or encoded image data, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    maxOutputTokensExceeded:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "max_output_tokens exceeds the selected model limit", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "max_output_tokens exceeds the selected model limit", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    modelAnimationUnsupported:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Model does not support SVG animation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Model does not support SVG animation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    modelOperationUnsupported:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Model does not support this operation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Model does not support this operation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    previousResponseIdUnsupported:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This endpoint does not store responses, so there is no earlier response to continue from. Replay the earlier items in input, and omit previous_response_id or send null.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This endpoint does not store responses, so there is no earlier response to continue from. Replay the earlier items in input, and omit previous_response_id or send null.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    reasoningStateUnavailable:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Reasoning state is unavailable. Retry without the reasoning item.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Reasoning state is unavailable. Retry without the reasoning item.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadEmpty:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This reference image is empty. Its base64 value contains no data once whitespace is removed, so send the image's base64-encoded bytes or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This reference image is empty. Its base64 value contains no data once whitespace is removed, so send the image's base64-encoded bytes or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadNotBase64:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This reference image is not valid base64, so it could not be decoded. Send the image's bytes as standard base64 with padding and no data: URL prefix, or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This reference image is not valid base64, so it could not be decoded. Send the image's bytes as standard base64 with padding and no data: URL prefix, or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadTooLarge:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Reference image base64 payload exceeds allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Reference image base64 payload exceeds allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    tooManyReferenceImages:
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Too many reference images. Reduce the number of reference images and try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Too many reference images. Reduce the number of reference images and try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
   retrieveModel:
     speakeasy-default-retrieve-model:
       parameters:
@@ -1252,6 +1328,160 @@ examples:
           application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
         "500":
           application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceInvalid:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source must contain SVG markup", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source must contain SVG markup", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceTooLarge:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source exceeds the allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source exceeds the allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source contains unsupported SVG content", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source contains unsupported SVG content", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    invalidRequestBody:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Invalid request body", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Invalid request body", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    invalidRequestImage:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "An image in the request is invalid. Check its URL or encoded image data, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "An image in the request is invalid. Check its URL or encoded image data, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    maxOutputTokensExceeded:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "max_output_tokens exceeds the selected model limit", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "max_output_tokens exceeds the selected model limit", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    modelAnimationUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Model does not support SVG animation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Model does not support SVG animation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    modelOperationUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Model does not support this operation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Model does not support this operation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    previousResponseIdUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This endpoint does not store responses, so there is no earlier response to continue from. Replay the earlier items in input, and omit previous_response_id or send null.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This endpoint does not store responses, so there is no earlier response to continue from. Replay the earlier items in input, and omit previous_response_id or send null.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    reasoningStateUnavailable:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Reasoning state is unavailable. Retry without the reasoning item.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Reasoning state is unavailable. Retry without the reasoning item.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadEmpty:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This reference image is empty. Its base64 value contains no data once whitespace is removed, so send the image's base64-encoded bytes or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This reference image is empty. Its base64 value contains no data once whitespace is removed, so send the image's base64-encoded bytes or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadNotBase64:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This reference image is not valid base64, so it could not be decoded. Send the image's bytes as standard base64 with padding and no data: URL prefix, or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This reference image is not valid base64, so it could not be decoded. Send the image's bytes as standard base64 with padding and no data: URL prefix, or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadTooLarge:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Reference image base64 payload exceeds allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Reference image base64 payload exceeds allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    tooManyReferenceImages:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_output_tokens": 4096, "model": "Mercielago", "prompt": "Make the logo pulse gently", "reasoning_effort": "medium", "stream": false, "svg_source": {"url": "https://example.com/uploads/source.svg"}, "temperature": 0.4}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Too many reference images. Reduce the number of reference images and try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Too many reference images. Reduce the number of reference images and try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
   editSVG:
     speakeasy-default-edit-SVG:
       parameters:
@@ -1305,6 +1535,160 @@ examples:
           application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
         "500":
           application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceInvalid:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "El Camino", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": ["https://example.com/uploads/reference1.png"], "settings": {"max_output_tokens": 4096, "orchestrator_max_output_tokens": 4096, "shallow_max_output_tokens": 2048, "temperature": 0.4}, "stream": false, "svg_source": {"base64": "PHN2Zy8+"}}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source must contain SVG markup", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source must contain SVG markup", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceTooLarge:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "F-150", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": ["https://example.com/uploads/reference1.png"], "settings": null, "stream": false, "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 2l8 20H4z\"/></svg>"}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source exceeds the allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source exceeds the allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "F-150", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": ["https://example.com/uploads/reference1.png"], "settings": null, "stream": false, "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 2l8 20H4z\"/></svg>"}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source contains unsupported SVG content", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source contains unsupported SVG content", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    invalidRequestBody:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "El Camino", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": ["https://example.com/uploads/reference1.png"], "settings": {"max_output_tokens": 4096, "orchestrator_max_output_tokens": 4096, "shallow_max_output_tokens": 2048, "temperature": 0.4}, "stream": false, "svg_source": {"base64": "PHN2Zy8+"}}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Invalid request body", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Invalid request body", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    invalidRequestImage:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "El Camino", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": ["https://example.com/uploads/reference1.png"], "settings": {"max_output_tokens": 4096, "orchestrator_max_output_tokens": 4096, "shallow_max_output_tokens": 2048, "temperature": 0.4}, "stream": false, "svg_source": {"base64": "PHN2Zy8+"}}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "An image in the request is invalid. Check its URL or encoded image data, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "An image in the request is invalid. Check its URL or encoded image data, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    maxOutputTokensExceeded:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "El Camino", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": ["https://example.com/uploads/reference1.png"], "settings": {"max_output_tokens": 4096, "orchestrator_max_output_tokens": 4096, "shallow_max_output_tokens": 2048, "temperature": 0.4}, "stream": false, "svg_source": {"base64": "PHN2Zy8+"}}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "max_output_tokens exceeds the selected model limit", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "max_output_tokens exceeds the selected model limit", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    modelAnimationUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "F-150", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": ["https://example.com/uploads/reference1.png"], "settings": null, "stream": false, "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 2l8 20H4z\"/></svg>"}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Model does not support SVG animation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Model does not support SVG animation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    modelOperationUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "F-150", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": ["https://example.com/uploads/reference1.png"], "settings": null, "stream": false, "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 2l8 20H4z\"/></svg>"}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Model does not support this operation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Model does not support this operation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    previousResponseIdUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "El Camino", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": ["https://example.com/uploads/reference1.png"], "settings": {"max_output_tokens": 4096, "orchestrator_max_output_tokens": 4096, "shallow_max_output_tokens": 2048, "temperature": 0.4}, "stream": false, "svg_source": {"base64": "PHN2Zy8+"}}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This endpoint does not store responses, so there is no earlier response to continue from. Replay the earlier items in input, and omit previous_response_id or send null.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This endpoint does not store responses, so there is no earlier response to continue from. Replay the earlier items in input, and omit previous_response_id or send null.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    reasoningStateUnavailable:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "El Camino", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": ["https://example.com/uploads/reference1.png"], "settings": {"max_output_tokens": 4096, "orchestrator_max_output_tokens": 4096, "shallow_max_output_tokens": 2048, "temperature": 0.4}, "stream": false, "svg_source": {"base64": "PHN2Zy8+"}}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Reasoning state is unavailable. Retry without the reasoning item.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Reasoning state is unavailable. Retry without the reasoning item.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadEmpty:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "El Camino", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": ["https://example.com/uploads/reference1.png"], "settings": {"max_output_tokens": 4096, "orchestrator_max_output_tokens": 4096, "shallow_max_output_tokens": 2048, "temperature": 0.4}, "stream": false, "svg_source": {"base64": "PHN2Zy8+"}}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This reference image is empty. Its base64 value contains no data once whitespace is removed, so send the image's base64-encoded bytes or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This reference image is empty. Its base64 value contains no data once whitespace is removed, so send the image's base64-encoded bytes or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadNotBase64:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "El Camino", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": ["https://example.com/uploads/reference1.png"], "settings": {"max_output_tokens": 4096, "orchestrator_max_output_tokens": 4096, "shallow_max_output_tokens": 2048, "temperature": 0.4}, "stream": false, "svg_source": {"base64": "PHN2Zy8+"}}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This reference image is not valid base64, so it could not be decoded. Send the image's bytes as standard base64 with padding and no data: URL prefix, or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This reference image is not valid base64, so it could not be decoded. Send the image's bytes as standard base64 with padding and no data: URL prefix, or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadTooLarge:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "F-150", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": ["https://example.com/uploads/reference1.png"], "settings": null, "stream": false, "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 2l8 20H4z\"/></svg>"}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Reference image base64 payload exceeds allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Reference image base64 payload exceeds allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    tooManyReferenceImages:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"max_review_steps": 2, "model": "F-150", "prompt": "Make the mark bolder and simplify the star points.", "reasoning_effort": "medium", "reference_images": ["https://example.com/uploads/reference1.png"], "settings": null, "stream": false, "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 2l8 20H4z\"/></svg>"}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Too many reference images. Reduce the number of reference images and try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Too many reference images. Reduce the number of reference images and try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
   generateIcon:
     speakeasy-default-generate-icon:
       requestBody:
@@ -1435,6 +1819,160 @@ examples:
           application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
         "500":
           application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceInvalid:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source must contain SVG markup", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source must contain SVG markup", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceTooLarge:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source exceeds the allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source exceeds the allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source contains unsupported SVG content", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source contains unsupported SVG content", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    invalidRequestBody:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Invalid request body", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Invalid request body", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    invalidRequestImage:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "An image in the request is invalid. Check its URL or encoded image data, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "An image in the request is invalid. Check its URL or encoded image data, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    maxOutputTokensExceeded:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "max_output_tokens exceeds the selected model limit", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "max_output_tokens exceeds the selected model limit", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    modelAnimationUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Model does not support SVG animation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Model does not support SVG animation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    modelOperationUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Model does not support this operation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Model does not support this operation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    previousResponseIdUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This endpoint does not store responses, so there is no earlier response to continue from. Replay the earlier items in input, and omit previous_response_id or send null.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This endpoint does not store responses, so there is no earlier response to continue from. Replay the earlier items in input, and omit previous_response_id or send null.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    reasoningStateUnavailable:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Reasoning state is unavailable. Retry without the reasoning item.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Reasoning state is unavailable. Retry without the reasoning item.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadEmpty:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This reference image is empty. Its base64 value contains no data once whitespace is removed, so send the image's base64-encoded bytes or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This reference image is empty. Its base64 value contains no data once whitespace is removed, so send the image's base64-encoded bytes or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadNotBase64:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This reference image is not valid base64, so it could not be decoded. Send the image's bytes as standard base64 with padding and no data: URL prefix, or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This reference image is not valid base64, so it could not be decoded. Send the image's bytes as standard base64 with padding and no data: URL prefix, or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadTooLarge:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Reference image base64 payload exceeds allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Reference image base64 payload exceeds allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    tooManyReferenceImages:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "instructions": "Use a flat monochrome style with clean geometry.", "max_output_tokens": 4096, "model": "arrow-preview", "n": 1, "presence_penalty": 0.2, "prompt": "Generate an icon of a unicorn", "reasoning_effort": "medium", "references": [{"base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="}], "stream": false, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Too many reference images. Reduce the number of reference images and try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Too many reference images. Reduce the number of reference images and try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
   vectorizeSVG:
     basic:
       parameters:
@@ -1516,7 +2054,7 @@ examples:
         header:
           x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
       requestBody:
-        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": {"url": "https://example.com/uploads/reference1.png"}, "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
       responses:
         "200":
           text/event-stream: {"data": {"id": "svg_0A1B2C3D4E5F", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2 2\"/></svg>", "type": "draft", "update_type": "snapshot"}, "event": "draft"}
@@ -1525,7 +2063,7 @@ examples:
         header:
           x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
       requestBody:
-        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": {"url": "https://example.com/uploads/reference1.png"}, "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
       responses:
         "200":
           text/event-stream: {"data": {"credits": 15, "id": "svg_0A1B2C3D4E5F", "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M5 5h14v14H5z\"/></svg>", "type": "content", "usage": {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}}, "event": "content"}
@@ -1534,12 +2072,166 @@ examples:
         header:
           x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
       requestBody:
-        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": {"url": "https://example.com/uploads/reference1.png"}, "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
       responses:
         "400":
           application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
         "500":
           application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceInvalid:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source must contain SVG markup", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source must contain SVG markup", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceTooLarge:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source exceeds the allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source exceeds the allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source contains unsupported SVG content", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source contains unsupported SVG content", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    invalidRequestBody:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Invalid request body", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Invalid request body", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    invalidRequestImage:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "An image in the request is invalid. Check its URL or encoded image data, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "An image in the request is invalid. Check its URL or encoded image data, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    maxOutputTokensExceeded:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "max_output_tokens exceeds the selected model limit", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "max_output_tokens exceeds the selected model limit", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    modelAnimationUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Model does not support SVG animation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Model does not support SVG animation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    modelOperationUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Model does not support this operation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Model does not support this operation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    previousResponseIdUnsupported:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This endpoint does not store responses, so there is no earlier response to continue from. Replay the earlier items in input, and omit previous_response_id or send null.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This endpoint does not store responses, so there is no earlier response to continue from. Replay the earlier items in input, and omit previous_response_id or send null.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    reasoningStateUnavailable:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Reasoning state is unavailable. Retry without the reasoning item.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Reasoning state is unavailable. Retry without the reasoning item.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadEmpty:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This reference image is empty. Its base64 value contains no data once whitespace is removed, so send the image's base64-encoded bytes or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This reference image is empty. Its base64 value contains no data once whitespace is removed, so send the image's base64-encoded bytes or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadNotBase64:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This reference image is not valid base64, so it could not be decoded. Send the image's bytes as standard base64 with padding and no data: URL prefix, or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This reference image is not valid base64, so it could not be decoded. Send the image's bytes as standard base64 with padding and no data: URL prefix, or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadTooLarge:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Reference image base64 payload exceeds allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Reference image base64 payload exceeds allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    tooManyReferenceImages:
+      parameters:
+        header:
+          x-trace-id: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N"
+      requestBody:
+        application/json: {"attributes": {"viewBox": {"height": 512, "minX": 0, "minY": 0, "width": 512}}, "auto_crop": true, "image": "https://example.com/uploads/reference1.png", "max_output_tokens": 4096, "model": "arrow-preview", "presence_penalty": 0.2, "reasoning_effort": "medium", "stream": false, "target_size": 1024, "temperature": 0.4, "top_p": 0.95}
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Too many reference images. Reduce the number of reference images and try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Too many reference images. Reduce the number of reference images and try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
   checkSVGVectorizability:
     url:
       requestBody:
@@ -1603,5 +2295,131 @@ examples:
           application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
         "500":
           application/json: {"code": "invalid_request", "message": "The request could not be accepted as sent. Check the request body and parameters against the API reference, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceInvalid:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source must contain SVG markup", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source must contain SVG markup", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceTooLarge:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source exceeds the allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source exceeds the allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    animationSvgSourceUnsupported:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source contains unsupported SVG content", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Animation SVG source contains unsupported SVG content", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    invalidRequestBody:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Invalid request body", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Invalid request body", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    invalidRequestImage:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "An image in the request is invalid. Check its URL or encoded image data, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "An image in the request is invalid. Check its URL or encoded image data, then try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    maxOutputTokensExceeded:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "max_output_tokens exceeds the selected model limit", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "max_output_tokens exceeds the selected model limit", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    modelAnimationUnsupported:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Model does not support SVG animation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Model does not support SVG animation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    modelOperationUnsupported:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Model does not support this operation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Model does not support this operation", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    previousResponseIdUnsupported:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This endpoint does not store responses, so there is no earlier response to continue from. Replay the earlier items in input, and omit previous_response_id or send null.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This endpoint does not store responses, so there is no earlier response to continue from. Replay the earlier items in input, and omit previous_response_id or send null.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    reasoningStateUnavailable:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Reasoning state is unavailable. Retry without the reasoning item.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Reasoning state is unavailable. Retry without the reasoning item.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadEmpty:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This reference image is empty. Its base64 value contains no data once whitespace is removed, so send the image's base64-encoded bytes or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This reference image is empty. Its base64 value contains no data once whitespace is removed, so send the image's base64-encoded bytes or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadNotBase64:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "This reference image is not valid base64, so it could not be decoded. Send the image's bytes as standard base64 with padding and no data: URL prefix, or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "This reference image is not valid base64, so it could not be decoded. Send the image's bytes as standard base64 with padding and no data: URL prefix, or remove the reference.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    referenceImagePayloadTooLarge:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Reference image base64 payload exceeds allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Reference image base64 payload exceeds allowed size", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+    tooManyReferenceImages:
+      parameters:
+        path:
+          model: "arrow-2"
+      responses:
+        "400":
+          application/json: {"code": "invalid_request", "message": "Too many reference images. Reduce the number of reference images and try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
+        "500":
+          application/json: {"code": "invalid_request", "message": "Too many reference images. Reduce the number of reference images and try again.", "request_id": "550e8400-e29b-41d4-a716-446655440000", "status": 400}
 examplesVersion: 1.0.2
 generatedTests: {}
