@@ -3,11 +3,9 @@
  */
 
 import { QuiverAICore } from "../core.js";
-import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
-import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
@@ -25,24 +23,18 @@ import * as operations from "../sdk/models/operations/index.js";
 import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
-export enum GenerateSVGAcceptEnum {
-  applicationJson = "application/json",
-  textEventStream = "text/event-stream",
-}
-
 /**
- * Text to SVG
+ * Get Organization Balance
  *
  * @remarks
- * Generates one or more SVGs from a prompt and optional references.
+ * Requires an admin API key with billing_read or * authority. Returns the authenticated organization's spendable credits across all projects. Pending reservations, expired funding, and refunds are excluded. The balance is a JSON number with up to three fractional digits; very large balances may lose floating-point precision. This is a snapshot and may change after the response. The organization's request-rate limit applies and may return 429.
  */
-export function createSVGsGenerateSVG(
+export function organizationGetOrganizationBalance(
   client: QuiverAICore,
-  request: operations.GenerateSVGRequest,
-  options?: RequestOptions & { acceptHeaderOverride?: GenerateSVGAcceptEnum },
+  options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.GenerateSVGResponse,
+    operations.GetOrganizationBalanceResponse,
     | QuiverAiError
     | ResponseValidationError
     | ConnectionError
@@ -55,19 +47,17 @@ export function createSVGsGenerateSVG(
 > {
   return new APIPromise($do(
     client,
-    request,
     options,
   ));
 }
 
 async function $do(
   client: QuiverAICore,
-  request: operations.GenerateSVGRequest,
-  options?: RequestOptions & { acceptHeaderOverride?: GenerateSVGAcceptEnum },
+  options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.GenerateSVGResponse,
+      operations.GetOrganizationBalanceResponse,
       | QuiverAiError
       | ResponseValidationError
       | ConnectionError
@@ -80,29 +70,10 @@ async function $do(
     APICall,
   ]
 > {
-  const parsed = safeParse(
-    request,
-    (value) => operations.GenerateSVGRequest$outboundSchema.parse(value),
-    "Input validation failed",
-  );
-  if (!parsed.ok) {
-    return [parsed, { status: "invalid" }];
-  }
-  const payload = parsed.value;
-  const body = encodeJSON("body", payload.GenerateSVGRequest, {
-    explode: true,
-  });
-
-  const path = pathToFunc("/v1/svgs/generations")();
+  const path = pathToFunc("/v1/organization/balance")();
 
   const headers = new Headers(compactMap({
-    "Content-Type": "application/json",
-    Accept: options?.acceptHeaderOverride
-      || "application/json;q=1, text/event-stream;q=0",
-    "x-trace-id": encodeSimple("x-trace-id", payload["x-trace-id"], {
-      explode: false,
-      charEncoding: "none",
-    }),
+    Accept: "application/json",
   }));
 
   const secConfig = await extractSecurity(client._options.bearerAuth);
@@ -112,7 +83,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "generateSVG",
+    operationID: "getOrganizationBalance",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -126,11 +97,10 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "POST",
+    method: "GET",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
-    body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
@@ -156,7 +126,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.GenerateSVGResponse,
+    operations.GetOrganizationBalanceResponse,
     | QuiverAiError
     | ResponseValidationError
     | ConnectionError
@@ -166,20 +136,16 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.GenerateSVGResponse$inboundSchema, {
-      hdrs: true,
-      key: "Result",
-    }),
-    M.sse(200, operations.GenerateSVGResponse$inboundSchema, {
+    M.json(200, operations.GetOrganizationBalanceResponse$inboundSchema, {
       hdrs: true,
       key: "Result",
     }),
     M.json(
-      [400, 401, 402, 403, 404, 408, 413, 415, 429],
-      operations.GenerateSVGResponse$inboundSchema,
+      [401, 403, 429],
+      operations.GetOrganizationBalanceResponse$inboundSchema,
       { hdrs: true, key: "Result" },
     ),
-    M.json([500, 502, 503, 504], operations.GenerateSVGResponse$inboundSchema, {
+    M.json(500, operations.GetOrganizationBalanceResponse$inboundSchema, {
       hdrs: true,
       key: "Result",
     }),

@@ -9,11 +9,9 @@ let value: VectorizeSVGRequest = {
   vectorizeSVGRequest: {
     attributes: null,
     autoCrop: true,
-    image: {
-      url: "https://example.com/uploads/reference1.png",
-    },
+    image: "https://example.com/uploads/reference1.png",
     maxOutputTokens: 4096,
-    model: "Charger",
+    model: "A4",
     presencePenalty: 0.2,
     reasoningEffort: "medium",
     targetSize: 1024,

@@ -54,7 +54,7 @@ export type GenerateSVGRequest = {
    */
   n?: number | undefined;
   /**
-   * Penalty for tokens already present in prior output.
+   * Penalizes tokens already present in output. On native SVG conversion, Arrow 2 defaults to 0 when omitted. Arrow 2 Telos rejects any supplied value, including 0 or null, with HTTP 400; omit this field for Telos.
    */
   presencePenalty?: number | null | undefined;
   /**
@@ -66,7 +66,7 @@ export type GenerateSVGRequest = {
    */
   reasoningEffort?: GenerateSVGRequestReasoningEffort | undefined;
   /**
-   * Optional reference images to guide style/composition. Accepts `{ url }`, `{ base64 }`, or URL string shorthand. Runtime limits are model-specific: 4 for Arrow 1.1/Arrow 1.x aliases, 16 for Arrow 1.1 Max.
+   * Optional reference images to guide style/composition. Accepts `{ url }`, `{ base64 }`, or URL string shorthand. Runtime limits are model-specific, and a request that exceeds the selected model's limit is rejected.
    */
   references?: Array<ImageInputReferenceInput> | undefined;
   /**
@@ -74,13 +74,13 @@ export type GenerateSVGRequest = {
    */
   stream?: boolean | undefined;
   /**
-   * Sampling temperature.
+   * Controls native SVG sampling randomness. Arrow 2 defaults to 1 when omitted. Arrow 2 Telos rejects any supplied value, including 1 or null, with HTTP 400; omit this field for Telos.
    */
-  temperature?: number | undefined;
+  temperature?: number | null | undefined;
   /**
-   * Nucleus sampling probability.
+   * Controls native SVG nucleus sampling. Arrow 2 defaults to 1 when omitted. Arrow 2 Telos rejects any supplied value, including 1 or null, with HTTP 400; omit this field for Telos.
    */
-  topP?: number | undefined;
+  topP?: number | null | undefined;
 };
 
 /** @internal */
@@ -95,13 +95,13 @@ export type GenerateSVGRequest$Outbound = {
   max_output_tokens?: number | undefined;
   model: string;
   n: number;
-  presence_penalty: number | null;
+  presence_penalty?: number | null | undefined;
   prompt: string;
   reasoning_effort?: string | undefined;
   references?: Array<ImageInputReferenceInput$Outbound> | undefined;
   stream: boolean;
-  temperature: number;
-  top_p: number;
+  temperature?: number | null | undefined;
+  top_p?: number | null | undefined;
 };
 
 /** @internal */
@@ -115,13 +115,13 @@ export const GenerateSVGRequest$outboundSchema: z.ZodType<
   maxOutputTokens: z.number().int().optional(),
   model: z.string(),
   n: z.number().int().default(1),
-  presencePenalty: z.nullable(z.number().default(0)),
+  presencePenalty: z.nullable(z.number()).optional(),
   prompt: z.string(),
   reasoningEffort: GenerateSVGRequestReasoningEffort$outboundSchema.optional(),
   references: z.array(ImageInputReferenceInput$outboundSchema).optional(),
   stream: z.boolean().default(false),
-  temperature: z.number().default(1),
-  topP: z.number().default(1),
+  temperature: z.nullable(z.number()).optional(),
+  topP: z.nullable(z.number()).optional(),
 }).transform((v) => {
   return remap$(v, {
     maxOutputTokens: "max_output_tokens",

@@ -6,5 +6,6 @@ export * from "./animatesvg.js";
 export * from "./editsvg.js";
 export * from "./generatesvg.js";
 export * from "./getmodel.js";
+export * from "./getorganizationbalance.js";
 export * from "./listmodels.js";
 export * from "./vectorizesvg.js";

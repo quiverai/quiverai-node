@@ -11,10 +11,10 @@ import {
   EditSettings$outboundSchema,
 } from "./editsettings.js";
 import {
-  ImageInputReference,
-  ImageInputReference$Outbound,
-  ImageInputReference$outboundSchema,
-} from "./imageinputreference.js";
+  ImageInputReferenceInput,
+  ImageInputReferenceInput$Outbound,
+  ImageInputReferenceInput$outboundSchema,
+} from "./imageinputreferenceinput.js";
 import {
   SvgInputReference,
   SvgInputReference$Outbound,
@@ -57,7 +57,7 @@ export type Two = {
   /**
    * Optional image references for the edit.
    */
-  referenceImages?: Array<ImageInputReference> | null | undefined;
+  referenceImages?: Array<ImageInputReferenceInput> | null | undefined;
   settings?: EditSettings | null | undefined;
   /**
    * When true, emits a Server-Sent Events stream.
@@ -103,7 +103,7 @@ export type One = {
   /**
    * Optional image references for the edit.
    */
-  referenceImages?: Array<ImageInputReference> | null | undefined;
+  referenceImages?: Array<ImageInputReferenceInput> | null | undefined;
   settings?: EditSettings | null | undefined;
   /**
    * When true, emits a Server-Sent Events stream.
@@ -133,7 +133,10 @@ export type Two$Outbound = {
   model: string;
   prompt: string;
   reasoning_effort?: string | undefined;
-  reference_images?: Array<ImageInputReference$Outbound> | null | undefined;
+  reference_images?:
+    | Array<ImageInputReferenceInput$Outbound>
+    | null
+    | undefined;
   settings?: EditSettings$Outbound | null | undefined;
   stream: boolean;
   svg?: any | null | undefined;
@@ -148,8 +151,9 @@ export const Two$outboundSchema: z.ZodType<Two$Outbound, z.ZodTypeDef, Two> = z
     prompt: z.string(),
     reasoningEffort: EditSVGRequestSchemasReasoningEffort$outboundSchema
       .optional(),
-    referenceImages: z.nullable(z.array(ImageInputReference$outboundSchema))
-      .optional(),
+    referenceImages: z.nullable(
+      z.array(ImageInputReferenceInput$outboundSchema),
+    ).optional(),
     settings: z.nullable(EditSettings$outboundSchema).optional(),
     stream: z.boolean().default(false),
     svg: z.nullable(z.any()).optional(),
@@ -178,7 +182,10 @@ export type One$Outbound = {
   model: string;
   prompt: string;
   reasoning_effort?: string | undefined;
-  reference_images?: Array<ImageInputReference$Outbound> | null | undefined;
+  reference_images?:
+    | Array<ImageInputReferenceInput$Outbound>
+    | null
+    | undefined;
   settings?: EditSettings$Outbound | null | undefined;
   stream: boolean;
   svg: string;
@@ -192,8 +199,9 @@ export const One$outboundSchema: z.ZodType<One$Outbound, z.ZodTypeDef, One> = z
     model: z.string(),
     prompt: z.string(),
     reasoningEffort: EditSVGRequestReasoningEffort$outboundSchema.optional(),
-    referenceImages: z.nullable(z.array(ImageInputReference$outboundSchema))
-      .optional(),
+    referenceImages: z.nullable(
+      z.array(ImageInputReferenceInput$outboundSchema),
+    ).optional(),
     settings: z.nullable(EditSettings$outboundSchema).optional(),
     stream: z.boolean().default(false),
     svg: z.string(),

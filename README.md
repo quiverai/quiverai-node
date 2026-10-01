@@ -157,6 +157,10 @@ run();
 * [getModel](docs/sdks/models/README.md#getmodel) - Get Model
 * [listModels](docs/sdks/models/README.md#listmodels) - List Models
 
+### [Organization](docs/sdks/organization/README.md)
+
+* [getOrganizationBalance](docs/sdks/organization/README.md#getorganizationbalance) - Get Organization Balance
+
 ### [VectorizeSVG](docs/sdks/vectorizesvg/README.md)
 
 * [vectorizeSVG](docs/sdks/vectorizesvg/README.md#vectorizesvg) - Image to SVG
@@ -184,6 +188,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`editSVGEditSVG`](docs/sdks/editsvg/README.md#editsvg) - SVG edit
 - [`modelsGetModel`](docs/sdks/models/README.md#getmodel) - Get Model
 - [`modelsListModels`](docs/sdks/models/README.md#listmodels) - List Models
+- [`organizationGetOrganizationBalance`](docs/sdks/organization/README.md#getorganizationbalance) - Get Organization Balance
 - [`vectorizeSVGVectorizeSVG`](docs/sdks/vectorizesvg/README.md#vectorizesvg) - Image to SVG
 
 </details>

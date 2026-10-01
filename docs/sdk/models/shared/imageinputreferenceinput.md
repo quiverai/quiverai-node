@@ -1,5 +1,7 @@
 # ImageInputReferenceInput
 
+Image input reference. Accepts `{ url }`, `{ base64 }`, or URL string shorthand. The same URL safety and decoded image limits apply to every form.
+
 
 ## Supported Types
 

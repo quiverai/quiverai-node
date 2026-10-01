@@ -175,7 +175,7 @@ async function $do(
       key: "Result",
     }),
     M.json(
-      [400, 401, 402, 403, 404, 408, 413, 429],
+      [400, 401, 402, 403, 404, 408, 413, 415, 429],
       operations.VectorizeSVGResponse$inboundSchema,
       { hdrs: true, key: "Result" },
     ),

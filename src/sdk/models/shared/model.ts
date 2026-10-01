@@ -121,6 +121,9 @@ export type Model = {
   pricing?: Pricing | undefined;
   pricingCredits?: PricingCredits | undefined;
   supportedOperations?: Array<SupportedOperations> | undefined;
+  /**
+   * Sampling controls supported by this model on native SVG generation and vectorization. An empty list means omit these fields entirely, including default and null values. Responses has separate sampling rules.
+   */
   supportedSamplingParameters?: Array<SupportedSamplingParameters> | undefined;
 };
 

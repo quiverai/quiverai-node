@@ -6,10 +6,10 @@ import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
 import { ClosedEnum } from "../../types/enums.js";
 import {
-  ImageInputReference,
-  ImageInputReference$Outbound,
-  ImageInputReference$outboundSchema,
-} from "./imageinputreference.js";
+  ImageInputReferenceInput,
+  ImageInputReferenceInput$Outbound,
+  ImageInputReferenceInput$outboundSchema,
+} from "./imageinputreferenceinput.js";
 import {
   SvgAttributes,
   SvgAttributes$Outbound,
@@ -42,9 +42,9 @@ export type VectorizeSVGRequest = {
    */
   autoCrop?: boolean | undefined;
   /**
-   * Image input reference. Accepts a network image URL or a base64-encoded image payload. Decoded images must be no larger than 12582912 bytes, 4096x4096 pixels, or 16777216 total pixels. Accepted direct media types: image/png, image/jpeg, image/webp, image/gif, image/svg+xml.
+   * Image input reference. Accepts `{ url }`, `{ base64 }`, or URL string shorthand. The same URL safety and decoded image limits apply to every form.
    */
-  image: ImageInputReference;
+  image: ImageInputReferenceInput;
   /**
    * Upper bound for output token count.
    */
@@ -54,7 +54,7 @@ export type VectorizeSVGRequest = {
    */
   model: string;
   /**
-   * Penalty for tokens already present in prior output.
+   * Penalizes tokens already present in output. On native SVG conversion, Arrow 2 defaults to 0 when omitted. Arrow 2 Telos rejects any supplied value, including 0 or null, with HTTP 400; omit this field for Telos.
    */
   presencePenalty?: number | null | undefined;
   /**
@@ -70,13 +70,13 @@ export type VectorizeSVGRequest = {
    */
   targetSize?: number | undefined;
   /**
-   * Sampling temperature.
+   * Controls native SVG sampling randomness. Arrow 2 defaults to 1 when omitted. Arrow 2 Telos rejects any supplied value, including 1 or null, with HTTP 400; omit this field for Telos.
    */
-  temperature?: number | undefined;
+  temperature?: number | null | undefined;
   /**
-   * Nucleus sampling probability.
+   * Controls native SVG nucleus sampling. Arrow 2 defaults to 1 when omitted. Arrow 2 Telos rejects any supplied value, including 1 or null, with HTTP 400; omit this field for Telos.
    */
-  topP?: number | undefined;
+  topP?: number | null | undefined;
 };
 
 /** @internal */
@@ -88,15 +88,15 @@ export const VectorizeSVGRequestReasoningEffort$outboundSchema: z.ZodNativeEnum<
 export type VectorizeSVGRequest$Outbound = {
   attributes?: SvgAttributes$Outbound | null | undefined;
   auto_crop: boolean;
-  image: ImageInputReference$Outbound;
+  image: ImageInputReferenceInput$Outbound;
   max_output_tokens?: number | undefined;
   model: string;
-  presence_penalty: number | null;
+  presence_penalty?: number | null | undefined;
   reasoning_effort?: string | undefined;
   stream: boolean;
   target_size?: number | undefined;
-  temperature: number;
-  top_p: number;
+  temperature?: number | null | undefined;
+  top_p?: number | null | undefined;
 };
 
 /** @internal */
@@ -107,15 +107,15 @@ export const VectorizeSVGRequest$outboundSchema: z.ZodType<
 > = z.object({
   attributes: z.nullable(SvgAttributes$outboundSchema).optional(),
   autoCrop: z.boolean().default(false),
-  image: ImageInputReference$outboundSchema,
+  image: ImageInputReferenceInput$outboundSchema,
   maxOutputTokens: z.number().int().optional(),
   model: z.string(),
-  presencePenalty: z.nullable(z.number().default(0)),
+  presencePenalty: z.nullable(z.number()).optional(),
   reasoningEffort: VectorizeSVGRequestReasoningEffort$outboundSchema.optional(),
   stream: z.boolean().default(false),
   targetSize: z.number().int().optional(),
-  temperature: z.number().default(1),
-  topP: z.number().default(1),
+  temperature: z.nullable(z.number()).optional(),
+  topP: z.nullable(z.number()).optional(),
 }).transform((v) => {
   return remap$(v, {
     autoCrop: "auto_crop",
