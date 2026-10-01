@@ -164,6 +164,291 @@ async function run() {
 
 run();
 ```
+### Example Usage: animationSvgSourceInvalid
+
+<!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="animationSvgSourceInvalid" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { createSVGsGenerateSVG } from "@quiverai/sdk/funcs/createSVGsGenerateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await createSVGsGenerateSVG(quiverAI, {
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSVGsGenerateSVG failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: animationSvgSourceTooLarge
+
+<!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="animationSvgSourceTooLarge" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { createSVGsGenerateSVG } from "@quiverai/sdk/funcs/createSVGsGenerateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await createSVGsGenerateSVG(quiverAI, {
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSVGsGenerateSVG failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: animationSvgSourceUnsupported
+
+<!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="animationSvgSourceUnsupported" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { createSVGsGenerateSVG } from "@quiverai/sdk/funcs/createSVGsGenerateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await createSVGsGenerateSVG(quiverAI, {
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSVGsGenerateSVG failed:", res.error);
+  }
+}
+
+run();
+```
 ### Example Usage: basic
 
 <!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="basic" -->
@@ -179,7 +464,6 @@ async function run() {
     generateSVGRequest: {
       model: "arrow-2",
       prompt: "Generate an icon of a unicorn",
-      temperature: 0.8,
     },
     xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
@@ -209,7 +493,6 @@ async function run() {
     generateSVGRequest: {
       model: "arrow-2",
       prompt: "Generate an icon of a unicorn",
-      temperature: 0.8,
     },
     xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
@@ -237,7 +520,10 @@ async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
     generateSVGRequest: {
       model: "arrow-0.5",
+      presencePenalty: 0,
       prompt: "Generate an icon of a unicorn",
+      temperature: 1,
+      topP: 1,
     },
   });
 
@@ -265,8 +551,201 @@ async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
     generateSVGRequest: {
       model: "arrow-0.5",
+      presencePenalty: 0,
       prompt: "Generate an icon of a unicorn",
+      temperature: 1,
+      topP: 1,
     },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSVGsGenerateSVG failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: invalidRequestBody
+
+<!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="invalidRequestBody" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { createSVGsGenerateSVG } from "@quiverai/sdk/funcs/createSVGsGenerateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await createSVGsGenerateSVG(quiverAI, {
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSVGsGenerateSVG failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: invalidRequestImage
+
+<!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="invalidRequestImage" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { createSVGsGenerateSVG } from "@quiverai/sdk/funcs/createSVGsGenerateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await createSVGsGenerateSVG(quiverAI, {
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -373,6 +852,291 @@ async function run() {
 
 run();
 ```
+### Example Usage: maxOutputTokensExceeded
+
+<!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="maxOutputTokensExceeded" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { createSVGsGenerateSVG } from "@quiverai/sdk/funcs/createSVGsGenerateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await createSVGsGenerateSVG(quiverAI, {
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSVGsGenerateSVG failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: modelAnimationUnsupported
+
+<!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="modelAnimationUnsupported" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { createSVGsGenerateSVG } from "@quiverai/sdk/funcs/createSVGsGenerateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await createSVGsGenerateSVG(quiverAI, {
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSVGsGenerateSVG failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: modelOperationUnsupported
+
+<!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="modelOperationUnsupported" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { createSVGsGenerateSVG } from "@quiverai/sdk/funcs/createSVGsGenerateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await createSVGsGenerateSVG(quiverAI, {
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSVGsGenerateSVG failed:", res.error);
+  }
+}
+
+run();
+```
 ### Example Usage: multiple
 
 <!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="multiple" -->
@@ -387,7 +1151,10 @@ async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
     generateSVGRequest: {
       model: "arrow-0.5",
+      presencePenalty: 0,
       prompt: "Generate an icon of a unicorn",
+      temperature: 1,
+      topP: 1,
     },
   });
 
@@ -415,7 +1182,10 @@ async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
     generateSVGRequest: {
       model: "arrow-0.5",
+      presencePenalty: 0,
       prompt: "Generate an icon of a unicorn",
+      temperature: 1,
+      topP: 1,
     },
   });
   if (res.ok) {
@@ -618,6 +1388,481 @@ async function run() {
 
 run();
 ```
+### Example Usage: previousResponseIdUnsupported
+
+<!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="previousResponseIdUnsupported" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { createSVGsGenerateSVG } from "@quiverai/sdk/funcs/createSVGsGenerateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await createSVGsGenerateSVG(quiverAI, {
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSVGsGenerateSVG failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: reasoningStateUnavailable
+
+<!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="reasoningStateUnavailable" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { createSVGsGenerateSVG } from "@quiverai/sdk/funcs/createSVGsGenerateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await createSVGsGenerateSVG(quiverAI, {
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSVGsGenerateSVG failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: referenceImagePayloadEmpty
+
+<!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="referenceImagePayloadEmpty" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { createSVGsGenerateSVG } from "@quiverai/sdk/funcs/createSVGsGenerateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await createSVGsGenerateSVG(quiverAI, {
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSVGsGenerateSVG failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: referenceImagePayloadNotBase64
+
+<!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="referenceImagePayloadNotBase64" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { createSVGsGenerateSVG } from "@quiverai/sdk/funcs/createSVGsGenerateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await createSVGsGenerateSVG(quiverAI, {
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSVGsGenerateSVG failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: referenceImagePayloadTooLarge
+
+<!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="referenceImagePayloadTooLarge" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { createSVGsGenerateSVG } from "@quiverai/sdk/funcs/createSVGsGenerateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await createSVGsGenerateSVG(quiverAI, {
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSVGsGenerateSVG failed:", res.error);
+  }
+}
+
+run();
+```
 ### Example Usage: single
 
 <!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="single" -->
@@ -632,7 +1877,10 @@ async function run() {
   const result = await quiverAI.createSVGs.generateSVG({
     generateSVGRequest: {
       model: "arrow-0.5",
+      presencePenalty: 0,
       prompt: "Generate an icon of a unicorn",
+      temperature: 1,
+      topP: 1,
     },
   });
 
@@ -660,7 +1908,10 @@ async function run() {
   const res = await createSVGsGenerateSVG(quiverAI, {
     generateSVGRequest: {
       model: "arrow-0.5",
+      presencePenalty: 0,
       prompt: "Generate an icon of a unicorn",
+      temperature: 1,
+      topP: 1,
     },
   });
   if (res.ok) {
@@ -689,11 +1940,8 @@ async function run() {
       instructions: "Use flat monochrome geometry and keep them visually distinct.",
       model: "arrow-2",
       n: 2,
-      presencePenalty: 0.2,
       prompt: "Generate two minimalist unicorn badge variants",
       stream: true,
-      temperature: 0.4,
-      topP: 0.95,
     },
     xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
@@ -724,11 +1972,8 @@ async function run() {
       instructions: "Use flat monochrome geometry and keep them visually distinct.",
       model: "arrow-2",
       n: 2,
-      presencePenalty: 0.2,
       prompt: "Generate two minimalist unicorn badge variants",
       stream: true,
-      temperature: 0.4,
-      topP: 0.95,
     },
     xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
@@ -759,6 +2004,7 @@ async function run() {
       maxOutputTokens: 2560,
       model: "arrow-0.5",
       n: 2,
+      presencePenalty: 0,
       prompt: "Generate an icon of a unicorn",
       references: [
         {
@@ -767,6 +2013,7 @@ async function run() {
       ],
       stream: true,
       temperature: 0.8,
+      topP: 1,
     },
   });
 
@@ -797,6 +2044,7 @@ async function run() {
       maxOutputTokens: 2560,
       model: "arrow-0.5",
       n: 2,
+      presencePenalty: 0,
       prompt: "Generate an icon of a unicorn",
       references: [
         {
@@ -805,7 +2053,103 @@ async function run() {
       ],
       stream: true,
       temperature: 0.8,
+      topP: 1,
     },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("createSVGsGenerateSVG failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: tooManyReferenceImages
+
+<!-- UsageSnippet language="typescript" operationID="generateSVG" method="post" path="/v1/svgs/generations" example="tooManyReferenceImages" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.createSVGs.generateSVG({
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { createSVGsGenerateSVG } from "@quiverai/sdk/funcs/createSVGsGenerateSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await createSVGsGenerateSVG(quiverAI, {
+    generateSVGRequest: {
+      attributes: {
+        viewBox: {
+          height: 512,
+          minX: 0,
+          minY: 0,
+          width: 512,
+        },
+      },
+      instructions: "Use a flat monochrome style with clean geometry.",
+      maxOutputTokens: 4096,
+      model: "arrow-preview",
+      presencePenalty: 0.2,
+      prompt: "Generate an icon of a unicorn",
+      reasoningEffort: "medium",
+      references: [
+        {
+          base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        },
+      ],
+      temperature: 0.4,
+      topP: 0.95,
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
   });
   if (res.ok) {
     const { value: result } = res;

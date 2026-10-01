@@ -7,12 +7,18 @@ import { AnimateSVG } from "./animatesvg.js";
 import { CreateSVGs } from "./createsvgs.js";
 import { EditSVG } from "./editsvg.js";
 import { Models } from "./models.js";
+import { Organization } from "./organization.js";
 import { VectorizeSVG } from "./vectorizesvg.js";
 
 export class QuiverAI extends ClientSDK {
   private _models?: Models;
   get models(): Models {
     return (this._models ??= new Models(this._options));
+  }
+
+  private _organization?: Organization;
+  get organization(): Organization {
+    return (this._organization ??= new Organization(this._options));
   }
 
   private _animateSVG?: AnimateSVG;
