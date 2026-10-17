@@ -30,7 +30,7 @@ generate:
   version: ""
   baseServerUrl: https://api.quiver.ai/v1
 typescript:
-  version: 0.9.5
+  version: 0.9.6
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -77,6 +77,7 @@ typescript:
   modelPropertyCasing: camel
   moduleFormat: dual
   multipartArrayFormat: legacy
+  numericEnumMemberNames: legacy
   outputModelSuffix: output
   packageName: '@quiverai/sdk'
   preApplyUnionDiscriminators: true
