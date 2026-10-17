@@ -78,7 +78,7 @@ export type GenerateSVGRequest = {
    */
   temperature?: number | null | undefined;
   /**
-   * Controls native SVG nucleus sampling. Arrow 2 defaults to 1 when omitted. Arrow 2 Telos rejects any supplied value, including 1 or null, with HTTP 400; omit this field for Telos.
+   * Controls native SVG nucleus sampling. Must be greater than 0 and at most 1. Arrow 2 defaults to 1 when omitted. Arrow 2 Telos rejects any supplied value, including 1 or null, with HTTP 400; omit this field for Telos.
    */
   topP?: number | null | undefined;
 };
