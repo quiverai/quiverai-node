@@ -17,7 +17,7 @@ export type SvgGeneratingEventData = {
    */
   id?: string | undefined;
   /**
-   * Zero-based output index for this event. Present for multi-output streams (`n > 1`).
+   * Zero-based output index for this event. Present for multi-output streams.
    */
   index?: number | undefined;
   /**
