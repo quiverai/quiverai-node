@@ -15,6 +15,9 @@ export type SvgResponse = {
    * Credit cost for fixed-credit models. Omitted for token-priced models, whose measured totals are returned in `usage`.
    */
   credits?: number | undefined;
+  /**
+   * The complete returned SVG documents. The array length is the authoritative output count.
+   */
   data: Array<SvgDocument>;
   id: string;
   /**

@@ -18,11 +18,11 @@ export type SvgContentEventData = {
    */
   credits?: number | undefined;
   /**
-   * A unique identifier for the SVG output. For streaming multi-output requests (`n > 1`), each output has a distinct `id` and all events for that output reuse that same `id`.
+   * A unique identifier for the SVG output. For streaming multi-output responses, each output has a distinct `id` and all events for that output reuse that same `id`.
    */
   id: string;
   /**
-   * Zero-based output index for this event. Present for multi-output streams (`n > 1`).
+   * Zero-based output index for this event. Present for multi-output streams.
    */
   index?: number | undefined;
   /**
