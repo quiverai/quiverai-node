@@ -37,8 +37,21 @@ typescript:
     dependencies: {}
     devDependencies: {}
     peerDependencies: {}
-  additionalPackageJSON: {}
-  additionalScripts: {}
+  additionalPackageJSON:
+    description: 'Official TypeScript SDK for the QuiverAI API: generate, edit, animate and vectorize SVGs.'
+    homepage: https://docs.quiver.ai
+    bugs:
+      url: https://github.com/quiverai/quiverai-node/issues
+    keywords:
+      - quiverai
+      - quiver
+      - svg
+      - vector
+      - ai
+      - sdk
+      - typescript
+  additionalScripts:
+    test: node --test tests/*.test.cjs
   alwaysIncludeInboundAndOutbound: false
   apiPromiseHelpers: false
   author: QuiverAI
@@ -57,7 +70,7 @@ typescript:
   flattenGlobalSecurity: true
   flatteningOrder: parameters-first
   formStringArrayEncodeMode: encoded-string
-  forwardCompatibleEnumsByDefault: false
+  forwardCompatibleEnumsByDefault: true
   forwardCompatibleUnionsByDefault: "false"
   generateExamples: true
   imports:

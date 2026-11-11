@@ -6,6 +6,7 @@ sources:
             - location: https://api.quiver.ai/v1/openapi.json
         overlays:
             - location: ./.speakeasy/svg-stream-forward-compat.overlay.yaml
+            - location: ./.speakeasy/readable-type-names.overlay.yaml
         transformations:
             - filterOperations:
                 operations: createOpenResponse
