@@ -12,38 +12,34 @@ dotenv.config();
 
 import { writeFile } from "node:fs/promises";
 import { QuiverAI } from "@quiverai/sdk";
-import { EventStream } from "@quiverai/sdk/lib/event-streams.js";
+import { APIError, collectSVGs } from "@quiverai/sdk/helpers";
 
 // The API key is read from the QUIVERAI_API_KEY environment variable.
 const quiver = new QuiverAI();
 
 async function main() {
-  const { result } = await quiver.createSVGs.generateSVG({
-    generateSVGRequest: {
-      model: "arrow-2",
-      prompt: "A minimalist paper plane icon, single colour",
-    },
-  });
+  // collectSVGs returns the SVG markup and throws an APIError on failure.
+  const svgs = await collectSVGs(
+    quiver.createSVGs.generateSVG({
+      generateSVGRequest: {
+        model: "arrow-2",
+        prompt: "A minimalist paper plane icon, single colour",
+      },
+    }),
+  );
 
-  // Documented API errors (4xx/5xx) are returned, not thrown.
-  if ("code" in result) {
-    throw new Error(
-      `${result.code}: ${result.message} (request ${result.requestId})`,
-    );
-  }
-  // Only returned when the request sets `stream: true`.
-  if (result instanceof EventStream) {
-    throw new Error("Unexpected streaming response");
-  }
-
-  for (const [i, doc] of result.data.entries()) {
+  for (const [i, svg] of svgs.entries()) {
     const file = `output-${i}.svg`;
-    await writeFile(file, doc.svg);
+    await writeFile(file, svg);
     console.log(`Wrote ${file}`);
   }
 }
 
 main().catch((err) => {
-  console.error(err);
+  if (err instanceof APIError) {
+    console.error(`${err.status} ${err.code}: ${err.message} (request ${err.requestId})`);
+  } else {
+    console.error(err);
+  }
   process.exitCode = 1;
 });

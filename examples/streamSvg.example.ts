@@ -12,49 +12,36 @@ dotenv.config();
 
 import { writeFile } from "node:fs/promises";
 import { QuiverAI } from "@quiverai/sdk";
-import { EventStream } from "@quiverai/sdk/lib/event-streams.js";
+import { collectSVGs } from "@quiverai/sdk/helpers";
 
 // The API key is read from the QUIVERAI_API_KEY environment variable.
 const quiver = new QuiverAI();
 
 async function main() {
-  const { result } = await quiver.createSVGs.generateSVG({
-    generateSVGRequest: {
-      model: "arrow-2",
-      prompt: "A minimalist paper plane icon, single colour",
-      stream: true,
-    },
-  });
-
-  if (!(result instanceof EventStream)) {
-    // Either an error envelope or, if streaming was not honoured, a full response.
-    throw new Error(`Expected a stream, got: ${JSON.stringify(result)}`);
-  }
-
-  for await (const event of result) {
-    switch (event.event) {
-      case "generating":
-      case "reasoning":
-        console.log(`[${event.event}]`);
-        break;
-      case "draft":
-        if (event.data.type === "draft") {
+  const svgs = await collectSVGs(
+    quiver.createSVGs.generateSVG({
+      generateSVGRequest: {
+        model: "arrow-2",
+        prompt: "A minimalist paper plane icon, single colour",
+        stream: true,
+      },
+    }),
+    {
+      // Called for every server-sent event, in arrival order.
+      onEvent: (event) => {
+        if (event.event === "draft" && event.data.type === "draft") {
           console.log(`[draft] ${event.data.svg.length} chars so far`);
+        } else {
+          console.log(`[${event.event}]`);
         }
-        break;
-      case "content":
-        if (event.data.type === "content") {
-          const file = `stream-output-${event.data.index ?? 0}.svg`;
-          await writeFile(file, event.data.svg);
-          console.log(`[content] wrote ${file}`);
-        }
-        break;
-      case "error":
-        throw new Error(`${event.data.code}: ${event.data.message}`);
-      default:
-        // Event types added to the API after this SDK version was released.
-        break;
-    }
+      },
+    },
+  );
+
+  for (const [i, svg] of svgs.entries()) {
+    const file = `stream-output-${i}.svg`;
+    await writeFile(file, svg);
+    console.log(`Wrote ${file}`);
   }
 }
 

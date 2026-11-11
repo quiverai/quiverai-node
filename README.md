@@ -20,79 +20,120 @@ export QUIVERAI_API_KEY="<your-key>" # create one at https://platform.quiver.ai/
 ```typescript
 import { writeFile } from "node:fs/promises";
 import { QuiverAI } from "@quiverai/sdk";
-import { EventStream } from "@quiverai/sdk/lib/event-streams.js";
+import { collectSVGs } from "@quiverai/sdk/helpers";
 
 // Reads QUIVERAI_API_KEY from the environment.
 // Pass `bearerAuth` to set the key explicitly.
 const quiver = new QuiverAI();
 
-const { result } = await quiver.createSVGs.generateSVG({
-  generateSVGRequest: {
-    model: "arrow-2",
-    prompt: "A minimalist paper plane icon, single colour",
-  },
-});
+const [svg] = await collectSVGs(
+  quiver.createSVGs.generateSVG({
+    generateSVGRequest: {
+      model: "arrow-2",
+      prompt: "A minimalist paper plane icon, single colour",
+    },
+  }),
+);
 
-if ("code" in result) {
-  // API errors are returned, not thrown. See "Handling API errors" below.
-  throw new Error(`${result.code}: ${result.message}`);
-}
-if (result instanceof EventStream) {
-  throw new Error("Unexpected streaming response");
-}
-
-await writeFile("plane.svg", result.data[0]!.svg);
+await writeFile("plane.svg", svg!);
 ```
 
 Runnable versions of these snippets live in [`examples/`](./examples).
 
+### Helpers
+
+`@quiverai/sdk/helpers` wraps the parts of the generated client that take the
+most code to use correctly.
+
+| Helper | What it does |
+| --- | --- |
+| `collectSVGs(call, { onEvent? })` | Resolves a generate, edit, animate or vectorize call to the final SVG markup, one string per output. Handles both regular and `stream: true` responses. |
+| `unwrap(response)` | Returns `response.result`, throwing an `APIError` if it is an error envelope. |
+| `isAPIError(result)` | Type guard for the error envelope, if you prefer not to throw. |
+| `APIError` | Error with `code`, `status`, `requestId`, `param` and `retryAfter`. |
+| `svgSource(svg)` | Builds `svgSource` for edit and animate from raw markup or a URL. |
+| `imageSource(image)` | Builds an image reference from a URL, a base64 data URL or raw bytes. |
+
 ### Streaming
 
 Set `stream: true` to receive server-sent events while the SVG is generated.
-The result is then an `EventStream`, which is an async iterable:
+`collectSVGs` drains the stream, reports each event to `onEvent`, and resolves
+with the final markup:
 
 ```typescript
-const { result } = await quiver.createSVGs.generateSVG({
-  generateSVGRequest: {
-    model: "arrow-2",
-    prompt: "A minimalist paper plane icon, single colour",
-    stream: true,
+const svgs = await collectSVGs(
+  quiver.createSVGs.generateSVG({
+    generateSVGRequest: {
+      model: "arrow-2",
+      prompt: "A minimalist paper plane icon, single colour",
+      stream: true,
+    },
+  }),
+  {
+    onEvent: (event) => {
+      if (event.event === "draft" && event.data.type === "draft") {
+        console.log(`draft: ${event.data.svg.length} chars`);
+      }
+    },
   },
-});
+);
+```
 
-if (!(result instanceof EventStream)) {
-  throw new Error(`Expected a stream, got: ${JSON.stringify(result)}`);
-}
+To consume the stream yourself, `unwrap` the response and iterate it when it is
+an `EventStream` (exported from `@quiverai/sdk/lib/event-streams.js`).
 
-for await (const event of result) {
-  if (event.event === "draft" && event.data.type === "draft") {
-    console.log(`draft: ${event.data.svg.length} chars`);
-  } else if (event.event === "content" && event.data.type === "content") {
-    console.log(event.data.svg);
-  } else if (event.event === "error") {
-    throw new Error(`${event.data.code}: ${event.data.message}`);
-  }
-}
+### Editing and vectorizing
+
+```typescript
+import { readFile } from "node:fs/promises";
+import { collectSVGs, imageSource, svgSource } from "@quiverai/sdk/helpers";
+
+const [edited] = await collectSVGs(
+  quiver.editSVG.editSVG({
+    editSVGRequest: {
+      model: "arrow-2",
+      prompt: "Change the fill colour to deep blue",
+      svgSource: svgSource(await readFile("logo.svg", "utf8")),
+    },
+  }),
+);
+
+const [vectorized] = await collectSVGs(
+  quiver.vectorizeSVG.vectorizeSVG({
+    vectorizeSVGRequest: {
+      model: "arrow-2",
+      image: imageSource(await readFile("logo.png")),
+    },
+  }),
+);
 ```
 
 ### Handling API errors
 
 Every method resolves with `{ headers, result }`. For the error statuses the API
 documents (`4xx` and `5xx`), the promise **resolves** and `result` is the error
-envelope. It is not thrown, so a `try`/`catch` alone will not see it:
+envelope. It is not thrown, so a `try`/`catch` around the raw call will not see
+it. `unwrap` and `collectSVGs` turn the envelope into a thrown `APIError`:
 
 ```typescript
-const { result } = await quiver.models.getModel({ model: "does-not-exist" });
+import { APIError, unwrap } from "@quiverai/sdk/helpers";
 
-if ("code" in result) {
-  // { code, message, status, requestId, param?, retryAfter? }
-  console.error(result.status, result.code, result.message, result.requestId);
-} else {
-  console.log(result.id);
+try {
+  const model = unwrap(await quiver.models.getModel({ model: "does-not-exist" }));
+  console.log(model.id);
+} catch (err) {
+  if (err instanceof APIError) {
+    console.error(err.status, err.code, err.message, err.requestId);
+  } else {
+    throw err;
+  }
 }
 ```
 
-Exceptions are still thrown for failures that never produce a documented API
+Without the helpers, check the result yourself with `"code" in result` or
+`isAPIError(result)`.
+
+Other exceptions are thrown for failures that never produce a documented API
 response: network errors, timeouts, aborted requests, undocumented status codes
 (`SDKError`) and responses that do not match the expected shape
 (`ResponseValidationError`). Those are described under
