@@ -1,6 +1,7 @@
 {
   "name": "@quiverai/sdk",
   "version": "0.9.6",
+  "description": "Official TypeScript SDK for the QuiverAI API: generate, edit, animate and vectorize SVGs.",
   "author": "QuiverAI",
   "type": "module",
   "tshy": {
@@ -23,9 +24,23 @@
     "type": "git",
     "url": "https://github.com/quiverai/quiverai-node.git"
   },
+  "homepage": "https://docs.quiver.ai",
+  "bugs": {
+    "url": "https://github.com/quiverai/quiverai-node/issues"
+  },
+  "keywords": [
+    "quiverai",
+    "quiver",
+    "svg",
+    "vector",
+    "ai",
+    "sdk",
+    "typescript"
+  ],
   "scripts": {
     "lint": "eslint --cache --max-warnings=0 src",
     "build": "tshy",
+    "test": "node --test tests/*.test.cjs",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {},
