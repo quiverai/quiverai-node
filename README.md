@@ -1,20 +1,102 @@
-# openapi
+# QuiverAI TypeScript SDK
 
-Developer-friendly & type-safe Typescript SDK specifically catered to leverage *openapi* API.
+The official TypeScript SDK for the [QuiverAI API](https://docs.quiver.ai): generate, edit, animate and vectorize SVGs.
 
-[![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=openapi&utm_campaign=typescript)
-[![License: MIT](https://img.shields.io/badge/LICENSE_//_MIT-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/MIT)
-
-
-<br /><br />
-> [!IMPORTANT]
-> This SDK is not yet ready for production use. To complete setup please follow the steps outlined in your [workspace](https://app.speakeasy.com/org/quiverai/clients). Delete this section before > publishing to a package manager.
+[![npm](https://img.shields.io/npm/v/@quiverai/sdk)](https://www.npmjs.com/package/@quiverai/sdk)
 
 <!-- Start Summary [summary] -->
 ## Summary
 
 QuiverAI API: The QuiverAI API enables developers to generate and edit SVG graphics using AI, with support for streaming responses and model discovery.
 <!-- End Summary [summary] -->
+
+## Quickstart
+
+```bash
+npm add @quiverai/sdk
+export QUIVERAI_API_KEY="<your-key>" # create one at https://platform.quiver.ai/api-keys
+```
+
+```typescript
+import { writeFile } from "node:fs/promises";
+import { QuiverAI } from "@quiverai/sdk";
+import { EventStream } from "@quiverai/sdk/lib/event-streams.js";
+
+// Reads QUIVERAI_API_KEY from the environment.
+// Pass `bearerAuth` to set the key explicitly.
+const quiver = new QuiverAI();
+
+const { result } = await quiver.createSVGs.generateSVG({
+  generateSVGRequest: {
+    model: "arrow-2",
+    prompt: "A minimalist paper plane icon, single colour",
+  },
+});
+
+if ("code" in result) {
+  // API errors are returned, not thrown. See "Handling API errors" below.
+  throw new Error(`${result.code}: ${result.message}`);
+}
+if (result instanceof EventStream) {
+  throw new Error("Unexpected streaming response");
+}
+
+await writeFile("plane.svg", result.data[0]!.svg);
+```
+
+Runnable versions of these snippets live in [`examples/`](./examples).
+
+### Streaming
+
+Set `stream: true` to receive server-sent events while the SVG is generated.
+The result is then an `EventStream`, which is an async iterable:
+
+```typescript
+const { result } = await quiver.createSVGs.generateSVG({
+  generateSVGRequest: {
+    model: "arrow-2",
+    prompt: "A minimalist paper plane icon, single colour",
+    stream: true,
+  },
+});
+
+if (!(result instanceof EventStream)) {
+  throw new Error(`Expected a stream, got: ${JSON.stringify(result)}`);
+}
+
+for await (const event of result) {
+  if (event.event === "draft" && event.data.type === "draft") {
+    console.log(`draft: ${event.data.svg.length} chars`);
+  } else if (event.event === "content" && event.data.type === "content") {
+    console.log(event.data.svg);
+  } else if (event.event === "error") {
+    throw new Error(`${event.data.code}: ${event.data.message}`);
+  }
+}
+```
+
+### Handling API errors
+
+Every method resolves with `{ headers, result }`. For the error statuses the API
+documents (`4xx` and `5xx`), the promise **resolves** and `result` is the error
+envelope. It is not thrown, so a `try`/`catch` alone will not see it:
+
+```typescript
+const { result } = await quiver.models.getModel({ model: "does-not-exist" });
+
+if ("code" in result) {
+  // { code, message, status, requestId, param?, retryAfter? }
+  console.error(result.status, result.code, result.message, result.requestId);
+} else {
+  console.log(result.id);
+}
+```
+
+Exceptions are still thrown for failures that never produce a documented API
+response: network errors, timeouts, aborted requests, undocumented status codes
+(`SDKError`) and responses that do not match the expected shape
+(`ResponseValidationError`). Those are described under
+[Error Handling](#error-handling).
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
