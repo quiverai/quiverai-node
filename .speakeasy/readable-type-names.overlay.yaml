@@ -1,0 +1,32 @@
+overlay: 1.0.0
+info:
+  title: Give generated types readable names
+  version: 1.0.0
+actions:
+  # The SvgStreamEvent variants are inline schemas, so the generator falls back
+  # to positional names (SvgStreamEvent1, SvgStreamEvent2, Three, Four, Five).
+  - target: $.components.schemas.SvgStreamEvent.oneOf[?@.properties.event.enum[0] == 'error']
+    description: "Name the `event: error` stream variant."
+    update:
+      x-speakeasy-name-override: SvgStreamErrorEvent
+  - target: $.components.schemas.SvgStreamEvent.oneOf[?@.properties.event.enum[0] == 'generating']
+    description: "Name the `event: generating` stream variant."
+    update:
+      x-speakeasy-name-override: SvgStreamGeneratingEvent
+  - target: $.components.schemas.SvgStreamEvent.oneOf[?@.properties.event.enum[0] == 'reasoning']
+    description: "Name the `event: reasoning` stream variant."
+    update:
+      x-speakeasy-name-override: SvgStreamReasoningEvent
+  - target: $.components.schemas.SvgStreamEvent.oneOf[?@.properties.event.enum[0] == 'draft']
+    description: "Name the `event: draft` stream variant."
+    update:
+      x-speakeasy-name-override: SvgStreamDraftEvent
+  - target: $.components.schemas.SvgStreamEvent.oneOf[?@.properties.event.enum[0] == 'content']
+    description: "Name the `event: content` stream variant."
+    update:
+      x-speakeasy-name-override: SvgStreamContentEvent
+  # The error code enum is exported from the models barrel as the bare name `Code`.
+  - target: $.components.schemas.PublicErrorEnvelope.properties.code
+    description: "Export the API error code enum as `ErrorCode`."
+    update:
+      x-speakeasy-name-override: ErrorCode
