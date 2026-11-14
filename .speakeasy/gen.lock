@@ -1,26 +1,26 @@
 lockVersion: 2.0.0
 id: 0f33c9fc-1c93-4296-9792-fbb1c4caef92
 management:
-  docChecksum: b9a57baae4e9eacb10e581f84269ebc2
+  docChecksum: 4ba4b3020f4ee6fdaa549c7fe5e02a4e
   docVersion: 1.0.0
-  speakeasyVersion: 1.805.0
-  generationVersion: 2.954.8
-  releaseVersion: 0.9.6
-  configChecksum: c3e944757b38692126e65442571a36d3
+  speakeasyVersion: 1.809.0
+  generationVersion: 2.961.1
+  releaseVersion: 0.9.7
+  configChecksum: f47152809a38a5d4ccd68389699a05d1
   repoURL: https://github.com/quiverai/quiverai-node.git
   installationURL: https://github.com/quiverai/quiverai-node
   published: true
 persistentEdits:
-  generation_id: f426e1a2-f2a4-44e0-9b63-aa4b74d4c7f0
-  pristine_commit_hash: ba04490d8d307e3bd5fe3a865983780719fd5369
-  pristine_tree_hash: b837b74393b9846956a31b2e891331e468af72a2
+  generation_id: d2e6b066-72b2-4654-b048-b8521120a751
+  pristine_commit_hash: 3af8c812ecc3e7012aeb9dbcd8dddba9c37aa8e9
+  pristine_tree_hash: 7dfa9cbb0748f275f5b4c6fe46765c7e770337b2
 features:
   typescript:
     acceptHeaders: 2.81.2
     additionalDependencies: 0.1.0
     additionalProperties: 0.1.4
     constsAndDefaults: 0.1.14
-    core: 3.31.8
+    core: 3.31.11
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     enumUnions: 0.1.0
@@ -34,7 +34,7 @@ features:
     responseFormat: 0.3.0
     retries: 2.83.2
     sdkHooks: 0.4.0
-    serverEvents: 0.2.4
+    serverEvents: 0.2.5
     serverEventsSentinels: 0.1.0
     unions: 2.86.8
 trackedFiles:
@@ -452,12 +452,12 @@ trackedFiles:
     pristine_git_object: cc173cc598005ddf714e2215e0304c0ab85583a9
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:5c6f4651819e2d8a4f8a4fadd8855190278ce696
-    pristine_git_object: 1ac20d4c7067878d14c36b9454ac85317aef9fdb
+    last_write_checksum: sha1:19d42ad4e5db9319d3070445ea96e5578801e572
+    pristine_git_object: d4a22e4b0dc48722891c4a3a1f1958f09777daf0
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:0d9d8f7ef401a808c5b77cb0de197207cdd49dcb
-    pristine_git_object: ee4fec796a0f3f8cb18380a87e625f6dd317501f
+    last_write_checksum: sha1:575010774ad35b8250a762d14a1e5dd25584e11a
+    pristine_git_object: 4cc82784851035d5ba743c5a294f57cc09913a3b
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:f68eeda1706ded6626e158d7a1e7bda00e0e71e2
@@ -512,16 +512,16 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:ce331873ea587e8de92a3a7341d9d1be6999bd9e
-    pristine_git_object: f357644de4a4238ae81615e1958e19b3d40afb95
+    last_write_checksum: sha1:149b23c99d1f0270242e74a98feeccbaf794b0b8
+    pristine_git_object: daf89fee417cea48a653e0d66a28efa1c46751e7
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:a257d6f6108693db2197617c579400bc8f0da914
     pristine_git_object: d6e751fe6a9a39af519df802d05c999f6783bae8
   src/lib/event-streams.ts:
     id: 3f731f808a79
-    last_write_checksum: sha1:14599c02625a354d93c64a912ee58a25827753e3
-    pristine_git_object: b97f495ed0a47ff15abfb897e7d0a01d4df6d86e
+    last_write_checksum: sha1:58af52818682c4cdb932fd959bcaad7aaab60b83
+    pristine_git_object: 9fced84b2b19feab3b5c62b32259eb7452a6abf7
   src/lib/files.ts:
     id: e5efa54fcb95
     last_write_checksum: sha1:795c14026405d547bfc47012f7ad9666e530fa7f
