@@ -4,7 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
@@ -23,10 +23,12 @@ export const ListModelsResponseResult$inboundSchema: z.ZodType<
   ListModelsResponseResult,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  shared.PublicErrorEnvelope$inboundSchema,
-  shared.ListModelsResponse$inboundSchema,
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    shared.PublicErrorEnvelope$inboundSchema,
+    shared.ListModelsResponse$inboundSchema,
+  ])
+);
 
 export function listModelsResponseResultFromJSON(
   jsonString: string,
@@ -43,18 +45,20 @@ export const ListModelsResponse$inboundSchema: z.ZodType<
   ListModelsResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  Headers: z.record(z.array(z.string())).default({}),
-  Result: z.union([
-    shared.PublicErrorEnvelope$inboundSchema,
-    shared.ListModelsResponse$inboundSchema,
-  ]),
-}).transform((v) => {
-  return remap$(v, {
-    "Headers": "headers",
-    "Result": "result",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    Headers: z.record(z.array(z.string())).default({}),
+    Result: z.union([
+      shared.PublicErrorEnvelope$inboundSchema,
+      shared.ListModelsResponse$inboundSchema,
+    ]),
+  }).transform((v) => {
+    return remap$(v, {
+      "Headers": "headers",
+      "Result": "result",
+    });
+  })
+);
 
 export function listModelsResponseFromJSON(
   jsonString: string,

@@ -4,7 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -28,26 +28,28 @@ export type AnimatedSvgResponse = {
 };
 
 /** @internal */
-export const MimeType$inboundSchema: z.ZodNativeEnum<typeof MimeType> = z
-  .nativeEnum(MimeType);
+export const MimeType$inboundSchema: z.ZodNativeEnum<typeof MimeType> =
+  /* @__PURE__ */ lazySchema$(() => z.nativeEnum(MimeType));
 
 /** @internal */
 export const AnimatedSvgResponse$inboundSchema: z.ZodType<
   AnimatedSvgResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  loop_period_ms: z.nullable(z.number().int()).optional(),
-  mime_type: MimeType$inboundSchema,
-  opening_animation_ms: z.nullable(z.number().int()).optional(),
-  svg: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "loop_period_ms": "loopPeriodMs",
-    "mime_type": "mimeType",
-    "opening_animation_ms": "openingAnimationMs",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    loop_period_ms: z.nullable(z.number().int()).optional(),
+    mime_type: MimeType$inboundSchema,
+    opening_animation_ms: z.nullable(z.number().int()).optional(),
+    svg: z.string(),
+  }).transform((v) => {
+    return remap$(v, {
+      "loop_period_ms": "loopPeriodMs",
+      "mime_type": "mimeType",
+      "opening_animation_ms": "openingAnimationMs",
+    });
+  })
+);
 
 export function animatedSvgResponseFromJSON(
   jsonString: string,

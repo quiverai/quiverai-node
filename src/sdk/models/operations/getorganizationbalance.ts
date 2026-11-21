@@ -4,7 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -35,26 +35,28 @@ export type GetOrganizationBalanceResponse = {
 };
 
 /** @internal */
-export const ObjectT$inboundSchema: z.ZodNativeEnum<typeof ObjectT> = z
-  .nativeEnum(ObjectT);
+export const ObjectT$inboundSchema: z.ZodNativeEnum<typeof ObjectT> =
+  /* @__PURE__ */ lazySchema$(() => z.nativeEnum(ObjectT));
 
 /** @internal */
 export const GetOrganizationBalanceResponseBody$inboundSchema: z.ZodType<
   GetOrganizationBalanceResponseBody,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  available_credits: z.number(),
-  object: ObjectT$inboundSchema,
-  observed_at: z.number().int(),
-  organization_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "available_credits": "availableCredits",
-    "observed_at": "observedAt",
-    "organization_id": "organizationId",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    available_credits: z.number(),
+    object: ObjectT$inboundSchema,
+    observed_at: z.number().int(),
+    organization_id: z.string(),
+  }).transform((v) => {
+    return remap$(v, {
+      "available_credits": "availableCredits",
+      "observed_at": "observedAt",
+      "organization_id": "organizationId",
+    });
+  })
+);
 
 export function getOrganizationBalanceResponseBodyFromJSON(
   jsonString: string,
@@ -72,10 +74,12 @@ export const GetOrganizationBalanceResponseResult$inboundSchema: z.ZodType<
   GetOrganizationBalanceResponseResult,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  shared.PublicErrorEnvelope$inboundSchema,
-  z.lazy(() => GetOrganizationBalanceResponseBody$inboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    shared.PublicErrorEnvelope$inboundSchema,
+    z.lazy(() => GetOrganizationBalanceResponseBody$inboundSchema),
+  ])
+);
 
 export function getOrganizationBalanceResponseResultFromJSON(
   jsonString: string,
@@ -93,18 +97,20 @@ export const GetOrganizationBalanceResponse$inboundSchema: z.ZodType<
   GetOrganizationBalanceResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  Headers: z.record(z.array(z.string())).default({}),
-  Result: z.union([
-    shared.PublicErrorEnvelope$inboundSchema,
-    z.lazy(() => GetOrganizationBalanceResponseBody$inboundSchema),
-  ]),
-}).transform((v) => {
-  return remap$(v, {
-    "Headers": "headers",
-    "Result": "result",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    Headers: z.record(z.array(z.string())).default({}),
+    Result: z.union([
+      shared.PublicErrorEnvelope$inboundSchema,
+      z.lazy(() => GetOrganizationBalanceResponseBody$inboundSchema),
+    ]),
+  }).transform((v) => {
+    return remap$(v, {
+      "Headers": "headers",
+      "Result": "result",
+    });
+  })
+);
 
 export function getOrganizationBalanceResponseFromJSON(
   jsonString: string,

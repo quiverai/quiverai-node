@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v3";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 
 export type SvgInputReferenceBase64 = {
   /**
@@ -21,9 +22,11 @@ export const SvgInputReferenceBase64$outboundSchema: z.ZodType<
   SvgInputReferenceBase64$Outbound,
   z.ZodTypeDef,
   SvgInputReferenceBase64
-> = z.object({
-  base64: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    base64: z.string(),
+  })
+);
 
 export function svgInputReferenceBase64ToJSON(
   svgInputReferenceBase64: SvgInputReferenceBase64,

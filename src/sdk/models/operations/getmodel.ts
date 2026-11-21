@@ -4,7 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
@@ -33,9 +33,11 @@ export const GetModelRequest$outboundSchema: z.ZodType<
   GetModelRequest$Outbound,
   z.ZodTypeDef,
   GetModelRequest
-> = z.object({
-  model: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    model: z.string(),
+  })
+);
 
 export function getModelRequestToJSON(
   getModelRequest: GetModelRequest,
@@ -48,10 +50,12 @@ export const GetModelResponseResult$inboundSchema: z.ZodType<
   GetModelResponseResult,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  shared.Model$inboundSchema,
-  shared.PublicErrorEnvelope$inboundSchema,
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    shared.Model$inboundSchema,
+    shared.PublicErrorEnvelope$inboundSchema,
+  ])
+);
 
 export function getModelResponseResultFromJSON(
   jsonString: string,
@@ -68,18 +72,20 @@ export const GetModelResponse$inboundSchema: z.ZodType<
   GetModelResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  Headers: z.record(z.array(z.string())).default({}),
-  Result: z.union([
-    shared.Model$inboundSchema,
-    shared.PublicErrorEnvelope$inboundSchema,
-  ]),
-}).transform((v) => {
-  return remap$(v, {
-    "Headers": "headers",
-    "Result": "result",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    Headers: z.record(z.array(z.string())).default({}),
+    Result: z.union([
+      shared.Model$inboundSchema,
+      shared.PublicErrorEnvelope$inboundSchema,
+    ]),
+  }).transform((v) => {
+    return remap$(v, {
+      "Headers": "headers",
+      "Result": "result",
+    });
+  })
+);
 
 export function getModelResponseFromJSON(
   jsonString: string,

@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import {
   ImageInputReferenceInput,
@@ -30,6 +31,13 @@ export const GenerateSVGRequestReasoningEffort = {
  */
 export type GenerateSVGRequestReasoningEffort = ClosedEnum<
   typeof GenerateSVGRequestReasoningEffort
+>;
+
+export const GenerateSVGRequestRegion = {
+  Us: "us",
+} as const;
+export type GenerateSVGRequestRegion = ClosedEnum<
+  typeof GenerateSVGRequestRegion
 >;
 
 export type GenerateSVGRequest = {
@@ -70,6 +78,10 @@ export type GenerateSVGRequest = {
    */
   references?: Array<ImageInputReferenceInput> | undefined;
   /**
+   * Set to "us" to restrict QuiverAI-managed processing and storage to verified US destinations. Omit this field or use null for standard routing, subject to any restriction inherited by a Responses replay. Caller-operated infrastructure and caller-executed tools are outside this restriction. Requests return HTTP 503 when verified US processing is unavailable.
+   */
+  region?: GenerateSVGRequestRegion | null | undefined;
+  /**
    * When true, emits a Server-Sent Events stream.
    */
   stream?: boolean | undefined;
@@ -86,7 +98,14 @@ export type GenerateSVGRequest = {
 /** @internal */
 export const GenerateSVGRequestReasoningEffort$outboundSchema: z.ZodNativeEnum<
   typeof GenerateSVGRequestReasoningEffort
-> = z.nativeEnum(GenerateSVGRequestReasoningEffort);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(GenerateSVGRequestReasoningEffort)
+);
+
+/** @internal */
+export const GenerateSVGRequestRegion$outboundSchema: z.ZodNativeEnum<
+  typeof GenerateSVGRequestRegion
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(GenerateSVGRequestRegion));
 
 /** @internal */
 export type GenerateSVGRequest$Outbound = {
@@ -99,6 +118,7 @@ export type GenerateSVGRequest$Outbound = {
   prompt: string;
   reasoning_effort?: string | undefined;
   references?: Array<ImageInputReferenceInput$Outbound> | undefined;
+  region?: string | null | undefined;
   stream: boolean;
   temperature?: number | null | undefined;
   top_p?: number | null | undefined;
@@ -109,27 +129,31 @@ export const GenerateSVGRequest$outboundSchema: z.ZodType<
   GenerateSVGRequest$Outbound,
   z.ZodTypeDef,
   GenerateSVGRequest
-> = z.object({
-  attributes: z.nullable(SvgAttributes$outboundSchema).optional(),
-  instructions: z.string().optional(),
-  maxOutputTokens: z.number().int().optional(),
-  model: z.string(),
-  n: z.number().int().default(1),
-  presencePenalty: z.nullable(z.number()).optional(),
-  prompt: z.string(),
-  reasoningEffort: GenerateSVGRequestReasoningEffort$outboundSchema.optional(),
-  references: z.array(ImageInputReferenceInput$outboundSchema).optional(),
-  stream: z.boolean().default(false),
-  temperature: z.nullable(z.number()).optional(),
-  topP: z.nullable(z.number()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    maxOutputTokens: "max_output_tokens",
-    presencePenalty: "presence_penalty",
-    reasoningEffort: "reasoning_effort",
-    topP: "top_p",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    attributes: z.nullable(SvgAttributes$outboundSchema).optional(),
+    instructions: z.string().optional(),
+    maxOutputTokens: z.number().int().optional(),
+    model: z.string(),
+    n: z.number().int().default(1),
+    presencePenalty: z.nullable(z.number()).optional(),
+    prompt: z.string(),
+    reasoningEffort: GenerateSVGRequestReasoningEffort$outboundSchema
+      .optional(),
+    references: z.array(ImageInputReferenceInput$outboundSchema).optional(),
+    region: z.nullable(GenerateSVGRequestRegion$outboundSchema).optional(),
+    stream: z.boolean().default(false),
+    temperature: z.nullable(z.number()).optional(),
+    topP: z.nullable(z.number()).optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      maxOutputTokens: "max_output_tokens",
+      presencePenalty: "presence_penalty",
+      reasoningEffort: "reasoning_effort",
+      topP: "top_p",
+    });
+  })
+);
 
 export function generateSVGRequestToJSON(
   generateSVGRequest: GenerateSVGRequest,

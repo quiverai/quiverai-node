@@ -1,6 +1,6 @@
 {
   "name": "@quiverai/sdk",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "author": "QuiverAI",
   "type": "module",
   "tshy": {
@@ -10,6 +10,7 @@
     "exports": {
       ".": "./src/index.ts",
       "./package.json": "./package.json",
+      "./node": "./src/node.ts",
       "./sdk/types": "./src/sdk/types/index.ts",
       "./sdk/models/errors": "./src/sdk/models/errors/index.ts",
       "./sdk/models/shared": "./src/sdk/models/shared/index.ts",
@@ -38,7 +39,7 @@
     "typescript-eslint": "^8.26.0"
   },
   "dependencies": {
-    "zod": "^3.25.0 || ^4.0.0"
+    "zod": "^3.25.0 || ^4.6.6"
   },
   "exports": {
     ".": {
@@ -53,6 +54,17 @@
       }
     },
     "./package.json": "./package.json",
+    "./node": {
+      "import": {
+        "@quiverai/sdk/source": "./src/node.ts",
+        "types": "./dist/esm/node.d.ts",
+        "default": "./dist/esm/node.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/node.d.ts",
+        "default": "./dist/commonjs/node.js"
+      }
+    },
     "./sdk/types": {
       "import": {
         "@quiverai/sdk/source": "./src/sdk/types/index.ts",

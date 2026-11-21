@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 
 export type Security = {
   bearerAuth: string;
@@ -19,13 +20,15 @@ export const Security$outboundSchema: z.ZodType<
   Security$Outbound,
   z.ZodTypeDef,
   Security
-> = z.object({
-  bearerAuth: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    bearerAuth: "BearerAuth",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    bearerAuth: z.string(),
+  }).transform((v) => {
+    return remap$(v, {
+      bearerAuth: "BearerAuth",
+    });
+  })
+);
 
 export function securityToJSON(security: Security): string {
   return JSON.stringify(Security$outboundSchema.parse(security));
