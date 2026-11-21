@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import {
   EditSettings,
@@ -37,6 +38,13 @@ export type EditSVGRequestSchemasReasoningEffort = ClosedEnum<
   typeof EditSVGRequestSchemasReasoningEffort
 >;
 
+export const EditSVGRequestSchemasRegion = {
+  Us: "us",
+} as const;
+export type EditSVGRequestSchemasRegion = ClosedEnum<
+  typeof EditSVGRequestSchemasRegion
+>;
+
 export type Two = {
   /**
    * Maximum edit review and redo steps after the initial edit.
@@ -58,6 +66,10 @@ export type Two = {
    * Optional image references for the edit.
    */
   referenceImages?: Array<ImageInputReferenceInput> | null | undefined;
+  /**
+   * Set to "us" to restrict QuiverAI-managed processing and storage to verified US destinations. Omit this field or use null for standard routing, subject to any restriction inherited by a Responses replay. Caller-operated infrastructure and caller-executed tools are outside this restriction. Requests return HTTP 503 when verified US processing is unavailable.
+   */
+  region?: EditSVGRequestSchemasRegion | null | undefined;
   settings?: EditSettings | null | undefined;
   /**
    * When true, emits a Server-Sent Events stream.
@@ -83,6 +95,11 @@ export type EditSVGRequestReasoningEffort = ClosedEnum<
   typeof EditSVGRequestReasoningEffort
 >;
 
+export const EditSVGRequestRegion = {
+  Us: "us",
+} as const;
+export type EditSVGRequestRegion = ClosedEnum<typeof EditSVGRequestRegion>;
+
 export type One = {
   /**
    * Maximum edit review and redo steps after the initial edit.
@@ -104,6 +121,10 @@ export type One = {
    * Optional image references for the edit.
    */
   referenceImages?: Array<ImageInputReferenceInput> | null | undefined;
+  /**
+   * Set to "us" to restrict QuiverAI-managed processing and storage to verified US destinations. Omit this field or use null for standard routing, subject to any restriction inherited by a Responses replay. Caller-operated infrastructure and caller-executed tools are outside this restriction. Requests return HTTP 503 when verified US processing is unavailable.
+   */
+  region?: EditSVGRequestRegion | null | undefined;
   settings?: EditSettings | null | undefined;
   /**
    * When true, emits a Server-Sent Events stream.
@@ -123,9 +144,17 @@ export type EditSVGRequest = One | Two;
 
 /** @internal */
 export const EditSVGRequestSchemasReasoningEffort$outboundSchema:
-  z.ZodNativeEnum<typeof EditSVGRequestSchemasReasoningEffort> = z.nativeEnum(
-    EditSVGRequestSchemasReasoningEffort,
-  );
+  z.ZodNativeEnum<typeof EditSVGRequestSchemasReasoningEffort> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EditSVGRequestSchemasReasoningEffort)
+    );
+
+/** @internal */
+export const EditSVGRequestSchemasRegion$outboundSchema: z.ZodNativeEnum<
+  typeof EditSVGRequestSchemasRegion
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EditSVGRequestSchemasRegion)
+);
 
 /** @internal */
 export type Two$Outbound = {
@@ -137,6 +166,7 @@ export type Two$Outbound = {
     | Array<ImageInputReferenceInput$Outbound>
     | null
     | undefined;
+  region?: string | null | undefined;
   settings?: EditSettings$Outbound | null | undefined;
   stream: boolean;
   svg?: any | null | undefined;
@@ -144,28 +174,31 @@ export type Two$Outbound = {
 };
 
 /** @internal */
-export const Two$outboundSchema: z.ZodType<Two$Outbound, z.ZodTypeDef, Two> = z
-  .object({
-    maxReviewSteps: z.number().int().default(0),
-    model: z.string(),
-    prompt: z.string(),
-    reasoningEffort: EditSVGRequestSchemasReasoningEffort$outboundSchema
-      .optional(),
-    referenceImages: z.nullable(
-      z.array(ImageInputReferenceInput$outboundSchema),
-    ).optional(),
-    settings: z.nullable(EditSettings$outboundSchema).optional(),
-    stream: z.boolean().default(false),
-    svg: z.nullable(z.any()).optional(),
-    svgSource: SvgInputReference$outboundSchema,
-  }).transform((v) => {
-    return remap$(v, {
-      maxReviewSteps: "max_review_steps",
-      reasoningEffort: "reasoning_effort",
-      referenceImages: "reference_images",
-      svgSource: "svg_source",
-    });
-  });
+export const Two$outboundSchema: z.ZodType<Two$Outbound, z.ZodTypeDef, Two> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      maxReviewSteps: z.number().int().default(0),
+      model: z.string(),
+      prompt: z.string(),
+      reasoningEffort: EditSVGRequestSchemasReasoningEffort$outboundSchema
+        .optional(),
+      referenceImages: z.nullable(
+        z.array(ImageInputReferenceInput$outboundSchema),
+      ).optional(),
+      region: z.nullable(EditSVGRequestSchemasRegion$outboundSchema).optional(),
+      settings: z.nullable(EditSettings$outboundSchema).optional(),
+      stream: z.boolean().default(false),
+      svg: z.nullable(z.any()).optional(),
+      svgSource: SvgInputReference$outboundSchema,
+    }).transform((v) => {
+      return remap$(v, {
+        maxReviewSteps: "max_review_steps",
+        reasoningEffort: "reasoning_effort",
+        referenceImages: "reference_images",
+        svgSource: "svg_source",
+      });
+    })
+  );
 
 export function twoToJSON(two: Two): string {
   return JSON.stringify(Two$outboundSchema.parse(two));
@@ -174,7 +207,14 @@ export function twoToJSON(two: Two): string {
 /** @internal */
 export const EditSVGRequestReasoningEffort$outboundSchema: z.ZodNativeEnum<
   typeof EditSVGRequestReasoningEffort
-> = z.nativeEnum(EditSVGRequestReasoningEffort);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EditSVGRequestReasoningEffort)
+);
+
+/** @internal */
+export const EditSVGRequestRegion$outboundSchema: z.ZodNativeEnum<
+  typeof EditSVGRequestRegion
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EditSVGRequestRegion));
 
 /** @internal */
 export type One$Outbound = {
@@ -186,6 +226,7 @@ export type One$Outbound = {
     | Array<ImageInputReferenceInput$Outbound>
     | null
     | undefined;
+  region?: string | null | undefined;
   settings?: EditSettings$Outbound | null | undefined;
   stream: boolean;
   svg: string;
@@ -193,27 +234,30 @@ export type One$Outbound = {
 };
 
 /** @internal */
-export const One$outboundSchema: z.ZodType<One$Outbound, z.ZodTypeDef, One> = z
-  .object({
-    maxReviewSteps: z.number().int().default(0),
-    model: z.string(),
-    prompt: z.string(),
-    reasoningEffort: EditSVGRequestReasoningEffort$outboundSchema.optional(),
-    referenceImages: z.nullable(
-      z.array(ImageInputReferenceInput$outboundSchema),
-    ).optional(),
-    settings: z.nullable(EditSettings$outboundSchema).optional(),
-    stream: z.boolean().default(false),
-    svg: z.string(),
-    svgSource: z.nullable(z.any()).optional(),
-  }).transform((v) => {
-    return remap$(v, {
-      maxReviewSteps: "max_review_steps",
-      reasoningEffort: "reasoning_effort",
-      referenceImages: "reference_images",
-      svgSource: "svg_source",
-    });
-  });
+export const One$outboundSchema: z.ZodType<One$Outbound, z.ZodTypeDef, One> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      maxReviewSteps: z.number().int().default(0),
+      model: z.string(),
+      prompt: z.string(),
+      reasoningEffort: EditSVGRequestReasoningEffort$outboundSchema.optional(),
+      referenceImages: z.nullable(
+        z.array(ImageInputReferenceInput$outboundSchema),
+      ).optional(),
+      region: z.nullable(EditSVGRequestRegion$outboundSchema).optional(),
+      settings: z.nullable(EditSettings$outboundSchema).optional(),
+      stream: z.boolean().default(false),
+      svg: z.string(),
+      svgSource: z.nullable(z.any()).optional(),
+    }).transform((v) => {
+      return remap$(v, {
+        maxReviewSteps: "max_review_steps",
+        reasoningEffort: "reasoning_effort",
+        referenceImages: "reference_images",
+        svgSource: "svg_source",
+      });
+    })
+  );
 
 export function oneToJSON(one: One): string {
   return JSON.stringify(One$outboundSchema.parse(one));
@@ -227,10 +271,9 @@ export const EditSVGRequest$outboundSchema: z.ZodType<
   EditSVGRequest$Outbound,
   z.ZodTypeDef,
   EditSVGRequest
-> = z.union([
-  z.lazy(() => One$outboundSchema),
-  z.lazy(() => Two$outboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([z.lazy(() => One$outboundSchema), z.lazy(() => Two$outboundSchema)])
+);
 
 export function editSVGRequestToJSON(editSVGRequest: EditSVGRequest): string {
   return JSON.stringify(EditSVGRequest$outboundSchema.parse(editSVGRequest));

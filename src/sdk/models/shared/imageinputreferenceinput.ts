@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v3";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 import {
   ImageInputReferenceBase64,
   ImageInputReferenceBase64$Outbound,
@@ -33,11 +34,13 @@ export const ImageInputReferenceInput$outboundSchema: z.ZodType<
   ImageInputReferenceInput$Outbound,
   z.ZodTypeDef,
   ImageInputReferenceInput
-> = z.union([
-  ImageInputReferenceUrl$outboundSchema,
-  ImageInputReferenceBase64$outboundSchema,
-  z.string(),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    ImageInputReferenceUrl$outboundSchema,
+    ImageInputReferenceBase64$outboundSchema,
+    z.string(),
+  ])
+);
 
 export function imageInputReferenceInputToJSON(
   imageInputReferenceInput: ImageInputReferenceInput,

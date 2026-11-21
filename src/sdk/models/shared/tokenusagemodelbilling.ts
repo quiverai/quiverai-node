@@ -4,7 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -42,26 +42,28 @@ export type TokenUsageModelBilling = {
 };
 
 /** @internal */
-export const Currency$inboundSchema: z.ZodNativeEnum<typeof Currency> = z
-  .nativeEnum(Currency);
+export const Currency$inboundSchema: z.ZodNativeEnum<typeof Currency> =
+  /* @__PURE__ */ lazySchema$(() => z.nativeEnum(Currency));
 
 /** @internal */
 export const PricingModel$inboundSchema: z.ZodNativeEnum<typeof PricingModel> =
-  z.nativeEnum(PricingModel);
+  /* @__PURE__ */ lazySchema$(() => z.nativeEnum(PricingModel));
 
 /** @internal */
-export const Rates$inboundSchema: z.ZodType<Rates, z.ZodTypeDef, unknown> = z
-  .object({
-    cache_write: z.number().int(),
-    cached_input: z.number().int(),
-    input: z.number().int(),
-    output: z.number().int(),
-  }).transform((v) => {
-    return remap$(v, {
-      "cache_write": "cacheWrite",
-      "cached_input": "cachedInput",
-    });
-  });
+export const Rates$inboundSchema: z.ZodType<Rates, z.ZodTypeDef, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      cache_write: z.number().int(),
+      cached_input: z.number().int(),
+      input: z.number().int(),
+      output: z.number().int(),
+    }).transform((v) => {
+      return remap$(v, {
+        "cache_write": "cacheWrite",
+        "cached_input": "cachedInput",
+      });
+    })
+  );
 
 export function ratesFromJSON(
   jsonString: string,
@@ -76,24 +78,26 @@ export function ratesFromJSON(
 /** @internal */
 export const TokenUsageModelBillingUnit$inboundSchema: z.ZodNativeEnum<
   typeof TokenUsageModelBillingUnit
-> = z.nativeEnum(TokenUsageModelBillingUnit);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(TokenUsageModelBillingUnit));
 
 /** @internal */
 export const TokenUsageModelBilling$inboundSchema: z.ZodType<
   TokenUsageModelBilling,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  currency: Currency$inboundSchema,
-  kind: z.literal("token_usage"),
-  pricing_model: PricingModel$inboundSchema,
-  rates: z.lazy(() => Rates$inboundSchema),
-  unit: TokenUsageModelBillingUnit$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "pricing_model": "pricingModel",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    currency: Currency$inboundSchema,
+    kind: z.literal("token_usage"),
+    pricing_model: PricingModel$inboundSchema,
+    rates: z.lazy(() => Rates$inboundSchema),
+    unit: TokenUsageModelBillingUnit$inboundSchema,
+  }).transform((v) => {
+    return remap$(v, {
+      "pricing_model": "pricingModel",
+    });
+  })
+);
 
 export function tokenUsageModelBillingFromJSON(
   jsonString: string,

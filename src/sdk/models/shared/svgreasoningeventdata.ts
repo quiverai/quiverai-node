@@ -5,6 +5,7 @@
 import * as z from "zod/v3";
 import {
   collectExtraKeys as collectExtraKeys$,
+  lazySchema as lazySchema$,
   safeParse,
 } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
@@ -41,17 +42,19 @@ export const SvgReasoningEventData$inboundSchema: z.ZodType<
   SvgReasoningEventData,
   z.ZodTypeDef,
   unknown
-> = collectExtraKeys$(
-  z.object({
-    id: z.string().optional(),
-    index: z.number().int().optional(),
-    svg: z.string().optional(),
-    text: z.string().optional(),
-    type: z.literal("reasoning"),
-    usage: SvgUsage$inboundSchema.optional(),
-  }).catchall(z.any()),
-  "additionalProperties",
-  true,
+> = /* @__PURE__ */ lazySchema$(() =>
+  collectExtraKeys$(
+    z.object({
+      id: z.string().optional(),
+      index: z.number().int().optional(),
+      svg: z.string().optional(),
+      text: z.string().optional(),
+      type: z.literal("reasoning"),
+      usage: SvgUsage$inboundSchema.optional(),
+    }).catchall(z.any()),
+    "additionalProperties",
+    true,
+  )
 );
 
 export function svgReasoningEventDataFromJSON(

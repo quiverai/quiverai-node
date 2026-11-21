@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { SvgDocument, SvgDocument$inboundSchema } from "./svgdocument.js";
@@ -31,13 +31,15 @@ export const SvgResponse$inboundSchema: z.ZodType<
   SvgResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  created: z.number().int(),
-  credits: z.number().int().optional(),
-  data: z.array(SvgDocument$inboundSchema),
-  id: z.string(),
-  usage: SvgUsage$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    created: z.number().int(),
+    credits: z.number().int().optional(),
+    data: z.array(SvgDocument$inboundSchema),
+    id: z.string(),
+    usage: SvgUsage$inboundSchema.optional(),
+  })
+);
 
 export function svgResponseFromJSON(
   jsonString: string,

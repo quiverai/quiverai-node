@@ -4,7 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -25,21 +25,23 @@ export type SvgDocument = {
 /** @internal */
 export const SvgDocumentMimeType$inboundSchema: z.ZodNativeEnum<
   typeof SvgDocumentMimeType
-> = z.nativeEnum(SvgDocumentMimeType);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(SvgDocumentMimeType));
 
 /** @internal */
 export const SvgDocument$inboundSchema: z.ZodType<
   SvgDocument,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  mime_type: SvgDocumentMimeType$inboundSchema,
-  svg: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "mime_type": "mimeType",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    mime_type: SvgDocumentMimeType$inboundSchema,
+    svg: z.string(),
+  }).transform((v) => {
+    return remap$(v, {
+      "mime_type": "mimeType",
+    });
+  })
+);
 
 export function svgDocumentFromJSON(
   jsonString: string,

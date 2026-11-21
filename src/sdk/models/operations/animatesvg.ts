@@ -5,7 +5,7 @@
 import * as z from "zod/v3";
 import { EventStream } from "../../../lib/event-streams.js";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
@@ -77,15 +77,17 @@ export const AnimateSVGRequest$outboundSchema: z.ZodType<
   AnimateSVGRequest$Outbound,
   z.ZodTypeDef,
   AnimateSVGRequest
-> = z.object({
-  animateSVGRequest: shared.AnimateSVGRequest$outboundSchema,
-  xTraceId: z.string().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    animateSVGRequest: "AnimateSVGRequest",
-    xTraceId: "x-trace-id",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    animateSVGRequest: shared.AnimateSVGRequest$outboundSchema,
+    xTraceId: z.string().optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      animateSVGRequest: "AnimateSVGRequest",
+      xTraceId: "x-trace-id",
+    });
+  })
+);
 
 export function animateSVGRequestToJSON(
   animateSVGRequest: AnimateSVGRequest,
@@ -97,7 +99,7 @@ export function animateSVGRequestToJSON(
 
 /** @internal */
 export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> =
-  shared.AnimatedSvgResponse$inboundSchema;
+  /* @__PURE__ */ lazySchema$(() => shared.AnimatedSvgResponse$inboundSchema);
 
 export function dataFromJSON(
   jsonString: string,
@@ -110,18 +112,20 @@ export function dataFromJSON(
 }
 
 /** @internal */
-export const Usage$inboundSchema: z.ZodType<Usage, z.ZodTypeDef, unknown> = z
-  .object({
-    input_tokens: z.number().int(),
-    output_tokens: z.number().int(),
-    total_tokens: z.number().int(),
-  }).transform((v) => {
-    return remap$(v, {
-      "input_tokens": "inputTokens",
-      "output_tokens": "outputTokens",
-      "total_tokens": "totalTokens",
-    });
-  });
+export const Usage$inboundSchema: z.ZodType<Usage, z.ZodTypeDef, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      input_tokens: z.number().int(),
+      output_tokens: z.number().int(),
+      total_tokens: z.number().int(),
+    }).transform((v) => {
+      return remap$(v, {
+        "input_tokens": "inputTokens",
+        "output_tokens": "outputTokens",
+        "total_tokens": "totalTokens",
+      });
+    })
+  );
 
 export function usageFromJSON(
   jsonString: string,
@@ -138,18 +142,20 @@ export const AnimateSVGResponseBody$inboundSchema: z.ZodType<
   AnimateSVGResponseBody,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  created: z.number().int(),
-  credits: z.number().int().optional(),
-  data: z.array(shared.AnimatedSvgResponse$inboundSchema),
-  id: z.string(),
-  svg_score: z.nullable(z.number()).optional(),
-  usage: z.nullable(z.lazy(() => Usage$inboundSchema)).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "svg_score": "svgScore",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    created: z.number().int(),
+    credits: z.number().int().optional(),
+    data: z.array(shared.AnimatedSvgResponse$inboundSchema),
+    id: z.string(),
+    svg_score: z.nullable(z.number()).optional(),
+    usage: z.nullable(z.lazy(() => Usage$inboundSchema)).optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      "svg_score": "svgScore",
+    });
+  })
+);
 
 export function animateSVGResponseBodyFromJSON(
   jsonString: string,
@@ -166,20 +172,24 @@ export const AnimateSVGResponseResult$inboundSchema: z.ZodType<
   AnimateSVGResponseResult,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  shared.PublicErrorEnvelope$inboundSchema,
-  z.lazy(() => AnimateSVGResponseBody$inboundSchema),
-  z.instanceof(ReadableStream<Uint8Array>)
-    .transform(stream => {
-      return new EventStream(stream, rawEvent => {
-        if (rawEvent.data === "[DONE]") return { done: true, value: undefined };
-        return {
-          done: false,
-          value: shared.SvgStreamEvent$inboundSchema.parse(rawEvent),
-        };
-      });
-    }),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    shared.PublicErrorEnvelope$inboundSchema,
+    z.lazy(() => AnimateSVGResponseBody$inboundSchema),
+    z.instanceof(ReadableStream<Uint8Array>)
+      .transform(stream => {
+        return new EventStream(stream, rawEvent => {
+          if (rawEvent.data === "[DONE]") {
+            return { done: true, value: undefined };
+          }
+          return {
+            done: false,
+            value: shared.SvgStreamEvent$inboundSchema.parse(rawEvent),
+          };
+        });
+      }),
+  ])
+);
 
 export function animateSVGResponseResultFromJSON(
   jsonString: string,
@@ -196,30 +206,32 @@ export const AnimateSVGResponse$inboundSchema: z.ZodType<
   AnimateSVGResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  Headers: z.record(z.array(z.string())).default({}),
-  Result: z.union([
-    shared.PublicErrorEnvelope$inboundSchema,
-    z.lazy(() => AnimateSVGResponseBody$inboundSchema),
-    z.instanceof(ReadableStream<Uint8Array>)
-      .transform(stream => {
-        return new EventStream(stream, rawEvent => {
-          if (rawEvent.data === "[DONE]") {
-            return { done: true, value: undefined };
-          }
-          return {
-            done: false,
-            value: shared.SvgStreamEvent$inboundSchema.parse(rawEvent),
-          };
-        });
-      }),
-  ]),
-}).transform((v) => {
-  return remap$(v, {
-    "Headers": "headers",
-    "Result": "result",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    Headers: z.record(z.array(z.string())).default({}),
+    Result: z.union([
+      shared.PublicErrorEnvelope$inboundSchema,
+      z.lazy(() => AnimateSVGResponseBody$inboundSchema),
+      z.instanceof(ReadableStream<Uint8Array>)
+        .transform(stream => {
+          return new EventStream(stream, rawEvent => {
+            if (rawEvent.data === "[DONE]") {
+              return { done: true, value: undefined };
+            }
+            return {
+              done: false,
+              value: shared.SvgStreamEvent$inboundSchema.parse(rawEvent),
+            };
+          });
+        }),
+    ]),
+  }).transform((v) => {
+    return remap$(v, {
+      "Headers": "headers",
+      "Result": "result",
+    });
+  })
+);
 
 export function animateSVGResponseFromJSON(
   jsonString: string,

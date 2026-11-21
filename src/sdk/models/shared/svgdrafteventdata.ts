@@ -6,6 +6,7 @@ import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
 import {
   collectExtraKeys as collectExtraKeys$,
+  lazySchema as lazySchema$,
   safeParse,
 } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
@@ -55,31 +56,33 @@ export type SvgDraftEventData = {
 };
 
 /** @internal */
-export const UpdateType$inboundSchema: z.ZodNativeEnum<typeof UpdateType> = z
-  .nativeEnum(UpdateType);
+export const UpdateType$inboundSchema: z.ZodNativeEnum<typeof UpdateType> =
+  /* @__PURE__ */ lazySchema$(() => z.nativeEnum(UpdateType));
 
 /** @internal */
 export const SvgDraftEventData$inboundSchema: z.ZodType<
   SvgDraftEventData,
   z.ZodTypeDef,
   unknown
-> = collectExtraKeys$(
-  z.object({
-    id: z.string(),
-    index: z.number().int().optional(),
-    svg: z.string(),
-    text: z.string().optional(),
-    type: z.literal("draft"),
-    update_type: UpdateType$inboundSchema.optional(),
-    usage: SvgUsage$inboundSchema.optional(),
-  }).catchall(z.any()),
-  "additionalProperties",
-  true,
-).transform((v) => {
-  return remap$(v, {
-    "update_type": "updateType",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  collectExtraKeys$(
+    z.object({
+      id: z.string(),
+      index: z.number().int().optional(),
+      svg: z.string(),
+      text: z.string().optional(),
+      type: z.literal("draft"),
+      update_type: UpdateType$inboundSchema.optional(),
+      usage: SvgUsage$inboundSchema.optional(),
+    }).catchall(z.any()),
+    "additionalProperties",
+    true,
+  ).transform((v) => {
+    return remap$(v, {
+      "update_type": "updateType",
+    });
+  })
+);
 
 export function svgDraftEventDataFromJSON(
   jsonString: string,

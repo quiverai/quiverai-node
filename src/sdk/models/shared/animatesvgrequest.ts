@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import {
   SvgInputReference,
@@ -25,6 +26,11 @@ export const ReasoningEffort = {
  */
 export type ReasoningEffort = ClosedEnum<typeof ReasoningEffort>;
 
+export const Region = {
+  Us: "us",
+} as const;
+export type Region = ClosedEnum<typeof Region>;
+
 export type AnimateSVGRequest = {
   /**
    * Upper bound for output token count.
@@ -43,6 +49,10 @@ export type AnimateSVGRequest = {
    */
   reasoningEffort?: ReasoningEffort | undefined;
   /**
+   * Set to "us" to restrict QuiverAI-managed processing and storage to verified US destinations. Omit this field or use null for standard routing, subject to any restriction inherited by a Responses replay. Caller-operated infrastructure and caller-executed tools are outside this restriction. Requests return HTTP 503 when verified US processing is unavailable.
+   */
+  region?: Region | null | undefined;
+  /**
    * When true, emits a Server-Sent Events stream.
    */
   stream?: boolean | undefined;
@@ -59,7 +69,11 @@ export type AnimateSVGRequest = {
 /** @internal */
 export const ReasoningEffort$outboundSchema: z.ZodNativeEnum<
   typeof ReasoningEffort
-> = z.nativeEnum(ReasoningEffort);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(ReasoningEffort));
+
+/** @internal */
+export const Region$outboundSchema: z.ZodNativeEnum<typeof Region> =
+  /* @__PURE__ */ lazySchema$(() => z.nativeEnum(Region));
 
 /** @internal */
 export type AnimateSVGRequest$Outbound = {
@@ -67,6 +81,7 @@ export type AnimateSVGRequest$Outbound = {
   model: string;
   prompt?: string | undefined;
   reasoning_effort?: string | undefined;
+  region?: string | null | undefined;
   stream: boolean;
   svg_source: SvgInputReference$Outbound;
   temperature: number;
@@ -77,21 +92,24 @@ export const AnimateSVGRequest$outboundSchema: z.ZodType<
   AnimateSVGRequest$Outbound,
   z.ZodTypeDef,
   AnimateSVGRequest
-> = z.object({
-  maxOutputTokens: z.number().int().optional(),
-  model: z.string(),
-  prompt: z.string().optional(),
-  reasoningEffort: ReasoningEffort$outboundSchema.optional(),
-  stream: z.boolean().default(false),
-  svgSource: SvgInputReference$outboundSchema,
-  temperature: z.number().default(1),
-}).transform((v) => {
-  return remap$(v, {
-    maxOutputTokens: "max_output_tokens",
-    reasoningEffort: "reasoning_effort",
-    svgSource: "svg_source",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    maxOutputTokens: z.number().int().optional(),
+    model: z.string(),
+    prompt: z.string().optional(),
+    reasoningEffort: ReasoningEffort$outboundSchema.optional(),
+    region: z.nullable(Region$outboundSchema).optional(),
+    stream: z.boolean().default(false),
+    svgSource: SvgInputReference$outboundSchema,
+    temperature: z.number().default(1),
+  }).transform((v) => {
+    return remap$(v, {
+      maxOutputTokens: "max_output_tokens",
+      reasoningEffort: "reasoning_effort",
+      svgSource: "svg_source",
+    });
+  })
+);
 
 export function animateSVGRequestToJSON(
   animateSVGRequest: AnimateSVGRequest,

@@ -4,7 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -130,32 +130,34 @@ export type Model = {
 /** @internal */
 export const InputModalities$inboundSchema: z.ZodNativeEnum<
   typeof InputModalities
-> = z.nativeEnum(InputModalities);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(InputModalities));
 
 /** @internal */
-export const ModelObject$inboundSchema: z.ZodNativeEnum<typeof ModelObject> = z
-  .nativeEnum(ModelObject);
+export const ModelObject$inboundSchema: z.ZodNativeEnum<typeof ModelObject> =
+  /* @__PURE__ */ lazySchema$(() => z.nativeEnum(ModelObject));
 
 /** @internal */
 export const OutputModalities$inboundSchema: z.ZodNativeEnum<
   typeof OutputModalities
-> = z.nativeEnum(OutputModalities);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(OutputModalities));
 
 /** @internal */
 export const Pricing$inboundSchema: z.ZodType<Pricing, z.ZodTypeDef, unknown> =
-  z.object({
-    svg_animate: z.string().optional(),
-    svg_edit: z.string().optional(),
-    svg_generate: z.string(),
-    svg_vectorize: z.string(),
-  }).transform((v) => {
-    return remap$(v, {
-      "svg_animate": "svgAnimate",
-      "svg_edit": "svgEdit",
-      "svg_generate": "svgGenerate",
-      "svg_vectorize": "svgVectorize",
-    });
-  });
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      svg_animate: z.string().optional(),
+      svg_edit: z.string().optional(),
+      svg_generate: z.string(),
+      svg_vectorize: z.string(),
+    }).transform((v) => {
+      return remap$(v, {
+        "svg_animate": "svgAnimate",
+        "svg_edit": "svgEdit",
+        "svg_generate": "svgGenerate",
+        "svg_vectorize": "svgVectorize",
+      });
+    })
+  );
 
 export function pricingFromJSON(
   jsonString: string,
@@ -172,19 +174,21 @@ export const PricingCredits$inboundSchema: z.ZodType<
   PricingCredits,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  svg_animate: z.number().int().optional(),
-  svg_edit: z.number().int().optional(),
-  svg_generate: z.number().int(),
-  svg_vectorize: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    "svg_animate": "svgAnimate",
-    "svg_edit": "svgEdit",
-    "svg_generate": "svgGenerate",
-    "svg_vectorize": "svgVectorize",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    svg_animate: z.number().int().optional(),
+    svg_edit: z.number().int().optional(),
+    svg_generate: z.number().int(),
+    svg_vectorize: z.number().int(),
+  }).transform((v) => {
+    return remap$(v, {
+      "svg_animate": "svgAnimate",
+      "svg_edit": "svgEdit",
+      "svg_generate": "svgGenerate",
+      "svg_vectorize": "svgVectorize",
+    });
+  })
+);
 
 export function pricingCreditsFromJSON(
   jsonString: string,
@@ -199,45 +203,50 @@ export function pricingCreditsFromJSON(
 /** @internal */
 export const SupportedOperations$inboundSchema: z.ZodNativeEnum<
   typeof SupportedOperations
-> = z.nativeEnum(SupportedOperations);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(SupportedOperations));
 
 /** @internal */
 export const SupportedSamplingParameters$inboundSchema: z.ZodNativeEnum<
   typeof SupportedSamplingParameters
-> = z.nativeEnum(SupportedSamplingParameters);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(SupportedSamplingParameters)
+);
 
 /** @internal */
-export const Model$inboundSchema: z.ZodType<Model, z.ZodTypeDef, unknown> = z
-  .object({
-    billing: ModelBilling$inboundSchema,
-    context_length: z.number().int().optional(),
-    created: z.number().int(),
-    description: z.string().optional(),
-    id: z.string(),
-    input_modalities: z.array(InputModalities$inboundSchema).optional(),
-    max_output_length: z.number().int().optional(),
-    name: z.string().optional(),
-    object: ModelObject$inboundSchema,
-    output_modalities: z.array(OutputModalities$inboundSchema).optional(),
-    owned_by: z.string(),
-    pricing: z.lazy(() => Pricing$inboundSchema).optional(),
-    pricing_credits: z.lazy(() => PricingCredits$inboundSchema).optional(),
-    supported_operations: z.array(SupportedOperations$inboundSchema).optional(),
-    supported_sampling_parameters: z.array(
-      SupportedSamplingParameters$inboundSchema,
-    ).optional(),
-  }).transform((v) => {
-    return remap$(v, {
-      "context_length": "contextLength",
-      "input_modalities": "inputModalities",
-      "max_output_length": "maxOutputLength",
-      "output_modalities": "outputModalities",
-      "owned_by": "ownedBy",
-      "pricing_credits": "pricingCredits",
-      "supported_operations": "supportedOperations",
-      "supported_sampling_parameters": "supportedSamplingParameters",
-    });
-  });
+export const Model$inboundSchema: z.ZodType<Model, z.ZodTypeDef, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      billing: ModelBilling$inboundSchema,
+      context_length: z.number().int().optional(),
+      created: z.number().int(),
+      description: z.string().optional(),
+      id: z.string(),
+      input_modalities: z.array(InputModalities$inboundSchema).optional(),
+      max_output_length: z.number().int().optional(),
+      name: z.string().optional(),
+      object: ModelObject$inboundSchema,
+      output_modalities: z.array(OutputModalities$inboundSchema).optional(),
+      owned_by: z.string(),
+      pricing: z.lazy(() => Pricing$inboundSchema).optional(),
+      pricing_credits: z.lazy(() => PricingCredits$inboundSchema).optional(),
+      supported_operations: z.array(SupportedOperations$inboundSchema)
+        .optional(),
+      supported_sampling_parameters: z.array(
+        SupportedSamplingParameters$inboundSchema,
+      ).optional(),
+    }).transform((v) => {
+      return remap$(v, {
+        "context_length": "contextLength",
+        "input_modalities": "inputModalities",
+        "max_output_length": "maxOutputLength",
+        "output_modalities": "outputModalities",
+        "owned_by": "ownedBy",
+        "pricing_credits": "pricingCredits",
+        "supported_operations": "supportedOperations",
+        "supported_sampling_parameters": "supportedSamplingParameters",
+      });
+    })
+  );
 
 export function modelFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -42,15 +42,17 @@ export const SvgStreamEventData$inboundSchema: z.ZodType<
   SvgStreamEventData,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  SvgContentEventData$inboundSchema,
-  SvgDraftEventData$inboundSchema,
-  PublicErrorSseEventData$inboundSchema.and(
-    z.object({ type: z.literal("error") }),
-  ),
-  SvgGeneratingEventData$inboundSchema,
-  SvgReasoningEventData$inboundSchema,
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    SvgContentEventData$inboundSchema,
+    SvgDraftEventData$inboundSchema,
+    PublicErrorSseEventData$inboundSchema.and(
+      z.object({ type: z.literal("error") }),
+    ),
+    SvgGeneratingEventData$inboundSchema,
+    SvgReasoningEventData$inboundSchema,
+  ])
+);
 
 export function svgStreamEventDataFromJSON(
   jsonString: string,

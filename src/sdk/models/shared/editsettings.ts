@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 
 export type EditSettings = {
   /**
@@ -37,18 +38,20 @@ export const EditSettings$outboundSchema: z.ZodType<
   EditSettings$Outbound,
   z.ZodTypeDef,
   EditSettings
-> = z.object({
-  maxOutputTokens: z.nullable(z.number().int()).optional(),
-  orchestratorMaxOutputTokens: z.nullable(z.number().int()).optional(),
-  shallowMaxOutputTokens: z.nullable(z.number().int()).optional(),
-  temperature: z.nullable(z.number()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    maxOutputTokens: "max_output_tokens",
-    orchestratorMaxOutputTokens: "orchestrator_max_output_tokens",
-    shallowMaxOutputTokens: "shallow_max_output_tokens",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    maxOutputTokens: z.nullable(z.number().int()).optional(),
+    orchestratorMaxOutputTokens: z.nullable(z.number().int()).optional(),
+    shallowMaxOutputTokens: z.nullable(z.number().int()).optional(),
+    temperature: z.nullable(z.number()).optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      maxOutputTokens: "max_output_tokens",
+      orchestratorMaxOutputTokens: "orchestrator_max_output_tokens",
+      shallowMaxOutputTokens: "shallow_max_output_tokens",
+    });
+  })
+);
 
 export function editSettingsToJSON(editSettings: EditSettings): string {
   return JSON.stringify(EditSettings$outboundSchema.parse(editSettings));

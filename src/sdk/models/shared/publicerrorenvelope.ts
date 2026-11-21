@@ -4,7 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -45,28 +45,29 @@ export type PublicErrorEnvelope = {
 };
 
 /** @internal */
-export const Code$inboundSchema: z.ZodNativeEnum<typeof Code> = z.nativeEnum(
-  Code,
-);
+export const Code$inboundSchema: z.ZodNativeEnum<typeof Code> =
+  /* @__PURE__ */ lazySchema$(() => z.nativeEnum(Code));
 
 /** @internal */
 export const PublicErrorEnvelope$inboundSchema: z.ZodType<
   PublicErrorEnvelope,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  code: Code$inboundSchema,
-  message: z.string(),
-  param: z.string().optional(),
-  request_id: z.string(),
-  retry_after: z.number().int().optional(),
-  status: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    "request_id": "requestId",
-    "retry_after": "retryAfter",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    code: Code$inboundSchema,
+    message: z.string(),
+    param: z.string().optional(),
+    request_id: z.string(),
+    retry_after: z.number().int().optional(),
+    status: z.number().int(),
+  }).transform((v) => {
+    return remap$(v, {
+      "request_id": "requestId",
+      "retry_after": "retryAfter",
+    });
+  })
+);
 
 export function publicErrorEnvelopeFromJSON(
   jsonString: string,

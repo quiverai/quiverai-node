@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v3";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 
 /**
  * SVG root viewBox attribute controls.
@@ -49,12 +50,14 @@ export const ViewBox$outboundSchema: z.ZodType<
   ViewBox$Outbound,
   z.ZodTypeDef,
   ViewBox
-> = z.object({
-  height: z.number(),
-  minX: z.number(),
-  minY: z.number(),
-  width: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    height: z.number(),
+    minX: z.number(),
+    minY: z.number(),
+    width: z.number(),
+  })
+);
 
 export function viewBoxToJSON(viewBox: ViewBox): string {
   return JSON.stringify(ViewBox$outboundSchema.parse(viewBox));
@@ -70,9 +73,11 @@ export const SvgAttributes$outboundSchema: z.ZodType<
   SvgAttributes$Outbound,
   z.ZodTypeDef,
   SvgAttributes
-> = z.object({
-  viewBox: z.nullable(z.lazy(() => ViewBox$outboundSchema)).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    viewBox: z.nullable(z.lazy(() => ViewBox$outboundSchema)).optional(),
+  })
+);
 
 export function svgAttributesToJSON(svgAttributes: SvgAttributes): string {
   return JSON.stringify(SvgAttributes$outboundSchema.parse(svgAttributes));

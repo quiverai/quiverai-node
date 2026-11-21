@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import {
   ImageInputReferenceInput,
@@ -30,6 +31,13 @@ export const VectorizeSVGRequestReasoningEffort = {
  */
 export type VectorizeSVGRequestReasoningEffort = ClosedEnum<
   typeof VectorizeSVGRequestReasoningEffort
+>;
+
+export const VectorizeSVGRequestRegion = {
+  Us: "us",
+} as const;
+export type VectorizeSVGRequestRegion = ClosedEnum<
+  typeof VectorizeSVGRequestRegion
 >;
 
 export type VectorizeSVGRequest = {
@@ -62,6 +70,10 @@ export type VectorizeSVGRequest = {
    */
   reasoningEffort?: VectorizeSVGRequestReasoningEffort | undefined;
   /**
+   * Set to "us" to restrict QuiverAI-managed processing and storage to verified US destinations. Omit this field or use null for standard routing, subject to any restriction inherited by a Responses replay. Caller-operated infrastructure and caller-executed tools are outside this restriction. Requests return HTTP 503 when verified US processing is unavailable.
+   */
+  region?: VectorizeSVGRequestRegion | null | undefined;
+  /**
    * When true, emits a Server-Sent Events stream.
    */
   stream?: boolean | undefined;
@@ -82,7 +94,14 @@ export type VectorizeSVGRequest = {
 /** @internal */
 export const VectorizeSVGRequestReasoningEffort$outboundSchema: z.ZodNativeEnum<
   typeof VectorizeSVGRequestReasoningEffort
-> = z.nativeEnum(VectorizeSVGRequestReasoningEffort);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(VectorizeSVGRequestReasoningEffort)
+);
+
+/** @internal */
+export const VectorizeSVGRequestRegion$outboundSchema: z.ZodNativeEnum<
+  typeof VectorizeSVGRequestRegion
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(VectorizeSVGRequestRegion));
 
 /** @internal */
 export type VectorizeSVGRequest$Outbound = {
@@ -93,6 +112,7 @@ export type VectorizeSVGRequest$Outbound = {
   model: string;
   presence_penalty?: number | null | undefined;
   reasoning_effort?: string | undefined;
+  region?: string | null | undefined;
   stream: boolean;
   target_size?: number | undefined;
   temperature?: number | null | undefined;
@@ -104,28 +124,32 @@ export const VectorizeSVGRequest$outboundSchema: z.ZodType<
   VectorizeSVGRequest$Outbound,
   z.ZodTypeDef,
   VectorizeSVGRequest
-> = z.object({
-  attributes: z.nullable(SvgAttributes$outboundSchema).optional(),
-  autoCrop: z.boolean().default(false),
-  image: ImageInputReferenceInput$outboundSchema,
-  maxOutputTokens: z.number().int().optional(),
-  model: z.string(),
-  presencePenalty: z.nullable(z.number()).optional(),
-  reasoningEffort: VectorizeSVGRequestReasoningEffort$outboundSchema.optional(),
-  stream: z.boolean().default(false),
-  targetSize: z.number().int().optional(),
-  temperature: z.nullable(z.number()).optional(),
-  topP: z.nullable(z.number()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    autoCrop: "auto_crop",
-    maxOutputTokens: "max_output_tokens",
-    presencePenalty: "presence_penalty",
-    reasoningEffort: "reasoning_effort",
-    targetSize: "target_size",
-    topP: "top_p",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    attributes: z.nullable(SvgAttributes$outboundSchema).optional(),
+    autoCrop: z.boolean().default(false),
+    image: ImageInputReferenceInput$outboundSchema,
+    maxOutputTokens: z.number().int().optional(),
+    model: z.string(),
+    presencePenalty: z.nullable(z.number()).optional(),
+    reasoningEffort: VectorizeSVGRequestReasoningEffort$outboundSchema
+      .optional(),
+    region: z.nullable(VectorizeSVGRequestRegion$outboundSchema).optional(),
+    stream: z.boolean().default(false),
+    targetSize: z.number().int().optional(),
+    temperature: z.nullable(z.number()).optional(),
+    topP: z.nullable(z.number()).optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      autoCrop: "auto_crop",
+      maxOutputTokens: "max_output_tokens",
+      presencePenalty: "presence_penalty",
+      reasoningEffort: "reasoning_effort",
+      targetSize: "target_size",
+      topP: "top_p",
+    });
+  })
+);
 
 export function vectorizeSVGRequestToJSON(
   vectorizeSVGRequest: VectorizeSVGRequest,
