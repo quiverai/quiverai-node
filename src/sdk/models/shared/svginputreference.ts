@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v3";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 import {
   SvgInputReferenceBase64,
   SvgInputReferenceBase64$Outbound,
@@ -29,10 +30,12 @@ export const SvgInputReference$outboundSchema: z.ZodType<
   SvgInputReference$Outbound,
   z.ZodTypeDef,
   SvgInputReference
-> = z.union([
-  SvgInputReferenceUrl$outboundSchema,
-  SvgInputReferenceBase64$outboundSchema,
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    SvgInputReferenceUrl$outboundSchema,
+    SvgInputReferenceBase64$outboundSchema,
+  ])
+);
 
 export function svgInputReferenceToJSON(
   svgInputReference: SvgInputReference,

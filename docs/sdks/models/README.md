@@ -209,6 +209,55 @@ async function run() {
 
 run();
 ```
+### Example Usage: inferenceRegionUnsupported
+
+<!-- UsageSnippet language="typescript" operationID="getModel" method="get" path="/v1/models/{model}" example="inferenceRegionUnsupported" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.models.getModel({
+    model: "arrow-2",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { modelsGetModel } from "@quiverai/sdk/funcs/modelsGetModel.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await modelsGetModel(quiverAI, {
+    model: "arrow-2",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("modelsGetModel failed:", res.error);
+  }
+}
+
+run();
+```
 ### Example Usage: invalidRequestBody
 
 <!-- UsageSnippet language="typescript" operationID="getModel" method="get" path="/v1/models/{model}" example="invalidRequestBody" -->
@@ -959,6 +1008,51 @@ run();
 ### Example Usage: default
 
 <!-- UsageSnippet language="typescript" operationID="listModels" method="get" path="/v1/models" example="default" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.models.listModels();
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { modelsListModels } from "@quiverai/sdk/funcs/modelsListModels.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await modelsListModels(quiverAI);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("modelsListModels failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: inferenceRegionUnsupported
+
+<!-- UsageSnippet language="typescript" operationID="listModels" method="get" path="/v1/models" example="inferenceRegionUnsupported" -->
 ```typescript
 import { QuiverAI } from "@quiverai/sdk";
 

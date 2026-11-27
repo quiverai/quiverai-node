@@ -243,6 +243,93 @@ async function run() {
 
 run();
 ```
+### Example Usage: inferenceRegionUnsupported
+
+<!-- UsageSnippet language="typescript" operationID="editSVG" method="post" path="/v1/svgs/edits" example="inferenceRegionUnsupported" -->
+```typescript
+import { QuiverAI } from "@quiverai/sdk";
+
+const quiverAI = new QuiverAI({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await quiverAI.editSVG.editSVG({
+    editSVGRequest: {
+      maxReviewSteps: 2,
+      model: "El Camino",
+      prompt: "Make the mark bolder and simplify the star points.",
+      reasoningEffort: "medium",
+      referenceImages: [
+        "https://example.com/uploads/reference1.png",
+      ],
+      settings: {
+        maxOutputTokens: 4096,
+        orchestratorMaxOutputTokens: 4096,
+        shallowMaxOutputTokens: 2048,
+        temperature: 0.4,
+      },
+      stream: false,
+      svgSource: {
+        base64: "PHN2Zy8+",
+      },
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { QuiverAICore } from "@quiverai/sdk/core.js";
+import { editSVGEditSVG } from "@quiverai/sdk/funcs/editSVGEditSVG.js";
+
+// Use `QuiverAICore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const quiverAI = new QuiverAICore({
+  bearerAuth: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const res = await editSVGEditSVG(quiverAI, {
+    editSVGRequest: {
+      maxReviewSteps: 2,
+      model: "El Camino",
+      prompt: "Make the mark bolder and simplify the star points.",
+      reasoningEffort: "medium",
+      referenceImages: [
+        "https://example.com/uploads/reference1.png",
+      ],
+      settings: {
+        maxOutputTokens: 4096,
+        orchestratorMaxOutputTokens: 4096,
+        shallowMaxOutputTokens: 2048,
+        temperature: 0.4,
+      },
+      stream: false,
+      svgSource: {
+        base64: "PHN2Zy8+",
+      },
+    },
+    xTraceId: "trace_01J9AZ3XJ7D5S9ZV2Q5Z8E1A4N",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("editSVGEditSVG failed:", res.error);
+  }
+}
+
+run();
+```
 ### Example Usage: inline
 
 <!-- UsageSnippet language="typescript" operationID="editSVG" method="post" path="/v1/svgs/edits" example="inline" -->

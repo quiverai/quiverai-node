@@ -5,7 +5,7 @@
 import * as z from "zod/v3";
 import { EventStream } from "../../../lib/event-streams.js";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
@@ -42,15 +42,17 @@ export const VectorizeSVGRequest$outboundSchema: z.ZodType<
   VectorizeSVGRequest$Outbound,
   z.ZodTypeDef,
   VectorizeSVGRequest
-> = z.object({
-  vectorizeSVGRequest: shared.VectorizeSVGRequest$outboundSchema,
-  xTraceId: z.string().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    vectorizeSVGRequest: "VectorizeSVGRequest",
-    xTraceId: "x-trace-id",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    vectorizeSVGRequest: shared.VectorizeSVGRequest$outboundSchema,
+    xTraceId: z.string().optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      vectorizeSVGRequest: "VectorizeSVGRequest",
+      xTraceId: "x-trace-id",
+    });
+  })
+);
 
 export function vectorizeSVGRequestToJSON(
   vectorizeSVGRequest: VectorizeSVGRequest,
@@ -65,20 +67,24 @@ export const VectorizeSVGResponseResult$inboundSchema: z.ZodType<
   VectorizeSVGResponseResult,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  shared.PublicErrorEnvelope$inboundSchema,
-  shared.SvgResponse$inboundSchema,
-  z.instanceof(ReadableStream<Uint8Array>)
-    .transform(stream => {
-      return new EventStream(stream, rawEvent => {
-        if (rawEvent.data === "[DONE]") return { done: true, value: undefined };
-        return {
-          done: false,
-          value: shared.SvgStreamEvent$inboundSchema.parse(rawEvent),
-        };
-      });
-    }),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    shared.PublicErrorEnvelope$inboundSchema,
+    shared.SvgResponse$inboundSchema,
+    z.instanceof(ReadableStream<Uint8Array>)
+      .transform(stream => {
+        return new EventStream(stream, rawEvent => {
+          if (rawEvent.data === "[DONE]") {
+            return { done: true, value: undefined };
+          }
+          return {
+            done: false,
+            value: shared.SvgStreamEvent$inboundSchema.parse(rawEvent),
+          };
+        });
+      }),
+  ])
+);
 
 export function vectorizeSVGResponseResultFromJSON(
   jsonString: string,
@@ -95,30 +101,32 @@ export const VectorizeSVGResponse$inboundSchema: z.ZodType<
   VectorizeSVGResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  Headers: z.record(z.array(z.string())).default({}),
-  Result: z.union([
-    shared.PublicErrorEnvelope$inboundSchema,
-    shared.SvgResponse$inboundSchema,
-    z.instanceof(ReadableStream<Uint8Array>)
-      .transform(stream => {
-        return new EventStream(stream, rawEvent => {
-          if (rawEvent.data === "[DONE]") {
-            return { done: true, value: undefined };
-          }
-          return {
-            done: false,
-            value: shared.SvgStreamEvent$inboundSchema.parse(rawEvent),
-          };
-        });
-      }),
-  ]),
-}).transform((v) => {
-  return remap$(v, {
-    "Headers": "headers",
-    "Result": "result",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    Headers: z.record(z.array(z.string())).default({}),
+    Result: z.union([
+      shared.PublicErrorEnvelope$inboundSchema,
+      shared.SvgResponse$inboundSchema,
+      z.instanceof(ReadableStream<Uint8Array>)
+        .transform(stream => {
+          return new EventStream(stream, rawEvent => {
+            if (rawEvent.data === "[DONE]") {
+              return { done: true, value: undefined };
+            }
+            return {
+              done: false,
+              value: shared.SvgStreamEvent$inboundSchema.parse(rawEvent),
+            };
+          });
+        }),
+    ]),
+  }).transform((v) => {
+    return remap$(v, {
+      "Headers": "headers",
+      "Result": "result",
+    });
+  })
+);
 
 export function vectorizeSVGResponseFromJSON(
   jsonString: string,

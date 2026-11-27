@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import {
   ImageInputReferenceInput,
@@ -82,7 +83,9 @@ export type VectorizeSVGRequest = {
 /** @internal */
 export const VectorizeSVGRequestReasoningEffort$outboundSchema: z.ZodNativeEnum<
   typeof VectorizeSVGRequestReasoningEffort
-> = z.nativeEnum(VectorizeSVGRequestReasoningEffort);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(VectorizeSVGRequestReasoningEffort)
+);
 
 /** @internal */
 export type VectorizeSVGRequest$Outbound = {
@@ -104,28 +107,31 @@ export const VectorizeSVGRequest$outboundSchema: z.ZodType<
   VectorizeSVGRequest$Outbound,
   z.ZodTypeDef,
   VectorizeSVGRequest
-> = z.object({
-  attributes: z.nullable(SvgAttributes$outboundSchema).optional(),
-  autoCrop: z.boolean().default(false),
-  image: ImageInputReferenceInput$outboundSchema,
-  maxOutputTokens: z.number().int().optional(),
-  model: z.string(),
-  presencePenalty: z.nullable(z.number()).optional(),
-  reasoningEffort: VectorizeSVGRequestReasoningEffort$outboundSchema.optional(),
-  stream: z.boolean().default(false),
-  targetSize: z.number().int().optional(),
-  temperature: z.nullable(z.number()).optional(),
-  topP: z.nullable(z.number()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    autoCrop: "auto_crop",
-    maxOutputTokens: "max_output_tokens",
-    presencePenalty: "presence_penalty",
-    reasoningEffort: "reasoning_effort",
-    targetSize: "target_size",
-    topP: "top_p",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    attributes: z.nullable(SvgAttributes$outboundSchema).optional(),
+    autoCrop: z.boolean().default(false),
+    image: ImageInputReferenceInput$outboundSchema,
+    maxOutputTokens: z.number().int().optional(),
+    model: z.string(),
+    presencePenalty: z.nullable(z.number()).optional(),
+    reasoningEffort: VectorizeSVGRequestReasoningEffort$outboundSchema
+      .optional(),
+    stream: z.boolean().default(false),
+    targetSize: z.number().int().optional(),
+    temperature: z.nullable(z.number()).optional(),
+    topP: z.nullable(z.number()).optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      autoCrop: "auto_crop",
+      maxOutputTokens: "max_output_tokens",
+      presencePenalty: "presence_penalty",
+      reasoningEffort: "reasoning_effort",
+      targetSize: "target_size",
+      topP: "top_p",
+    });
+  })
+);
 
 export function vectorizeSVGRequestToJSON(
   vectorizeSVGRequest: VectorizeSVGRequest,

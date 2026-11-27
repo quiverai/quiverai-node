@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import {
   SvgInputReference,
@@ -59,7 +60,7 @@ export type AnimateSVGRequest = {
 /** @internal */
 export const ReasoningEffort$outboundSchema: z.ZodNativeEnum<
   typeof ReasoningEffort
-> = z.nativeEnum(ReasoningEffort);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(ReasoningEffort));
 
 /** @internal */
 export type AnimateSVGRequest$Outbound = {
@@ -77,21 +78,23 @@ export const AnimateSVGRequest$outboundSchema: z.ZodType<
   AnimateSVGRequest$Outbound,
   z.ZodTypeDef,
   AnimateSVGRequest
-> = z.object({
-  maxOutputTokens: z.number().int().optional(),
-  model: z.string(),
-  prompt: z.string().optional(),
-  reasoningEffort: ReasoningEffort$outboundSchema.optional(),
-  stream: z.boolean().default(false),
-  svgSource: SvgInputReference$outboundSchema,
-  temperature: z.number().default(1),
-}).transform((v) => {
-  return remap$(v, {
-    maxOutputTokens: "max_output_tokens",
-    reasoningEffort: "reasoning_effort",
-    svgSource: "svg_source",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    maxOutputTokens: z.number().int().optional(),
+    model: z.string(),
+    prompt: z.string().optional(),
+    reasoningEffort: ReasoningEffort$outboundSchema.optional(),
+    stream: z.boolean().default(false),
+    svgSource: SvgInputReference$outboundSchema,
+    temperature: z.number().default(1),
+  }).transform((v) => {
+    return remap$(v, {
+      maxOutputTokens: "max_output_tokens",
+      reasoningEffort: "reasoning_effort",
+      svgSource: "svg_source",
+    });
+  })
+);
 
 export function animateSVGRequestToJSON(
   animateSVGRequest: AnimateSVGRequest,

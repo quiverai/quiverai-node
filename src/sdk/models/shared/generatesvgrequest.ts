@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import {
   ImageInputReferenceInput,
@@ -86,7 +87,9 @@ export type GenerateSVGRequest = {
 /** @internal */
 export const GenerateSVGRequestReasoningEffort$outboundSchema: z.ZodNativeEnum<
   typeof GenerateSVGRequestReasoningEffort
-> = z.nativeEnum(GenerateSVGRequestReasoningEffort);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(GenerateSVGRequestReasoningEffort)
+);
 
 /** @internal */
 export type GenerateSVGRequest$Outbound = {
@@ -109,27 +112,30 @@ export const GenerateSVGRequest$outboundSchema: z.ZodType<
   GenerateSVGRequest$Outbound,
   z.ZodTypeDef,
   GenerateSVGRequest
-> = z.object({
-  attributes: z.nullable(SvgAttributes$outboundSchema).optional(),
-  instructions: z.string().optional(),
-  maxOutputTokens: z.number().int().optional(),
-  model: z.string(),
-  n: z.number().int().default(1),
-  presencePenalty: z.nullable(z.number()).optional(),
-  prompt: z.string(),
-  reasoningEffort: GenerateSVGRequestReasoningEffort$outboundSchema.optional(),
-  references: z.array(ImageInputReferenceInput$outboundSchema).optional(),
-  stream: z.boolean().default(false),
-  temperature: z.nullable(z.number()).optional(),
-  topP: z.nullable(z.number()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    maxOutputTokens: "max_output_tokens",
-    presencePenalty: "presence_penalty",
-    reasoningEffort: "reasoning_effort",
-    topP: "top_p",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    attributes: z.nullable(SvgAttributes$outboundSchema).optional(),
+    instructions: z.string().optional(),
+    maxOutputTokens: z.number().int().optional(),
+    model: z.string(),
+    n: z.number().int().default(1),
+    presencePenalty: z.nullable(z.number()).optional(),
+    prompt: z.string(),
+    reasoningEffort: GenerateSVGRequestReasoningEffort$outboundSchema
+      .optional(),
+    references: z.array(ImageInputReferenceInput$outboundSchema).optional(),
+    stream: z.boolean().default(false),
+    temperature: z.nullable(z.number()).optional(),
+    topP: z.nullable(z.number()).optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      maxOutputTokens: "max_output_tokens",
+      presencePenalty: "presence_penalty",
+      reasoningEffort: "reasoning_effort",
+      topP: "top_p",
+    });
+  })
+);
 
 export function generateSVGRequestToJSON(
   generateSVGRequest: GenerateSVGRequest,

@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import {
   EditSettings,
@@ -123,9 +124,10 @@ export type EditSVGRequest = One | Two;
 
 /** @internal */
 export const EditSVGRequestSchemasReasoningEffort$outboundSchema:
-  z.ZodNativeEnum<typeof EditSVGRequestSchemasReasoningEffort> = z.nativeEnum(
-    EditSVGRequestSchemasReasoningEffort,
-  );
+  z.ZodNativeEnum<typeof EditSVGRequestSchemasReasoningEffort> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EditSVGRequestSchemasReasoningEffort)
+    );
 
 /** @internal */
 export type Two$Outbound = {
@@ -144,28 +146,30 @@ export type Two$Outbound = {
 };
 
 /** @internal */
-export const Two$outboundSchema: z.ZodType<Two$Outbound, z.ZodTypeDef, Two> = z
-  .object({
-    maxReviewSteps: z.number().int().default(0),
-    model: z.string(),
-    prompt: z.string(),
-    reasoningEffort: EditSVGRequestSchemasReasoningEffort$outboundSchema
-      .optional(),
-    referenceImages: z.nullable(
-      z.array(ImageInputReferenceInput$outboundSchema),
-    ).optional(),
-    settings: z.nullable(EditSettings$outboundSchema).optional(),
-    stream: z.boolean().default(false),
-    svg: z.nullable(z.any()).optional(),
-    svgSource: SvgInputReference$outboundSchema,
-  }).transform((v) => {
-    return remap$(v, {
-      maxReviewSteps: "max_review_steps",
-      reasoningEffort: "reasoning_effort",
-      referenceImages: "reference_images",
-      svgSource: "svg_source",
-    });
-  });
+export const Two$outboundSchema: z.ZodType<Two$Outbound, z.ZodTypeDef, Two> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      maxReviewSteps: z.number().int().default(0),
+      model: z.string(),
+      prompt: z.string(),
+      reasoningEffort: EditSVGRequestSchemasReasoningEffort$outboundSchema
+        .optional(),
+      referenceImages: z.nullable(
+        z.array(ImageInputReferenceInput$outboundSchema),
+      ).optional(),
+      settings: z.nullable(EditSettings$outboundSchema).optional(),
+      stream: z.boolean().default(false),
+      svg: z.nullable(z.any()).optional(),
+      svgSource: SvgInputReference$outboundSchema,
+    }).transform((v) => {
+      return remap$(v, {
+        maxReviewSteps: "max_review_steps",
+        reasoningEffort: "reasoning_effort",
+        referenceImages: "reference_images",
+        svgSource: "svg_source",
+      });
+    })
+  );
 
 export function twoToJSON(two: Two): string {
   return JSON.stringify(Two$outboundSchema.parse(two));
@@ -174,7 +178,9 @@ export function twoToJSON(two: Two): string {
 /** @internal */
 export const EditSVGRequestReasoningEffort$outboundSchema: z.ZodNativeEnum<
   typeof EditSVGRequestReasoningEffort
-> = z.nativeEnum(EditSVGRequestReasoningEffort);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EditSVGRequestReasoningEffort)
+);
 
 /** @internal */
 export type One$Outbound = {
@@ -193,27 +199,29 @@ export type One$Outbound = {
 };
 
 /** @internal */
-export const One$outboundSchema: z.ZodType<One$Outbound, z.ZodTypeDef, One> = z
-  .object({
-    maxReviewSteps: z.number().int().default(0),
-    model: z.string(),
-    prompt: z.string(),
-    reasoningEffort: EditSVGRequestReasoningEffort$outboundSchema.optional(),
-    referenceImages: z.nullable(
-      z.array(ImageInputReferenceInput$outboundSchema),
-    ).optional(),
-    settings: z.nullable(EditSettings$outboundSchema).optional(),
-    stream: z.boolean().default(false),
-    svg: z.string(),
-    svgSource: z.nullable(z.any()).optional(),
-  }).transform((v) => {
-    return remap$(v, {
-      maxReviewSteps: "max_review_steps",
-      reasoningEffort: "reasoning_effort",
-      referenceImages: "reference_images",
-      svgSource: "svg_source",
-    });
-  });
+export const One$outboundSchema: z.ZodType<One$Outbound, z.ZodTypeDef, One> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      maxReviewSteps: z.number().int().default(0),
+      model: z.string(),
+      prompt: z.string(),
+      reasoningEffort: EditSVGRequestReasoningEffort$outboundSchema.optional(),
+      referenceImages: z.nullable(
+        z.array(ImageInputReferenceInput$outboundSchema),
+      ).optional(),
+      settings: z.nullable(EditSettings$outboundSchema).optional(),
+      stream: z.boolean().default(false),
+      svg: z.string(),
+      svgSource: z.nullable(z.any()).optional(),
+    }).transform((v) => {
+      return remap$(v, {
+        maxReviewSteps: "max_review_steps",
+        reasoningEffort: "reasoning_effort",
+        referenceImages: "reference_images",
+        svgSource: "svg_source",
+      });
+    })
+  );
 
 export function oneToJSON(one: One): string {
   return JSON.stringify(One$outboundSchema.parse(one));
@@ -227,10 +235,9 @@ export const EditSVGRequest$outboundSchema: z.ZodType<
   EditSVGRequest$Outbound,
   z.ZodTypeDef,
   EditSVGRequest
-> = z.union([
-  z.lazy(() => One$outboundSchema),
-  z.lazy(() => Two$outboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([z.lazy(() => One$outboundSchema), z.lazy(() => Two$outboundSchema)])
+);
 
 export function editSVGRequestToJSON(editSVGRequest: EditSVGRequest): string {
   return JSON.stringify(EditSVGRequest$outboundSchema.parse(editSVGRequest));

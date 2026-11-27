@@ -4,7 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -55,32 +55,35 @@ export type PublicErrorSseEventData = {
 /** @internal */
 export const PublicErrorSseEventDataCode$inboundSchema: z.ZodNativeEnum<
   typeof PublicErrorSseEventDataCode
-> = z.nativeEnum(PublicErrorSseEventDataCode);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(PublicErrorSseEventDataCode)
+);
 
 /** @internal */
-export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
-  Type,
-);
+export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> =
+  /* @__PURE__ */ lazySchema$(() => z.nativeEnum(Type));
 
 /** @internal */
 export const PublicErrorSseEventData$inboundSchema: z.ZodType<
   PublicErrorSseEventData,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  code: PublicErrorSseEventDataCode$inboundSchema,
-  message: z.string(),
-  param: z.string().optional(),
-  request_id: z.string(),
-  retry_after: z.number().int().optional(),
-  status: z.number().int(),
-  type: Type$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "request_id": "requestId",
-    "retry_after": "retryAfter",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    code: PublicErrorSseEventDataCode$inboundSchema,
+    message: z.string(),
+    param: z.string().optional(),
+    request_id: z.string(),
+    retry_after: z.number().int().optional(),
+    status: z.number().int(),
+    type: Type$inboundSchema,
+  }).transform((v) => {
+    return remap$(v, {
+      "request_id": "requestId",
+      "retry_after": "retryAfter",
+    });
+  })
+);
 
 export function publicErrorSseEventDataFromJSON(
   jsonString: string,

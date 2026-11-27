@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -28,19 +28,20 @@ export type FixedCreditModelBilling = {
 };
 
 /** @internal */
-export const Unit$inboundSchema: z.ZodNativeEnum<typeof Unit> = z.nativeEnum(
-  Unit,
-);
+export const Unit$inboundSchema: z.ZodNativeEnum<typeof Unit> =
+  /* @__PURE__ */ lazySchema$(() => z.nativeEnum(Unit));
 
 /** @internal */
 export const FixedCreditModelBilling$inboundSchema: z.ZodType<
   FixedCreditModelBilling,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  kind: z.literal("fixed_credit"),
-  unit: Unit$inboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    kind: z.literal("fixed_credit"),
+    unit: Unit$inboundSchema,
+  })
+);
 
 export function fixedCreditModelBillingFromJSON(
   jsonString: string,

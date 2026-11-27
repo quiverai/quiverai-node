@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v3";
+import { lazySchema as lazySchema$ } from "../../../lib/schemas.js";
 
 export type SvgInputReferenceUrl = {
   /**
@@ -21,9 +22,11 @@ export const SvgInputReferenceUrl$outboundSchema: z.ZodType<
   SvgInputReferenceUrl$Outbound,
   z.ZodTypeDef,
   SvgInputReferenceUrl
-> = z.object({
-  url: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    url: z.string(),
+  })
+);
 
 export function svgInputReferenceUrlToJSON(
   svgInputReferenceUrl: SvgInputReferenceUrl,
